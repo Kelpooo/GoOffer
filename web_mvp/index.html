@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OfferGo | 程序员刷题与求职导航</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">OG</div>
+          <div>
+            <h1>OfferGo</h1>
+            <p>前端 / 后端 / AI 应用开发求职助手</p>
+          </div>
+        </div>
+
+        <nav class="main-nav" id="mainNav">
+          <button class="nav-btn active" data-view="home">首页</button>
+          <button class="nav-btn" data-view="browse">题库</button>
+          <button class="nav-btn" data-view="interview">模拟面试</button>
+          <button class="nav-btn" data-view="resume">简历评审</button>
+          <button class="nav-btn" data-view="jobs">招聘导航</button>
+          <button class="nav-btn" data-view="review">复习</button>
+        </nav>
+
+        <section class="panel">
+          <h2>岗位板块</h2>
+          <div class="domain-switch" id="domainSwitch"></div>
+        </section>
+
+        <section class="panel">
+          <h2>我的进度</h2>
+          <div class="stat-grid">
+            <div class="stat-card">
+              <span>收藏</span>
+              <strong id="favoriteCount">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>已掌握</span>
+              <strong id="masteredCount">0</strong>
+            </div>
+          </div>
+          <button class="ghost-button" id="jumpToFavoritesBtn">打开复习页</button>
+        </section>
+      </aside>
+
+      <main class="main-content">
+        <section class="view-section active" id="homeView">
+          <div class="hero">
+            <div>
+              <p class="eyebrow">求职工作台</p>
+              <h2>刷题、模拟面试、投递岗位，放到一个顺手的入口里</h2>
+              <p class="hero-copy">
+                先把最常用的三件事跑顺：按岗位刷题、集中看招聘入口、拿简历做针对性准备。首页只保留高频入口，减少来回切换。
+              </p>
+            </div>
+            <div class="hero-stats" id="heroStats"></div>
+          </div>
+
+          <div class="section-card">
+            <div class="section-head">
+              <h3>选择训练赛道</h3>
+              <span>点击卡片直接进入对应题库</span>
+            </div>
+            <div class="domain-grid" id="homeDomainGrid"></div>
+          </div>
+
+          <div class="section-card">
+            <div class="section-head">
+              <h3>常用入口</h3>
+              <span>把最常用的功能单独拿出来，减少来回切换</span>
+            </div>
+            <div class="quick-grid">
+              <button class="quick-card" id="goBrowseBtn">
+                <strong>进入题库</strong>
+                <span>按方向、分类和难度刷题</span>
+              </button>
+              <button class="quick-card" id="goInterviewBtn">
+                <strong>模拟面试</strong>
+                <span>先自己回答，再看答案要点和追问</span>
+              </button>
+              <button class="quick-card" id="goResumeBtn">
+                <strong>简历评审</strong>
+                <span>上传简历，生成评审结果、改写建议和模拟题</span>
+              </button>
+              <button class="quick-card" id="goReviewBtn">
+                <strong>进入复习</strong>
+                <span>集中查看收藏题和已掌握题</span>
+              </button>
+              <button class="quick-card" id="randomFromHomeBtn">
+                <strong>随机来一题</strong>
+                <span>直接开始刷一道题，适合碎片时间练习</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="view-section" id="browseView">
+          <div class="section-card">
+            <div class="section-head">
+              <h3 id="browseTitle">题库</h3>
+              <span id="resultCount">0 题</span>
+            </div>
+
+            <div class="toolbar">
+              <div class="search-box">
+                <input id="searchInput" type="search" placeholder="搜索题目、标签、分类，比如 Redis / 闭包 / RAG" />
+              </div>
+              <div class="toolbar-actions">
+                <select id="difficultyFilter">
+                  <option value="all">全部难度</option>
+                  <option value="junior">初级</option>
+                  <option value="mid">中级</option>
+                  <option value="senior">高级</option>
+                </select>
+                <button id="randomQuestionBtn">随机来一题</button>
+              </div>
+            </div>
+
+            <div class="browse-layout">
+              <div class="category-panel">
+                <h4>分类导航</h4>
+                <div class="category-list" id="categoryList"></div>
+              </div>
+              <div class="question-panel">
+                <div id="questionList" class="question-list"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view-section" id="detailView">
+          <div id="questionDetail" class="detail-card empty-state">
+            <h3>先选一道题</h3>
+            <p>从题库页进入，或者在首页点击“随机来一题”。</p>
+          </div>
+        </section>
+
+        <section class="view-section" id="interviewView">
+          <div class="detail-card interview-card">
+            <div class="detail-topbar">
+              <button class="ghost-inline" id="refreshInterviewBtn">换一道题</button>
+            </div>
+
+            <div class="detail-header interview-head">
+              <div>
+                <div class="detail-tags" id="interviewMeta"></div>
+                <h3 id="interviewQuestion">点击“换一道题”开始模拟面试</h3>
+              </div>
+            </div>
+
+            <section class="detail-section interview-answer-box">
+              <h4>先自己回答</h4>
+              <textarea id="interviewDraft" placeholder="先别急着看答案，试着自己组织一段回答。"></textarea>
+            </section>
+
+            <section class="detail-section">
+              <div class="interview-actions">
+                <button id="toggleInterviewAnswerBtn">展开答案</button>
+                <button id="markInterviewFavoriteBtn">收藏这道题</button>
+                <button id="markInterviewMasteredBtn">标记已掌握</button>
+              </div>
+            </section>
+
+            <div id="interviewReveal" class="interview-reveal hidden">
+              <section class="detail-section">
+                <h4>答案要点</h4>
+                <ul id="interviewAnswerPoints"></ul>
+              </section>
+
+              <section class="detail-section">
+                <h4>高频追问</h4>
+                <ul id="interviewFollowUps"></ul>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="view-section" id="resumeView">
+          <div class="section-card">
+            <div class="section-head">
+              <h3>AI 简历评审</h3>
+              <span>评审、岗位匹配、改写建议、基于简历的模拟面试题</span>
+            </div>
+
+            <div class="resume-layout">
+              <form class="resume-form-card" id="resumeForm">
+                <div class="resume-form-grid">
+                  <label class="field-block">
+                    <span>上传简历</span>
+                    <input id="resumeFile" name="resume_file" type="file" accept=".pdf,.docx,.txt,.md" required />
+                    <small>支持 PDF / DOCX / TXT / MD</small>
+                  </label>
+
+                  <label class="field-block">
+                    <span>目标岗位</span>
+                    <input id="resumeRole" name="target_role" type="text" placeholder="例如：前端开发工程师 / 后端开发工程师 / AI 应用开发工程师" required />
+                  </label>
+
+                  <label class="field-block">
+                    <span>目标技术栈</span>
+                    <textarea id="resumeStack" name="target_stack" placeholder="例如：React、TypeScript、工程化、性能优化、Node.js"></textarea>
+                  </label>
+
+                  <label class="field-block">
+                    <span>岗位 JD</span>
+                    <textarea id="resumeJd" name="target_jd" placeholder="可选。把岗位职责、要求、加分项贴进来，匹配会更准。"></textarea>
+                  </label>
+                </div>
+
+                <div class="resume-actions">
+                  <button type="submit" id="resumeSubmitBtn">开始评审</button>
+                  <p class="resume-hint">如果配置了 `DEEPSEEK_API_KEY`，会优先使用大模型；否则走本地规则版评审。</p>
+                </div>
+              </form>
+
+              <div class="resume-result-card">
+                <div class="resume-status" id="resumeStatus">
+                  上传一份简历并填写目标岗位后，就可以开始评审。
+                </div>
+                <div class="resume-result" id="resumeResult"></div>
+                <div class="resume-followup-actions hidden" id="resumeFollowupActions">
+                  <button id="generateRewriteBtn">生成修改版简历建议</button>
+                  <button id="generateInterviewPackBtn">生成基于简历的模拟题</button>
+                </div>
+                <div class="resume-generated" id="resumeGenerated"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view-section" id="jobsView">
+          <div class="section-card">
+            <div class="section-head">
+              <h3>中大厂招聘导航</h3>
+              <span>聚合官方招聘入口、岗位快照与方向筛选，方便集中海投</span>
+            </div>
+
+            <div class="jobs-toolbar">
+              <div class="search-box">
+                <input id="jobSearchInput" type="search" placeholder="搜索公司、岗位、关键词，比如 腾讯 / 前端 / RAG" />
+              </div>
+            </div>
+
+            <div class="jobs-meta" id="jobsMeta"></div>
+            <div class="jobs-track-filters" id="jobsTrackFilters"></div>
+
+            <div class="jobs-company-grid" id="jobsCompanyGrid"></div>
+            <div class="jobs-list" id="jobsList"></div>
+          </div>
+        </section>
+
+        <section class="view-section" id="reviewView">
+          <div class="section-card">
+            <div class="section-head">
+              <h3>我的复习</h3>
+              <span>集中查看收藏题和已掌握题</span>
+            </div>
+
+            <div class="review-block">
+              <div class="review-head">
+                <h4>收藏题</h4>
+                <span id="favoritesLabel">0 题</span>
+              </div>
+              <div class="question-list compact" id="favoritesList"></div>
+            </div>
+
+            <div class="review-block">
+              <div class="review-head">
+                <h4>已掌握</h4>
+                <span id="masteredLabel">0 题</span>
+              </div>
+              <div class="question-list compact" id="masteredList"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

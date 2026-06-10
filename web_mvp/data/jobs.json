@@ -1,0 +1,597 @@
+{
+  "companies": [
+    {
+      "name": "腾讯",
+      "tagline": "官方招聘入口",
+      "desc": "覆盖校招、社招、实习，多业务线统一入口。",
+      "campusUrl": "https://careers.tencent.com/campusrecruit.html",
+      "socialUrl": "https://careers.tencent.com/home.html"
+    },
+    {
+      "name": "字节跳动",
+      "tagline": "官方招聘入口",
+      "desc": "校招、社招与全球招聘统一入口，技术岗位覆盖面广。",
+      "campusUrl": "https://jobs.bytedance.com/campus/",
+      "socialUrl": "https://jobs.bytedance.com/"
+    },
+    {
+      "name": "美团",
+      "tagline": "官方招聘入口",
+      "desc": "社招、校招、实习与业务线招聘统一入口。",
+      "campusUrl": "https://zhaopin.meituan.com/",
+      "socialUrl": "https://zhaopin.meituan.com/"
+    },
+    {
+      "name": "阿里云",
+      "tagline": "官方招聘入口",
+      "desc": "云计算、平台工程和 AI 相关岗位较多，适合后端与基础设施方向。",
+      "campusUrl": "https://careers.aliyun.com/campus/position-list",
+      "socialUrl": "https://careers.aliyun.com/home"
+    },
+    {
+      "name": "百度",
+      "tagline": "官方招聘入口",
+      "desc": "技术、算法、AI 平台和基础架构岗位较多。",
+      "campusUrl": "https://talent.baidu.com/static/index.html",
+      "socialUrl": "https://talent.baidu.com/jobs/social"
+    },
+    {
+      "name": "小红书",
+      "tagline": "官方招聘入口",
+      "desc": "内容社区、推荐算法、电商与增长相关岗位较多。",
+      "campusUrl": "https://job.xiaohongshu.com/campus",
+      "socialUrl": "https://job.xiaohongshu.com/"
+    },
+    {
+      "name": "小米",
+      "tagline": "官方招聘入口",
+      "desc": "终端、IoT、云服务、AI 与测试类岗位较多。",
+      "campusUrl": "https://hr.xiaomi.com/campus",
+      "socialUrl": "https://hr.xiaomi.com/social"
+    },
+    {
+      "name": "哔哩哔哩",
+      "tagline": "官方招聘入口",
+      "desc": "前端、后端、推荐、内容平台与客户端相关岗位较多。",
+      "campusUrl": "https://jobs.bilibili.com/campus",
+      "socialUrl": "https://jobs.bilibili.com/social"
+    },
+    {
+      "name": "网易",
+      "tagline": "官方招聘入口",
+      "desc": "游戏、音乐、电商、平台和 AI 方向岗位较多。",
+      "campusUrl": "https://campus.163.com/",
+      "socialUrl": "https://hr.163.com/"
+    },
+    {
+      "name": "京东",
+      "tagline": "官方招聘入口",
+      "desc": "零售、物流、平台技术、搜索推荐与供应链岗位较多。",
+      "campusUrl": "https://careers.jd.com/",
+      "socialUrl": "https://careers.jd.com/"
+    },
+    {
+      "name": "OPPO",
+      "tagline": "官方招聘入口",
+      "desc": "终端系统、影像算法、测试和平台研发岗位较多。",
+      "campusUrl": "https://career.oppo.com/",
+      "socialUrl": "https://career.oppo.com/"
+    },
+    {
+      "name": "vivo",
+      "tagline": "官方招聘入口",
+      "desc": "手机系统、AI 能力、终端测试和平台工程岗位较多。",
+      "campusUrl": "https://hr.vivo.com/",
+      "socialUrl": "https://hr.vivo.com/"
+    },
+    {
+      "name": "快手",
+      "tagline": "官方招聘入口",
+      "desc": "推荐算法、内容平台、基础架构与多媒体相关岗位较多。",
+      "campusUrl": "https://zhaopin.kuaishou.cn/recruit/e/#/campus/home",
+      "socialUrl": "https://zhaopin.kuaishou.cn/recruit/e/#/official/index"
+    },
+    {
+      "name": "滴滴",
+      "tagline": "官方招聘入口",
+      "desc": "地图、调度算法、后端平台、测试与运维岗位较多。",
+      "campusUrl": "https://talent.didiglobal.com/",
+      "socialUrl": "https://talent.didiglobal.com/"
+    },
+    {
+      "name": "理想汽车",
+      "tagline": "官方招聘入口",
+      "desc": "智能座舱、自动驾驶、云平台、测试和数据岗位较多。",
+      "campusUrl": "https://job.lixiang.com/",
+      "socialUrl": "https://job.lixiang.com/"
+    },
+    {
+      "name": "蔚来",
+      "tagline": "官方招聘入口",
+      "desc": "智能驾驶、车端平台、云原生和算法工程岗位较多。",
+      "campusUrl": "https://job.nio.com/",
+      "socialUrl": "https://job.nio.com/"
+    },
+    {
+      "name": "华为",
+      "tagline": "官方招聘入口",
+      "desc": "终端、芯片、云、基础软件、AI 与测试岗位覆盖全面。",
+      "campusUrl": "https://career.huawei.com/reccampportal/portal5/campus-recruitment.html",
+      "socialUrl": "https://career.huawei.com/reccampportal/portal5/social-recruitment.html"
+    },
+    {
+      "name": "荣耀",
+      "tagline": "官方招聘入口",
+      "desc": "终端系统、性能、测试与 AI 应用岗位较多。",
+      "campusUrl": "https://career.honor.com/SU7f7a12d23bcacb26fd2b8dbd/pb/campus.html",
+      "socialUrl": "https://career.honor.com/"
+    }
+  ],
+  "jobs": [
+    {
+      "company": "腾讯",
+      "title": "前端开发工程师",
+      "city": "深圳 / 广州",
+      "type": "校招 / 社招",
+      "keywords": ["前端", "React", "工程化", "性能优化"],
+      "summary": "偏前端工程体系建设、业务研发和性能体验优化。",
+      "applyUrl": "https://careers.tencent.com/home.html",
+      "jd": [
+        "负责 Web 前端业务开发与页面交互实现，推进项目按时交付。",
+        "参与前端工程化建设，包括构建、发布、监控与研发效率优化。",
+        "持续优化页面性能、可访问性和跨端体验，支持复杂业务场景落地。",
+        "常见要求包括 React / Vue、TypeScript、Node.js 和复杂前端项目经验。"
+      ]
+    },
+    {
+      "company": "字节跳动",
+      "title": "后端研发工程师",
+      "city": "北京 / 上海 / 深圳",
+      "type": "校招 / 社招",
+      "keywords": ["后端", "Java", "Go", "分布式", "微服务"],
+      "summary": "偏高并发服务、平台能力建设和业务系统稳定性优化。",
+      "applyUrl": "https://jobs.bytedance.com/",
+      "jd": [
+        "负责服务端系统设计、开发与维护，支撑高并发业务场景。",
+        "参与分布式系统、存储、缓存、消息队列等基础能力建设。",
+        "关注系统稳定性、可扩展性与研发效率，推动架构持续演进。",
+        "常见要求包括 MySQL / Redis / MQ 和分布式系统经验。"
+      ]
+    },
+    {
+      "company": "美团",
+      "title": "AI 应用开发工程师",
+      "city": "北京",
+      "type": "社招 / 实习",
+      "keywords": ["AI 应用开发", "RAG", "Agent", "Prompt", "工程落地"],
+      "summary": "偏大模型应用落地、知识库问答和业务工作流自动化。",
+      "applyUrl": "https://zhaopin.meituan.com/",
+      "jd": [
+        "负责大模型相关应用的方案设计、开发与业务落地。",
+        "参与 Prompt、RAG、Agent、工具调用与评测体系建设。",
+        "提升应用可用性、效果与稳定性。",
+        "常见要求包括 Python、后端能力和模型服务接入经验。"
+      ]
+    },
+    {
+      "company": "腾讯",
+      "title": "测试开发工程师",
+      "city": "深圳 / 北京",
+      "type": "校招 / 社招",
+      "keywords": ["测试开发", "自动化测试", "接口测试", "性能测试", "质量体系"],
+      "summary": "偏自动化测试平台、质量保障体系和核心链路稳定性建设。",
+      "applyUrl": "https://careers.tencent.com/home.html",
+      "jd": [
+        "负责测试方案设计、自动化脚本开发和回归体系建设。",
+        "参与接口测试、性能测试、稳定性测试与质量平台建设。",
+        "推动质量左移，提升测试覆盖率与交付效率。",
+        "常见要求包括 Python / Java、自动化框架和问题定位能力。"
+      ]
+    },
+    {
+      "company": "百度",
+      "title": "算法工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["算法", "机器学习", "推荐", "NLP", "建模"],
+      "summary": "偏机器学习建模、推荐策略、数据分析与效果优化。",
+      "applyUrl": "https://talent.baidu.com/static/index.html",
+      "jd": [
+        "负责机器学习模型设计、训练、评估和上线优化。",
+        "参与推荐、搜索、NLP 或多模态算法落地。",
+        "推动算法能力服务真实业务场景。",
+        "常见要求包括 Python / C++、特征工程和模型评估经验。"
+      ]
+    },
+    {
+      "company": "阿里云",
+      "title": "运维 / 云原生工程师",
+      "city": "杭州",
+      "type": "校招 / 社招",
+      "keywords": ["运维", "Linux", "Docker", "Kubernetes", "监控"],
+      "summary": "偏云原生平台运维、集群治理和基础设施自动化。",
+      "applyUrl": "https://careers.aliyun.com/home",
+      "jd": [
+        "负责集群部署、监控、故障排查与稳定性保障。",
+        "参与容器平台、Kubernetes 和运维自动化能力建设。",
+        "优化资源利用率和告警响应效率。",
+        "常见要求包括 Linux、网络基础和容器化经验。"
+      ]
+    },
+    {
+      "company": "阿里云",
+      "title": "云计算后端工程师",
+      "city": "杭州",
+      "type": "校招 / 社招",
+      "keywords": ["云计算", "后端", "Java", "分布式", "基础设施"],
+      "summary": "偏云平台、基础设施服务和平台工程能力建设。",
+      "applyUrl": "https://careers.aliyun.com/home",
+      "jd": [
+        "参与云平台后端系统研发，支撑资源管理、调度、监控与服务治理。",
+        "负责高可用、高性能服务设计与落地。",
+        "推动平台能力建设和交付效率提升。",
+        "常见要求包括 Java / Go、Linux 和分布式系统经验。"
+      ]
+    },
+    {
+      "company": "百度",
+      "title": "大模型平台 / 算法工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["算法", "大模型", "平台", "训练", "推理"],
+      "summary": "偏大模型平台、训练推理链路与应用能力建设。",
+      "applyUrl": "https://talent.baidu.com/static/index.html",
+      "jd": [
+        "参与大模型训练、推理或平台工具链建设。",
+        "优化数据、算力和模型服务链路。",
+        "推动模型能力向业务场景落地。",
+        "常见要求包括机器学习基础、Python / C++ 和推理优化经验。"
+      ]
+    },
+    {
+      "company": "小红书",
+      "title": "推荐算法工程师",
+      "city": "上海",
+      "type": "校招 / 社招",
+      "keywords": ["推荐算法", "召回", "排序", "特征工程", "内容分发"],
+      "summary": "偏内容推荐、用户增长和社区生态建模。",
+      "applyUrl": "https://job.xiaohongshu.com/",
+      "jd": [
+        "参与推荐系统召回、粗排、精排等核心链路优化。",
+        "围绕内容理解、用户兴趣建模持续迭代特征与模型。",
+        "推动推荐效果和业务指标增长。",
+        "常见要求包括 Python、机器学习和离线在线评估经验。"
+      ]
+    },
+    {
+      "company": "小红书",
+      "title": "前端开发工程师",
+      "city": "上海",
+      "type": "校招 / 社招",
+      "keywords": ["前端", "React", "TypeScript", "工程化", "增长"],
+      "summary": "偏社区增长、创作者工具和商业化中后台前端建设。",
+      "applyUrl": "https://job.xiaohongshu.com/",
+      "jd": [
+        "负责社区、创作和商业化业务的前端页面和交互开发。",
+        "参与组件库、工程体系和研发效率工具建设。",
+        "优化复杂中后台和运营系统体验。",
+        "常见要求包括 React、TypeScript 和前端工程化经验。"
+      ]
+    },
+    {
+      "company": "小米",
+      "title": "测试开发工程师",
+      "city": "北京 / 南京",
+      "type": "校招 / 社招",
+      "keywords": ["测试开发", "自动化", "终端测试", "接口测试", "稳定性"],
+      "summary": "偏终端、IoT 和互联网服务的自动化质量保障。",
+      "applyUrl": "https://hr.xiaomi.com/social",
+      "jd": [
+        "负责测试计划设计、自动化测试脚本开发与问题定位。",
+        "参与接口、终端、稳定性和回归测试体系建设。",
+        "推动持续集成、质量平台和测试效率工具落地。",
+        "常见要求包括 Python / Java、自动化测试框架和日志分析能力。"
+      ]
+    },
+    {
+      "company": "小米",
+      "title": "AI 平台工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["AI 平台", "模型服务", "推理", "后端", "MLOps"],
+      "summary": "偏模型服务化、推理平台和 AI 工程交付。",
+      "applyUrl": "https://hr.xiaomi.com/social",
+      "jd": [
+        "负责模型训练和推理服务平台的工程实现与支撑。",
+        "参与模型部署、接口服务、资源调度和效果监控建设。",
+        "提升 AI 能力上线效率和稳定性。",
+        "常见要求包括 Python / Java、后端能力和容器化经验。"
+      ]
+    },
+    {
+      "company": "哔哩哔哩",
+      "title": "后端开发工程师",
+      "city": "上海",
+      "type": "校招 / 社招",
+      "keywords": ["后端", "Go", "Java", "高并发", "内容平台"],
+      "summary": "偏内容平台、用户系统和高并发服务治理。",
+      "applyUrl": "https://jobs.bilibili.com/social",
+      "jd": [
+        "负责内容平台和社区核心服务的设计、开发与优化。",
+        "参与高并发场景下的服务稳定性、存储和缓存方案建设。",
+        "持续推进系统可观测性、性能和研发效率优化。",
+        "常见要求包括 Go / Java、MySQL、Redis 和分布式经验。"
+      ]
+    },
+    {
+      "company": "哔哩哔哩",
+      "title": "前端开发工程师",
+      "city": "上海",
+      "type": "校招 / 社招",
+      "keywords": ["前端", "React", "Vue", "播放器", "互动体验"],
+      "summary": "偏内容消费、互动社区和创作者工具前端建设。",
+      "applyUrl": "https://jobs.bilibili.com/social",
+      "jd": [
+        "负责视频、直播、互动和创作平台相关前端业务研发。",
+        "参与跨端体验、性能优化和前端工程体系建设。",
+        "支持复杂交互、内容展示和创作者工作流工具落地。",
+        "常见要求包括 React / Vue、TypeScript 和性能优化经验。"
+      ]
+    },
+    {
+      "company": "网易",
+      "title": "游戏客户端 / 前端工程师",
+      "city": "杭州 / 广州",
+      "type": "校招 / 社招",
+      "keywords": ["前端", "客户端", "交互", "工程化", "游戏业务"],
+      "summary": "偏游戏平台、内容分发和互动产品前端开发。",
+      "applyUrl": "https://hr.163.com/",
+      "jd": [
+        "负责游戏内容平台、活动页或相关产品前端开发与维护。",
+        "参与复杂交互、页面性能、动效和跨端体验优化。",
+        "推动组件化、工程化与通用能力沉淀。",
+        "常见要求包括 JavaScript、TypeScript、React / Vue 和性能优化经验。"
+      ]
+    },
+    {
+      "company": "网易",
+      "title": "AI 应用 / 算法工程师",
+      "city": "杭州",
+      "type": "校招 / 社招",
+      "keywords": ["AI 应用", "算法", "大模型", "推荐", "内容理解"],
+      "summary": "偏内容理解、推荐算法和大模型能力业务化落地。",
+      "applyUrl": "https://hr.163.com/",
+      "jd": [
+        "参与大模型、推荐或内容理解相关能力的方案设计与实现。",
+        "面向音乐、游戏、内容平台等业务场景做算法或 AI 应用落地。",
+        "提升模型效果、稳定性和上线效率。",
+        "常见要求包括机器学习基础、Python 和工程实现能力。"
+      ]
+    },
+    {
+      "company": "京东",
+      "title": "后端开发工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["后端", "Java", "供应链", "交易系统", "中间件"],
+      "summary": "偏零售交易、供应链平台和中台服务研发。",
+      "applyUrl": "https://careers.jd.com/",
+      "jd": [
+        "负责交易、履约、供应链或平台基础服务的研发与优化。",
+        "参与中间件、存储、缓存和服务治理能力建设。",
+        "关注系统稳定性、吞吐与研发效率提升。",
+        "常见要求包括 Java、MySQL、Redis、消息队列和分布式经验。"
+      ]
+    },
+    {
+      "company": "京东",
+      "title": "算法工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["算法", "搜索推荐", "广告", "机器学习", "排序"],
+      "summary": "偏电商搜索推荐、广告排序和智能供应链算法。",
+      "applyUrl": "https://careers.jd.com/",
+      "jd": [
+        "参与搜索推荐、广告或供应链优化相关算法研发。",
+        "围绕召回、排序、出价和转化目标持续优化模型效果。",
+        "和工程、业务、数据团队协作落地算法系统。",
+        "常见要求包括机器学习基础、Python 和大规模数据处理经验。"
+      ]
+    },
+    {
+      "company": "OPPO",
+      "title": "测试开发工程师",
+      "city": "东莞 / 深圳",
+      "type": "校招 / 社招",
+      "keywords": ["测试开发", "终端测试", "自动化", "性能", "系统稳定性"],
+      "summary": "偏手机系统、终端稳定性与自动化测试平台建设。",
+      "applyUrl": "https://career.oppo.com/",
+      "jd": [
+        "负责终端系统和相关应用的测试方案设计与自动化建设。",
+        "参与性能、稳定性、兼容性和回归测试体系建设。",
+        "推动问题定位、质量分析和质量平台能力沉淀。",
+        "常见要求包括 Python / Java、日志分析和测试框架经验。"
+      ]
+    },
+    {
+      "company": "OPPO",
+      "title": "算法工程师",
+      "city": "深圳 / 东莞",
+      "type": "校招 / 社招",
+      "keywords": ["算法", "影像", "CV", "大模型", "终端 AI"],
+      "summary": "偏影像算法、终端 AI 和多模态能力落地。",
+      "applyUrl": "https://career.oppo.com/",
+      "jd": [
+        "负责影像、视觉、语音或大模型相关算法研发和业务落地。",
+        "参与终端侧 AI 能力优化、部署和效果评估。",
+        "和系统、产品、工程团队协作推动算法上线。",
+        "常见要求包括机器学习、CV / NLP 基础和 Python / C++ 能力。"
+      ]
+    },
+    {
+      "company": "vivo",
+      "title": "前端开发工程师",
+      "city": "东莞 / 深圳",
+      "type": "校招 / 社招",
+      "keywords": ["前端", "React", "中后台", "工程化", "终端服务"],
+      "summary": "偏终端配套平台、服务系统和中后台前端研发。",
+      "applyUrl": "https://hr.vivo.com/",
+      "jd": [
+        "负责终端平台、服务中台或运营系统前端开发。",
+        "参与组件化、工程化、性能和跨端体验优化。",
+        "支持复杂表单、工作台和数据可视化系统建设。",
+        "常见要求包括 React / Vue、TypeScript 和前端工程化经验。"
+      ]
+    },
+    {
+      "company": "vivo",
+      "title": "运维 / 平台工程师",
+      "city": "东莞",
+      "type": "校招 / 社招",
+      "keywords": ["运维", "Linux", "CI/CD", "容器", "平台"],
+      "summary": "偏研发效能平台、发布系统和基础设施运维。",
+      "applyUrl": "https://hr.vivo.com/",
+      "jd": [
+        "负责研发平台、部署发布系统和基础设施服务稳定性保障。",
+        "参与自动化运维、监控告警和容器化平台建设。",
+        "提升研发交付效率和系统可靠性。",
+        "常见要求包括 Linux、脚本能力、网络基础和 CI/CD 经验。"
+      ]
+    },
+    {
+      "company": "快手",
+      "title": "推荐算法工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["推荐算法", "排序", "召回", "内容分发", "机器学习"],
+      "summary": "偏内容推荐、短视频分发和增长场景算法优化。",
+      "applyUrl": "https://zhaopin.kuaishou.cn/recruit/e/#/official/index",
+      "jd": [
+        "参与推荐、排序、召回和内容理解相关算法研发。",
+        "围绕用户增长、转化和内容消费提升模型效果。",
+        "推动算法链路与工程系统协同优化。",
+        "常见要求包括 Python、机器学习和大规模数据建模经验。"
+      ]
+    },
+    {
+      "company": "快手",
+      "title": "后端开发工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["后端", "Go", "Java", "分布式", "内容平台"],
+      "summary": "偏内容平台、高并发链路和基础服务研发。",
+      "applyUrl": "https://zhaopin.kuaishou.cn/recruit/e/#/official/index",
+      "jd": [
+        "负责内容平台、用户服务和基础链路的设计与研发。",
+        "参与高并发服务、缓存、消息队列和服务治理建设。",
+        "持续优化稳定性、可观测性与研发效率。",
+        "常见要求包括 Go / Java、MySQL、Redis 和分布式经验。"
+      ]
+    },
+    {
+      "company": "滴滴",
+      "title": "后端开发工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["后端", "调度", "平台", "分布式", "高并发"],
+      "summary": "偏出行调度平台、交易链路和基础能力建设。",
+      "applyUrl": "https://talent.didiglobal.com/",
+      "jd": [
+        "负责出行核心系统、调度平台或交易服务研发。",
+        "参与高并发系统设计、服务治理和稳定性优化。",
+        "和业务、算法团队协作，支撑复杂实时场景。",
+        "常见要求包括 Java / Go、分布式系统和数据库经验。"
+      ]
+    },
+    {
+      "company": "滴滴",
+      "title": "算法工程师",
+      "city": "北京",
+      "type": "校招 / 社招",
+      "keywords": ["算法", "调度", "路径规划", "推荐", "机器学习"],
+      "summary": "偏实时调度、路径规划、供需预测和策略优化。",
+      "applyUrl": "https://talent.didiglobal.com/",
+      "jd": [
+        "参与调度、路径规划、ETA、供需预测等算法研发。",
+        "结合业务目标持续优化效率、体验和成本。",
+        "推动算法与在线系统协同落地。",
+        "常见要求包括运筹优化、机器学习、Python / C++ 能力。"
+      ]
+    },
+    {
+      "company": "理想汽车",
+      "title": "云平台后端工程师",
+      "city": "北京 / 上海",
+      "type": "校招 / 社招",
+      "keywords": ["后端", "云平台", "Java", "Go", "基础设施"],
+      "summary": "偏车联网平台、云服务和数据链路研发。",
+      "applyUrl": "https://job.lixiang.com/",
+      "jd": [
+        "负责云平台、车联网服务或数据服务后端研发。",
+        "参与高可用链路、消息系统、存储和服务治理建设。",
+        "支撑车端到云端的业务能力交付。",
+        "常见要求包括 Java / Go、Linux、数据库和分布式经验。"
+      ]
+    },
+    {
+      "company": "理想汽车",
+      "title": "测试开发工程师",
+      "city": "北京 / 常州",
+      "type": "校招 / 社招",
+      "keywords": ["测试开发", "自动化", "车联网", "稳定性", "平台"],
+      "summary": "偏车端、云端和智能业务的自动化质量建设。",
+      "applyUrl": "https://job.lixiang.com/",
+      "jd": [
+        "负责测试方案、自动化测试平台和回归体系建设。",
+        "覆盖接口、稳定性、性能和复杂业务场景质量保障。",
+        "推动问题分析闭环和质量平台建设。",
+        "常见要求包括 Python / Java、自动化框架和复杂系统测试经验。"
+      ]
+    },
+    {
+      "company": "蔚来",
+      "title": "算法工程师",
+      "city": "上海",
+      "type": "校招 / 社招",
+      "keywords": ["算法", "自动驾驶", "感知", "规划", "大模型"],
+      "summary": "偏智能驾驶、感知规划和车端 AI 能力落地。",
+      "applyUrl": "https://job.nio.com/",
+      "jd": [
+        "负责自动驾驶、感知、规划控制或智能座舱相关算法研发。",
+        "参与模型训练、评估、部署和效果优化。",
+        "推动算法能力与车端系统协同落地。",
+        "常见要求包括机器学习、CV / SLAM / 规划基础和 C++ / Python 能力。"
+      ]
+    },
+    {
+      "company": "华为",
+      "title": "软件开发工程师",
+      "city": "深圳 / 西安 / 杭州",
+      "type": "校招 / 社招",
+      "keywords": ["后端", "基础软件", "云", "系统", "平台"],
+      "summary": "偏云服务、基础软件、平台研发和复杂系统工程。",
+      "applyUrl": "https://career.huawei.com/reccampportal/portal5/social-recruitment.html",
+      "jd": [
+        "参与云服务、平台软件或基础系统研发。",
+        "负责高性能、高可靠服务或平台模块设计与实现。",
+        "推进复杂系统的性能、稳定性和工程质量优化。",
+        "常见要求包括 C++ / Java / Go、计算机基础和系统能力。"
+      ]
+    },
+    {
+      "company": "荣耀",
+      "title": "AI 应用开发工程师",
+      "city": "深圳",
+      "type": "校招 / 社招",
+      "keywords": ["AI 应用开发", "终端 AI", "大模型", "应用落地", "平台"],
+      "summary": "偏终端 AI 应用、智能助手和模型能力产品化。",
+      "applyUrl": "https://career.honor.com/",
+      "jd": [
+        "负责终端侧 AI 应用的方案设计、开发和能力落地。",
+        "参与模型服务、应用编排和效果评测体系建设。",
+        "与系统、产品和算法团队协作推动业务上线。",
+        "常见要求包括 Python、后端能力、Prompt / Agent / 模型接入经验。"
+      ]
+    }
+  ]
+}
