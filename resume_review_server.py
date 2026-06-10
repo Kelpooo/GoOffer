@@ -1,4 +1,3 @@
-import cgi
 import io
 import json
 import os
@@ -11,6 +10,7 @@ import zipfile
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import parse_qs
 from xml.etree import ElementTree as ET
 
 
@@ -67,6 +67,20 @@ def load_prompt_templates():
 
 
 PROMPTS = load_prompt_templates()
+
+
+class UploadedFile:
+    def __init__(self, filename, content):
+        self.filename = filename
+        self.file = io.BytesIO(content)
+
+
+class SimpleForm(dict):
+    def getfirst(self, key, default=""):
+        value = self.get(key, default)
+        if isinstance(value, list):
+            return value[0] if value else default
+        return value
 
 
 def json_response(handler, status, payload):
@@ -201,14 +215,47 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             raise ValueError("请求体为空")
         if content_length > MAX_UPLOAD_SIZE:
             raise ValueError("上传文件过大，请控制在 5MB 以内")
-        return cgi.FieldStorage(
-            fp=self.rfile,
-            headers=self.headers,
-            environ={
-                "REQUEST_METHOD": "POST",
-                "CONTENT_TYPE": self.headers.get("Content-Type", ""),
-            },
-        )
+        content_type = self.headers.get("Content-Type", "")
+        if "multipart/form-data" not in content_type:
+            raise ValueError("请求格式不正确，需要 multipart/form-data")
+
+        boundary_match = re.search(r'boundary="?([^";]+)"?', content_type)
+        if not boundary_match:
+            raise ValueError("无法解析上传边界信息")
+
+        raw = self.rfile.read(content_length)
+        boundary = ("--" + boundary_match.group(1)).encode("utf-8")
+        form = SimpleForm()
+
+        for part in raw.split(boundary):
+            part = part.strip()
+            if not part or part in {b"--", b""}:
+                continue
+            if part.endswith(b"--"):
+                part = part[:-2]
+            part = part.strip(b"\r\n")
+            if not part:
+                continue
+
+            header_blob, separator, body = part.partition(b"\r\n\r\n")
+            if not separator:
+                continue
+
+            headers = header_blob.decode("utf-8", errors="ignore")
+            disposition_match = re.search(r'name="([^"]+)"', headers)
+            if not disposition_match:
+                continue
+            field_name = disposition_match.group(1)
+
+            body = body.rstrip(b"\r\n")
+            filename_match = re.search(r'filename="([^"]*)"', headers)
+            if filename_match:
+                filename = Path(filename_match.group(1) or "upload.bin").name
+                form[field_name] = UploadedFile(filename, body)
+            else:
+                form[field_name] = body.decode("utf-8", errors="ignore")
+
+        return form
 
     def parse_json_body(self):
         content_length = int(self.headers.get("Content-Length", "0"))
