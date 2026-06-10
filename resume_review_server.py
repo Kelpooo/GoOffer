@@ -8,8 +8,10 @@ import urllib.request
 import uuid
 import zipfile
 from http import HTTPStatus
+from http.cookies import SimpleCookie
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from threading import Lock
 from urllib.parse import parse_qs
 from xml.etree import ElementTree as ET
 
@@ -20,6 +22,8 @@ PORT = int(os.environ.get("RESUME_REVIEW_PORT", "8000"))
 MAX_UPLOAD_SIZE = 5 * 1024 * 1024
 DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions"
 PROMPT_FILE = ROOT / "prompt_templates.json"
+VISITOR_COOKIE_NAME = "offergo_vid"
+VISITOR_STATS_PATH = Path(os.environ.get("VISITOR_STATS_PATH", ROOT / ".runtime" / "visitor_stats.json"))
 
 RESUME_CACHE = {}
 
@@ -92,6 +96,95 @@ def json_response(handler, status, payload):
     handler.wfile.write(body)
 
 
+def ensure_parent_dir(path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+
+def load_json_file(path, default):
+    try:
+        with path.open("r", encoding="utf-8") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return default
+    except json.JSONDecodeError:
+        return default
+
+
+def save_json_file(path, payload):
+    ensure_parent_dir(path)
+    temp_path = path.with_suffix(path.suffix + ".tmp")
+    with temp_path.open("w", encoding="utf-8") as file:
+        json.dump(payload, file, ensure_ascii=False, indent=2)
+    temp_path.replace(path)
+
+
+class VisitorTracker:
+    def __init__(self, stats_path):
+        self.stats_path = stats_path
+        self.lock = Lock()
+
+    def _default_stats(self):
+        return {
+            "total_visits": 0,
+            "unique_visitors": {},
+            "path_counts": {},
+            "last_visit_at": "",
+        }
+
+    def _load(self):
+        return load_json_file(self.stats_path, self._default_stats())
+
+    def _save(self, payload):
+        save_json_file(self.stats_path, payload)
+
+    def track_visit(self, visitor_id, path, user_agent=""):
+        now = current_timestamp()
+        with self.lock:
+            stats = self._load()
+            stats["total_visits"] = int(stats.get("total_visits", 0)) + 1
+            stats["last_visit_at"] = now
+
+            path_counts = stats.setdefault("path_counts", {})
+            path_counts[path] = int(path_counts.get(path, 0)) + 1
+
+            visitors = stats.setdefault("unique_visitors", {})
+            record = visitors.get(visitor_id)
+            if record:
+                record["last_seen_at"] = now
+                if user_agent and not record.get("user_agent"):
+                    record["user_agent"] = user_agent[:160]
+            else:
+                visitors[visitor_id] = {
+                    "first_seen_at": now,
+                    "last_seen_at": now,
+                    "user_agent": user_agent[:160],
+                }
+
+            self._save(stats)
+
+    def get_public_stats(self):
+        with self.lock:
+            stats = self._load()
+        path_counts = stats.get("path_counts", {})
+        return {
+            "ok": True,
+            "totalVisits": int(stats.get("total_visits", 0)),
+            "uniqueVisitors": len(stats.get("unique_visitors", {})),
+            "homeVisits": int(path_counts.get("/web_mvp/", 0)),
+            "lastVisitAt": stats.get("last_visit_at", ""),
+            "storageMode": "file",
+        }
+
+
+def current_timestamp():
+    from datetime import datetime, timezone
+
+    return datetime.now(timezone.utc).isoformat()
+
+
+VISITOR_TRACKER = VisitorTracker(VISITOR_STATS_PATH)
+
+
 class ResumeReviewHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
@@ -102,8 +195,17 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             self.send_header("Location", "/web_mvp/")
             self.end_headers()
             return
+        if self.path == "/web_mvp":
+            self.send_response(HTTPStatus.FOUND)
+            self.send_header("Location", "/web_mvp/")
+            self.end_headers()
+            return
         if self.path == "/api/health":
             return json_response(self, HTTPStatus.OK, {"ok": True, "service": "resume-review"})
+        if self.path == "/api/site-stats":
+            return json_response(self, HTTPStatus.OK, VISITOR_TRACKER.get_public_stats())
+        if self.path in {"/web_mvp/", "/web_mvp/index.html"}:
+            return self.serve_tracked_index()
         return super().do_GET()
 
     def do_POST(self):
@@ -266,6 +368,34 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
 
     def log_message(self, format, *args):
         sys.stdout.write("%s - - [%s] %s\n" % (self.address_string(), self.log_date_time_string(), format % args))
+
+    def serve_tracked_index(self):
+        visitor_id = self.ensure_visitor_cookie()
+        user_agent = self.headers.get("User-Agent", "")
+        VISITOR_TRACKER.track_visit(visitor_id, "/web_mvp/", user_agent=user_agent)
+
+        index_path = ROOT / "web_mvp" / "index.html"
+        body = index_path.read_bytes()
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Set-Cookie", self.build_visitor_cookie(visitor_id))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def ensure_visitor_cookie(self):
+        cookie_header = self.headers.get("Cookie", "")
+        if cookie_header:
+            cookie = SimpleCookie()
+            cookie.load(cookie_header)
+            morsel = cookie.get(VISITOR_COOKIE_NAME)
+            if morsel and morsel.value:
+                return morsel.value
+        return uuid.uuid4().hex
+
+    def build_visitor_cookie(self, visitor_id):
+        max_age = 60 * 60 * 24 * 365
+        return f"{VISITOR_COOKIE_NAME}={visitor_id}; Path=/; Max-Age={max_age}; SameSite=Lax"
 
 
 def get_cached_resume(resume_id):

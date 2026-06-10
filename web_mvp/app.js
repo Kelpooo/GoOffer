@@ -21,6 +21,7 @@ const JOB_TRACKS = [
 const state = {
   allQuestions: [],
   filteredQuestions: [],
+  visitorStats: null,
   selectedDomain: "frontend",
   selectedCategory: "all",
   selectedDifficulty: "all",
@@ -106,9 +107,12 @@ const elements = {
 bootstrap();
 
 async function bootstrap() {
-  const [questionsResponse, jobsResponse] = await Promise.all([
+  const [questionsResponse, jobsResponse, visitorStats] = await Promise.all([
     fetch("./data/questions.json"),
     fetch("./data/jobs.json"),
+    fetch("/api/site-stats")
+      .then((response) => response.json())
+      .catch(() => ({ ok: false })),
   ]);
 
   const questionsPayload = await questionsResponse.json();
@@ -116,6 +120,7 @@ async function bootstrap() {
 
   state.allQuestions = questionsPayload.questions || [];
   state.jobsData = jobsPayload || { companies: [], jobs: [] };
+  state.visitorStats = visitorStats?.ok ? visitorStats : null;
 
   bindEvents();
   render();
@@ -210,6 +215,12 @@ function renderDomains() {
 
   elements.heroStats.innerHTML = [
     statPill("题目总数", state.allQuestions.length),
+    ...(state.visitorStats
+      ? [
+          statPill("访问次数", formatNumber(state.visitorStats.totalVisits || 0)),
+          statPill("访客人数", formatNumber(state.visitorStats.uniqueVisitors || 0)),
+        ]
+      : []),
     ...DOMAIN_DEFINITIONS.filter((item) => countByDomain(item.value) > 0).map((item) =>
       statPill(item.label, countByDomain(item.value)),
     ),
@@ -780,6 +791,10 @@ function inferJobTrack(job) {
 
 function statPill(label, value) {
   return `<div class="hero-pill"><span>${escapeHtml(label)}</span><strong>${value}</strong></div>`;
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat("zh-CN").format(Number(value || 0));
 }
 
 function categoryButton(value, label, count, active) {
