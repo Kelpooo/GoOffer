@@ -200,6 +200,105 @@ body {
   padding: 12px 14px;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.auth-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.auth-panel-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.auth-tab,
+.auth-submit {
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.auth-tab {
+  border-radius: 999px;
+  padding: 10px 12px;
+  background: white;
+  color: var(--text);
+}
+
+.auth-tab.active {
+  background: linear-gradient(135deg, rgba(216, 90, 50, 0.14), rgba(15, 118, 110, 0.08));
+  border-color: rgba(216, 90, 50, 0.36);
+}
+
+.auth-panel-body,
+.auth-user-card {
+  display: grid;
+  gap: 12px;
+}
+
+.auth-form {
+  display: grid;
+  gap: 10px;
+}
+
+.auth-form input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px 14px;
+  background: white;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.auth-submit {
+  border-radius: 999px;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+  color: white;
+}
+
+.auth-user-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 14px;
+}
+
+.auth-user-meta {
+  display: grid;
+  gap: 6px;
+}
+
+.auth-user-meta strong {
+  font-size: 18px;
+}
+
+.auth-user-meta span,
+.auth-status {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.auth-status {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.16);
+}
+
 .main-content {
   display: flex;
   flex-direction: column;
@@ -888,6 +987,8 @@ body {
 .nav-btn:hover,
 .domain-btn:hover,
 .category-btn:hover,
+.auth-tab:hover,
+.auth-submit:hover,
 .ghost-button:hover,
 #randomQuestionBtn:hover,
 .quick-card:hover,

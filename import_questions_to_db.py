@@ -1,4 +1,4 @@
-from offergo_scripts.extract_questions import main
+from offergo_scripts.import_questions_to_db import main
 
 
 if __name__ == "__main__":

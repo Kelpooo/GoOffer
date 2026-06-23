@@ -32,6 +32,55 @@
           <button class="nav-btn" data-view="review">复习</button>
         </nav>
 
+        <section class="panel auth-panel">
+          <div class="auth-panel-head">
+            <h2>账号中心</h2>
+            <p>登录后可同步收藏、掌握和练习记录</p>
+          </div>
+          <div class="auth-tabs" id="authTabs">
+            <button class="auth-tab active" id="showLoginTabBtn" type="button">登录</button>
+            <button class="auth-tab" id="showRegisterTabBtn" type="button">注册</button>
+          </div>
+          <div class="auth-panel-body" id="authLoggedOut">
+            <form class="auth-form" id="loginForm">
+              <label class="field-block">
+                <span>用户名</span>
+                <input id="loginUsername" type="text" placeholder="请输入用户名" autocomplete="username" />
+              </label>
+              <label class="field-block">
+                <span>密码</span>
+                <input id="loginPassword" type="password" placeholder="请输入密码" autocomplete="current-password" />
+              </label>
+              <button class="auth-submit" type="submit">立即登录</button>
+            </form>
+            <form class="auth-form hidden" id="registerForm">
+              <label class="field-block">
+                <span>用户名</span>
+                <input id="registerUsername" type="text" placeholder="4-20 位，字母/数字/下划线" autocomplete="username" />
+              </label>
+              <label class="field-block">
+                <span>密码</span>
+                <input id="registerPassword" type="password" placeholder="至少 8 位，至少两种字符组合" autocomplete="new-password" />
+              </label>
+              <label class="field-block">
+                <span>确认密码</span>
+                <input id="registerConfirmPassword" type="password" placeholder="请再次输入密码" autocomplete="new-password" />
+              </label>
+              <button class="auth-submit" type="submit">注册并登录</button>
+            </form>
+          </div>
+          <div class="auth-user-card hidden" id="authLoggedIn">
+            <div class="auth-user-meta">
+              <strong id="currentUsername">未登录</strong>
+              <span>你的学习记录将同步到当前账号</span>
+            </div>
+            <button class="ghost-button" id="logoutBtn" type="button">退出登录</button>
+          </div>
+          <div class="auth-status" id="authStatus">
+            用户名 4-20 位，仅支持字母、数字、下划线；密码至少 8 位，且至少包含大写字母、小写字母、数字、符号中的任意两类。
+          </div>
+        </section>
+
         <section class="panel">
           <h2>岗位板块</h2>
           <div class="domain-switch" id="domainSwitch"></div>

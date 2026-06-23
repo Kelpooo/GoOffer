@@ -22,6 +22,12 @@ const state = {
   allQuestions: [],
   filteredQuestions: [],
   visitorStats: null,
+  authMode: "login",
+  currentUser: null,
+  authPolicy: null,
+  progressApiAvailable: false,
+  practice: {},
+  practicedThisSession: new Set(),
   selectedDomain: "frontend",
   selectedCategory: "all",
   selectedDifficulty: "all",
@@ -43,6 +49,21 @@ const state = {
 
 const elements = {
   mainNav: document.getElementById("mainNav"),
+  authLoggedOut: document.getElementById("authLoggedOut"),
+  authLoggedIn: document.getElementById("authLoggedIn"),
+  authStatus: document.getElementById("authStatus"),
+  authTabs: document.getElementById("authTabs"),
+  showLoginTabBtn: document.getElementById("showLoginTabBtn"),
+  showRegisterTabBtn: document.getElementById("showRegisterTabBtn"),
+  loginForm: document.getElementById("loginForm"),
+  loginUsername: document.getElementById("loginUsername"),
+  loginPassword: document.getElementById("loginPassword"),
+  registerForm: document.getElementById("registerForm"),
+  registerUsername: document.getElementById("registerUsername"),
+  registerPassword: document.getElementById("registerPassword"),
+  registerConfirmPassword: document.getElementById("registerConfirmPassword"),
+  currentUsername: document.getElementById("currentUsername"),
+  logoutBtn: document.getElementById("logoutBtn"),
   domainSwitch: document.getElementById("domainSwitch"),
   heroStats: document.getElementById("heroStats"),
   homeDomainGrid: document.getElementById("homeDomainGrid"),
@@ -107,26 +128,106 @@ const elements = {
 bootstrap();
 
 async function bootstrap() {
-  const [questionsResponse, jobsResponse, visitorStats] = await Promise.all([
-    fetch("./data/questions.json"),
+  const [questionsPayload, jobsResponse, visitorStats, userProgress, authState] = await Promise.all([
+    loadQuestionsPayload(),
     fetch("./data/jobs.json"),
     fetch("/api/site-stats")
       .then((response) => response.json())
       .catch(() => ({ ok: false })),
+    loadUserProgress(),
+    loadAuthState(),
   ]);
 
-  const questionsPayload = await questionsResponse.json();
   const jobsPayload = await jobsResponse.json();
 
   state.allQuestions = questionsPayload.questions || [];
   state.jobsData = jobsPayload || { companies: [], jobs: [] };
   state.visitorStats = visitorStats?.ok ? visitorStats : null;
+  applyAuthState(authState);
+  applyUserProgress(userProgress);
 
   bindEvents();
   render();
 }
 
+async function loadQuestionsPayload() {
+  try {
+    const apiResponse = await fetch("/api/questions");
+    if (apiResponse.ok) {
+      return await apiResponse.json();
+    }
+  } catch (error) {
+    console.warn("Failed to load questions from API, falling back to static JSON.", error);
+  }
+
+  const staticResponse = await fetch("./data/questions.json");
+  return staticResponse.json();
+}
+
+async function loadUserProgress() {
+  try {
+    const response = await fetch("/api/user-progress");
+    if (!response.ok) throw new Error("progress api unavailable");
+    return await response.json();
+  } catch (error) {
+    console.warn("Failed to load user progress from API, falling back to localStorage only.", error);
+    return null;
+  }
+}
+
+async function loadAuthState() {
+  try {
+    const response = await fetch("/api/auth/me");
+    if (!response.ok) throw new Error("auth api unavailable");
+    return await response.json();
+  } catch (error) {
+    console.warn("Failed to load auth state.", error);
+    return null;
+  }
+}
+
+function applyAuthState(payload) {
+  state.currentUser = payload?.authenticated ? payload.user : null;
+  state.authPolicy = payload?.policy || null;
+}
+
+function applyUserProgress(payload) {
+  const localFavorites = loadSet("mvp_favorites");
+  const localMastered = loadSet("mvp_mastered");
+
+  if (!payload?.ok) {
+    state.favorites = localFavorites;
+    state.mastered = localMastered;
+    state.progressApiAvailable = false;
+    return;
+  }
+
+  state.progressApiAvailable = true;
+  state.practice = payload.practice || {};
+
+  const mergedFavorites = new Set([...(payload.favorites || []), ...localFavorites]);
+  const mergedMastered = new Set([...(payload.mastered || []), ...localMastered]);
+
+  state.favorites = mergedFavorites;
+  state.mastered = mergedMastered;
+  persistLocalSet("mvp_favorites", state.favorites);
+  persistLocalSet("mvp_mastered", state.mastered);
+
+  const needsSync =
+    mergedFavorites.size !== (payload.favorites || []).length ||
+    mergedMastered.size !== (payload.mastered || []).length;
+  if (needsSync) {
+    syncProgressToServer().catch((error) => console.warn("Failed to sync merged local progress.", error));
+  }
+}
+
 function bindEvents() {
+  elements.showLoginTabBtn.addEventListener("click", () => switchAuthMode("login"));
+  elements.showRegisterTabBtn.addEventListener("click", () => switchAuthMode("register"));
+  elements.loginForm.addEventListener("submit", handleLoginSubmit);
+  elements.registerForm.addEventListener("submit", handleRegisterSubmit);
+  elements.logoutBtn.addEventListener("click", handleLogout);
+
   elements.mainNav.querySelectorAll("[data-view]").forEach((button) => {
     button.addEventListener("click", () => navigate(button.dataset.view));
   });
@@ -170,15 +271,13 @@ function bindEvents() {
   elements.markInterviewFavoriteBtn.addEventListener("click", () => {
     const question = findInterviewQuestion();
     if (!question) return;
-    toggleSetValue(state.favorites, question.id, "mvp_favorites");
-    rerenderQuestionState();
+    updateQuestionStatus(question.id, { favorite: !state.favorites.has(question.id) });
   });
 
   elements.markInterviewMasteredBtn.addEventListener("click", () => {
     const question = findInterviewQuestion();
     if (!question) return;
-    toggleSetValue(state.mastered, question.id, "mvp_mastered");
-    rerenderQuestionState();
+    updateQuestionStatus(question.id, { mastered: !state.mastered.has(question.id) });
   });
 
   elements.resumeForm.addEventListener("submit", handleResumeReviewSubmit);
@@ -187,6 +286,7 @@ function bindEvents() {
 }
 
 function render() {
+  renderAuthPanel();
   renderDomains();
   renderStats();
   renderBrowse();
@@ -196,6 +296,25 @@ function render() {
   renderResumeReview();
   updateNav();
   updateViewVisibility();
+}
+
+function renderAuthPanel() {
+  const isLoggedIn = Boolean(state.currentUser);
+  elements.authLoggedOut.classList.toggle("hidden", isLoggedIn);
+  elements.authLoggedIn.classList.toggle("hidden", !isLoggedIn);
+  elements.showLoginTabBtn.classList.toggle("active", state.authMode === "login");
+  elements.showRegisterTabBtn.classList.toggle("active", state.authMode === "register");
+  elements.loginForm.classList.toggle("hidden", state.authMode !== "login");
+  elements.registerForm.classList.toggle("hidden", state.authMode !== "register");
+
+  if (isLoggedIn) {
+    elements.currentUsername.textContent = state.currentUser.username || "已登录";
+    elements.authStatus.textContent = `当前账号：${state.currentUser.username}。收藏、掌握和练习记录会同步到这个账号。`;
+    return;
+  }
+
+  elements.authStatus.textContent =
+    "用户名 4-20 位，仅支持字母、数字、下划线；密码至少 8 位，且至少包含大写字母、小写字母、数字、符号中的任意两类。";
 }
 
 function renderDomains() {
@@ -363,6 +482,7 @@ function renderQuestionDetail(question) {
     return;
   }
 
+  markQuestionPracticed(question.id);
   const isFavorite = state.favorites.has(question.id);
   const isMastered = state.mastered.has(question.id);
   const currentIndex = findQuestionIndex(question.id);
@@ -421,13 +541,11 @@ function renderQuestionDetail(question) {
 
   document.getElementById("backToBrowseBtn").addEventListener("click", () => navigate("browse"));
   document.getElementById("favoriteBtn").addEventListener("click", () => {
-    toggleSetValue(state.favorites, question.id, "mvp_favorites");
-    rerenderQuestionState();
+    updateQuestionStatus(question.id, { favorite: !state.favorites.has(question.id) });
     renderQuestionDetail(findSelectedQuestion());
   });
   document.getElementById("masteredBtn").addEventListener("click", () => {
-    toggleSetValue(state.mastered, question.id, "mvp_mastered");
-    rerenderQuestionState();
+    updateQuestionStatus(question.id, { mastered: !state.mastered.has(question.id) });
     renderQuestionDetail(findSelectedQuestion());
   });
   document.getElementById("prevQuestionBtn").addEventListener("click", () => {
@@ -444,6 +562,7 @@ function renderQuestionDetail(question) {
     state.interviewQuestionId = question.id;
     state.interviewReveal = false;
     elements.interviewDraft.value = "";
+    markQuestionPracticed(question.id);
     renderInterview();
     navigate("interview");
   });
@@ -453,6 +572,7 @@ function renderInterview() {
   ensureInterviewQuestion();
   const question = findInterviewQuestion();
   if (!question) return;
+  markQuestionPracticed(question.id);
 
   const isFavorite = state.favorites.has(question.id);
   const isMastered = state.mastered.has(question.id);
@@ -823,6 +943,111 @@ function renderPills(items = [], accent = false) {
   return items.map((item) => `<span class="pill ${accent ? "accent" : ""}">${escapeHtml(item)}</span>`).join("");
 }
 
+function switchAuthMode(mode) {
+  state.authMode = mode === "register" ? "register" : "login";
+  renderAuthPanel();
+}
+
+async function handleLoginSubmit(event) {
+  event.preventDefault();
+  const username = elements.loginUsername.value.trim();
+  const password = elements.loginPassword.value;
+  if (!username || !password) {
+    elements.authStatus.textContent = "请输入用户名和密码。";
+    return;
+  }
+
+  setAuthSubmitting(true);
+  elements.authStatus.textContent = "正在登录...";
+  try {
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+    const payload = await response.json();
+    if (!response.ok || !payload.ok) throw new Error(payload.error || "登录失败");
+
+    applyAuthState(payload);
+    applyUserProgress(payload.progress || null);
+    elements.loginForm.reset();
+    render();
+    elements.authStatus.textContent = payload.message || "登录成功";
+  } catch (error) {
+    elements.authStatus.textContent = error.message;
+  } finally {
+    setAuthSubmitting(false);
+  }
+}
+
+async function handleRegisterSubmit(event) {
+  event.preventDefault();
+  const username = elements.registerUsername.value.trim();
+  const password = elements.registerPassword.value;
+  const confirmPassword = elements.registerConfirmPassword.value;
+  if (!username || !password || !confirmPassword) {
+    elements.authStatus.textContent = "请完整填写注册信息。";
+    return;
+  }
+
+  setAuthSubmitting(true);
+  elements.authStatus.textContent = "正在注册...";
+  try {
+    const response = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password, confirmPassword }),
+    });
+    const payload = await response.json();
+    if (!response.ok || !payload.ok) throw new Error(payload.error || "注册失败");
+
+    applyAuthState(payload);
+    applyUserProgress(payload.progress || null);
+    elements.registerForm.reset();
+    render();
+    elements.authStatus.textContent = payload.message || "注册成功";
+  } catch (error) {
+    elements.authStatus.textContent = error.message;
+  } finally {
+    setAuthSubmitting(false);
+  }
+}
+
+async function handleLogout() {
+  setAuthSubmitting(true);
+  try {
+    const response = await fetch("/api/auth/logout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    });
+    const payload = await response.json();
+    if (!response.ok || !payload.ok) throw new Error(payload.error || "退出失败");
+
+    const [authState, userProgress] = await Promise.all([loadAuthState(), loadUserProgress()]);
+    applyAuthState(authState);
+    applyUserProgress(userProgress);
+    render();
+    elements.authStatus.textContent = payload.message || "已退出登录";
+  } catch (error) {
+    elements.authStatus.textContent = error.message;
+  } finally {
+    setAuthSubmitting(false);
+  }
+}
+
+function setAuthSubmitting(submitting) {
+  [
+    elements.showLoginTabBtn,
+    elements.showRegisterTabBtn,
+    ...elements.loginForm.querySelectorAll("input, button"),
+    ...elements.registerForm.querySelectorAll("input, button"),
+    elements.logoutBtn,
+  ].forEach((node) => {
+    node.disabled = submitting;
+  });
+}
+
 function loadSet(key) {
   try {
     const raw = localStorage.getItem(key);
@@ -832,10 +1057,63 @@ function loadSet(key) {
   }
 }
 
-function toggleSetValue(set, value, key) {
-  if (set.has(value)) set.delete(value);
-  else set.add(value);
+function persistLocalSet(key, set) {
   localStorage.setItem(key, JSON.stringify([...set]));
+}
+
+function updateQuestionStatus(questionId, updates = {}) {
+  if ("favorite" in updates) {
+    if (updates.favorite) state.favorites.add(questionId);
+    else state.favorites.delete(questionId);
+    persistLocalSet("mvp_favorites", state.favorites);
+  }
+
+  if ("mastered" in updates) {
+    if (updates.mastered) state.mastered.add(questionId);
+    else state.mastered.delete(questionId);
+    persistLocalSet("mvp_mastered", state.mastered);
+  }
+
+  rerenderQuestionState();
+  persistQuestionStatus(questionId, updates).catch((error) => {
+    console.warn("Failed to persist question status.", error);
+  });
+}
+
+async function persistQuestionStatus(questionId, updates = {}) {
+  if (!state.progressApiAvailable) return;
+  await fetch("/api/user-progress", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ questionId, ...updates }),
+  });
+}
+
+async function syncProgressToServer() {
+  if (!state.progressApiAvailable) return;
+  await fetch("/api/user-progress/sync", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      favorites: [...state.favorites],
+      mastered: [...state.mastered],
+    }),
+  });
+}
+
+function markQuestionPracticed(questionId) {
+  if (state.practicedThisSession.has(questionId)) return;
+  state.practicedThisSession.add(questionId);
+
+  const current = state.practice[questionId] || { practiceCount: 0, lastPracticedAt: "" };
+  state.practice[questionId] = {
+    practiceCount: Number(current.practiceCount || 0) + 1,
+    lastPracticedAt: new Date().toISOString(),
+  };
+
+  persistQuestionStatus(questionId, { practiced: true }).catch((error) => {
+    console.warn("Failed to persist practice record.", error);
+  });
 }
 
 function escapeHtml(value) {
