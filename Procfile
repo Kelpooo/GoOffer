@@ -1,1 +1,1 @@
-web: python resume_review_server.py
+web: python -m offergo_backend.server

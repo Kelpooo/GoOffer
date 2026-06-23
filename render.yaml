@@ -4,7 +4,7 @@ services:
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python resume_review_server.py
+    startCommand: python -m offergo_backend.server
     envVars:
       - key: RESUME_REVIEW_HOST
         value: 0.0.0.0
