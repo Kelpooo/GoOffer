@@ -1,0 +1,230 @@
+{
+  "source_title": "掘金文章",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "请解释CSS盒模型,并说明IE盒模型与标准盒模型的区别。",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "盒模型",
+        "CSS基础"
+      ],
+      "answer_points": [
+        "CSS盒模型由content、padding、border、margin组成。",
+        "标准盒模型(content-box):width/height只包含content。",
+        "IE盒模型(border-box):width/height包含content、padding和border。",
+        "通过box-sizing属性切换,常用border-box简化布局计算。"
+      ],
+      "follow_ups": [
+        "box-sizing: border-box在哪些场景下特别有用?",
+        "如何用CSS实现一个元素宽高固定为父元素的一半?"
+      ],
+      "source_excerpt": "CSS核心:盒模型、BFC/IFC、Flex/Grid布局、响应式布局、移动端适配"
+    },
+    {
+      "question": "解释JavaScript闭包的概念、原理及常见应用场景。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "闭包",
+        "作用域"
+      ],
+      "answer_points": [
+        "闭包是指能够访问外部函数作用域中变量的内部函数。",
+        "原理:函数执行时会创建执行上下文,外部函数返回后其作用域链仍被内部函数引用,导致变量不被回收。",
+        "应用:数据私有化、回调函数、防抖节流、模块模式。",
+        "注意:闭包可能导致内存泄漏,需合理释放引用。"
+      ],
+      "follow_ups": [
+        "闭包中的变量是存储在堆还是栈?",
+        "如何在不使用闭包的情况下实现数据私有化?"
+      ],
+      "source_excerpt": "JS核心:原型链、继承、闭包、作用域、执行上下文、this指向、call/apply/bind"
+    },
+    {
+      "question": "描述浏览器事件循环(Event Loop)机制,说明宏任务与微任务的执行顺序。",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "事件循环",
+        "异步",
+        "宏任务",
+        "微任务"
+      ],
+      "answer_points": [
+        "JS是单线程,通过事件循环处理异步任务。",
+        "宏任务:setTimeout、setInterval、I/O、UI渲染等。",
+        "微任务:Promise.then、MutationObserver、queueMicrotask等。",
+        "执行顺序:同步代码 → 清空微任务队列 → 取一个宏任务执行 → 清空微任务队列 → ...",
+        "浏览器与Node.js事件循环略有差异,Node.js有阶段概念。"
+      ],
+      "follow_ups": [
+        "async/await在事件循环中的表现?",
+        "如何保证多个Promise按顺序执行?"
+      ],
+      "source_excerpt": "事件循环Event Loop:宏任务 vs 微任务、浏览器 vs Node.js Event Loop(必考)"
+    },
+    {
+      "question": "请对比Vue3组合式API和选项式API,说明各自的优缺点。",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue3",
+        "组合式API",
+        "选项式API"
+      ],
+      "answer_points": [
+        "选项式API:通过data、methods、computed等选项组织代码,逻辑分散,不适合复杂组件。",
+        "组合式API:使用setup函数按功能组织逻辑,可复用性强,类型推导更好。",
+        "优点:组合式API更灵活,逻辑复用更方便,与TypeScript结合更佳。",
+        "缺点:学习曲线较陡,需要理解响应式原理。",
+        "Vue3同时支持两种风格,但官方推荐组合式API。"
+      ],
+      "follow_ups": [
+        "组合式API中如何实现mixins的功能?",
+        "setup函数中this为什么是undefined?"
+      ],
+      "source_excerpt": "Vue3核心:组合式API、setup语法糖、响应式原理(Proxy)、ref/reactive、生命周期"
+    },
+    {
+      "question": "解释React Fiber架构的核心思想及其解决的问题。",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "senior",
+      "tags": [
+        "React",
+        "Fiber",
+        "并发渲染"
+      ],
+      "answer_points": [
+        "Fiber是React 16引入的新的协调引擎,目标是实现可中断的异步渲染。",
+        "核心:将渲染工作分解为小单元(Fiber节点),可暂停、恢复和优先级排序。",
+        "解决了旧版递归同步渲染导致的主线程阻塞问题,提升了交互响应。",
+        "通过双缓冲、链表遍历和优先级调度实现并发模式。"
+      ],
+      "follow_ups": [
+        "Fiber节点是什么结构?",
+        "React的优先级调度如何实现?"
+      ],
+      "source_excerpt": "React18核心:JSX原理、Fiber架构、并发渲染、Hooks全家桶"
+    },
+    {
+      "question": "请解释浏览器缓存机制中的强缓存与协商缓存,并说明其流程和区别。",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "浏览器缓存",
+        "强缓存",
+        "协商缓存"
+      ],
+      "answer_points": [
+        "强缓存:通过Expires或Cache-Control头,在有效期内直接使用缓存,不发送请求。",
+        "协商缓存:通过Last-Modified/If-Modified-Since或ETag/If-None-Match,发送请求验证资源是否更新。",
+        "强缓存状态码200 (from cache),协商缓存304。",
+        "优先使用强缓存,失效后使用协商缓存。"
+      ],
+      "follow_ups": [
+        "如何设置合理的缓存策略?",
+        "代理缓存(如CDN)对缓存有何影响?"
+      ],
+      "source_excerpt": "浏览器原理:渲染流程、重排重绘、浏览器缓存(强缓存/协商缓存)、XSS/CSRF攻击与防范"
+    },
+    {
+      "question": "解释V8引擎的垃圾回收机制,包括分代回收和增量标记。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "senior",
+      "tags": [
+        "V8",
+        "垃圾回收",
+        "内存管理"
+      ],
+      "answer_points": [
+        "V8采用分代回收,将堆分为新生代和老生代。",
+        "新生代使用Scavenge算法(Cheney算法),空间换时间,分为From和To空间。",
+        "老生代使用标记-清除和标记-整理,并配合增量标记、惰性清理等减少STW。",
+        "还使用了并行、并发标记和清除来优化性能。"
+      ],
+      "follow_ups": [
+        "什么是内存泄漏?如何用DevTools排查?",
+        "V8中对象晋升的条件是什么?"
+      ],
+      "source_excerpt": "JS垃圾回收机制、V8垃圾回收、分代回收"
+    },
+    {
+      "question": "请对比CommonJS和ES Module的差异,并说明Vite等工具如何实现模块热更新。",
+      "question_type": "comparison",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "模块化",
+        "CommonJS",
+        "ES Module",
+        "Vite"
+      ],
+      "answer_points": [
+        "CommonJS:同步加载,模块输出的是一个值的拷贝,运行时加载,可用于Node.js。",
+        "ES Module:异步加载,模块输出的是值的引用,编译时输出接口,浏览器原生支持。",
+        "Vite利用ES Module原生能力开发时无需打包,通过浏览器请求直接提供模块,HMR更高效。",
+        "生产环境使用Rollup打包,兼容性更好。"
+      ],
+      "follow_ups": [
+        "Tree Shaking的实现原理是什么?",
+        "CommonJS和ES Module的循环引用分别如何处理?"
+      ],
+      "source_excerpt": "工程化:构建工具(Vite、Webpack、Turbopack)、模块化(CommonJS/ES Module)、代码规范"
+    },
+    {
+      "question": "说明前端性能优化中重排(reflow)和重绘(repaint)的区别,并给出优化建议。",
+      "question_type": "optimization",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": [
+        "性能优化",
+        "重排",
+        "重绘"
+      ],
+      "answer_points": [
+        "重排:当DOM几何属性(宽高、位置等)变化时,浏览器重新计算布局。",
+        "重绘:元素外观变化(颜色、背景等)但不影响布局时,只需重新绘制。",
+        "重排一定导致重绘,重绘不一定会重排。",
+        "优化:批量修改样式、使用class切换、避免频繁操作DOM、使用requestAnimationFrame、脱离开文档流等。"
+      ],
+      "follow_ups": [
+        "现代框架(如React/Vue)如何优化重排重绘?",
+        "什么是合成层?如何利用合成提升性能?"
+      ],
+      "source_excerpt": "浏览器原理:渲染流程、重排重绘、浏览器缓存"
+    },
+    {
+      "question": "解释TypeScript中interface和type的区别,并说明如何实现类型守卫。",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "interface",
+        "type",
+        "类型守卫"
+      ],
+      "answer_points": [
+        "interface:可以合并声明,只能描述对象形状,支持extends继承。",
+        "type:可以为任何类型起别名,支持联合类型、交叉类型等,不能合并。",
+        "相同点:都可以描述对象或函数类型。",
+        "类型守卫:通过typeof、instanceof、in、自定义类型谓词(is)等缩小类型范围。"
+      ],
+      "follow_ups": [
+        "如何定义一个只读数组?",
+        "泛型工具类型(如Partial、Required)是如何实现的?"
+      ],
+      "source_excerpt": "TypeScript核心:基础类型、接口、泛型、联合类型、类型守卫、类型体操、装饰器"
+    }
+  ]
+}

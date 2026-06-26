@@ -1,0 +1,1064 @@
+{
+  "source_title": "AI Agent 工程师面试指南目录",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "AI Agent工程师的核心能力模型是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "AI Agent",
+        "能力模型"
+      ],
+      "answer_points": [
+        "LLM基础",
+        "Agent组件",
+        "系统工程"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "AI Agent工程师核心能力模型:LLM基础 + Agent组件 + 系统工程"
+    },
+    {
+      "question": "AI Agent工程师面试通常分为哪几轮?每轮的考察重点是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "面试流程",
+        "考察重点"
+      ],
+      "answer_points": [
+        "一面(基础技术面):知识广度和理解深度",
+        "二面(项目深挖面):工程能力和问题解决",
+        "三面(架构设计面):系统设计和技术视野"
+      ],
+      "follow_ups": [
+        "各轮面试的应对策略有哪些?"
+      ],
+      "source_excerpt": "一面(基础技术面):知识广度和理解深度;二面(项目深挖面):工程能力和问题解决;三面(架构设计面):系统设计和技术视野"
+    },
+    {
+      "question": "在简历中如何有效展示Agent项目经验?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "简历",
+        "项目经验"
+      ],
+      "answer_points": [
+        "使用技术关键词精准描述",
+        "量化表达与STAR法则",
+        "展示技术栈层次感",
+        "突出个人贡献与技术难点"
+      ],
+      "follow_ups": [
+        "如何预判面试官对项目的深挖方向?"
+      ],
+      "source_excerpt": "Agent工程师简历撰写要点:技术关键词的精准使用、项目描述的量化表达与STAR法则、技术栈层次感的展示技巧"
+    },
+    {
+      "question": "面试官在项目深挖环节最喜欢追问哪些方向?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "项目深挖",
+        "面试技巧"
+      ],
+      "answer_points": [
+        "为什么选这个方案?(选型依据、对比分析)",
+        "踩过什么坑?(问题→排查→解决→复盘)",
+        "如果重来一次会怎么改进?(批判性思维)"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "高频深挖方向:为什么选这个方案?踩过什么坑?如果重来一次会怎么改进?"
+    },
+    {
+      "question": "回答概念题时,应采用怎样的表达结构?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "应答方法论",
+        "概念题"
+      ],
+      "answer_points": [
+        "定义",
+        "原理",
+        "应用",
+        "个人理解"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "概念题:定义→原理→应用→个人理解的四层表达"
+    },
+    {
+      "question": "回答设计题时,应采用怎样的表达结构?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "应答方法论",
+        "设计题"
+      ],
+      "answer_points": [
+        "需求分析",
+        "方案选型",
+        "架构设计",
+        "trade-off分析"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "设计题:需求分析→方案选型→架构设计→trade-off分析"
+    },
+    {
+      "question": "手推Attention公式时,需要掌握到什么精度?",
+      "question_type": "handwrite",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Attention",
+        "手推"
+      ],
+      "answer_points": [
+        "能写出Q/K/V矩阵计算流程",
+        "理解除以√dk的原因",
+        "掌握多头注意力的并行计算与输出拼接",
+        "了解Masked Attention机制"
+      ],
+      "follow_ups": [
+        "为什么除以√dk?",
+        "Flash Attention为什么省显存?"
+      ],
+      "source_excerpt": "手推Attention公式——需要掌握到什么精度?"
+    },
+    {
+      "question": "为什么Attention中要除以√dk?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Attention",
+        "除以√dk"
+      ],
+      "answer_points": [
+        "控制方差,防止softmax进入梯度饱和区",
+        "保持梯度稳定,利于训练"
+      ],
+      "follow_ups": [
+        "如果不除以√dk会怎样?"
+      ],
+      "source_excerpt": "除以√dk的原因:方差控制与梯度稳定"
+    },
+    {
+      "question": "Flash Attention为什么能节省显存?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Flash Attention",
+        "显存优化"
+      ],
+      "answer_points": [
+        "通过分块计算,避免存储完整注意力矩阵",
+        "利用IO感知算法,减少显存读写",
+        "重计算策略,以计算换存储"
+      ],
+      "follow_ups": [
+        "Flash Attention-2相比Flash Attention有哪些改进?"
+      ],
+      "source_excerpt": "Flash Attention为什么省显存?——从IO复杂度角度回答"
+    },
+    {
+      "question": "请描述Q/K/V矩阵的完整计算流程(手写版)。",
+      "question_type": "handwrite",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Attention",
+        "QKV"
+      ],
+      "answer_points": [
+        "输入X乘以权重矩阵W_Q、W_K、W_V得到Q、K、V",
+        "计算Q与K的点积,除以√dk",
+        "应用softmax得到注意力权重",
+        "与V相乘得到输出"
+      ],
+      "follow_ups": [
+        "多头注意力如何并行计算?"
+      ],
+      "source_excerpt": "Q/K/V矩阵的完整计算流程(面试手写版)"
+    },
+    {
+      "question": "多头注意力中,多个头的输出如何合并?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "多头注意力",
+        "输出拼接"
+      ],
+      "answer_points": [
+        "每个头独立计算输出",
+        "将所有头的输出拼接起来",
+        "通过一个线性变换得到最终输出"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "多头注意力的并行计算与输出拼接"
+    },
+    {
+      "question": "Masked Attention在自回归生成中的作用是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Masked Attention",
+        "自回归"
+      ],
+      "answer_points": [
+        "防止模型看到未来位置的信息",
+        "确保每个位置只能关注到它之前的位置",
+        "通过上三角掩码实现"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Masked Attention:自回归生成的关键机制"
+    },
+    {
+      "question": "请解释Attention复杂度、KV Cache优化与长文本处理方案之间的关系。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Attention复杂度",
+        "KV Cache",
+        "长文本"
+      ],
+      "answer_points": [
+        "Attention复杂度为O(n2),n为序列长度",
+        "KV Cache通过缓存历史K和V,避免重复计算,降低解码复杂度",
+        "长文本处理方案包括窗口注意力、稀疏注意力、Longformer等"
+      ],
+      "follow_ups": [
+        "KV Cache的显存占用如何分析?"
+      ],
+      "source_excerpt": "追问链条:Attention复杂度 → KV Cache优化 → 长文本处理方案"
+    },
+    {
+      "question": "Encoder-Decoder架构与Decoder-Only架构的差异及适用场景是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Transformer架构",
+        "Encoder-Decoder",
+        "Decoder-Only"
+      ],
+      "answer_points": [
+        "Encoder-Decoder:编码器处理输入,解码器生成输出,适合序列到序列任务",
+        "Decoder-Only:仅解码器,自回归生成,适合语言模型",
+        "适用场景:Encoder-Decoder用于翻译、摘要等;Decoder-Only用于文本生成"
+      ],
+      "follow_ups": [
+        "GPT和LLaMA架构有何差异?"
+      ],
+      "source_excerpt": "Encoder-Decoder vs Decoder-Only:架构差异与适用场景"
+    },
+    {
+      "question": "绝对位置编码与RoPE(旋转位置编码)的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "位置编码",
+        "RoPE"
+      ],
+      "answer_points": [
+        "绝对位置编码:将位置信息加到输入嵌入中,无法处理相对位置",
+        "RoPE:通过旋转矩阵编码相对位置,具有更好的外推能力",
+        "RoPE在长文本场景下表现更优"
+      ],
+      "follow_ups": [
+        "RoPE如何实现上下文长度扩展?"
+      ],
+      "source_excerpt": "位置编码:绝对位置编码 vs RoPE(旋转位置编码)"
+    },
+    {
+      "question": "LayerNorm与残差连接的作用是什么?Pre-Norm和Post-Norm有何区别?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "LayerNorm",
+        "残差连接",
+        "Pre-Norm",
+        "Post-Norm"
+      ],
+      "answer_points": [
+        "LayerNorm:稳定训练,加速收敛",
+        "残差连接:缓解梯度消失,允许更深网络",
+        "Pre-Norm:在子层之前做归一化,训练更稳定",
+        "Post-Norm:在子层之后做归一化,原始Transformer使用"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "LayerNorm与残差连接的作用和位置差异(Pre-Norm vs Post-Norm)"
+    },
+    {
+      "question": "请解释KV Cache的原理及其显存占用分析。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "KV Cache",
+        "显存"
+      ],
+      "answer_points": [
+        "KV Cache缓存解码过程中每一层的K和V矩阵",
+        "避免重复计算,加速推理",
+        "显存占用与序列长度、层数、隐藏维度成正比"
+      ],
+      "follow_ups": [
+        "如何优化KV Cache的显存占用?"
+      ],
+      "source_excerpt": "KV Cache原理与显存占用分析"
+    },
+    {
+      "question": "Flash Attention-2相比Flash Attention有哪些改进?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Flash Attention",
+        "Flash Attention-2"
+      ],
+      "answer_points": [
+        "进一步减少非矩阵乘法操作",
+        "优化并行策略,提高GPU利用率",
+        "支持更长的序列"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Flash Attention / Flash Attention-2的IO感知分析"
+    },
+    {
+      "question": "vLLM的PageAttention是如何实现内存管理与请求调度的?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "vLLM",
+        "PageAttention"
+      ],
+      "answer_points": [
+        "将KV Cache分页管理,类似虚拟内存",
+        "按需分配物理块,减少内存碎片",
+        "支持请求级别的调度,提高吞吐"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "vLLM的PageAttention:内存管理与请求调度"
+    },
+    {
+      "question": "Continuous Batching如何提升推理吞吐?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Continuous Batching",
+        "推理优化"
+      ],
+      "answer_points": [
+        "动态地将多个请求合并为一个批次",
+        "减少空闲等待,提高GPU利用率",
+        "支持请求的到达和完成异步处理"
+      ],
+      "follow_ups": [
+        "Continuous Batching与动态批处理有何关系?"
+      ],
+      "source_excerpt": "Continuous Batching与推理吞吐优化"
+    },
+    {
+      "question": "请解释投机解码(Speculative Decoding)的原理。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "投机解码",
+        "推理优化"
+      ],
+      "answer_points": [
+        "使用一个快速的小模型生成候选token序列",
+        "大模型并行验证候选序列",
+        "接受正确的token,丢弃错误的,加速解码"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "投机解码(Speculative Decoding)"
+    },
+    {
+      "question": "LoRA的数学原理是什么?为什么低秩有效?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "LoRA",
+        "低秩分解"
+      ],
+      "answer_points": [
+        "将权重更新量分解为两个低秩矩阵的乘积:ΔW = BA",
+        "低秩假设:权重更新具有低秩结构",
+        "减少可训练参数,降低显存需求"
+      ],
+      "follow_ups": [
+        "秩(rank)如何选择?"
+      ],
+      "source_excerpt": "低秩分解的数学原理:W = W0 + BA"
+    },
+    {
+      "question": "RLHF和DPO的本质区别是什么?各有什么优缺点?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "RLHF",
+        "DPO",
+        "对齐"
+      ],
+      "answer_points": [
+        "RLHF:训练奖励模型,再用PPO优化策略,流程复杂",
+        "DPO:直接优化偏好数据,无需奖励模型和PPO",
+        "RLHF效果可能更好,但训练不稳定",
+        "DPO更稳定,训练成本低"
+      ],
+      "follow_ups": [
+        "DPO的变体有哪些?"
+      ],
+      "source_excerpt": "RLHF和DPO的本质区别?各有什么优缺点?"
+    },
+    {
+      "question": "微调时学习率和batch size如何设置?有哪些经验?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "微调",
+        "超参数"
+      ],
+      "answer_points": [
+        "学习率通常比预训练小,如1e-5到5e-5",
+        "batch size根据显存调整,常用16-64",
+        "使用学习率预热和余弦衰减",
+        "监控损失曲线,避免过拟合"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "微调时学习率、batch size怎么设置?什么经验?"
+    },
+    {
+      "question": "请描述大模型训练的全流程:预训练、SFT、RLHF/DPO各阶段的目标与数据要求。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "训练流程",
+        "预训练",
+        "SFT",
+        "RLHF",
+        "DPO"
+      ],
+      "answer_points": [
+        "预训练:大规模无监督学习,学习语言知识",
+        "SFT:有监督微调,使模型遵循指令",
+        "RLHF/DPO:对齐人类偏好,提升有用性和安全性"
+      ],
+      "follow_ups": [
+        "SFT的关键是什么?"
+      ],
+      "source_excerpt": "预训练 → SFT → RLHF/DPO:各阶段目标与数据要求"
+    },
+    {
+      "question": "SFT的关键是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "SFT",
+        "指令微调"
+      ],
+      "answer_points": [
+        "指令数据的质量与多样性",
+        "覆盖各种任务和场景",
+        "避免数据泄露和偏见"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "SFT的关键:指令数据的质量与多样性"
+    },
+    {
+      "question": "LoRA中秩(rank)的选择依据是什么?大了怎样?小了怎样?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "LoRA",
+        "rank"
+      ],
+      "answer_points": [
+        "rank越大,表达能力越强,但参数量和显存增加",
+        "rank越小,效率越高,但可能欠拟合",
+        "通常选择8-64之间,根据任务调整"
+      ],
+      "follow_ups": [
+        "QLoRA如何结合量化和LoRA?"
+      ],
+      "source_excerpt": "秩(rank)的选择依据:大了怎样、小了怎样"
+    },
+    {
+      "question": "LoRA与全量微调在效果、速度、显存方面有何trade-off?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "LoRA",
+        "全量微调"
+      ],
+      "answer_points": [
+        "LoRA:参数量少,训练快,显存低,效果接近全量微调",
+        "全量微调:效果上限更高,但资源消耗大",
+        "LoRA适合资源受限场景,全量微调适合追求极致性能"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "LoRA vs 全量微调:效果、速度、显存的trade-off"
+    },
+    {
+      "question": "QLoRA是如何实现4bit量化与LoRA联合优化的?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "QLoRA",
+        "量化"
+      ],
+      "answer_points": [
+        "将预训练模型权重量化为4bit",
+        "冻结量化权重,只训练LoRA低秩矩阵",
+        "使用双重量化等技术减少精度损失"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "QLoRA:4bit量化 + LoRA的联合优化"
+    },
+    {
+      "question": "LoRA微调时,学习率、目标模块选择、收敛判断有哪些实践要点?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "LoRA",
+        "实践要点"
+      ],
+      "answer_points": [
+        "学习率通常比全量微调大,如1e-4到5e-4",
+        "目标模块通常选择注意力层的Q、V矩阵",
+        "收敛判断:监控验证集损失,或使用早停"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "实践要点:学习率设置、目标模块选择、收敛判断"
+    },
+    {
+      "question": "请描述RLHF的完整流程。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "RLHF",
+        "流程"
+      ],
+      "answer_points": [
+        "训练奖励模型(RM):使用人类偏好数据",
+        "使用PPO算法优化策略模型",
+        "交替进行采样、奖励计算、策略更新"
+      ],
+      "follow_ups": [
+        "PPO训练不稳定的原因是什么?"
+      ],
+      "source_excerpt": "RLHF完整流程:RM训练 + PPO强化学习"
+    },
+    {
+      "question": "PPO训练不稳定的原因是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "PPO",
+        "训练不稳定"
+      ],
+      "answer_points": [
+        "奖励模型可能不准确",
+        "策略更新幅度过大导致崩溃",
+        "超参数敏感,如学习率、clip范围"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "PPO的复杂性:训练不稳定、超参数敏感"
+    },
+    {
+      "question": "DPO的设计思想是什么?它如何省去奖励模型和PPO?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "DPO",
+        "对齐"
+      ],
+      "answer_points": [
+        "直接使用偏好数据优化策略",
+        "通过损失函数隐式地学习奖励",
+        "无需显式训练奖励模型和PPO"
+      ],
+      "follow_ups": [
+        "DPO的变体有哪些?"
+      ],
+      "source_excerpt": "DPO的设计思想:直接优化偏好,省去RM和PPO"
+    },
+    {
+      "question": "RLHF与DPO在效果、稳定性、训练成本方面如何对比?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "RLHF",
+        "DPO",
+        "对比"
+      ],
+      "answer_points": [
+        "效果:RLHF可能略优,但DPO也接近",
+        "稳定性:DPO更稳定,RLHF易不稳定",
+        "训练成本:DPO更低,无需RM和PPO"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "RLHF vs DPO:效果、稳定性、训练成本的对比"
+    },
+    {
+      "question": "DPO有哪些变体?如IPO、KTO、SimPO等。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "DPO",
+        "变体"
+      ],
+      "answer_points": [
+        "IPO:改进损失函数,更稳定",
+        "KTO:使用非偏好数据",
+        "SimPO:简化DPO,更高效"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "DPO的变体:IPO、KTO、SimPO等扩展方法"
+    },
+    {
+      "question": "GPTQ、AWQ、GGUF各量化方案的原理与适用场景是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "量化",
+        "GPTQ",
+        "AWQ",
+        "GGUF"
+      ],
+      "answer_points": [
+        "GPTQ:基于近似最优量化,适合GPU推理",
+        "AWQ:基于激活感知的量化,保持精度",
+        "GGUF:针对CPU优化的量化格式"
+      ],
+      "follow_ups": [
+        "量化对模型效果的影响如何评估?"
+      ],
+      "source_excerpt": "GPTQ、AWQ、GGUF:各量化方案的原理与适用场景"
+    },
+    {
+      "question": "模型蒸馏是如何实现知识传递的?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "模型蒸馏",
+        "知识传递"
+      ],
+      "answer_points": [
+        "使用教师模型(大模型)的软标签训练学生模型(小模型)",
+        "学生模型学习教师模型的输出分布",
+        "可以结合硬标签和软标签进行训练"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "模型蒸馏:知识传递的方法与实践"
+    },
+    {
+      "question": "RAG和Agent是什么关系?什么时候用RAG、什么时候用Agent?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "RAG",
+        "Agent",
+        "关系"
+      ],
+      "answer_points": [
+        "RAG是检索增强生成,用于知识密集型任务",
+        "Agent是自主决策系统,能调用工具和执行多步推理",
+        "RAG可作为Agent的长期记忆组件",
+        "简单问答用RAG,复杂任务用Agent"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "RAG和Agent是什么关系?什么时候用RAG、什么时候用Agent?"
+    },
+    {
+      "question": "如何解决RAG检索不准确的问题?请说出至少5个优化手段。",
+      "question_type": "optimization",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "RAG",
+        "检索优化"
+      ],
+      "answer_points": [
+        "查询改写(Query Rewriting)",
+        "混合检索(稀疏+向量)",
+        "重排序(Re-ranking)",
+        "上下文压缩",
+        "优化分块策略"
+      ],
+      "follow_ups": [
+        "如何评估RAG效果?"
+      ],
+      "source_excerpt": "如何解决RAG检索不准确的问题?说出至少5个优化手段"
+    },
+    {
+      "question": "GraphRAG相比传统RAG的优势和局限是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "GraphRAG",
+        "RAG"
+      ],
+      "answer_points": [
+        "优势:利用知识图谱结构,支持多跳推理,回答更准确",
+        "局限:构建图谱成本高,更新复杂,对简单查询可能过重"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "GraphRAG相比传统RAG的优势和局限?"
+    },
+    {
+      "question": "请描述RAG的核心流程:检索→增强→生成。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "RAG",
+        "流程"
+      ],
+      "answer_points": [
+        "检索:从知识库中检索相关文档片段",
+        "增强:将检索结果与原始查询拼接",
+        "生成:将增强后的输入送入LLM生成回答"
+      ],
+      "follow_ups": [
+        "文档分块策略有哪些?"
+      ],
+      "source_excerpt": "检索→增强→生成的完整流程"
+    },
+    {
+      "question": "文档分块策略有哪些?各有什么特点?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "文档分块",
+        "RAG"
+      ],
+      "answer_points": [
+        "固定分块:简单,但可能切断语义",
+        "递归分块:按层级分割,保留结构",
+        "Semantic Chunking:基于语义边界分块,质量高"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "文档分块策略:固定分块 vs 递归分块 vs Semantic Chunking"
+    },
+    {
+      "question": "Embedding模型选型时需要考虑哪些因素?如何微调?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Embedding",
+        "选型",
+        "微调"
+      ],
+      "answer_points": [
+        "考虑模型大小、维度、领域适配性",
+        "微调:使用领域数据对比学习",
+        "评估指标:检索准确率、召回率"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Embedding模型选型与微调考量"
+    },
+    {
+      "question": "HNSW(分层可导航小世界)的原理是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "HNSW",
+        "向量索引"
+      ],
+      "answer_points": [
+        "构建多层图结构,上层稀疏,下层密集",
+        "搜索时从顶层开始,逐层下降",
+        "近似最近邻搜索,速度快"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "向量索引:HNSW原理与近似最近邻"
+    },
+    {
+      "question": "查询改写(Query Rewriting)在RAG中如何工作?HyDE是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "查询改写",
+        "HyDE"
+      ],
+      "answer_points": [
+        "查询改写:将原始查询转换为更易检索的形式",
+        "HyDE:生成假设性文档,用其嵌入进行检索",
+        "查询扩展:添加同义词或相关词"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "查询改写(Query Rewriting):HyDE、查询扩展"
+    },
+    {
+      "question": "混合检索(稀疏检索+向量检索)如何融合?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "混合检索",
+        "BM25",
+        "向量检索"
+      ],
+      "answer_points": [
+        "分别使用BM25和向量检索得到结果",
+        "对结果进行归一化打分",
+        "加权融合或排序融合"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "混合检索:稀疏检索(BM25)+ 向量检索的融合"
+    },
+    {
+      "question": "重排序(Re-ranking)在RAG中的作用是什么?常用方法有哪些?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "重排序",
+        "Re-ranking"
+      ],
+      "answer_points": [
+        "对检索结果进行精细排序,提升相关性",
+        "常用方法:Cross-Encoder模型",
+        "轻量方案:使用小模型或规则"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "重排序(Re-ranking):Cross-Encoder与轻量方案"
+    },
+    {
+      "question": "RAG效果评估的指标有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "RAG",
+        "评估"
+      ],
+      "answer_points": [
+        "检索准确率",
+        "回答相关性",
+        "忠实度(是否基于检索内容)"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "RAG效果评估:检索准确率、回答相关性、忠实度"
+    },
+    {
+      "question": "如何将RAG作为Agent的长期记忆?架构如何设计?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "RAG",
+        "Agent",
+        "长期记忆"
+      ],
+      "answer_points": [
+        "Agent在需要时调用RAG检索工具",
+        "RAG存储结构化知识或历史对话",
+        "设计记忆写入和更新策略"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "RAG作为Agent的长期记忆:架构设计"
+    },
+    {
+      "question": "Agent中的“检索工具”设计模式是怎样的?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "检索工具"
+      ],
+      "answer_points": [
+        "将检索功能封装为工具",
+        "Agent根据任务决定是否调用",
+        "工具返回结果供Agent进一步处理"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Agent中的“检索工具”设计模式"
+    },
+    {
+      "question": "GraphRAG的原理是什么?适用于哪些场景?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "GraphRAG",
+        "知识图谱"
+      ],
+      "answer_points": [
+        "构建知识图谱,将实体和关系结构化",
+        "检索时遍历图谱,获取相关子图",
+        "适用于需要多跳推理和关系理解的场景"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "GraphRAG:知识图谱增强的RAG原理与场景"
+    },
+    {
+      "question": "多跳推理在RAG中如何实现?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "多跳推理",
+        "RAG"
+      ],
+      "answer_points": [
+        "将复杂查询拆解为多个子查询",
+        "依次检索并聚合结果",
+        "可能需要多轮交互"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "多跳推理:复杂查询的拆解与多轮检索"
+    },
+    {
+      "question": "Agent和LLM Chain的根本区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Chain"
+      ],
+      "answer_points": [
+        "Chain是固定的执行序列,无自主决策",
+        "Agent具有自主决策能力,能动态选择行动",
+        "Agent可以调用工具、管理记忆、规划任务"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Agent vs Chain:自主决策能力是核心差异"
+    },
+    {
+      "question": "设计一个Agent的核心循环,需要考虑哪些要素?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "核心循环"
+      ],
+      "answer_points": [
+        "观察(Observation):获取环境信息",
+        "思考(Thought):推理和规划",
+        "行动(Action):执行动作",
+        "循环终止条件、死循环检测、错误处理"
+      ],
+      "follow_ups": [
+        "如何手写Agent Loop伪代码?"
+      ],
+      "source_excerpt": "Observation → Thought → Action 的完整流程"
+    },
+    {
+      "question": "Agent = LLM + Memory + Planning + Tools 这个公式中,每个组件可以怎么替换?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Agent",
+        "组件替换"
+      ],
+      "answer_points": [
+        "LLM可替换为不同模型",
+        "Memory可替换为不同存储方案",
+        "Planning可替换为不同策略",
+        "Tools可替换为不同API"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Agent = LLM + Memory + Planning + Tools 这个公式,每个组件可以怎么替换?"
+    },
+    {
+      "question": "Agent的四大组件(规划、记忆、工具、行动)缺一不可吗?什么场景可以简化?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "组件"
+      ],
+      "answer_points": [
+        "简单任务可省略规划或记忆",
+        "无外部依赖时可省略工具",
+        "但核心是行动,其他组件可选"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "四大组件缺一不可吗?什么场景可以简化?"
+    },
+    {
+      "question": "Agent执行循环中,循环终止条件如何设计?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "终止条件"
+      ],
+      "answer_points": [
+        "任务完成标志",
+        "最大迭代次数",
+        "异常退出条件"
+      ],
+      "follow_ups": [
+        "如何检测和防止死循环?"
+      ],
+      "source_excerpt": "循环终止条件设计:任务完成 / 最大迭代 / 异常退出"
+    },
+    {
+      "question": "Agent执行循环中,如何检测和防止死循环?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "死循环"
+      ],
+      "answer_points": [
+        "设置最大迭代次数",
+        "检测重复状态",
+        "引入随机性或超时机制"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "死循环检测与防护机制"
+    }
+  ]
+}

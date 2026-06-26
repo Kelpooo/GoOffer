@@ -1,0 +1,732 @@
+{
+  "source_title": "前端面试八股文汇总",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "请说一下CSS的盒模型。",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "盒模型",
+        "标准盒模型",
+        "IE盒模型"
+      ],
+      "answer_points": [
+        "所有元素都可以看成是一个盒子,由内容content、内边距padding、边框border、外边距margin组成。",
+        "标准盒模型:box-sizing: content-box,宽度只包含content。",
+        "IE盒模型:box-sizing: border-box,宽度包含content、padding、border。"
+      ],
+      "follow_ups": [
+        "box-sizing属性有哪些值?分别有什么作用?"
+      ],
+      "source_excerpt": "在HTML页面中的所有元素都可以看成是一个盒子,盒子的组成:内容content、内边距padding、边框border、外边距margin。盒模型的类型:标准盒模型:margin + border + padding + content;IE盒模型:margin + content(border + padding)。控制盒模型的模式:box-sizing:content-box(默认值,标准盒模型)、border-box(IE盒模型)。"
+    },
+    {
+      "question": "CSS选择器的优先级是如何计算的?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "选择器优先级",
+        "权重"
+      ],
+      "answer_points": [
+        "优先级从高到低:!important > 行内样式 > id选择器 > 类/伪类/属性选择器 > 标签选择器 > 全局选择器。",
+        "相同优先级时,后定义的样式覆盖先定义的。"
+      ],
+      "follow_ups": [
+        "请举例说明选择器优先级的计算规则。"
+      ],
+      "source_excerpt": "优先级:写CSS样式的时候,会给同一个元素添加多个样式,此时谁的权重高就显示谁的样式。标签、类/伪类/属性、全局选择器、行内样式、id、!important。!important > 行内样式 > id > 类/伪类/属性 > 标签 > 全局选择器。"
+    },
+    {
+      "question": "隐藏元素的方法有哪些?它们有什么区别?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "隐藏元素",
+        "display",
+        "opacity",
+        "visibility"
+      ],
+      "answer_points": [
+        "display:none:元素消失,不占据空间,无法点击。",
+        "opacity:0:元素透明,占据空间,可点击。",
+        "visibility:hidden:元素不可见,占据空间,不可点击。",
+        "position:absolute:通过定位移出可视区域。",
+        "clip-path:裁剪元素。"
+      ],
+      "follow_ups": [
+        "display:none和visibility:hidden在性能上有什么区别?"
+      ],
+      "source_excerpt": "display:none;元素在页面上消失,不占据空间。opacity:0;设置了元素的透明度为0,元素不可见,占据空间位置。visibility:hidden;让元素消失,占据空间位置,一种不可见的状态。position:absolute; clip-path。"
+    },
+    {
+      "question": "px和rem的区别是什么?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "px",
+        "rem",
+        "相对单位",
+        "绝对单位"
+      ],
+      "answer_points": [
+        "px是绝对单位,表示像素,大小固定。",
+        "rem是相对单位,相对于根元素html的font-size。",
+        "通常设置html的font-size为62.5%,则1rem = 10px。"
+      ],
+      "follow_ups": [
+        "rem在移动端适配中如何应用?"
+      ],
+      "source_excerpt": "px是像素,显示器上给我们呈现画面的像素,每个像素的大小是一样,绝对单位长度。rem,相对单位,相对于html根节点的font-size的值,直接给html节点的font-size:62.5%; 1rem = 10px; (16px*62.5%=10px ;本身1rem = 16px,当html的font-size设置为62.5%,则1rem = 10px)。"
+    },
+    {
+      "question": "重绘和重排有什么区别?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "重绘",
+        "重排",
+        "回流",
+        "渲染机制"
+      ],
+      "answer_points": [
+        "重排(回流):当DOM的大小、位置等几何属性发生变化时,浏览器需要重新计算元素的几何属性。",
+        "重绘:当元素的样式(如颜色)发生变化,不影响布局时,浏览器直接绘制新样式。",
+        "重排一定会触发重绘,重绘不一定触发重排。"
+      ],
+      "follow_ups": [
+        "如何减少重排和重绘?"
+      ],
+      "source_excerpt": "重排(回流):布局引擎会根据所有的样式计算出盒模型在页面上的位置和大小。重绘:计算好盒模型的位置、大小和其他一些属性之后,浏览器就会根据每个盒模型的特性进行绘制。对DOM的大小、位置进行修改后,浏览器需要重新计算元素的这些几何属性,就叫重排。对DOM的样式进行修改,比如color和background-color,浏览器不需要重新计算几何属性的时候,直接绘制了该元素的新样式,那么这里就只触发了重绘。"
+    },
+    {
+      "question": "让一个元素水平垂直居中的方式有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "居中",
+        "flex",
+        "grid",
+        "定位"
+      ],
+      "answer_points": [
+        "定位+margin:父元素相对定位,子元素绝对定位,top:50%; left:50%; margin-top和margin-left为负的子元素一半宽高。",
+        "定位+transform:父元素相对定位,子元素绝对定位,top:50%; left:50%; transform:translate(-50%,-50%)。",
+        "flex布局:父元素display:flex; justify-content:center; align-items:center。",
+        "grid布局:父元素display:grid; place-items:center。",
+        "table布局:父元素display:table-cell; text-align:center; vertical-align:middle。"
+      ],
+      "follow_ups": [
+        "flex布局和grid布局实现居中的区别?"
+      ],
+      "source_excerpt": "1.定位+margin 2.定位+transform 3.flex布局 4.grid布局 5.table布局。"
+    },
+    {
+      "question": "CSS中哪些属性可以继承?哪些不可以?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "继承",
+        "CSS特性"
+      ],
+      "answer_points": [
+        "可继承的属性:字体相关(font)、文本相关(line-height)、可见性(visibility)、表格布局(border-spacing)、列表(list-style)等。",
+        "不可继承的属性:盒模型相关(width、height、margin、padding、border)、定位(position)、背景(background)等。"
+      ],
+      "follow_ups": [
+        "inherit关键字的作用是什么?"
+      ],
+      "source_excerpt": "子元素可以继承父类元素的样式。1.字体的一些属性:font 2.文本的一些属性:line-height 3.元素的可见性:visibility:hidden 4.表格布局的属性:border-spacing 5.列表的属性:list-style 6.页面样式属性:page 7.声音的样式属性。"
+    },
+    {
+      "question": "有没有用过CSS预处理器?它们有什么优点?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "预处理器",
+        "SASS",
+        "LESS"
+      ],
+      "answer_points": [
+        "预处理语言增加了变量、函数、混入等强大功能。",
+        "常见的有SASS和LESS。",
+        "优点:提高代码复用性、可维护性,支持嵌套、运算等。"
+      ],
+      "follow_ups": [
+        "SASS和LESS有什么区别?"
+      ],
+      "source_excerpt": "预处理语言增加了变量、函数、混入等强大的功能。SASS LESS。"
+    },
+    {
+      "question": "JS由哪三部分组成?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript组成",
+        "ECMAScript",
+        "DOM",
+        "BOM"
+      ],
+      "answer_points": [
+        "ECMAScript:核心语法,包括变量、数据类型、流程控制等。",
+        "文档对象模型(DOM):操作HTML文档的接口。",
+        "浏览器对象模型(BOM):操作浏览器窗口的接口。"
+      ],
+      "follow_ups": [
+        "DOM和BOM的主要区别是什么?"
+      ],
+      "source_excerpt": "ECMAScript:JS的核心内容,描述了语言的基础语法,比如var,for,数据类型(数组、字符串)。文档对象模型(DOM):DOM把整个HTML页面规划为元素构成的文档。浏览器对象模型(BOM):对浏览器窗口进行访问和操作。"
+    },
+    {
+      "question": "JS有哪些内置对象?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "内置对象",
+        "Math",
+        "Date",
+        "Array",
+        "String"
+      ],
+      "answer_points": [
+        "常见内置对象:String、Boolean、Number、Array、Object、Function、Math、Date、RegExp等。",
+        "Math对象提供数学方法,如abs、sqrt、max、min。",
+        "Date对象用于日期时间操作。",
+        "Array和String提供数组和字符串操作方法。"
+      ],
+      "follow_ups": [
+        "Math对象有哪些常用方法?"
+      ],
+      "source_excerpt": "String Boolean Number Array Object Function Math Date RegExp... Math abs() sqrt() max() min() Data new Data() getYear() Array String concat() length slice() split()。"
+    },
+    {
+      "question": "操作数组的方法有哪些?哪些会改变原数组?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数组方法",
+        "改变原数组",
+        "不改变原数组"
+      ],
+      "answer_points": [
+        "改变原数组的方法:push、pop、unshift、shift、sort、reverse、splice。",
+        "不改变原数组的方法:concat、join、map、filter、every、some、reduce、findIndex等。"
+      ],
+      "follow_ups": [
+        "map和forEach有什么区别?"
+      ],
+      "source_excerpt": "push() pop() sort() splice() unshift() shift() reverse() concat() join() map() filter() ervery() some() reduce() isArray() findIndex()。哪些方法会改变原数组?push() pop() unshift() shift() sort() reverse() splice()。"
+    },
+    {
+      "question": "JS对数据类型的检测方式有哪些?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "类型检测",
+        "typeof",
+        "instanceof",
+        "constructor",
+        "toString"
+      ],
+      "answer_points": [
+        "typeof:适合基本类型,但引用类型返回'object',无法区分数组和对象。",
+        "instanceof:只能判断引用类型,不能判断基本类型。",
+        "constructor:几乎可以判断所有类型,但原型被修改时可能不准确。",
+        "Object.prototype.toString.call():最准确,返回[object Type]格式。"
+      ],
+      "follow_ups": [
+        "为什么typeof null返回'object'?"
+      ],
+      "source_excerpt": "typeof():对于基本数据类型没问题,但遇到引用数据类型就不管用比如console.log(typeof [1,2,3])打印的是object而不是array。instanceof():只能判断引用数据类型,不能判断基本数据类型 console.log([] instanceof Array) 打印是true 但是console.log('bcd' instanceof String)打印的确是false。constructor:几乎可以判断基本数据类型和引用数据类型,如果声明了一个构造函数,并把它的原型指向了Array这个就不太合适。Object.prototype.toString.call():完美解决上述所有存在的问题。"
+    },
+    {
+      "question": "说一下闭包,闭包有什么特点?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "闭包",
+        "作用域",
+        "内存泄漏"
+      ],
+      "answer_points": [
+        "闭包:函数嵌套函数,内部函数被外部函数返回并保存时产生。",
+        "特点:可以重复利用变量,且变量不会污染全局;变量一直保存在内存中,不会被垃圾回收。",
+        "缺点:过多闭包消耗内存,可能导致性能下降或内存泄漏(IE中)。",
+        "使用场景:防抖、节流、函数嵌套避免全局污染。"
+      ],
+      "follow_ups": [
+        "闭包中的变量是如何被保存的?"
+      ],
+      "source_excerpt": "什么是闭包?函数嵌套函数,内部函数被外部函数返回并保存下来时,就会产生闭包。特点:可以重复利用变量,并且这个变量不会污染全局的一种机制;这个变量是一直保存再内存中,不会被垃圾回收机制回收。缺点:闭包较多的时候,会消耗内存,导致页面的性能下降,在IE浏览器中才会导致内存泄漏。使用场景:防抖,节流,函数嵌套函数避免全局污染的时候。"
+    },
+    {
+      "question": "前端的内存泄漏怎么理解?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "内存泄漏",
+        "垃圾回收"
+      ],
+      "answer_points": [
+        "内存泄漏:已分配内存的对象长时间未释放,导致内存占用,影响性能。",
+        "常见原因:未声明的全局变量、未清空的定时器、过度闭包、未清除的DOM引用。",
+        "垃圾回收机制会定期清理不再使用的对象。"
+      ],
+      "follow_ups": [
+        "如何检测和避免内存泄漏?"
+      ],
+      "source_excerpt": "JS里已经分配内存地址的对象,但是由于长时间没有释放或者没办法清除,造成长期占用内存的现象,会让内存资源大幅浪费,最终导致运行速度慢,甚至崩溃的情况。垃圾回收机制。因素:一些为生命直接赋值的变量;一些未清空的定时器;过度的闭包;一些引用元素没有被清除。"
+    },
+    {
+      "question": "事件委托是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "事件委托",
+        "事件冒泡",
+        "事件捕获"
+      ],
+      "answer_points": [
+        "事件委托:利用事件冒泡机制,将子元素的事件绑定到父元素上。",
+        "如果子元素阻止事件冒泡,则委托不成立。",
+        "阻止事件冒泡:event.stopPropagation()。",
+        "好处:提高性能,减少事件绑定,节省内存。"
+      ],
+      "follow_ups": [
+        "事件捕获和事件冒泡的区别是什么?"
+      ],
+      "source_excerpt": "又叫事件代理,原理就是利用了事件冒泡的机制来实现,也就是说把子元素的事件绑定到了父元素的身上。如果子元素组织了事件冒泡,那么委托也就不成立。组织事件冒泡:event.stopPropagation()。addEventListener('click',函数名,true/false) 默认是false(事件冒泡),true(事件捕获)。好处:提高性能,减少事件的绑定,也就减少了内存的占用。"
+    },
+    {
+      "question": "基本数据类型和引用数据类型的区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数据类型",
+        "栈内存",
+        "堆内存"
+      ],
+      "answer_points": [
+        "基本数据类型:String、Number、Boolean、undefined、null,保存在栈内存中,存储具体值。",
+        "引用数据类型:Object、Array、Function,保存在堆内存中,栈中存储地址。",
+        "引用类型赋值时传递地址,修改一个变量会影响另一个。"
+      ],
+      "follow_ups": [
+        "null和undefined的区别是什么?"
+      ],
+      "source_excerpt": "基本数据类型:String Number Boolean undefined null。基本数据类型保存在栈内存当中,保存的就是一个具体的值。引用数据类型(复杂数据类型):Object Function Array。保存在堆内存当中,声明一个引用类型的变量,它保存的是引用类型数据的地址。假如声明两个引用类型同时指向了一个地址的时候,修改其中一个那么另外一个也会改变。"
+    },
+    {
+      "question": "说一下原型链。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "原型",
+        "原型链",
+        "__proto__",
+        "prototype"
+      ],
+      "answer_points": [
+        "原型是一个普通对象,为构造函数的实例共享属性和方法。",
+        "使用prototype可以把方法挂在原型上,内存只保存一份。",
+        "__proto__是指针,指向构造函数的原型(prototype)。",
+        "原型链:当访问对象属性时,如果对象本身没有,会沿着__proto__向上查找,直到Object.prototype。"
+      ],
+      "follow_ups": [
+        "原型链的终点是什么?"
+      ],
+      "source_excerpt": "原型就是一个普通对象,它是为构造函数的实例共享属性和方法;所有实例中引用的原型都是同一个对象。使用prototype可以把方法挂在原型上,内存值保存一份。__proto__可以理解为指针,实例对象中的属性,指向了构造函数的原型(prototype)。"
+    },
+    {
+      "question": "new操作符具体做了什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "new",
+        "构造函数",
+        "原型链"
+      ],
+      "answer_points": [
+        "创建一个空对象。",
+        "将空对象的__proto__指向构造函数的prototype。",
+        "将构造函数的this绑定到新对象上。",
+        "根据构造函数返回值类型:如果是值类型,返回新对象;如果是引用类型,返回该引用类型。"
+      ],
+      "follow_ups": [
+        "如果构造函数返回一个对象,new的结果是什么?"
+      ],
+      "source_excerpt": "1.先创建一个空对象 2.把空对象和构造函数通过原型链进行链接 3.把构造函数的this绑定到新的空对象身上 4.根据构建函数返回的类型判断,如果是值类型,则返回对象,如果是引用类型,就要返回这个引用类型。"
+    },
+    {
+      "question": "JS是如何实现继承的?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "继承",
+        "原型链继承",
+        "构造函数继承",
+        "组合继承",
+        "class"
+      ],
+      "answer_points": [
+        "原型链继承:子类原型指向父类实例。",
+        "借用构造函数继承:在子类构造函数中调用父类构造函数。",
+        "组合式继承:结合原型链和构造函数。",
+        "ES6 class继承:使用extends关键字。"
+      ],
+      "follow_ups": [
+        "组合继承有什么缺点?如何优化?"
+      ],
+      "source_excerpt": "1.原型链继承 2.借用构造函数继承 3.组合式继承 4.ES6的class类继承。"
+    },
+    {
+      "question": "JS的设计原理是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "senior",
+      "tags": [
+        "JS引擎",
+        "运行上下文",
+        "调用栈",
+        "事件循环"
+      ],
+      "answer_points": [
+        "JS引擎负责解析和执行代码。",
+        "运行上下文:代码执行时的环境。",
+        "调用栈:管理函数调用顺序。",
+        "事件循环:处理异步任务,包括宏任务和微任务。",
+        "回调:异步操作完成后的处理。"
+      ],
+      "follow_ups": [
+        "请详细解释事件循环机制。"
+      ],
+      "source_excerpt": "JS引擎 运行上下文 调用栈 事件循环 回调。"
+    },
+    {
+      "question": "JS中this指向的问题有哪些?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "this",
+        "箭头函数",
+        "call",
+        "apply",
+        "bind"
+      ],
+      "answer_points": [
+        "全局对象中this指向window。",
+        "普通函数中this指向全局window(非严格模式)。",
+        "this永远指向最后调用它的对象。",
+        "new关键字改变this指向新对象。",
+        "call、apply、bind可以改变this指向。",
+        "箭头函数中的this在定义时确定,指向外层函数的this。",
+        "匿名函数中的this指向window。"
+      ],
+      "follow_ups": [
+        "箭头函数为什么不能改变this?"
+      ],
+      "source_excerpt": "1. 全局对象中的this指向指向的是window。2. 全局作用域或者普通函数中的this指向全局window。3. this永远指向最后调用它的那个对象。4. new 关键词改变了this的指向。5. apply,call,bind可以改变this指向,不是箭头函数。6. 箭头函数中的this它的指向在定义的时候就已经确定了,箭头函数它没有this,看外层是否有函数,有就是外层函数的this,没有就是window。7. 匿名函数中的this永远指向了window,匿名函数的执行环境具有全局性,因此this指向window。"
+    },
+    {
+      "question": "script标签里的async和defer有什么区别?",
+      "question_type": "comparison",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "async",
+        "defer",
+        "脚本加载"
+      ],
+      "answer_points": [
+        "无属性:浏览器立即加载并执行脚本,阻塞后续文档解析。",
+        "async:脚本加载与文档解析并行,加载完成后立即执行,可能乱序。",
+        "defer:脚本加载与文档解析并行,但等待文档解析完成后按顺序执行。"
+      ],
+      "follow_ups": [
+        "async和defer对DOMContentLoaded事件的影响?"
+      ],
+      "source_excerpt": "当没有async和defer这两个属性的时候,浏览器会立刻加载并执行指定的脚本。有async:加载和渲染后面元素的过程将和script的加载和执行并行进行(异步)。有defer:加载和渲染后面元素的过程将和script的加载并行进行(异步),但是它的执行事件要等所有元素解析完成之后才会执行。"
+    },
+    {
+      "question": "setTimeout最小执行时间是多少?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "setTimeout",
+        "最小延迟"
+      ],
+      "answer_points": [
+        "HTML5规定:setTimeout最小执行时间是4ms。",
+        "setInterval最小执行时间是10ms。"
+      ],
+      "follow_ups": [
+        "为什么setTimeout有最小延迟?"
+      ],
+      "source_excerpt": "HTML5规定的内容:setTimeout最小执行时间是4ms。setInterval最小执行时间是10ms。"
+    },
+    {
+      "question": "ES6和ES5有什么区别?",
+      "question_type": "comparison",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "ES5",
+        "ES6",
+        "版本差异"
+      ],
+      "answer_points": [
+        "ES5是2009年发布的第五次修订,ES6是2015年发布的第六次修订。",
+        "ES6新增了let、const、箭头函数、class、Promise、模块化等特性。"
+      ],
+      "follow_ups": [
+        "ES6有哪些新特性?"
+      ],
+      "source_excerpt": "JS的组成:ECMAScript BOM DOM。ES5:ECMAScript5,2009年ECMAScript的第五次修订,ECMAScript2009。ES6:ECMAScript6,2015年ECMAScript的第六次修订,ECMAScript2015,是JS的下一个版本标准。"
+    },
+    {
+      "question": "ES6的新特性有哪些?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "mid",
+      "tags": [
+        "ES6",
+        "新特性",
+        "let",
+        "const",
+        "箭头函数",
+        "Promise",
+        "模块化"
+      ],
+      "answer_points": [
+        "新增块级作用域(let、const),不存在变量提升,有暂时性死区。",
+        "新增class语法糖。",
+        "新增基本数据类型Symbol。",
+        "新增解构赋值。",
+        "新增函数参数默认值。",
+        "新增数组API(如map、filter等)。",
+        "新增扩展运算符。",
+        "新增Promise,解决回调地狱。",
+        "新增模块化(import/export)。",
+        "新增Set和Map数据结构。",
+        "新增Generator。",
+        "新增箭头函数,不能作为构造函数,没有arguments,不能改变this。"
+      ],
+      "follow_ups": [
+        "let和const的区别是什么?"
+      ],
+      "source_excerpt": "1.新增块级作用域(let,const)不存在变量提升,存在暂时性死区的问题,块级作用域的内容,不能在同一个作用域内重复声明。2.新增了定义类的语法糖(class)。3.新增了一种基本数据类型(symbol)。4.新增了解构赋值。5.新增了函数参数的默认值。6.给数组新增了API。7.对象和数组新增了扩展运算符。8.Promise。9.新增了模块化(import,export)。10.新增了set和map数据结构。11.新增了generator。12.新增了箭头函数。"
+    },
+    {
+      "question": "call、apply、bind三者有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "call",
+        "apply",
+        "bind",
+        "this指向"
+      ],
+      "answer_points": [
+        "三者都可以改变this指向。",
+        "call传参为参数列表,apply传参为数组。",
+        "bind传参后不会立即执行,返回一个改变了this指向的函数。",
+        "call性能比apply稍好。"
+      ],
+      "follow_ups": [
+        "bind返回的函数还能再传参吗?"
+      ],
+      "source_excerpt": "都是改变this指向和函数的调用,call和apply的功能类似,只是传参的方法不同。call方法传的是一个参数列表。apply传递的是一个数组。bind传参后不会立刻执行,会返回一个改变了this指向的函数,这个函数还是可以传参的,bind()()。call方法的性能要比apply好一些,所以call用的更多一点。"
+    },
+    {
+      "question": "用递归的时候有没有遇到什么问题?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "递归",
+        "栈溢出"
+      ],
+      "answer_points": [
+        "递归函数内部调用自己。",
+        "必须要有退出条件(return),否则会无限递归导致栈溢出。"
+      ],
+      "follow_ups": [
+        "如何优化递归性能?"
+      ],
+      "source_excerpt": "如果一个函数内可以调用函数本身,那么这个就是递归函数。函数内部调用自己。特别注意:写递归必须要有退出条件return。"
+    },
+    {
+      "question": "如何实现一个深拷贝?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "深拷贝",
+        "浅拷贝",
+        "递归"
+      ],
+      "answer_points": [
+        "扩展运算符(...)只能实现浅拷贝。",
+        "JSON.parse(JSON.stringify())可实现深拷贝,但无法处理函数、undefined、循环引用等。",
+        "递归实现深拷贝:遍历对象属性,对每个属性进行递归拷贝。"
+      ],
+      "follow_ups": [
+        "深拷贝和浅拷贝的区别?"
+      ],
+      "source_excerpt": "深拷贝就是完全拷贝一份新的对象,会在堆内存中开辟新的空间,拷贝的对象被修改后,原对象不受影响。主要针对的是引用数据类型。1.扩展运算符 2.JSON.parse(JSON.stringify()) 3.利用递归函数实现。"
+    },
+    {
+      "question": "说一下事件循环。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "事件循环",
+        "宏任务",
+        "微任务",
+        "执行栈"
+      ],
+      "answer_points": [
+        "JS是单线程语言。",
+        "主线程先执行同步任务,然后执行任务队列中的异步任务。",
+        "任务队列分为宏任务和微任务,执行宏任务前会先清空微任务队列。",
+        "循环往复的过程就是事件循环。"
+      ],
+      "follow_ups": [
+        "宏任务和微任务分别有哪些?"
+      ],
+      "source_excerpt": "JS是一个单线程的脚本语言。主线程 执行栈 任务队列 宏任务 微任务。主线程先执行同步任务,然后才去执行任务队列里的任务,如果在执行宏任务之前有微任务,那么要先执行微任务。全部执行完之后等待主线程的调用,调用完之后再去任务队列中查看是否有异步任务,这样一个循环往复的过程就是事件循环!"
+    },
+    {
+      "question": "ajax是什么?怎么实现的?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "ajax",
+        "XMLHttpRequest",
+        "异步请求"
+      ],
+      "answer_points": [
+        "AJAX:在不重新加载整个网页的前提下,与服务器交换数据并更新部分内容。",
+        "实现步骤:创建XMLHttpRequest对象;调用open()建立连接;通过send()发送请求;监听onreadystatechange事件;处理响应数据;更新页面。"
+      ],
+      "follow_ups": [
+        "fetch和ajax有什么区别?"
+      ],
+      "source_excerpt": "创建交互式网页应用的网页开发技术。在不重新加载整个网页的前提下,与服务器交换数据并更新部分内容。通过XmlHttpRequest对象向服务器发送异步请求,然后从服务器拿到数据,最后通过JS操作DOM更新页面。1.创建XmlHttpRequest对象 xmh 2.通过xmh对象里的open()方法和服务器建立连接 3.构建请求所需的数据,并通过xmh对象的send()发送给服务器 4.通过xmh对象的onreadystate chansge事件监听服务器和你的通信状态 5.接收并处理服务器响应的数据结果 6.把处理的数据更新到HTML页面上。"
+    },
+    {
+      "question": "get和post有什么区别?",
+      "question_type": "comparison",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "GET",
+        "POST",
+        "HTTP方法"
+      ],
+      "answer_points": [
+        "GET一般用于获取数据,POST一般用于提交数据。",
+        "GET参数放在URL中,安全性差;POST参数放在body中。",
+        "GET请求刷新或退回无影响,POST退回会重新提交。",
+        "GET请求会被缓存,POST不会。",
+        "GET请求保存在浏览器历史记录中,POST不会。",
+        "GET只能进行URL编码,POST支持多种编码。"
+      ],
+      "follow_ups": [
+        "POST请求的body格式有哪些?"
+      ],
+      "source_excerpt": "1.get一般是获取数据,post一般是提交数据。2.get参数会放在url上,所以安全性比较差,post是放在body中。3.get请求刷新服务器或退回是没有影响的,post请求退回时会重新提交数据。4.get请求时会被缓存,post请求不会被缓存。5.get请求会被保存在浏览器历史记录中,post不会。6.get请求只能进行url编码,post请求支持很多种。"
+    },
+    {
+      "question": "Promise的内部原理是什么?它的优缺点是什么?",
+      "question_type": "principle",
+      "category": "es6",
+      "difficulty": "mid",
+      "tags": [
+        "Promise",
+        "异步",
+        "回调地狱"
+      ],
+      "answer_points": [
+        "Promise封装异步操作,有三种状态:pending、fulfilled、rejected,状态一旦改变不可逆。",
+        "优点:解决回调地狱,链式调用,代码可读性好。",
+        "缺点:无法取消Promise,一旦创建立即执行;不设置回调则错误无法反馈;pending状态无法得知进度。",
+        "原理:构造函数接收执行器函数,参数resolve和reject;then方法指定状态改变时的回调。"
+      ],
+      "follow_ups": [
+        "Promise.all和Promise.race有什么区别?"
+      ],
+      "source_excerpt": "Promise对象,封装了一个异步操作并且还可以获取成功或失败的结果。Promise主要就是解决回调地狱的问题。有三种状态:pending初始状态 fulfilled成功状态 rejected失败状态。状态改变只会有两种情况,pending -> fulfilled; pending -> rejected 一旦发生,状态就会凝固,不会再变。首先就是我们无法取消promise,一旦创建它就会立即执行,不能中途取消。如果不设置回调,promise内部抛出的错误就无法反馈到外面。若当前处于pending状态时,无法得知目前在哪个阶段。原理:构造一个Promise实例,实例需要传递函数的参数,这个函数有两个形参,分别都是函数类型,一个是resolve一个是reject。promise上还有then方法,这个方法就是来指定状态改变时的确定操作,resolve是执行第一个函数,reject是执行第二个函数。"
+    },
+    {
+      "question": "Promise和async/await的区别是什么?",
+      "question_type": "comparison",
+      "category": "es6",
+      "difficulty": "mid",
+      "tags": [
+        "Promise",
+        "async/await",
+        "异步"
+      ],
+      "answer_points": [
+        "都是处理异步请求的方式。",
+        "Promise是ES6,async/await是ES7。",
+        "async/await基于Promise实现,都是非阻塞的。",
+        "Promise使用then/catch链式调用,async/await使用try/catch,代码更同步化。",
+        "async/await遇到await会等待结果,Promise.then()不会阻塞后续代码。"
+      ],
+      "follow_ups": [
+        "async/await如何捕获异常?"
+      ],
+      "source_excerpt": "1.都是处理异步请求的方式。2.promise是ES6,async await 是ES7的语法。3.async await是基于promise实现的,他和promise都是非阻塞性的。优缺点:1.promise是返回对象我们要用then,catch方法去处理和捕获异常,并且书写方式是链式,容易造成代码重叠,不好维护,async await 是通过tra catch进行捕获异常。2.async await最大的优点就是能让代码看起来像同步一样,只要遇到await就会立刻返回结果,然后再执行后面的操作。promise.then()的方式返回,会出现请求还没返回,就执行了后面的操作。"
+    },
+    {
+      "question": "浏览器的存储方式有哪些?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "cookie",
+        "localStorage",
+        "sessionStorage",
+        "IndexedDB"
+      ],
+      "answer_points": [
+        "cookies:H5标准前的方式,兼容性好,请求头自带,但存储量小,使用麻烦。",
+        "localStorage:H5加入,键值对存储,永久存储,操作方便,但保存类型有限,隐私模式下不可读。",
+        "sessionStorage:会话级别存储,页面关闭后清除。",
+        "IndexedDB:H5标准,键值对存储,适合大量数据,可快速读取。"
+      ],
+      "follow_ups": [
+        "localStorage和sessionStorage的区别?"
+      ],
+      "source_excerpt": "1.cookies H5标准前的本地存储方式,兼容性好,请求头自带cookie,存储量小,资源浪费,使用麻烦(封装)。2.localstorage H5加入的以键值对为标准的方式,操作方便,永久存储,兼容性较好,保存值的类型被限定,浏览器在隐私模式下不可读取,不能被爬虫。3.sessionstorage 当前页面关闭后就会立刻清理,会话级别的存储方式。4.indexedDB H5标准的存储方式,他是以键值对进行存储,可以快速读取,适合WEB场景。"
+    }
+  ]
+}

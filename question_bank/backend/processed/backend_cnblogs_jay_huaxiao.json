@@ -1,0 +1,1115 @@
+{
+  "source_title": "800+ Java 后端经典面试题",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "equals与==的区别是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "运算符"
+      ],
+      "answer_points": [
+        "==比较的是内存地址,equals比较的是内容。",
+        "对于基本类型,==比较的是值;对于引用类型,==比较的是引用。",
+        "equals是Object类的方法,默认比较引用,但通常被重写为比较内容。"
+      ],
+      "follow_ups": [
+        "如何正确重写equals方法?"
+      ],
+      "source_excerpt": "equals与==的区别"
+    },
+    {
+      "question": "final, finally, finalize的区别是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "关键字"
+      ],
+      "answer_points": [
+        "final用于修饰类、方法、变量,表示不可变。",
+        "finally是异常处理块,保证代码一定会执行。",
+        "finalize是Object类的方法,在垃圾回收前调用。"
+      ],
+      "follow_ups": [
+        "finalize方法在实际开发中常用吗?"
+      ],
+      "source_excerpt": "final, finally, finalize 的区别"
+    },
+    {
+      "question": "重载和重写的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "面向对象"
+      ],
+      "answer_points": [
+        "重载发生在同一个类中,方法名相同但参数列表不同。",
+        "重写发生在子类中,方法签名与父类相同。",
+        "重载是编译时多态,重写是运行时多态。"
+      ],
+      "follow_ups": [
+        "重写时访问修饰符可以更严格吗?"
+      ],
+      "source_excerpt": "重载和重写的区别"
+    },
+    {
+      "question": "两个对象的hashCode()相同,则equals()是否也一定为true?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "Object"
+      ],
+      "answer_points": [
+        "不一定。hashCode相同不代表对象相等。",
+        "equals相等则hashCode一定相同,反之不成立。",
+        "重写equals时必须重写hashCode。"
+      ],
+      "follow_ups": [
+        "为什么重写equals必须重写hashCode?"
+      ],
+      "source_excerpt": "两个对象的hashCode()相同,则 equals()是否也一定为 true?"
+    },
+    {
+      "question": "抽象类和接口有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "面向对象"
+      ],
+      "answer_points": [
+        "抽象类可以有构造器、成员变量、具体方法;接口只能有抽象方法(Java8后可以有默认方法)。",
+        "一个类只能继承一个抽象类,但可以实现多个接口。",
+        "抽象类用于is-a关系,接口用于has-a能力。"
+      ],
+      "follow_ups": [
+        "Java8中接口的默认方法有什么作用?"
+      ],
+      "source_excerpt": "抽象类和接口有什么区别"
+    },
+    {
+      "question": "BIO、NIO、AIO有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "IO"
+      ],
+      "answer_points": [
+        "BIO是同步阻塞IO,每个连接一个线程。",
+        "NIO是同步非阻塞IO,基于Selector多路复用。",
+        "AIO是异步非阻塞IO,基于回调。"
+      ],
+      "follow_ups": [
+        "NIO中Buffer和Channel的作用是什么?"
+      ],
+      "source_excerpt": "BIO、NIO、AIO 有什么区别?"
+    },
+    {
+      "question": "String,StringBuffer,StringBuilder的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "字符串"
+      ],
+      "answer_points": [
+        "String是不可变字符串,每次修改创建新对象。",
+        "StringBuffer是线程安全的可变字符串。",
+        "StringBuilder是非线程安全的可变字符串,性能更高。"
+      ],
+      "follow_ups": [
+        "StringBuilder为什么线程不安全?"
+      ],
+      "source_excerpt": "String,Stringbuffer,StringBuilder的区别"
+    },
+    {
+      "question": "Java中的几种基本数据类型是什么,各自占用多少字节?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "数据类型"
+      ],
+      "answer_points": [
+        "byte:1字节,short:2字节,int:4字节,long:8字节。",
+        "float:4字节,double:8字节。",
+        "char:2字节,boolean:未明确指定。"
+      ],
+      "follow_ups": [
+        "boolean类型在JVM中如何表示?"
+      ],
+      "source_excerpt": "JAVA中的几种基本数据类型是什么,各自占用多少字节呢"
+    },
+    {
+      "question": "Comparator与Comparable有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "排序"
+      ],
+      "answer_points": [
+        "Comparable是内部比较器,实现compareTo方法。",
+        "Comparator是外部比较器,实现compare方法。",
+        "Comparable用于自然排序,Comparator用于自定义排序。"
+      ],
+      "follow_ups": [
+        "如何对List进行排序?"
+      ],
+      "source_excerpt": "Comparator与Comparable有什么区别?"
+    },
+    {
+      "question": "String类能被继承吗,为什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "String"
+      ],
+      "answer_points": [
+        "不能,String类被final修饰。",
+        "final类不能被继承。",
+        "设计为final是为了安全性和效率。"
+      ],
+      "follow_ups": [
+        "final修饰类有什么好处?"
+      ],
+      "source_excerpt": "String类能被继承吗,为什么。"
+    },
+    {
+      "question": "说说Java中多态的实现原理?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "多态"
+      ],
+      "answer_points": [
+        "多态通过方法重写和动态绑定实现。",
+        "JVM在运行时根据对象实际类型调用方法。",
+        "虚方法表用于支持动态分派。"
+      ],
+      "follow_ups": [
+        "静态方法可以重写吗?"
+      ],
+      "source_excerpt": "说说Java中多态的实现原理"
+    },
+    {
+      "question": "Java泛型和类型擦除是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "泛型"
+      ],
+      "answer_points": [
+        "泛型提供编译时类型安全检查。",
+        "类型擦除指泛型信息在运行时被移除。",
+        "编译器将泛型类型替换为原始类型,并插入强制转换。"
+      ],
+      "follow_ups": [
+        "泛型中extends和super的区别?"
+      ],
+      "source_excerpt": "Java泛型和类型擦除"
+    },
+    {
+      "question": "int和Integer有什么区别,Integer缓存的实现是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "包装类"
+      ],
+      "answer_points": [
+        "int是基本类型,Integer是包装类。",
+        "Integer缓存范围默认-128到127。",
+        "自动装箱时使用valueOf方法,会利用缓存。"
+      ],
+      "follow_ups": [
+        "其他包装类有缓存吗?"
+      ],
+      "source_excerpt": "int和Integer 有什么区别,还有Integer缓存的实现"
+    },
+    {
+      "question": "说说反射的用途及实现原理,Java获取反射的三种方法?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "反射"
+      ],
+      "answer_points": [
+        "反射用于运行时获取类的信息并操作对象。",
+        "实现原理:通过Class对象获取类的元数据。",
+        "三种方法:类名.class、对象.getClass()、Class.forName()。"
+      ],
+      "follow_ups": [
+        "反射有什么缺点?"
+      ],
+      "source_excerpt": "说说反射的用途及实现原理,Java获取反射的三种方法"
+    },
+    {
+      "question": "面向对象的特征有哪些?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "面向对象"
+      ],
+      "answer_points": [
+        "封装:隐藏内部实现,提供公共接口。",
+        "继承:子类继承父类属性和方法。",
+        "多态:同一方法在不同对象上有不同表现。"
+      ],
+      "follow_ups": [
+        "抽象和封装有什么区别?"
+      ],
+      "source_excerpt": "面向对象的特征"
+    },
+    {
+      "question": "&和&&的区别是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "运算符"
+      ],
+      "answer_points": [
+        "&是位运算符,也是逻辑与(不短路)。",
+        "&&是短路逻辑与,左边为false则右边不执行。",
+        "&可用于位运算,&&只能用于布尔运算。"
+      ],
+      "follow_ups": [
+        "|和||的区别类似吗?"
+      ],
+      "source_excerpt": "&和&&的区别"
+    },
+    {
+      "question": "Java中IO流分为几种?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "IO"
+      ],
+      "answer_points": [
+        "按流向分:输入流和输出流。",
+        "按单位分:字节流和字符流。",
+        "按功能分:节点流和处理流。"
+      ],
+      "follow_ups": [
+        "字节流和字符流的区别?"
+      ],
+      "source_excerpt": "Java中IO流分为几种?"
+    },
+    {
+      "question": "讲讲类的实例化顺序,比如父类静态数据,构造函数,子类静态数据,构造函数。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "类加载"
+      ],
+      "answer_points": [
+        "先加载父类静态成员和静态代码块。",
+        "再加载子类静态成员和静态代码块。",
+        "然后执行父类实例初始化(非静态成员、构造代码块、构造函数)。",
+        "最后执行子类实例初始化。"
+      ],
+      "follow_ups": [
+        "静态代码块和构造代码块的区别?"
+      ],
+      "source_excerpt": "讲讲类的实例化顺序,比如父类静态数据,构造函数,子类静态数据,构造函数。"
+    },
+    {
+      "question": "Java创建对象有几种方式?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "对象"
+      ],
+      "answer_points": [
+        "使用new关键字。",
+        "通过反射(Class.newInstance()或Constructor.newInstance())。",
+        "通过clone()方法。",
+        "通过反序列化。"
+      ],
+      "follow_ups": [
+        "clone()是浅拷贝还是深拷贝?"
+      ],
+      "source_excerpt": "Java创建对象有几种方式"
+    },
+    {
+      "question": "如何将GB2312编码的字符串转换为ISO-8859-1编码的字符串?",
+      "question_type": "scenario",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "编码"
+      ],
+      "answer_points": [
+        "使用String的getBytes方法获取GB2312字节数组。",
+        "使用new String(byte[], charset)构造ISO-8859-1字符串。",
+        "注意:转换可能丢失数据,因为ISO-8859-1不支持中文。"
+      ],
+      "follow_ups": [
+        "如何避免乱码?"
+      ],
+      "source_excerpt": "如何将GB2312编码的字符串转换为ISO-8859-1编码的字符串呢?"
+    },
+    {
+      "question": "守护线程是什么?用什么方法实现守护线程?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "多线程"
+      ],
+      "answer_points": [
+        "守护线程是为用户线程服务的线程,当所有用户线程结束,守护线程自动结束。",
+        "通过setDaemon(true)方法设置。",
+        "必须在start()之前调用setDaemon。"
+      ],
+      "follow_ups": [
+        "守护线程和用户线程的区别?"
+      ],
+      "source_excerpt": "守护线程是什么?用什么方法实现守护线程"
+    },
+    {
+      "question": "notify()和notifyAll()有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "多线程"
+      ],
+      "answer_points": [
+        "notify()随机唤醒一个等待线程。",
+        "notifyAll()唤醒所有等待线程。",
+        "通常使用notifyAll()避免信号丢失。"
+      ],
+      "follow_ups": [
+        "wait()和sleep()的区别?"
+      ],
+      "source_excerpt": "notify()和 notifyAll()有什么区别?"
+    },
+    {
+      "question": "Java语言是如何处理异常的,关键字throws、throw、try、catch、finally怎么使用?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "异常"
+      ],
+      "answer_points": [
+        "try用于捕获异常,catch处理异常,finally无论是否异常都执行。",
+        "throw用于抛出异常,throws用于声明方法可能抛出的异常。",
+        "try-catch-finally-return执行顺序:先try,再catch,再finally,最后return。"
+      ],
+      "follow_ups": [
+        "finally块在什么情况下不会执行?"
+      ],
+      "source_excerpt": "Java语言是如何处理异常的,关键字throws、throw、try、catch、finally怎么使用?"
+    },
+    {
+      "question": "谈谈Java的异常层次结构?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "异常"
+      ],
+      "answer_points": [
+        "Throwable是顶层父类,分为Error和Exception。",
+        "Error是严重错误,如OutOfMemoryError。",
+        "Exception分为CheckedException和RuntimeException。",
+        "CheckedException必须处理,RuntimeException可以不处理。"
+      ],
+      "follow_ups": [
+        "Error和Exception的区别?"
+      ],
+      "source_excerpt": "谈谈Java的异常层次结构"
+    },
+    {
+      "question": "静态内部类与非静态内部类有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "内部类"
+      ],
+      "answer_points": [
+        "静态内部类不依赖外部类实例,可以独立创建。",
+        "非静态内部类持有外部类引用,不能独立创建。",
+        "静态内部类不能访问外部类非静态成员,非静态内部类可以。"
+      ],
+      "follow_ups": [
+        "内部类的作用是什么?"
+      ],
+      "source_excerpt": "静态内部类与非静态内部类有什么区别区别"
+    },
+    {
+      "question": "String s与new String与有什么区别?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "String"
+      ],
+      "answer_points": [
+        "String s = \"abc\"可能从常量池获取,不会创建新对象。",
+        "new String(\"abc\")一定在堆中创建新对象。",
+        "使用字面量更节省内存。"
+      ],
+      "follow_ups": [
+        "String s = new String(\"abc\")创建了几个对象?"
+      ],
+      "source_excerpt": "String s与new String与有什么区别"
+    },
+    {
+      "question": "反射中,Class.forName和ClassLoader的区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "反射"
+      ],
+      "answer_points": [
+        "Class.forName会执行类的静态代码块。",
+        "ClassLoader.loadClass不会执行静态代码块。",
+        "Class.forName默认使用当前类加载器。"
+      ],
+      "follow_ups": [
+        "什么时候使用Class.forName?"
+      ],
+      "source_excerpt": "反射中,Class.forName和ClassLoader的区别"
+    },
+    {
+      "question": "JDK动态代理与cglib实现的区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "代理"
+      ],
+      "answer_points": [
+        "JDK动态代理基于接口,只能代理实现了接口的类。",
+        "CGLIB基于子类,通过继承实现代理。",
+        "JDK动态代理使用反射,CGLIB使用ASM字节码技术。"
+      ],
+      "follow_ups": [
+        "Spring AOP默认使用哪种代理?"
+      ],
+      "source_excerpt": "JDK动态代理与cglib实现的区别"
+    },
+    {
+      "question": "error和exception的区别,CheckedException,RuntimeException的区别。",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "异常"
+      ],
+      "answer_points": [
+        "Error是程序无法处理的严重问题,Exception可以处理。",
+        "CheckedException必须捕获或声明,RuntimeException可以不处理。",
+        "RuntimeException是程序逻辑错误,如NullPointerException。"
+      ],
+      "follow_ups": [
+        "列举几个常见的RuntimeException。"
+      ],
+      "source_excerpt": "error和exception的区别,CheckedException,RuntimeException的区别。"
+    },
+    {
+      "question": "深拷贝和浅拷贝区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "拷贝"
+      ],
+      "answer_points": [
+        "浅拷贝只复制引用,不复制对象本身。",
+        "深拷贝复制整个对象图。",
+        "浅拷贝实现Cloneable接口,深拷贝需要重写clone或序列化。"
+      ],
+      "follow_ups": [
+        "如何实现深拷贝?"
+      ],
+      "source_excerpt": "深拷贝和浅拷贝区别"
+    },
+    {
+      "question": "JDK 和 JRE 有什么区别?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "环境"
+      ],
+      "answer_points": [
+        "JDK是Java开发工具包,包含JRE和开发工具。",
+        "JRE是Java运行环境,包含JVM和类库。",
+        "开发需要JDK,运行只需要JRE。"
+      ],
+      "follow_ups": [
+        "JVM和JRE的关系?"
+      ],
+      "source_excerpt": "JDK 和 JRE 有什么区别?"
+    },
+    {
+      "question": "String类的常用方法都有哪些?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "String"
+      ],
+      "answer_points": [
+        "length()、charAt()、substring()、equals()、indexOf()。",
+        "toCharArray()、split()、replace()、trim()。",
+        "valueOf()、toUpperCase()、toLowerCase()。"
+      ],
+      "follow_ups": [
+        "String的split方法需要注意什么?"
+      ],
+      "source_excerpt": "String 类的常用方法都有那些呢?"
+    },
+    {
+      "question": "谈谈自定义注解的场景及实现?",
+      "question_type": "scenario",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "注解"
+      ],
+      "answer_points": [
+        "自定义注解用于元数据标记,如权限控制、日志记录。",
+        "使用@interface定义,可以指定元注解如@Retention、@Target。",
+        "通过反射解析注解。"
+      ],
+      "follow_ups": [
+        "@Retention和@Target的作用?"
+      ],
+      "source_excerpt": "谈谈自定义注解的场景及实现"
+    },
+    {
+      "question": "说说你熟悉的设计模式有哪些?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "设计模式"
+      ],
+      "answer_points": [
+        "单例模式、工厂模式、代理模式、观察者模式。",
+        "策略模式、模板方法模式、适配器模式。",
+        "装饰器模式、责任链模式。"
+      ],
+      "follow_ups": [
+        "单例模式有哪些实现方式?"
+      ],
+      "source_excerpt": "说说你熟悉的设计模式有哪些?"
+    },
+    {
+      "question": "抽象工厂和工厂方法模式的区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "设计模式"
+      ],
+      "answer_points": [
+        "工厂方法模式针对单一产品等级结构。",
+        "抽象工厂模式针对多个产品族。",
+        "工厂方法使用继承,抽象工厂使用组合。"
+      ],
+      "follow_ups": [
+        "简单工厂和工厂方法的区别?"
+      ],
+      "source_excerpt": "抽象工厂和工厂方法模式的区别?"
+    },
+    {
+      "question": "什么是值传递和引用传递?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "参数传递"
+      ],
+      "answer_points": [
+        "值传递传递的是实际值的副本。",
+        "引用传递传递的是对象引用的副本。",
+        "Java中只有值传递,引用也是按值传递。"
+      ],
+      "follow_ups": [
+        "为什么说Java只有值传递?"
+      ],
+      "source_excerpt": "什么是值传递和引用传递?"
+    },
+    {
+      "question": "可以在static环境中访问非static变量吗?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "static"
+      ],
+      "answer_points": [
+        "不能,静态方法中不能直接访问非静态变量。",
+        "非静态变量属于实例,静态方法属于类。",
+        "可以通过创建对象来访问。"
+      ],
+      "follow_ups": [
+        "静态方法中能调用非静态方法吗?"
+      ],
+      "source_excerpt": "可以在static环境中访问非static变量吗?"
+    },
+    {
+      "question": "Java支持多继承么,为什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "继承"
+      ],
+      "answer_points": [
+        "Java不支持类的多继承,但支持接口的多实现。",
+        "避免菱形继承问题。",
+        "接口多实现没有歧义。"
+      ],
+      "follow_ups": [
+        "接口多实现时方法冲突怎么办?"
+      ],
+      "source_excerpt": "Java支持多继承么,为什么?"
+    },
+    {
+      "question": "用最有效率的方法计算2乘以8?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "位运算"
+      ],
+      "answer_points": [
+        "使用左移运算符:2 << 3。",
+        "位运算效率高于乘法。",
+        "结果为16。"
+      ],
+      "follow_ups": [
+        "位运算还有哪些应用?"
+      ],
+      "source_excerpt": "用最有效率的方法计算2乘以8?"
+    },
+    {
+      "question": "构造器是否可被重写?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "构造器"
+      ],
+      "answer_points": [
+        "构造器不能被重写。",
+        "构造器不是方法,没有返回值。",
+        "子类通过super调用父类构造器。"
+      ],
+      "follow_ups": [
+        "构造器可以被重载吗?"
+      ],
+      "source_excerpt": "构造器是否可被重写?"
+    },
+    {
+      "question": "char型变量中能不能存贮一个中文汉字,为什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "字符"
+      ],
+      "answer_points": [
+        "可以,char是16位Unicode字符。",
+        "中文汉字在Unicode范围内。",
+        "但有些生僻字可能需要两个char(代理对)。"
+      ],
+      "follow_ups": [
+        "char占几个字节?"
+      ],
+      "source_excerpt": "char型变量中能不能存贮一个中文汉字,为什么?"
+    },
+    {
+      "question": "如何实现对象克隆?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "克隆"
+      ],
+      "answer_points": [
+        "实现Cloneable接口,重写clone方法。",
+        "使用序列化实现深克隆。",
+        "使用拷贝构造函数。"
+      ],
+      "follow_ups": [
+        "clone方法为什么是protected?"
+      ],
+      "source_excerpt": "如何实现对象克隆?"
+    },
+    {
+      "question": "object中定义了哪些方法?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "Object"
+      ],
+      "answer_points": [
+        "equals()、hashCode()、toString()、clone()。",
+        "getClass()、notify()、notifyAll()、wait()。",
+        "finalize()。"
+      ],
+      "follow_ups": [
+        "getClass()和instanceof的区别?"
+      ],
+      "source_excerpt": "object中定义了哪些方法?"
+    },
+    {
+      "question": "hashCode的作用是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "哈希"
+      ],
+      "answer_points": [
+        "hashCode用于快速查找对象。",
+        "在哈希表(如HashMap)中确定桶位置。",
+        "与equals方法配合使用。"
+      ],
+      "follow_ups": [
+        "如果两个对象equals相等,hashCode必须相等吗?"
+      ],
+      "source_excerpt": "hashCode的作用是什么?"
+    },
+    {
+      "question": "for-each与常规for循环的效率对比?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "循环"
+      ],
+      "answer_points": [
+        "for-each代码简洁,但无法修改集合。",
+        "for-each底层使用迭代器,性能略低于普通for循环。",
+        "对于数组,普通for循环效率更高。"
+      ],
+      "follow_ups": [
+        "for-each遍历时能否删除元素?"
+      ],
+      "source_excerpt": "for-each与常规for循环的效率对比"
+    },
+    {
+      "question": "写出几种单例模式实现,懒汉模式和饿汉模式区别?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "设计模式"
+      ],
+      "answer_points": [
+        "饿汉模式:类加载时创建实例,线程安全。",
+        "懒汉模式:第一次使用时创建,需要同步。",
+        "双重检查锁定、静态内部类、枚举实现。"
+      ],
+      "follow_ups": [
+        "枚举单例为什么安全?"
+      ],
+      "source_excerpt": "写出几种单例模式实现,懒汉模式和饿汉模式区别"
+    },
+    {
+      "question": "请列出5个运行时异常。",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "异常"
+      ],
+      "answer_points": [
+        "NullPointerException",
+        "ArrayIndexOutOfBoundsException",
+        "ClassCastException",
+        "IllegalArgumentException",
+        "ArithmeticException"
+      ],
+      "follow_ups": [
+        "运行时异常和检查异常的区别?"
+      ],
+      "source_excerpt": "请列出 5 个运行时异常。"
+    },
+    {
+      "question": "2个不相等的对象有可能具有相同的hashcode吗?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "哈希"
+      ],
+      "answer_points": [
+        "有可能,hashcode冲突是允许的。",
+        "哈希函数可能产生相同值。",
+        "equals方法用于区分。"
+      ],
+      "follow_ups": [
+        "如何减少hashcode冲突?"
+      ],
+      "source_excerpt": "2个不相等的对象有可能具有相同的 hashcode吗?"
+    },
+    {
+      "question": "访问修饰符public,private,protected,以及default的区别?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "访问控制"
+      ],
+      "answer_points": [
+        "public:任何地方可访问。",
+        "protected:同包或子类可访问。",
+        "default:同包可访问。",
+        "private:仅本类可访问。"
+      ],
+      "follow_ups": [
+        "protected和default的区别?"
+      ],
+      "source_excerpt": "访问修饰符public,private,protected,以及default的区别?"
+    },
+    {
+      "question": "谈谈final在java中的作用?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "关键字"
+      ],
+      "answer_points": [
+        "final修饰类:不能被继承。",
+        "final修饰方法:不能被重写。",
+        "final修饰变量:值不可变。"
+      ],
+      "follow_ups": [
+        "final和finally的区别?"
+      ],
+      "source_excerpt": "谈谈final在java中的作用?"
+    },
+    {
+      "question": "java中的Math.round(-1.5)等于多少呢?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "Math"
+      ],
+      "answer_points": [
+        "Math.round(-1.5)返回-1。",
+        "round方法四舍五入,向正无穷方向。",
+        "负数时,-1.5向正无穷为-1。"
+      ],
+      "follow_ups": [
+        "Math.floor和Math.ceil的区别?"
+      ],
+      "source_excerpt": "java中的Math.round(-1.5) 等于多少呢?"
+    },
+    {
+      "question": "String属于基础的数据类型吗?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "数据类型"
+      ],
+      "answer_points": [
+        "String不是基本数据类型,是引用类型。",
+        "基本类型有byte、short、int、long、float、double、char、boolean。",
+        "String是final类。"
+      ],
+      "follow_ups": [
+        "String和char数组的区别?"
+      ],
+      "source_excerpt": "String属于基础的数据类型吗?"
+    },
+    {
+      "question": "如何将字符串反转呢?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "字符串"
+      ],
+      "answer_points": [
+        "使用StringBuilder的reverse()方法。",
+        "使用递归。",
+        "使用字符数组遍历。"
+      ],
+      "follow_ups": [
+        "StringBuilder的reverse实现原理?"
+      ],
+      "source_excerpt": "如何将字符串反转呢?"
+    },
+    {
+      "question": "描述动态代理的几种实现方式,它们分别有什么优缺点?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "代理"
+      ],
+      "answer_points": [
+        "JDK动态代理:基于接口,只能代理接口实现类。",
+        "CGLIB动态代理:基于子类,可代理普通类。",
+        "JDK动态代理使用反射,性能较低;CGLIB使用字节码,性能较高。"
+      ],
+      "follow_ups": [
+        "Spring AOP如何选择代理方式?"
+      ],
+      "source_excerpt": "描述动态代理的几种实现方式,它们分别有什么优缺点"
+    },
+    {
+      "question": "在自己的代码中,如果创建一个java.lang.String类,这个类是否可以被类加载器加载?为什么。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "senior",
+      "tags": [
+        "Java基础",
+        "类加载"
+      ],
+      "answer_points": [
+        "不能,因为双亲委派模型。",
+        "类加载器会优先委托父加载器加载。",
+        "父加载器会加载rt.jar中的String类,不会加载自定义的。"
+      ],
+      "follow_ups": [
+        "如何打破双亲委派模型?"
+      ],
+      "source_excerpt": "在自己的代码中,如果创建一个java.lang.String类,这个类是否可以被类加载器加载?为什么。"
+    },
+    {
+      "question": "谈谈你对java.lang.Object对象中hashCode和equals方法的理解。在什么场景下需要重新实现这两个方法。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Java基础",
+        "Object"
+      ],
+      "answer_points": [
+        "equals用于判断对象逻辑相等,hashCode用于哈希表。",
+        "重写equals时必须重写hashCode,保证相等对象hashCode相同。",
+        "在集合类(如HashMap)中作为key时需要重写。"
+      ],
+      "follow_ups": [
+        "不重写hashCode会有什么问题?"
+      ],
+      "source_excerpt": "谈谈你对java.lang.Object对象中hashCode和equals方法的理解。在什么场景下需要重新实现这两个方法。"
+    },
+    {
+      "question": "在jdk1.5中,引入了泛型,泛型的存在是用来解决什么问题。",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "泛型"
+      ],
+      "answer_points": [
+        "提供编译时类型安全检查。",
+        "消除强制类型转换。",
+        "提高代码复用性。"
+      ],
+      "follow_ups": [
+        "泛型在运行时还存在吗?"
+      ],
+      "source_excerpt": "在jdk1.5中,引入了泛型,泛型的存在是用来解决什么问题。"
+    },
+    {
+      "question": "什么是序列化,怎么序列化,反序列呢?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Java基础",
+        "序列化"
+      ],
+      "answer_points": [
+        "序列化将对象转换为字节流,反序列化恢复对象。",
+        "实现Serializable接口。",
+        "使用ObjectOutputStream和ObjectInputStream。"
+      ],
+      "follow_ups": [
+        "serialVersionUID的作用?"
+      ],
+      "source_excerpt": "什么是序列化,怎么序列化,反序列呢?"
+    }
+  ]
+}

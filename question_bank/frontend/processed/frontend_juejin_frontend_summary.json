@@ -1,0 +1,1128 @@
+{
+  "source_title": "前端面试题汇总",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "src和href的区别是什么?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "属性"
+      ],
+      "answer_points": [
+        "src用于替换当前元素,href用于建立链接",
+        "src指向的资源会嵌入到文档中,href指向的资源与文档建立关联",
+        "浏览器解析src时会暂停其他资源的下载,而href不会"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "src和href的区别"
+    },
+    {
+      "question": "对HTML语义化的理解是什么?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "语义化"
+      ],
+      "answer_points": [
+        "使用合适的标签表达内容的结构和含义",
+        "有利于SEO和可访问性",
+        "便于代码维护和理解"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对HTML语义化的理解"
+    },
+    {
+      "question": "DOCTYPE的作用是什么?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "DOCTYPE"
+      ],
+      "answer_points": [
+        "告知浏览器文档使用哪种HTML或XHTML规范",
+        "决定浏览器使用标准模式还是怪异模式渲染页面"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "DOCTYPE(文档类型) 的作用"
+    },
+    {
+      "question": "script标签中defer和async的区别是什么?",
+      "question_type": "comparison",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "script",
+        "defer",
+        "async"
+      ],
+      "answer_points": [
+        "defer:脚本延迟到文档解析完成后执行,多个defer脚本按顺序执行",
+        "async:脚本异步加载,加载完成后立即执行,多个async脚本执行顺序不确定",
+        "两者都不会阻塞文档解析"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "script标签中defer和async的区别"
+    },
+    {
+      "question": "常用的meta标签有哪些?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "meta"
+      ],
+      "answer_points": [
+        "charset:设置字符编码",
+        "viewport:控制视口大小",
+        "description:页面描述",
+        "keywords:页面关键词",
+        "author:作者"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "常用的meta标签有哪些"
+    },
+    {
+      "question": "HTML5有哪些更新?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML5",
+        "新特性"
+      ],
+      "answer_points": [
+        "新增语义化标签(header, nav, article等)",
+        "新增表单控件(date, email等)",
+        "新增多媒体标签(video, audio)",
+        "新增Canvas和SVG",
+        "新增本地存储(localStorage, sessionStorage)",
+        "新增Web Worker、WebSocket等API"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "HTML5有哪些更新"
+    },
+    {
+      "question": "img的srcset属性的作用是什么?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "img",
+        "响应式"
+      ],
+      "answer_points": [
+        "用于在不同屏幕密度或视口宽度下加载不同尺寸的图片",
+        "配合sizes属性使用,浏览器根据条件选择最合适的图片资源"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "img的srcset属性的作用?"
+    },
+    {
+      "question": "行内元素、块级元素和空(void)元素分别有哪些?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "元素分类"
+      ],
+      "answer_points": [
+        "行内元素:span, a, img, input等",
+        "块级元素:div, p, h1-h6, ul等",
+        "空元素:br, hr, img, input等"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "行内元素有哪些?块级元素有哪些? 空(void)元素有那些?"
+    },
+    {
+      "question": "说一下Web Worker。",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "Web Worker"
+      ],
+      "answer_points": [
+        "Web Worker允许在后台线程中运行JavaScript,不阻塞主线程",
+        "通过postMessage和onmessage进行通信",
+        "不能操作DOM",
+        "适用于计算密集型任务"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "说一下 web worker"
+    },
+    {
+      "question": "HTML5的离线储存怎么使用,它的工作原理是什么?",
+      "question_type": "principle",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML5",
+        "离线存储",
+        "Application Cache"
+      ],
+      "answer_points": [
+        "通过manifest文件指定需要缓存的资源",
+        "浏览器根据manifest文件下载并缓存资源",
+        "离线时浏览器使用缓存资源",
+        "已废弃,推荐使用Service Worker"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "HTML5的离线储存怎么使用,它的工作原理是什么"
+    },
+    {
+      "question": "浏览器是如何对HTML5的离线储存资源进行管理和加载的?",
+      "question_type": "principle",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML5",
+        "离线存储",
+        "Application Cache"
+      ],
+      "answer_points": [
+        "浏览器检查manifest文件是否更新",
+        "如果更新,下载新资源并更新缓存",
+        "加载时优先使用缓存,然后检查manifest变化"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "浏览器是如何对 HTML5 的离线储存资源进行管理和加载?"
+    },
+    {
+      "question": "title与h1的区别、b与strong的区别、i与em的区别是什么?",
+      "question_type": "comparison",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "标签区别"
+      ],
+      "answer_points": [
+        "title是页面标题,h1是文章标题",
+        "b是加粗,strong是强调(语义更强)",
+        "i是斜体,em是强调(语义更强)"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "title与h1的区别、b与strong的区别、i与em的区别?"
+    },
+    {
+      "question": "iframe有哪些优点和缺点?",
+      "question_type": "comparison",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "iframe"
+      ],
+      "answer_points": [
+        "优点:嵌入第三方内容,隔离样式和脚本,复用页面",
+        "缺点:阻塞主页加载,不利于SEO,增加内存消耗,通信复杂"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "iframe 有那些优点和缺点?"
+    },
+    {
+      "question": "label的作用是什么?如何使用?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "label"
+      ],
+      "answer_points": [
+        "label用于关联表单控件,点击label可聚焦或激活控件",
+        "通过for属性指向控件的id,或将控件嵌套在label内"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "label 的作用是什么?如何使用?"
+    },
+    {
+      "question": "Canvas和SVG的区别是什么?",
+      "question_type": "comparison",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "Canvas",
+        "SVG"
+      ],
+      "answer_points": [
+        "Canvas基于像素,SVG基于矢量",
+        "Canvas适合游戏、图像处理,SVG适合图标、图表",
+        "Canvas不支持事件处理,SVG支持",
+        "Canvas性能高,SVG缩放不失真"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Canvas和SVG的区别"
+    },
+    {
+      "question": "head标签有什么作用,其中什么标签必不可少?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "head"
+      ],
+      "answer_points": [
+        "head包含文档的元数据,如标题、样式、脚本等",
+        "必不可少的标签是title"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "head 标签有什么作用,其中什么标签必不可少?"
+    },
+    {
+      "question": "文档声明(Doctype)有何作用?严格模式与混杂模式如何区分?它们有何意义?",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "DOCTYPE",
+        "模式"
+      ],
+      "answer_points": [
+        "Doctype声明文档类型,决定浏览器渲染模式",
+        "严格模式:按W3C标准渲染",
+        "混杂模式:兼容旧浏览器,非标准渲染",
+        "意义:确保页面在不同浏览器中表现一致"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "文档声明(Doctype)和有何作用? 严格模式与混杂模式如何区分?它们有何意义?"
+    },
+    {
+      "question": "浏览器乱码的原因是什么?如何解决?",
+      "question_type": "scenario",
+      "category": "html",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "乱码"
+      ],
+      "answer_points": [
+        "原因:字符编码不一致,如HTML声明与文件实际编码不同",
+        "解决:确保文件保存为UTF-8,并在meta中声明charset=utf-8"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "浏览器乱码的原因是什么?如何解决?"
+    },
+    {
+      "question": "渐进增强和优雅降级之间的区别是什么?",
+      "question_type": "comparison",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "渐进增强",
+        "优雅降级"
+      ],
+      "answer_points": [
+        "渐进增强:从基础功能开始,逐步增加高级功能",
+        "优雅降级:先构建完整功能,再兼容低版本浏览器",
+        "渐进增强更稳健,优雅降级开发效率高"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "渐进增强和优雅降级之间的区别"
+    },
+    {
+      "question": "说一下HTML5 drag API。",
+      "question_type": "concept",
+      "category": "html",
+      "difficulty": "mid",
+      "tags": [
+        "HTML5",
+        "拖拽"
+      ],
+      "answer_points": [
+        "通过dragstart、dragover、drop等事件实现拖拽",
+        "设置draggable属性为true",
+        "使用dataTransfer对象传递数据"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "说一下 HTML5 drag API"
+    },
+    {
+      "question": "CSS选择器及其优先级是怎样的?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "选择器",
+        "优先级"
+      ],
+      "answer_points": [
+        "选择器:id选择器、类选择器、标签选择器、属性选择器等",
+        "优先级:!important > 内联样式 > id选择器 > 类选择器 > 标签选择器 > 通配符",
+        "相同优先级后定义的覆盖先定义的"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "CSS选择器及其优先级"
+    },
+    {
+      "question": "CSS中可继承与不可继承属性有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "继承"
+      ],
+      "answer_points": [
+        "可继承:color, font-family, font-size, line-height等",
+        "不可继承:margin, padding, border, background, width, height等"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "CSS中可继承与不可继承属性有哪些"
+    },
+    {
+      "question": "display的属性值及其作用是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "display"
+      ],
+      "answer_points": [
+        "block:块级元素,独占一行",
+        "inline:行内元素,不换行",
+        "inline-block:行内块元素,不换行但可设置宽高",
+        "none:隐藏元素,不占空间",
+        "flex:弹性布局",
+        "grid:网格布局"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "display的属性值及其作用"
+    },
+    {
+      "question": "display的block、inline和inline-block的区别是什么?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "display"
+      ],
+      "answer_points": [
+        "block:独占一行,可设置宽高",
+        "inline:不换行,宽高由内容决定,不可设置宽高",
+        "inline-block:不换行,可设置宽高"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "display的block、inline和inline-block的区别"
+    },
+    {
+      "question": "隐藏元素的方法有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "隐藏元素"
+      ],
+      "answer_points": [
+        "display:none:不占空间",
+        "visibility:hidden:占空间",
+        "opacity:0:占空间,可交互",
+        "position:absolute + left:-9999px:移出视口",
+        "clip-path:inset(0):裁剪隐藏"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "隐藏元素的方法有哪些"
+    },
+    {
+      "question": "link和@import的区别是什么?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "link",
+        "@import"
+      ],
+      "answer_points": [
+        "link是HTML标签,@import是CSS语法",
+        "link可以并行加载,@import需等页面加载完",
+        "link支持JavaScript动态控制,@import不支持",
+        "link无兼容问题,@import在IE5以下不支持"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "link和@import的区别"
+    },
+    {
+      "question": "transition和animation的区别是什么?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "transition",
+        "animation"
+      ],
+      "answer_points": [
+        "transition需要触发条件,animation可自动播放",
+        "transition只有开始和结束状态,animation可定义关键帧",
+        "animation可控制循环次数、方向等"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "transition和animation的区别"
+    },
+    {
+      "question": "display:none与visibility:hidden的区别是什么?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "隐藏"
+      ],
+      "answer_points": [
+        "display:none不占空间,visibility:hidden占空间",
+        "display:none子元素也隐藏,visibility:hidden子元素可设为visible",
+        "display:none会触发回流,visibility:hidden只触发重绘"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "display:none与visibility:hidden的区别"
+    },
+    {
+      "question": "伪元素和伪类的区别和作用是什么?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "伪元素",
+        "伪类"
+      ],
+      "answer_points": [
+        "伪类用于选择特定状态(如:hover)",
+        "伪元素用于创建虚拟元素(如::before)",
+        "伪类使用单冒号,伪元素使用双冒号"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "伪元素和伪类的区别和作用?"
+    },
+    {
+      "question": "对requestAnimationFrame的理解是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "requestAnimationFrame"
+      ],
+      "answer_points": [
+        "用于创建平滑动画,由浏览器优化执行时机",
+        "在重绘之前调用,节省CPU资源",
+        "页面不可见时停止执行"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对requestAnimationframe的理解"
+    },
+    {
+      "question": "对盒模型的理解是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "盒模型"
+      ],
+      "answer_points": [
+        "盒模型由content、padding、border、margin组成",
+        "标准盒模型:width/height只包含content",
+        "IE盒模型:width/height包含content、padding、border",
+        "通过box-sizing切换"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对盒模型的理解"
+    },
+    {
+      "question": "为什么有时候用translate来改变位置而不是定位?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "translate",
+        "定位"
+      ],
+      "answer_points": [
+        "translate不会触发回流,只触发重绘和合成",
+        "定位会触发回流",
+        "translate利用GPU加速,性能更好"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "为什么有时候用translate来改变位置而不是定位?"
+    },
+    {
+      "question": "li与li之间有看不见的空白间隔是什么原因引起的?如何解决?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "空白间隔"
+      ],
+      "answer_points": [
+        "原因:HTML中换行或空格被解析为空白字符",
+        "解决:设置父元素font-size:0,或使用flex布局"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "li 与 li 之间有看不见的空白间隔是什么原因引起的?如何解决?"
+    },
+    {
+      "question": "CSS3中有哪些新特性?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS3",
+        "新特性"
+      ],
+      "answer_points": [
+        "选择器:属性选择器、伪类选择器",
+        "盒模型:box-sizing",
+        "背景:background-size、background-origin",
+        "渐变:linear-gradient、radial-gradient",
+        "转换:transform",
+        "过渡:transition",
+        "动画:animation",
+        "弹性布局:flexbox",
+        "网格布局:grid"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "CSS3中有哪些新特性"
+    },
+    {
+      "question": "替换元素的概念及计算规则是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "替换元素"
+      ],
+      "answer_points": [
+        "替换元素:内容由外部资源决定,如img、input、video",
+        "计算规则:根据元素属性(如src)和CSS尺寸计算"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "替换元素的概念及计算规则"
+    },
+    {
+      "question": "常见的图片格式及使用场景有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "图片格式"
+      ],
+      "answer_points": [
+        "JPEG:照片,有损压缩",
+        "PNG:图标,无损,支持透明",
+        "GIF:动画",
+        "WebP:更小,支持透明和动画",
+        "SVG:矢量图形"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "常见的图片格式及使用场景"
+    },
+    {
+      "question": "对CSS Sprites的理解是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "雪碧图"
+      ],
+      "answer_points": [
+        "将多个小图标合并到一张大图上",
+        "通过background-position显示对应图标",
+        "减少HTTP请求,提高性能"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对 CSSSprites 的理解"
+    },
+    {
+      "question": "什么是物理像素、逻辑像素和像素密度?为什么在移动端开发时需要用到@3x, @2x这种图片?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "像素",
+        "移动端"
+      ],
+      "answer_points": [
+        "物理像素:屏幕实际像素点",
+        "逻辑像素:CSS像素",
+        "像素密度:DPR = 物理像素/逻辑像素",
+        "高DPR屏幕需要@2x/@3x图片保证清晰"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "什么是物理像素,逻辑像素和像素密度,为什么在移动端开发时需要用到@3x, @2x这种图片?"
+    },
+    {
+      "question": "margin和padding的使用场景是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "margin",
+        "padding"
+      ],
+      "answer_points": [
+        "margin用于元素之间的间距",
+        "padding用于元素内容与边框之间的间距"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "margin 和 padding 的使用场景"
+    },
+    {
+      "question": "对line-height的理解及其赋值方式是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "line-height"
+      ],
+      "answer_points": [
+        "line-height定义行高,影响文本垂直间距",
+        "赋值方式:数值(倍数)、长度(px/em)、百分比、normal"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对line-height 的理解及其赋值方式"
+    },
+    {
+      "question": "CSS优化和提高性能的方法有哪些?",
+      "question_type": "optimization",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "性能优化"
+      ],
+      "answer_points": [
+        "合并CSS文件,减少HTTP请求",
+        "使用CSS Sprites",
+        "避免使用@import",
+        "压缩CSS代码",
+        "使用简写属性",
+        "减少重排重绘"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "CSS 优化和提高性能的方法有哪些?"
+    },
+    {
+      "question": "CSS预处理器/后处理器是什么?为什么要使用它们?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "预处理器",
+        "后处理器"
+      ],
+      "answer_points": [
+        "预处理器:Sass、Less,扩展CSS语法,提供变量、嵌套等",
+        "后处理器:PostCSS,处理CSS,如添加前缀",
+        "使用原因:提高开发效率,增强可维护性"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "CSS预处理器/后处理器是什么?为什么要使用它们?"
+    },
+    {
+      "question": "::before和:after的双冒号和单冒号有什么区别?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "伪元素"
+      ],
+      "answer_points": [
+        "单冒号是CSS2语法,双冒号是CSS3语法",
+        "双冒号用于区分伪类和伪元素",
+        "浏览器兼容单冒号"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "::before 和 :after 的双冒号和单冒号有什么区别?"
+    },
+    {
+      "question": "display:inline-block什么时候会显示间隙?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "inline-block",
+        "间隙"
+      ],
+      "answer_points": [
+        "当元素之间有空白字符时",
+        "解决:父元素font-size:0,或使用flex布局"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "display:inline-block 什么时候会显示间隙?"
+    },
+    {
+      "question": "单行、多行文本溢出隐藏如何实现?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "文本溢出"
+      ],
+      "answer_points": [
+        "单行:overflow:hidden; text-overflow:ellipsis; white-space:nowrap",
+        "多行:使用-webkit-line-clamp属性"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "单行、多行文本溢出隐藏"
+    },
+    {
+      "question": "Sass、Less是什么?为什么要使用它们?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "Sass",
+        "Less"
+      ],
+      "answer_points": [
+        "CSS预处理器,扩展CSS功能",
+        "提供变量、嵌套、混合、继承等",
+        "提高代码复用性和可维护性"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Sass、Less 是什么?为什么要使用他们?"
+    },
+    {
+      "question": "对媒体查询的理解是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "媒体查询"
+      ],
+      "answer_points": [
+        "根据设备特性(如宽度、分辨率)应用不同样式",
+        "用于响应式设计",
+        "语法:@media (条件) { ... }"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对媒体查询的理解?"
+    },
+    {
+      "question": "对CSS工程化的理解是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "工程化"
+      ],
+      "answer_points": [
+        "使用预处理器、模块化、组件化",
+        "使用构建工具(如Webpack)处理CSS",
+        "使用CSS Modules或BEM命名规范"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对 CSS 工程化的理解"
+    },
+    {
+      "question": "如何判断元素是否到达可视区域?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "可视区域"
+      ],
+      "answer_points": [
+        "使用getBoundingClientRect()获取元素位置",
+        "与视口高度比较",
+        "使用Intersection Observer API"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "如何判断元素是否到达可视区域"
+    },
+    {
+      "question": "z-index属性在什么情况下会失效?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "z-index"
+      ],
+      "answer_points": [
+        "元素未设置position(static)",
+        "父元素z-index影响子元素",
+        "在flex或grid中可能失效"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "z-index属性在什么情况下会失效"
+    },
+    {
+      "question": "CSS3中的transform有哪些属性?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "transform"
+      ],
+      "answer_points": [
+        "translate:平移",
+        "rotate:旋转",
+        "scale:缩放",
+        "skew:倾斜",
+        "matrix:矩阵变换"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "CSS3中的transform有哪些属性"
+    },
+    {
+      "question": "常见的CSS布局单位有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "布局单位"
+      ],
+      "answer_points": [
+        "px:像素",
+        "em:相对于父元素字体大小",
+        "rem:相对于根元素字体大小",
+        "vw/vh:相对于视口宽度/高度",
+        "%:相对于父元素"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "常见的CSS布局单位"
+    },
+    {
+      "question": "px、em、rem的区别及使用场景是什么?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "单位"
+      ],
+      "answer_points": [
+        "px固定大小,适合精确控制",
+        "em相对父元素,适合组件内缩放",
+        "rem相对根元素,适合全局响应式"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "px、em、rem的区别及使用场景"
+    },
+    {
+      "question": "两栏布局如何实现?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "布局"
+      ],
+      "answer_points": [
+        "float+margin:左栏浮动,右栏margin-left",
+        "flex:父元素display:flex,右栏flex:1",
+        "grid:grid-template-columns"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "两栏布局的实现"
+    },
+    {
+      "question": "三栏布局如何实现?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "布局"
+      ],
+      "answer_points": [
+        "圣杯布局:左右浮动,中间margin",
+        "双飞翼布局:中间嵌套div",
+        "flex:左右固定,中间flex:1",
+        "grid:grid-template-columns"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "三栏布局的实现"
+    },
+    {
+      "question": "水平垂直居中的实现方式有哪些?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "居中"
+      ],
+      "answer_points": [
+        "flex:父元素display:flex; justify-content:center; align-items:center",
+        "grid:父元素display:grid; place-items:center",
+        "绝对定位+transform:position:absolute; top:50%; left:50%; transform:translate(-50%,-50%)",
+        "table-cell:父元素display:table-cell; text-align:center; vertical-align:middle"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "水平垂直居中的实现"
+    },
+    {
+      "question": "如何根据设计稿进行移动端适配?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "移动端适配"
+      ],
+      "answer_points": [
+        "使用rem:根据设计稿宽度设置根字体大小",
+        "使用vw:直接使用vw单位",
+        "使用flexible方案",
+        "使用媒体查询"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "如何根据设计稿进行移动端适配?"
+    },
+    {
+      "question": "对Flex布局的理解及其使用场景是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "Flex"
+      ],
+      "answer_points": [
+        "Flex是一维布局模型,适合行或列布局",
+        "通过justify-content和align-items控制对齐",
+        "使用场景:导航栏、列表、居中"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对Flex布局的理解及其使用场景"
+    },
+    {
+      "question": "响应式设计的概念及基本原理是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "响应式"
+      ],
+      "answer_points": [
+        "概念:页面在不同设备上自适应显示",
+        "原理:使用媒体查询、弹性布局、相对单位"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "响应式设计的概念及基本原理"
+    },
+    {
+      "question": "为什么需要清除浮动?清除浮动的方式有哪些?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "浮动"
+      ],
+      "answer_points": [
+        "浮动元素脱离文档流,导致父元素高度塌陷",
+        "方式:使用clear:both,父元素overflow:hidden,使用伪元素"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "为什么需要清除浮动?清除浮动的方式"
+    },
+    {
+      "question": "使用clear属性清除浮动的原理是什么?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "浮动"
+      ],
+      "answer_points": [
+        "clear属性指定元素两侧不能有浮动元素",
+        "元素下移直到清除浮动"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "使用 clear 属性清除浮动的原理?"
+    },
+    {
+      "question": "对BFC的理解,如何创建BFC?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "BFC"
+      ],
+      "answer_points": [
+        "BFC是块级格式化上下文,独立渲染区域",
+        "创建方式:overflow不为visible,float不为none,position为absolute/fixed,display为inline-block/flex等"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对BFC的理解,如何创建BFC"
+    },
+    {
+      "question": "什么是margin重叠问题?如何解决?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "margin重叠"
+      ],
+      "answer_points": [
+        "相邻块级元素的垂直margin会合并",
+        "解决:使用BFC,或只设置一个方向的margin"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "什么是margin重叠问题?如何解决?"
+    },
+    {
+      "question": "元素的层叠顺序是怎样的?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "层叠顺序"
+      ],
+      "answer_points": [
+        "背景和边框 < 负z-index < 块级元素 < 浮动元素 < 行内元素 < 正z-index"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "元素的层叠顺序"
+    }
+  ]
+}

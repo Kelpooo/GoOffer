@@ -1,0 +1,898 @@
+{
+  "source_title": "2026 前端面试八股体系总结",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "请解释OSI七层模型与TCP/IP四层/五层模型的区别,并说明各层核心作用与对应协议/设备。",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "网络模型",
+        "OSI",
+        "TCP/IP"
+      ],
+      "answer_points": [
+        "OSI七层:物理层、数据链路层、网络层、传输层、会话层、表示层、应用层",
+        "TCP/IP四层:网络接口层、网络层、传输层、应用层",
+        "TCP/IP五层:物理层、数据链路层、网络层、传输层、应用层",
+        "各层核心协议:如网络层IP、传输层TCP/UDP、应用层HTTP等"
+      ],
+      "follow_ups": [
+        "为什么网络通信要分层?"
+      ],
+      "source_excerpt": "OSI七层模型 vs TCP/IP四层/五层模型 核心区别、各层核心作用与对应协议/设备"
+    },
+    {
+      "question": "为什么网络通信要分层?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "网络模型",
+        "分层"
+      ],
+      "answer_points": [
+        "降低复杂度,各层独立设计和实现",
+        "便于标准化和互操作",
+        "易于维护和升级",
+        "模块化,每层只关注本层功能"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "高频追问:为什么网络通信要分层?"
+    },
+    {
+      "question": "请描述TCP三次握手和四次挥手的完整流程,并解释为什么握手是三次、挥手是四次。",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TCP",
+        "三次握手",
+        "四次挥手"
+      ],
+      "answer_points": [
+        "三次握手:SYN -> SYN+ACK -> ACK",
+        "四次挥手:FIN -> ACK -> FIN -> ACK",
+        "握手三次:防止已失效的连接请求到达服务器,保证双方收发能力",
+        "挥手四次:半关闭状态,服务器可能还有数据要发送"
+      ],
+      "follow_ups": [
+        "半连接队列和全连接队列溢出问题如何优化?"
+      ],
+      "source_excerpt": "TCP三次握手、四次挥手全流程;为什么握手是三次、挥手是四次;半连接队列、全连接队列溢出问题与优化"
+    },
+    {
+      "question": "TCP如何实现可靠传输?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TCP",
+        "可靠传输"
+      ],
+      "answer_points": [
+        "序列号和确认应答",
+        "超时重传",
+        "流量控制(滑动窗口)",
+        "拥塞控制(慢启动、拥塞避免、快重传、快恢复)"
+      ],
+      "follow_ups": [
+        "BBRv2拥塞算法核心优化是什么?",
+        "TCP Fast Open原理是什么?"
+      ],
+      "source_excerpt": "TCP可靠传输实现:序列号、确认应答、超时重传、流量控制、拥塞控制"
+    },
+    {
+      "question": "QUIC协议有哪些核心特性?为什么QUIC比TCP性能更优?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "QUIC",
+        "HTTP/3"
+      ],
+      "answer_points": [
+        "基于UDP,0-RTT/1-RTT握手",
+        "连接迁移(Connection Migration)",
+        "无队头阻塞(No Head-of-Line Blocking)",
+        "前向纠错(FEC)",
+        "性能更优:减少握手延迟、避免队头阻塞、更好的拥塞控制"
+      ],
+      "follow_ups": [
+        "QUIC如何实现0-RTT握手?"
+      ],
+      "source_excerpt": "QUIC协议核心特性、0-RTT/1-RTT握手、连接迁移、无队头阻塞、前向纠错、为什么QUIC比TCP性能更优"
+    },
+    {
+      "question": "请比较HTTP 1.0、1.1、2.0、3.0的核心区别,并说明队头阻塞问题的演进解决。",
+      "question_type": "comparison",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTTP",
+        "版本演进"
+      ],
+      "answer_points": [
+        "HTTP 1.0:短连接,每次请求新建TCP连接",
+        "HTTP 1.1:长连接、管线化、Host头、断点续传",
+        "HTTP 2.0:二进制分帧、多路复用、头部压缩、服务器推送",
+        "HTTP 3.0:基于QUIC,解决TCP队头阻塞",
+        "队头阻塞:1.1管线化不完善,2.0在TCP层面仍有队头阻塞,3.0彻底解决"
+      ],
+      "follow_ups": [
+        "HTTP 2.0多路复用如何实现?"
+      ],
+      "source_excerpt": "HTTP 1.0 vs 1.1 vs 2.0 vs 3.0 核心区别、优缺点、队头阻塞问题的演进解决"
+    },
+    {
+      "question": "请列举HTTP请求方法及状态码分类,并说明常见状态码的含义。",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTTP",
+        "请求方法",
+        "状态码"
+      ],
+      "answer_points": [
+        "请求方法:GET、POST、PUT、DELETE、HEAD、OPTIONS、PATCH等",
+        "状态码分类:1xx信息、2xx成功、3xx重定向、4xx客户端错误、5xx服务器错误",
+        "常见状态码:200 OK、301/302重定向、304 Not Modified、400 Bad Request、401 Unauthorized、403 Forbidden、404 Not Found、500 Internal Server Error、502 Bad Gateway、503 Service Unavailable"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "HTTP请求方法、状态码全分类(1xx/2xx/3xx/4xx/5xx核心场景)"
+    },
+    {
+      "question": "什么是同源策略?跨域有哪些解决方案?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "跨域",
+        "同源策略"
+      ],
+      "answer_points": [
+        "同源策略:协议、域名、端口相同,限制不同源之间的资源访问",
+        "跨域解决方案:CORS、JSONP、反向代理、WebSocket、postMessage、document.domain、window.name、location.hash"
+      ],
+      "follow_ups": [
+        "CORS预检请求触发条件是什么?简单请求和复杂请求的区别?"
+      ],
+      "source_excerpt": "同源策略、跨域的8种解决方案(CORS、JSONP、反向代理、WebSocket等)"
+    },
+    {
+      "question": "请解释Cookie与Session的区别,以及Session共享方案。",
+      "question_type": "comparison",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "Cookie",
+        "Session"
+      ],
+      "answer_points": [
+        "Cookie存储在客户端,Session存储在服务器端",
+        "Cookie大小有限,Session相对安全",
+        "Session共享方案:Session复制、Session集中存储(Redis)、Token机制"
+      ],
+      "follow_ups": [
+        "Cookie安全属性HttpOnly、Secure、SameSite的作用是什么?"
+      ],
+      "source_excerpt": "Cookie与Session的区别、Session共享方案、Cookie安全属性(HttpOnly、Secure、SameSite)"
+    },
+    {
+      "question": "请描述HTTPS工作全流程,并比较TLS 1.2与TLS 1.3的区别。",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTTPS",
+        "TLS"
+      ],
+      "answer_points": [
+        "HTTPS流程:TCP三次握手 -> TLS握手 -> 加密通信",
+        "TLS 1.2:需要2-RTT,支持多种密码套件",
+        "TLS 1.3:1-RTT,简化握手,移除不安全算法,支持0-RTT",
+        "TLS 1.3性能更优,更安全"
+      ],
+      "follow_ups": [
+        "对称加密与非对称加密在HTTPS中如何结合使用?"
+      ],
+      "source_excerpt": "HTTPS工作全流程、TLS 1.2 vs TLS 1.3 核心区别与性能优化"
+    },
+    {
+      "question": "请解释对称加密与非对称加密的区别,以及它们在HTTPS中的结合使用逻辑。",
+      "question_type": "comparison",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "加密",
+        "HTTPS"
+      ],
+      "answer_points": [
+        "对称加密:加密解密用同一密钥,速度快,但密钥分发困难",
+        "非对称加密:公钥加密私钥解密,安全但慢",
+        "HTTPS中:非对称加密用于交换对称密钥,对称加密用于后续数据传输"
+      ],
+      "follow_ups": [
+        "数字证书和CA机构的作用是什么?"
+      ],
+      "source_excerpt": "对称加密 vs 非对称加密的区别、HTTPS中两者的结合使用逻辑"
+    },
+    {
+      "question": "请描述DNS解析全流程,并解释递归查询与迭代查询的区别。",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "DNS"
+      ],
+      "answer_points": [
+        "DNS解析流程:浏览器缓存 -> 操作系统缓存 -> 本地DNS服务器 -> 根DNS -> 顶级域DNS -> 权威DNS",
+        "递归查询:DNS服务器代为查询并返回最终结果",
+        "迭代查询:DNS服务器返回下一级DNS服务器地址,客户端自行查询"
+      ],
+      "follow_ups": [
+        "DNS污染/劫持如何解决?",
+        "DNS over HTTPS(DoH)原理是什么?"
+      ],
+      "source_excerpt": "DNS解析全流程、递归查询 vs 迭代查询"
+    },
+    {
+      "question": "请解释WebSocket、RPC、SSH、FTP的核心原理与适用场景。",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "WebSocket",
+        "RPC",
+        "SSH",
+        "FTP"
+      ],
+      "answer_points": [
+        "WebSocket:全双工通信,适用于实时应用(聊天、游戏)",
+        "RPC:远程过程调用,适用于微服务间通信",
+        "SSH:安全远程登录,适用于远程管理",
+        "FTP:文件传输,适用于文件上传下载"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "其他高频协议:WebSocket、RPC、SSH、FTP核心原理与适用场景"
+    },
+    {
+      "question": "请解释IP地址分类、公网/私网IP、子网划分和CIDR。",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "IP",
+        "子网划分"
+      ],
+      "answer_points": [
+        "IP地址分类:A、B、C、D、E类",
+        "私网IP:10.0.0.0/8、172.16.0.0/12、192.168.0.0/16",
+        "子网划分:通过子网掩码将IP网络划分为更小的子网",
+        "CIDR:无类别域间路由,用斜线表示前缀长度"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "IP地址分类、公网/私网IP、子网划分、CIDR"
+    },
+    {
+      "question": "请解释ARP/RARP协议、ICMP协议、ping与traceroute的工作原理。",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "ARP",
+        "ICMP",
+        "ping",
+        "traceroute"
+      ],
+      "answer_points": [
+        "ARP:IP地址解析为MAC地址",
+        "RARP:MAC地址解析为IP地址",
+        "ICMP:网络层控制消息协议,用于差错报告和诊断",
+        "ping:发送ICMP Echo请求,测量往返时间",
+        "traceroute:利用TTL和ICMP超时消息,追踪路由路径"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "ARP/RARP协议、ICMP协议、ping与traceroute工作原理"
+    },
+    {
+      "question": "请解释NAT协议、NAT穿透以及三种NAT类型。",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "NAT"
+      ],
+      "answer_points": [
+        "NAT:网络地址转换,将私网IP映射为公网IP",
+        "NAT穿透:使内网主机能够被外部访问的技术(如STUN、TURN、ICE)",
+        "三种NAT类型:完全锥形NAT、限制锥形NAT、端口限制锥形NAT、对称NAT"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "NAT协议、NAT穿透、三种NAT类型"
+    },
+    {
+      "question": "请比较交换机与路由器的核心区别,以及二层转发与三层路由。",
+      "question_type": "comparison",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "交换机",
+        "路由器"
+      ],
+      "answer_points": [
+        "交换机工作在数据链路层,基于MAC地址转发",
+        "路由器工作在网络层,基于IP地址路由",
+        "二层转发:根据MAC地址表转发帧",
+        "三层路由:根据路由表选择最佳路径"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "交换机与路由器的核心区别、二层转发 vs 三层路由"
+    },
+    {
+      "question": "请解释操作系统内核态与用户态的区别,以及切换开销与触发场景。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "内核态",
+        "用户态"
+      ],
+      "answer_points": [
+        "内核态:拥有最高权限,可访问所有硬件资源",
+        "用户态:受限,不能直接访问硬件",
+        "切换开销:保存上下文、模式切换,开销较大",
+        "触发场景:系统调用、中断、异常"
+      ],
+      "follow_ups": [
+        "系统调用原理是什么?"
+      ],
+      "source_excerpt": "操作系统核心功能、内核态 vs 用户态 区别、切换开销与触发场景"
+    },
+    {
+      "question": "请解释进程、线程、协程的核心区别、优缺点及适用场景。",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "进程",
+        "线程",
+        "协程"
+      ],
+      "answer_points": [
+        "进程:资源分配最小单位,独立地址空间,切换开销大",
+        "线程:CPU调度最小单位,共享进程资源,切换开销较小",
+        "协程:用户态轻量级线程,由程序控制切换,开销极小",
+        "适用场景:进程适合隔离性要求高的任务,线程适合并发IO,协程适合高并发IO密集型"
+      ],
+      "follow_ups": [
+        "协程实现原理是什么?有栈协程与无栈协程的区别?"
+      ],
+      "source_excerpt": "进程 vs 线程 vs 协程 核心区别、优缺点、适用场景"
+    },
+    {
+      "question": "请列举进程间通信(IPC)的7种方式,并说明各自优缺点与适用场景。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "IPC",
+        "进程间通信"
+      ],
+      "answer_points": [
+        "管道:半双工,适用于父子进程",
+        "命名管道:可用于无关进程",
+        "信号:异步通知",
+        "信号量:同步与互斥",
+        "消息队列:消息传递",
+        "共享内存:最快,需同步",
+        "Socket:跨网络通信"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "进程间通信(IPC)7种方式:管道、命名管道、信号、信号量、消息队列、共享内存、Socket,各自优缺点与适用场景"
+    },
+    {
+      "question": "请解释虚拟内存的核心原理和作用,以及虚拟地址到物理地址的转换过程。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "虚拟内存",
+        "内存管理"
+      ],
+      "answer_points": [
+        "虚拟内存:将物理内存抽象为连续虚拟地址空间,通过页表映射",
+        "作用:隔离进程地址空间、简化内存管理、支持大于物理内存的程序",
+        "转换:CPU发出虚拟地址 -> MMU查页表 -> 得到物理地址 -> 访问内存"
+      ],
+      "follow_ups": [
+        "多级页表和快表TLB的作用是什么?"
+      ],
+      "source_excerpt": "虚拟内存核心原理、作用、虚拟地址 vs 物理地址转换"
+    },
+    {
+      "question": "请解释页面置换算法OPT、FIFO、LRU、LFU、Clock的原理,并说明LRU的实现与优化。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "页面置换",
+        "LRU"
+      ],
+      "answer_points": [
+        "OPT:淘汰未来最远使用的页面,理想但不可实现",
+        "FIFO:淘汰最早进入的页面,可能抖动",
+        "LRU:淘汰最近最少使用的页面,常用",
+        "LFU:淘汰使用频率最低的页面",
+        "Clock:近似LRU,使用访问位",
+        "LRU实现:双向链表+哈希表,优化:使用近似算法如Clock"
+      ],
+      "follow_ups": [
+        "手撕LRU缓存"
+      ],
+      "source_excerpt": "页面置换算法:OPT、FIFO、LRU、LFU、Clock,LRU的实现与优化(高频手撕)"
+    },
+    {
+      "question": "请解释IO模型:阻塞IO、非阻塞IO、IO多路复用、信号驱动IO、异步IO的区别。",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "IO模型"
+      ],
+      "answer_points": [
+        "阻塞IO:进程阻塞直到数据就绪",
+        "非阻塞IO:轮询检查,不阻塞",
+        "IO多路复用:select/poll/epoll,同时监控多个IO",
+        "信号驱动IO:信号通知数据就绪",
+        "异步IO:内核完成操作后通知进程"
+      ],
+      "follow_ups": [
+        "select、poll、epoll的区别是什么?"
+      ],
+      "source_excerpt": "IO模型全解:阻塞IO、非阻塞IO、IO多路复用、信号驱动IO、异步IO(AIO)"
+    },
+    {
+      "question": "请比较select、poll、epoll的核心区别、底层实现和适用场景。",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "IO多路复用",
+        "select",
+        "poll",
+        "epoll"
+      ],
+      "answer_points": [
+        "select:轮询所有fd,有最大数量限制(1024),效率随fd数下降",
+        "poll:基于链表,无数量限制,但仍是轮询",
+        "epoll:事件驱动,只返回就绪fd,效率高,支持边缘触发和水平触发",
+        "适用场景:select/poll适合少量连接,epoll适合大量连接"
+      ],
+      "follow_ups": [
+        "epoll水平触发(LT)与边缘触发(ET)的区别?",
+        "epoll惊群问题是什么?"
+      ],
+      "source_excerpt": "IO多路复用核心:select、poll、epoll 三者的核心区别、底层实现、适用场景"
+    },
+    {
+      "question": "请解释死锁的四个必要条件,以及死锁的预防、避免、检测与解除方法。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "死锁"
+      ],
+      "answer_points": [
+        "四个必要条件:互斥、持有并等待、不可剥夺、循环等待",
+        "预防:破坏四个条件之一",
+        "避免:银行家算法",
+        "检测:资源分配图",
+        "解除:撤销进程、资源剥夺"
+      ],
+      "follow_ups": [
+        "CAS原理是什么?ABA问题如何解决?"
+      ],
+      "source_excerpt": "死锁四个必要条件、死锁的预防、避免、检测与解除"
+    },
+    {
+      "question": "请解释CAS原理、ABA问题及解决方案。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "CAS",
+        "ABA"
+      ],
+      "answer_points": [
+        "CAS:比较并交换,乐观锁机制,原子操作",
+        "ABA问题:值从A变为B再变回A,CAS误认为未改变",
+        "解决方案:版本号或时间戳"
+      ],
+      "follow_ups": [
+        "Linux futex机制是什么?"
+      ],
+      "source_excerpt": "高频考点:CAS原理、ABA问题与解决方案、Linux futex机制、无锁编程"
+    },
+    {
+      "question": "请解释eBPF的核心原理、适用场景,以及与内核模块的区别。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "eBPF"
+      ],
+      "answer_points": [
+        "eBPF:在内核中安全运行沙箱程序,无需修改内核",
+        "适用场景:性能监控、网络过滤、安全检测",
+        "与内核模块区别:eBPF安全、动态加载、无需编译内核"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "eBPF核心原理、适用场景、与内核模块的区别"
+    },
+    {
+      "question": "请解释容器底层内核机制:Namespace、Cgroups、UnionFS。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "容器",
+        "Namespace",
+        "Cgroups"
+      ],
+      "answer_points": [
+        "Namespace:隔离进程视图(PID、网络、挂载等)",
+        "Cgroups:限制资源使用(CPU、内存、IO)",
+        "UnionFS:联合文件系统,实现镜像分层"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "容器底层内核机制:Namespace、Cgroups、UnionFS"
+    },
+    {
+      "question": "请比较数组与链表的区别、优缺点及适用场景。",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "数组",
+        "链表"
+      ],
+      "answer_points": [
+        "数组:连续内存,随机访问O(1),插入删除O(n)",
+        "链表:非连续内存,随机访问O(n),插入删除O(1)",
+        "适用场景:数组适合频繁访问,链表适合频繁插入删除"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "数组 vs 链表 核心区别、优缺点、适用场景"
+    },
+    {
+      "question": "请解释栈与队列的原理,以及循环队列、双端队列、单调栈/单调队列的应用。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "栈",
+        "队列",
+        "单调栈",
+        "单调队列"
+      ],
+      "answer_points": [
+        "栈:后进先出",
+        "队列:先进先出",
+        "循环队列:利用数组实现,避免假溢出",
+        "双端队列:两端均可插入删除",
+        "单调栈:解决下一个更大元素等问题",
+        "单调队列:解决滑动窗口最值问题"
+      ],
+      "follow_ups": [
+        "手撕单调栈/单调队列"
+      ],
+      "source_excerpt": "栈与队列:原理、循环队列、双端队列、单调栈/单调队列(高频手撕)"
+    },
+    {
+      "question": "请解释KMP算法的核心思想。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "KMP",
+        "字符串匹配"
+      ],
+      "answer_points": [
+        "利用已匹配部分信息,避免回溯",
+        "构建next数组,记录最长公共前后缀",
+        "匹配失败时,模式串向右滑动最大距离"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "字符串:KMP算法、字符串匹配、回文串、滑动窗口(高频)"
+    },
+    {
+      "question": "请解释哈希表、哈希函数、哈希冲突解决方案,以及HashMap/ConcurrentHashMap核心原理。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "哈希表",
+        "HashMap",
+        "ConcurrentHashMap"
+      ],
+      "answer_points": [
+        "哈希表:通过哈希函数映射键到数组位置",
+        "哈希冲突:链地址法、开放地址法、再哈希法",
+        "HashMap:数组+链表/红黑树,扩容机制",
+        "ConcurrentHashMap:分段锁或CAS+synchronized,线程安全"
+      ],
+      "follow_ups": [
+        "HashMap在JDK1.7和1.8+的区别?"
+      ],
+      "source_excerpt": "哈希表:哈希函数、哈希冲突解决方案、HashMap/ConcurrentHashMap核心原理"
+    },
+    {
+      "question": "请比较二叉搜索树BST、平衡二叉树AVL、红黑树的区别、特性及适用场景。",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "BST",
+        "AVL",
+        "红黑树"
+      ],
+      "answer_points": [
+        "BST:左小右大,可能退化为链表",
+        "AVL:严格平衡,高度差≤1,查询快,插入删除旋转多",
+        "红黑树:近似平衡,通过颜色和旋转保持平衡,插入删除效率高",
+        "适用场景:AVL适合查询多,红黑树适合插入删除多"
+      ],
+      "follow_ups": [
+        "B树与B+树的区别?为什么MySQL索引用B+树?"
+      ],
+      "source_excerpt": "二叉搜索树BST、平衡二叉树AVL、红黑树 核心区别、特性、适用场景"
+    },
+    {
+      "question": "请比较B树与B+树的区别,并解释为什么MySQL索引用B+树。",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "B树",
+        "B+树",
+        "MySQL索引"
+      ],
+      "answer_points": [
+        "B树:节点存储数据,非叶子节点也存储",
+        "B+树:非叶子节点只存索引,叶子节点存数据且有序链表",
+        "B+树更适合范围查询,IO次数少,叶子节点顺序访问"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "B树 vs B+树 核心区别、为什么MySQL索引用B+树(必考)"
+    },
+    {
+      "question": "请解释前缀树Trie、并查集、堆(大顶堆/小顶堆)的原理及应用。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Trie",
+        "并查集",
+        "堆"
+      ],
+      "answer_points": [
+        "Trie:字符串前缀匹配,用于自动补全",
+        "并查集:集合合并与查找,用于连通性问题",
+        "堆:完全二叉树,大顶堆根最大,小顶堆根最小,用于优先队列、TopK"
+      ],
+      "follow_ups": [
+        "手撕TopK问题"
+      ],
+      "source_excerpt": "前缀树Trie、并查集、堆(大顶堆/小顶堆)、TopK问题(必考手撕)"
+    },
+    {
+      "question": "请解释图的DFS和BFS遍历,以及最短路径算法、最小生成树、拓扑排序。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "图",
+        "DFS",
+        "BFS"
+      ],
+      "answer_points": [
+        "DFS:深度优先,递归或栈实现",
+        "BFS:广度优先,队列实现",
+        "最短路径:Dijkstra、Bellman-Ford、Floyd",
+        "最小生成树:Prim、Kruskal",
+        "拓扑排序:有向无环图,入度法或DFS"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "图结构:DFS/BFS遍历(必考)、最短路径算法、最小生成树、拓扑排序"
+    },
+    {
+      "question": "请列举十大排序算法,并说明时间/空间复杂度和稳定性,手撕快排、归并排序、堆排序。",
+      "question_type": "handwrite",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "排序",
+        "快排",
+        "归并",
+        "堆排序"
+      ],
+      "answer_points": [
+        "十大排序:冒泡、选择、插入、希尔、归并、快排、堆排、计数、桶、基数",
+        "快排:O(nlogn)平均,不稳定",
+        "归并:O(nlogn),稳定",
+        "堆排:O(nlogn),不稳定"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "排序算法:十大排序算法原理、时间/空间复杂度、稳定性;必考手撕:快排、归并排序、堆排序"
+    },
+    {
+      "question": "请解释二分查找原理、边界处理及高频变形题。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "二分查找"
+      ],
+      "answer_points": [
+        "原理:每次缩小一半搜索范围",
+        "边界处理:注意左右闭区间,防止死循环",
+        "变形:查找第一个/最后一个等于目标、旋转数组等"
+      ],
+      "follow_ups": [
+        "手撕二分查找变形题"
+      ],
+      "source_excerpt": "二分查找:原理、边界处理、高频变形题(必考手撕)"
+    },
+    {
+      "question": "请解释贪心算法、动态规划、回溯算法、分治算法的核心思想及经典题型。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "算法思想"
+      ],
+      "answer_points": [
+        "贪心:局部最优,适用场景如活动选择",
+        "动态规划:最优子结构,重叠子问题,如背包问题",
+        "回溯:试探所有可能,如八皇后",
+        "分治:分而治之,如归并排序"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "贪心算法、动态规划DP、回溯算法、分治算法 核心思想与经典题型"
+    },
+    {
+      "question": "请解释冯诺依曼体系结构核心思想及计算机五大核心部件。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机组成",
+        "冯诺依曼"
+      ],
+      "answer_points": [
+        "核心思想:存储程序,指令和数据同等对待",
+        "五大部件:运算器、控制器、存储器、输入设备、输出设备"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "冯诺依曼体系结构核心思想、计算机五大核心部件"
+    },
+    {
+      "question": "请解释CPU核心组成、指令执行周期、CISC与RISC的区别。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "CPU",
+        "CISC",
+        "RISC"
+      ],
+      "answer_points": [
+        "CPU组成:控制单元、运算单元、寄存器",
+        "指令周期:取指、译码、执行、访存、写回",
+        "CISC:复杂指令集,指令长度可变,硬件复杂",
+        "RISC:精简指令集,指令长度固定,硬件简单"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "CPU核心组成、指令执行周期、CISC vs RISC 核心区别"
+    },
+    {
+      "question": "请解释存储器层次结构、Cache工作原理、局部性原理、Cache映射与写策略。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Cache",
+        "存储器"
+      ],
+      "answer_points": [
+        "层次结构:寄存器->Cache->主存->磁盘",
+        "Cache工作原理:利用局部性,缓存最近访问数据",
+        "局部性:时间局部性、空间局部性",
+        "映射方式:直接映射、组相联、全相联",
+        "写策略:写直达、写回"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "存储器层次结构、Cache工作原理、局部性原理、Cache映射与写策略"
+    },
+    {
+      "question": "请解释CPU流水线技术、流水线冒险及解决方案。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "流水线",
+        "冒险"
+      ],
+      "answer_points": [
+        "流水线:将指令执行分为多个阶段,并行处理",
+        "冒险:结构冒险、数据冒险、控制冒险",
+        "解决方案:插入气泡、转发、分支预测"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "CPU流水线技术、流水线冒险与解决方案"
+    },
+    {
+      "question": "请解释IO控制方式:程序查询、中断驱动、DMA、通道控制。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "IO控制"
+      ],
+      "answer_points": [
+        "程序查询:CPU轮询,效率低",
+        "中断驱动:设备完成时中断CPU",
+        "DMA:直接内存访问,无需CPU干预",
+        "通道控制:专用处理器控制IO"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "IO控制方式:程序查询、中断驱动、DMA、通道控制"
+    },
+    {
+      "question": "请解释面向对象三大特性、重载与重写的区别、接口与抽象类的区别。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "OOP",
+        "重载",
+        "重写",
+        "接口",
+        "抽象类"
+      ],
+      "answer_points": [
+        "三大特性:封装、继承、多态",
+        "重载:同一类中方法名相同参数不同,编译时多态",
+        "重写:子类重写父类方法,运行时多态",
+        "接口:抽象方法集合,支持多实现",
+        "抽象类:包含抽象方法,不能实例化"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "面向对象三大特性、重载 vs 重写、接口 vs 抽象类"
+    },
+    {
+      "question": "请解释基本数据类型与包装类的区别、自动装箱/拆箱、Integer缓存机制。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "数据类型",
+        "包装类",
+        "Integer缓存"
+      ],
+      "answer_points": [
+        "基本类型:int, double等,存储在栈",
+        "包装类:Integer, Double等,对象存储在堆",
+        "自动装箱/拆箱:编译器自动转换",
+        "Integer缓存:-128到127的Integer对象缓存"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "基本数据类型 vs 包装类、自动装箱/拆箱、Integer缓存机制"
+    }
+  ]
+}

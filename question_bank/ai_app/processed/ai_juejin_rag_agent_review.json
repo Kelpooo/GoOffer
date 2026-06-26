@@ -1,0 +1,413 @@
+{
+  "source_title": "真实 LLM 应用开发面试复盘",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "如何设计一个高召回率的商品问答RAG系统?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "RAG",
+        "检索",
+        "LLM应用"
+      ],
+      "answer_points": [
+        "使用LangChain搭建RAG架构,采用多维度混合检索策略。",
+        "Embedding选型与分块:选用BAAI/bge-large-zh模型,将商品详情拆解为标题、核心卖点、材质参数、使用场景等独立文本块分别向量化。",
+        "混合检索策略:同时进行向量检索(语义匹配)和关键词检索(BM25)。",
+        "向量数据库选型:选用Milvus,使用IVF_FLAT索引将平均响应时间控制在200ms内。",
+        "结果重排:使用Cohere的rerank模型或轻量级计分规则(如匹配字段权重:标题>卖点>描述)进行重排序,准确率从70%提升到90%。"
+      ],
+      "follow_ups": [
+        "还有优化空间吗?",
+        "如何处理复杂问题的召回?"
+      ],
+      "source_excerpt": "如何设计一个高召回率的商品问答RAG系统?...核心优化点是多维度混合检索"
+    },
+    {
+      "question": "LLM应用中HTTP连接池内存泄漏如何排查和解决?",
+      "question_type": "optimization",
+      "category": "engineering",
+      "difficulty": "senior",
+      "tags": [
+        "内存泄漏",
+        "HTTP连接池",
+        "LLM应用"
+      ],
+      "answer_points": [
+        "监控与定位:通过监控平台发现内存锯齿状增长,使用pprof抓取heap profile,发现大量*http.transport和*http.conn对象未释放,以及大量readLoop和writeLoop协程。",
+        "根因分析:每次请求都创建新的http.Client和Transport,导致底层连接和协程无法复用和及时关闭。",
+        "解决方案:设计按目标站点分组的连接池,对火山引擎API和内部RAG服务使用不同Transport,合理设置MaxIdleConnsPerHost和IdleConnTimeout参数。",
+        "效果:优化后内存使用平稳,24小时内存增长从超过1G降到50M以内。"
+      ],
+      "follow_ups": [
+        "LLM请求耗时较长,如何避免连接池被拖垮?"
+      ],
+      "source_excerpt": "LLM应用中的HTTP连接池内存泄漏,你是怎么排查和解决的?"
+    },
+    {
+      "question": "如何为客服和运营两个不同角色设计LLM的Prompt?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Prompt工程",
+        "角色化",
+        "LLM应用"
+      ],
+      "answer_points": [
+        "设计原则:角色化、结构化、可执行。",
+        "客服场景Prompt:要求LLM扮演资深客服,回答采用三段式结构:【结论】+【原因(引用知识库条款)】+【行动建议】,限制在3句话内。",
+        "运营场景Prompt:要求LLM扮演数据分析师,输出报表格式,明确要求分析咨询类型、数量、占比、环比变化并总结核心发现。",
+        "技术实现:差异化Prompt模板封装在角色配置中心,根据用户身份自动切换,通过LangChain的ChatPromptTemplate管理。"
+      ],
+      "follow_ups": [
+        "如何确保运营场景的Prompt输出格式稳定?"
+      ],
+      "source_excerpt": "如何为客服和运营两个不同角色设计LLM的Prompt?"
+    },
+    {
+      "question": "RAG系统中Embedding模型选型有哪些考虑?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Embedding",
+        "RAG",
+        "模型选型"
+      ],
+      "answer_points": [
+        "不同模型对专业术语、同义词的理解差异大。",
+        "需要根据垂类场景选择合适模型,如BAAI/bge-large-zh。",
+        "分块策略影响Embedding效果,应避免粗暴拼接,将信息拆解为独立文本块分别向量化。"
+      ],
+      "follow_ups": [
+        "如何评估Embedding模型的效果?"
+      ],
+      "source_excerpt": "没提Embedding模型:不同模型对专业术语、同义词的理解天差地别,不提模型选型等于没说。"
+    },
+    {
+      "question": "RAG系统中为什么不能粗暴拼接商品信息?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "RAG",
+        "信息分块",
+        "Embedding"
+      ],
+      "answer_points": [
+        "商品卖点、材质、适用场景等信息混在一起,Embedding过程会信息丢失。",
+        "导致检索不准确,无法精准匹配用户意图。",
+        "应拆解为标题、核心卖点、材质参数、使用场景等独立文本块分别向量化。"
+      ],
+      "follow_ups": [
+        "分块大小如何确定?"
+      ],
+      "source_excerpt": "“粗暴拼接”是大忌:商品卖点、材质、适用场景这些信息混在一起,Embedding过程会信息丢失,导致“搜不准”。"
+    },
+    {
+      "question": "RAG系统中向量数据库选型有哪些考虑?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "向量数据库",
+        "RAG",
+        "选型"
+      ],
+      "answer_points": [
+        "PgVector在性能和扩展性上并非最优选。",
+        "对于商品量级大且对延迟敏感的场景,选用Milvus。",
+        "Milvus内置IVF_FLAT索引可将平均响应时间控制在200ms内。"
+      ],
+      "follow_ups": [
+        "Milvus与其他向量数据库(如Pinecone、Weaviate)的对比?"
+      ],
+      "source_excerpt": "向量数据库选型:由于商品量级大且对延迟敏感,我们放弃了PgVector,选用Milvus支撑海量向量的高效检索"
+    },
+    {
+      "question": "RAG系统中结果重排有哪些方法?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "RAG",
+        "重排",
+        "rerank"
+      ],
+      "answer_points": [
+        "使用Cohere的rerank模型进行重排序。",
+        "使用轻量级计分规则,如匹配字段权重:标题>卖点>描述。",
+        "重排后问答准确率从70%提升到90%。"
+      ],
+      "follow_ups": [
+        "重排模型的性能开销如何?"
+      ],
+      "source_excerpt": "结果重排:对初步检索结果,我们用Cohere的rerank模型或者轻量级的计分规则(如匹配字段权重:标题 > 卖点 > 描述)进行重排序"
+    },
+    {
+      "question": "RAG系统中如何进一步提升复杂问题的召回率?",
+      "question_type": "optimization",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "RAG",
+        "召回率",
+        "HyDE",
+        "递归检索"
+      ],
+      "answer_points": [
+        "使用递归检索技术。",
+        "使用HyDE技术:先让LLM根据问题生成一个假设性答案,再用这个答案去检索。",
+        "能显著提升复杂问题的召回率。"
+      ],
+      "follow_ups": [
+        "HyDE的实现细节?"
+      ],
+      "source_excerpt": "我们正在实验递归检索和HyDE技术。比如,先让LLM根据问题生成一个假设性答案,再用这个答案去检索,能显著提升复杂问题的召回率。"
+    },
+    {
+      "question": "LLM应用中如何设计连接池以避免内存泄漏?",
+      "question_type": "optimization",
+      "category": "engineering",
+      "difficulty": "senior",
+      "tags": [
+        "连接池",
+        "内存泄漏",
+        "LLM应用"
+      ],
+      "answer_points": [
+        "避免每次请求创建新的http.Client和Transport。",
+        "设计按目标站点分组的连接池,对不同API使用不同Transport。",
+        "合理设置MaxIdleConnsPerHost和IdleConnTimeout参数。",
+        "设置请求级超时和熔断机制,避免慢请求拖垮连接池。"
+      ],
+      "follow_ups": [
+        "连接池参数如何调优?"
+      ],
+      "source_excerpt": "我们没采用简单的全局单例Client,而是设计了按目标站点分组的连接池。比如,对火山引擎API和内部RAG服务使用不同的Transport,并合理设置MaxIdleConnsPerHost和IdleConnTimeout参数"
+    },
+    {
+      "question": "LLM应用与传统Web应用在连接池设计上有何不同?",
+      "question_type": "comparison",
+      "category": "engineering",
+      "difficulty": "senior",
+      "tags": [
+        "连接池",
+        "LLM应用",
+        "对比"
+      ],
+      "answer_points": [
+        "LLM请求普遍耗时较长,容易积压连接。",
+        "需要设置请求级超时和熔断机制,避免慢请求拖垮整个连接池。",
+        "传统Web应用请求通常较快,连接池压力较小。"
+      ],
+      "follow_ups": [
+        "熔断机制如何实现?"
+      ],
+      "source_excerpt": "LLM请求普遍耗时较长,容易积压连接。所以我们还设置了请求级超时和熔断机制,避免慢请求拖垮整个连接池,这是和传统Web应用不一样的地方。"
+    },
+    {
+      "question": "如何设计客服场景的LLM Prompt?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Prompt工程",
+        "客服",
+        "LLM应用"
+      ],
+      "answer_points": [
+        "核心目标是效率与准确。",
+        "要求LLM扮演资深客服,回答采用三段式结构:【结论】+【原因(引用知识库条款)】+【行动建议】。",
+        "限制在3句话内。"
+      ],
+      "follow_ups": [
+        "如何确保客服回答引用知识库的准确性?"
+      ],
+      "source_excerpt": "客服场景Prompt设计:核心目标是效率与准确。我们要求LLM扮演“资深客服”,回答必须严格遵循三段式结构:【结论】+【原因(引用知识库条款)】+【行动建议】,并限制在3句话内。"
+    },
+    {
+      "question": "如何设计运营场景的LLM Prompt?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Prompt工程",
+        "运营",
+        "LLM应用"
+      ],
+      "answer_points": [
+        "核心目标是洞察与数据。",
+        "要求LLM扮演数据分析师,输出报表格式。",
+        "Prompt明确要求分析咨询类型、数量、占比、环比变化并总结核心发现。",
+        "使用Few-shot示例规范输出格式。"
+      ],
+      "follow_ups": [
+        "运营场景的Prompt如何保证数据准确性?"
+      ],
+      "source_excerpt": "运营场景Prompt设计:核心目标是洞察与数据。我们要求LLM扮演“数据分析师”,输出必须是报表格式。Prompt会明确要求:“请分析上周用户关于‘价格’的咨询,并按‘咨询类型、数量、占比、环比变化’列成表格,并总结核心发现。”"
+    },
+    {
+      "question": "如何管理不同角色的Prompt模板?",
+      "question_type": "principle",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "Prompt管理",
+        "角色化",
+        "LangChain"
+      ],
+      "answer_points": [
+        "差异化Prompt模板封装在系统的角色配置中心。",
+        "根据用户身份自动切换。",
+        "通过LangChain的ChatPromptTemplate进行管理。"
+      ],
+      "follow_ups": [
+        "如何动态更新Prompt模板?"
+      ],
+      "source_excerpt": "这些差异化Prompt模板会封装在系统的角色配置中心,根据用户身份自动切换,并通过LangChain的ChatPromptTemplate进行管理。"
+    },
+    {
+      "question": "LLM面试准备有哪些通用心法?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "面试准备",
+        "LLM"
+      ],
+      "answer_points": [
+        "按模块准备STAR话术:将LLM开发拆解为基础选型、核心技术、应用落地、性能优化、工程部署五大模块,每个模块准备2-3个亲身经历的故事,用场景-技术栈-行动-量化结果格式串起来。",
+        "死磕术语精准化:使用具体术语如QLoRA、A100、Llama 3等,记牢RAG、LoRA/QLoRA、Embedding、Agent、Token成本等高频词。",
+        "优化必谈量化结果:任何优化问题结尾必须带上数字,如通过思维链提示将准确率提升15%。"
+      ],
+      "follow_ups": [
+        "如何准备STAR话术?"
+      ],
+      "source_excerpt": "无论面试题怎么变,吃透这三点,你的准备效率会翻倍"
+    },
+    {
+      "question": "什么是QLoRA?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "QLoRA",
+        "微调",
+        "LLM"
+      ],
+      "answer_points": [
+        "QLoRA是一种高效微调方法。",
+        "在A100上基于5000条垂类数据对Llama 3进行高效微调。",
+        "相比全量微调,QLoRA显著降低显存占用。"
+      ],
+      "follow_ups": [
+        "QLoRA与LoRA的区别?"
+      ],
+      "source_excerpt": "我用QLoRA在A100上基于5000条垂类数据对Llama 3进行了高效微调"
+    },
+    {
+      "question": "什么是思维链提示(Chain-of-Thought Prompting)?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "思维链",
+        "Prompt工程",
+        "LLM"
+      ],
+      "answer_points": [
+        "一种Prompt技术,引导模型逐步推理。",
+        "通过引入思维链提示,复杂逻辑推理任务的准确率提升了15%。"
+      ],
+      "follow_ups": [
+        "思维链提示的实现方式?"
+      ],
+      "source_excerpt": "通过引入思维链提示,我们把复杂逻辑推理任务的准确率提升了15%"
+    },
+    {
+      "question": "LLM应用开发中如何控制Token成本?",
+      "question_type": "optimization",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "Token成本",
+        "LLM应用",
+        "成本控制"
+      ],
+      "answer_points": [
+        "合理设计Prompt长度,避免冗余。",
+        "使用缓存机制减少重复调用。",
+        "选择合适模型平衡效果和成本。"
+      ],
+      "follow_ups": [
+        "如何估算Token成本?"
+      ],
+      "source_excerpt": "记牢RAG、LoRA/QLoRA、Embedding、Agent、Token成本这些高频词的正确用法和上下文。"
+    },
+    {
+      "question": "什么是HyDE技术?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "HyDE",
+        "检索",
+        "RAG"
+      ],
+      "answer_points": [
+        "HyDE全称是Hypothetical Document Embeddings。",
+        "先让LLM根据问题生成一个假设性答案。",
+        "再用这个假设性答案去检索,能显著提升复杂问题的召回率。"
+      ],
+      "follow_ups": [
+        "HyDE的适用场景?"
+      ],
+      "source_excerpt": "我们正在实验递归检索和HyDE技术。比如,先让LLM根据问题生成一个假设性答案,再用这个答案去检索,能显著提升复杂问题的召回率。"
+    },
+    {
+      "question": "LLM应用开发中如何准备STAR话术?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "面试技巧",
+        "STAR",
+        "LLM"
+      ],
+      "answer_points": [
+        "将LLM开发拆解为基础选型、核心技术、应用落地、性能优化、工程部署五大模块。",
+        "每个模块准备2-3个亲身经历的故事。",
+        "用场景-技术栈-行动-量化结果的格式串起来。"
+      ],
+      "follow_ups": [
+        "能否举例一个STAR话术?"
+      ],
+      "source_excerpt": "按模块准备STAR话术:把LLM开发拆解成基础选型、核心技术、应用落地、性能优化、工程部署五大模块。每个模块准备2-3个你亲身经历的故事,用“场景-技术栈-行动-量化结果”的格式串起来。"
+    },
+    {
+      "question": "LLM面试中如何体现技术深度?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "面试技巧",
+        "技术深度",
+        "LLM"
+      ],
+      "answer_points": [
+        "使用精准术语,如QLoRA、A100、Llama 3等。",
+        "回答优化问题时必须带量化结果。",
+        "展示系统性思维和实战经验。"
+      ],
+      "follow_ups": [
+        "如何量化优化效果?"
+      ],
+      "source_excerpt": "死磕术语精准化:别再说“我微调了模型”,要说“我用QLoRA在A100上基于5000条垂类数据对Llama 3进行了高效微调”。"
+    }
+  ]
+}

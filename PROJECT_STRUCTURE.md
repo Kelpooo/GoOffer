@@ -32,6 +32,13 @@ DATABASE_SETUP.md       Database usage and migration notes
 - `question_bank/`: raw and processed content assets
 - root wrappers: keep current commands compatible first, then migrate gradually
 
+## Data ownership
+
+- Runtime source of truth: SQLite in `.runtime/offergo.db` when `OFFERGO_STORAGE_MODE=sqlite`
+- Frontend `localStorage`: only a fallback cache for offline or API failure cases
+- `web_mvp/data/questions.json`: build-time fallback and import source, not the long-term master data source
+- Compatibility wrappers in the project root should stay thin; new scripts should go into `offergo_scripts/`
+
 ## Recommended next refactors
 
 1. Add a `scripts/` package and move root data scripts behind compatibility wrappers.

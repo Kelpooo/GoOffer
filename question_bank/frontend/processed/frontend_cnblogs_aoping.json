@@ -1,0 +1,608 @@
+{
+  "source_title": "前端最强面经汇总",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "getComputedStyle和element.style的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "getComputedStyle",
+        "style",
+        "CSS",
+        "DOM"
+      ],
+      "answer_points": [
+        "getComputedStyle是只读的,只能获取样式;element.style可读可写。",
+        "getComputedStyle获取的是最终应用在元素上的所有CSS属性对象,包括默认值;element.style只能获取元素style属性中的CSS样式。",
+        "getComputedStyle可以获取伪类元素的样式;element.style不能。",
+        "getComputedStyle在IE6~8不支持。"
+      ],
+      "follow_ups": [
+        "如何获取伪类元素的样式?",
+        "getComputedStyle返回的对象有哪些属性?"
+      ],
+      "source_excerpt": "getComputedStyle和style的区别:1.只读与可写;2.获取的对象范围;3.作用;4.兼容性"
+    },
+    {
+      "question": "如何实现深克隆?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "深克隆",
+        "深拷贝",
+        "递归"
+      ],
+      "answer_points": [
+        "使用JSON.parse(JSON.stringify(obj)),但无法处理函数、undefined、Symbol、循环引用等。",
+        "递归实现,考虑基本类型和引用类型,处理数组和对象。",
+        "处理循环引用,使用WeakMap或Map记录已拷贝的对象。",
+        "处理特殊对象如Date、RegExp、Map、Set等。"
+      ],
+      "follow_ups": [
+        "深克隆和浅克隆的区别?",
+        "如何实现一个支持循环引用的深克隆?"
+      ],
+      "source_excerpt": "面试官系列(1): 如何实现深克隆"
+    },
+    {
+      "question": "如何实现Event Bus?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Event Bus",
+        "发布订阅",
+        "事件"
+      ],
+      "answer_points": [
+        "维护一个事件名到回调函数列表的映射。",
+        "提供on方法用于订阅事件。",
+        "提供emit方法用于触发事件。",
+        "提供off方法用于取消订阅。",
+        "考虑once方法,只触发一次。"
+      ],
+      "follow_ups": [
+        "Event Bus和观察者模式的区别?",
+        "如何实现一个带命名空间的Event Bus?"
+      ],
+      "source_excerpt": "面试官系列(2): Event Bus的实现"
+    },
+    {
+      "question": "前端路由的实现原理是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "前端路由",
+        "hash",
+        "history"
+      ],
+      "answer_points": [
+        "基于hash的路由:监听hashchange事件,根据hash值渲染对应组件。",
+        "基于History API的路由:使用pushState和replaceState改变URL,监听popstate事件。",
+        "hash路由兼容性好,但URL中有#;history路由需要后端配合处理刷新。"
+      ],
+      "follow_ups": [
+        "hash路由和history路由的优缺点?",
+        "如何实现一个前端路由?"
+      ],
+      "source_excerpt": "面试官系列(3): 前端路由的实现"
+    },
+    {
+      "question": "基于Proxy的数据劫持相比Object.defineProperty有什么优势?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "senior",
+      "tags": [
+        "Proxy",
+        "Object.defineProperty",
+        "数据劫持",
+        "Vue"
+      ],
+      "answer_points": [
+        "Proxy可以监听整个对象,而defineProperty需要遍历属性。",
+        "Proxy可以监听数组索引和长度变化,defineProperty需要重写数组方法。",
+        "Proxy可以监听新增和删除属性,defineProperty无法监听。",
+        "Proxy有13种拦截操作,更强大。"
+      ],
+      "follow_ups": [
+        "Vue3为什么改用Proxy?",
+        "Proxy的兼容性问题?"
+      ],
+      "source_excerpt": "面试官系列(4): 基于Proxy 数据劫持的双向绑定优势所在"
+    },
+    {
+      "question": "你为什么使用前端框架?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "前端框架",
+        "React",
+        "Vue",
+        "Angular"
+      ],
+      "answer_points": [
+        "提高开发效率,组件化开发。",
+        "数据驱动视图,减少DOM操作。",
+        "生态丰富,社区活跃。",
+        "解决跨浏览器兼容性问题。"
+      ],
+      "follow_ups": [
+        "你用过哪些前端框架?",
+        "框架和库的区别?"
+      ],
+      "source_excerpt": "面试官系列(5): 你为什么使用前端框架"
+    },
+    {
+      "question": "如何设计通用前端组件?",
+      "question_type": "scenario",
+      "category": "framework",
+      "difficulty": "senior",
+      "tags": [
+        "组件设计",
+        "通用组件",
+        "可复用"
+      ],
+      "answer_points": [
+        "遵循单一职责原则。",
+        "提供灵活的API,支持props和slots。",
+        "考虑可扩展性,支持自定义样式和行为。",
+        "做好类型检查和文档。"
+      ],
+      "follow_ups": [
+        "如何设计一个弹窗组件?",
+        "组件库的设计思路?"
+      ],
+      "source_excerpt": "面试官(6): 写过『通用前端组件』吗?"
+    },
+    {
+      "question": "Babel的工作原理是什么?",
+      "question_type": "principle",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "Babel",
+        "编译",
+        "AST"
+      ],
+      "answer_points": [
+        "解析:将源代码解析成AST。",
+        "转换:对AST进行遍历和转换,应用插件。",
+        "生成:将转换后的AST生成目标代码。",
+        "核心是插件系统,每个插件对应一个转换规则。"
+      ],
+      "follow_ups": [
+        "Babel的preset和plugin的区别?",
+        "如何编写一个Babel插件?"
+      ],
+      "source_excerpt": "面试官(7): 聊一聊 Babel?"
+    },
+    {
+      "question": "React中如何实现不可变数据结构?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "不可变数据",
+        "Immutable.js",
+        "Immer"
+      ],
+      "answer_points": [
+        "使用Object.assign或扩展运算符创建新对象。",
+        "使用Immutable.js库提供持久化数据结构。",
+        "使用Immer库通过Proxy实现可变语法。",
+        "不可变数据有助于性能优化和状态管理。"
+      ],
+      "follow_ups": [
+        "为什么React强调不可变数据?",
+        "不可变数据在Redux中的应用?"
+      ],
+      "source_excerpt": "面试官系列(8): React 强调的『不可变数据结构』怎么实现?"
+    },
+    {
+      "question": "HTTP有哪些常见的状态码?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTTP",
+        "状态码"
+      ],
+      "answer_points": [
+        "200 OK:请求成功。",
+        "301 Moved Permanently:永久重定向。",
+        "302 Found:临时重定向。",
+        "304 Not Modified:资源未修改,使用缓存。",
+        "400 Bad Request:请求错误。",
+        "401 Unauthorized:未授权。",
+        "403 Forbidden:禁止访问。",
+        "404 Not Found:资源不存在。",
+        "500 Internal Server Error:服务器内部错误。",
+        "502 Bad Gateway:网关错误。",
+        "503 Service Unavailable:服务不可用。"
+      ],
+      "follow_ups": [
+        "301和302的区别?",
+        "如何利用304优化性能?"
+      ],
+      "source_excerpt": "面试官(9):可能是全网最全的http面试答案"
+    },
+    {
+      "question": "虚拟DOM的原理是什么?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "虚拟DOM",
+        "React",
+        "Vue",
+        "diff"
+      ],
+      "answer_points": [
+        "用JavaScript对象模拟真实DOM树。",
+        "通过diff算法比较新旧虚拟DOM的差异。",
+        "将差异批量更新到真实DOM上。",
+        "减少直接操作DOM的次数,提高性能。"
+      ],
+      "follow_ups": [
+        "虚拟DOM的优缺点?",
+        "React的diff算法和Vue的diff算法有什么区别?"
+      ],
+      "source_excerpt": "面试官: 你对虚拟DOM原理的理解?"
+    },
+    {
+      "question": "JavaScript的数组有什么特殊之处?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "数组",
+        "JavaScript"
+      ],
+      "answer_points": [
+        "数组是对象,索引是字符串数字。",
+        "数组可以存储不同类型的数据。",
+        "数组的length属性是可变的。",
+        "数组有丰富的原型方法。"
+      ],
+      "follow_ups": [
+        "如何判断一个变量是数组?",
+        "数组的遍历方法有哪些?"
+      ],
+      "source_excerpt": "面试官:JavaScript的数组有什么特殊之处?"
+    },
+    {
+      "question": "TCP/IP协议的三次握手和四次挥手是什么?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TCP",
+        "三次握手",
+        "四次挥手"
+      ],
+      "answer_points": [
+        "三次握手:客户端发送SYN,服务器回复SYN+ACK,客户端发送ACK。",
+        "四次挥手:客户端发送FIN,服务器回复ACK,服务器发送FIN,客户端回复ACK。",
+        "确保可靠连接和断开。"
+      ],
+      "follow_ups": [
+        "为什么需要三次握手而不是两次?",
+        "为什么挥手需要四次?"
+      ],
+      "source_excerpt": "面试时,你被问到过 TCP/IP 协议吗?"
+    },
+    {
+      "question": "Promise的原理是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Promise",
+        "异步",
+        "状态机"
+      ],
+      "answer_points": [
+        "Promise有三种状态:pending、fulfilled、rejected。",
+        "状态一旦改变不可逆。",
+        "通过then方法注册回调,支持链式调用。",
+        "内部维护一个回调队列,状态改变时执行。"
+      ],
+      "follow_ups": [
+        "如何实现一个Promise?",
+        "Promise.all和Promise.race的区别?"
+      ],
+      "source_excerpt": "面试精选之Promise"
+    },
+    {
+      "question": "HTTP缓存机制是怎样的?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTTP缓存",
+        "强缓存",
+        "协商缓存"
+      ],
+      "answer_points": [
+        "强缓存:通过Expires和Cache-Control控制,直接使用缓存。",
+        "协商缓存:通过Last-Modified/If-Modified-Since和ETag/If-None-Match,向服务器验证。",
+        "优先级:Cache-Control > Expires > ETag > Last-Modified。"
+      ],
+      "follow_ups": [
+        "如何设置强缓存和协商缓存?",
+        "缓存策略如何选择?"
+      ],
+      "source_excerpt": "面试精选之http缓存"
+    },
+    {
+      "question": "如何搭建Vue开发环境?",
+      "question_type": "scenario",
+      "category": "engineering",
+      "difficulty": "junior",
+      "tags": [
+        "Vue",
+        "开发环境",
+        "webpack"
+      ],
+      "answer_points": [
+        "使用Vue CLI脚手架快速搭建。",
+        "配置webpack,包括loader和plugin。",
+        "安装必要的依赖,如vue-router、vuex。",
+        "配置开发服务器和热更新。"
+      ],
+      "follow_ups": [
+        "Vue CLI的原理?",
+        "如何手动配置webpack?"
+      ],
+      "source_excerpt": "面试官:自己搭建过vue开发环境吗?"
+    },
+    {
+      "question": "什么是防抖和节流?如何实现?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "防抖",
+        "节流",
+        "性能优化"
+      ],
+      "answer_points": [
+        "防抖:在事件触发后n秒内只执行一次,若再次触发则重新计时。",
+        "节流:在n秒内只执行一次,无论触发多少次。",
+        "防抖适用于输入框搜索,节流适用于滚动事件。",
+        "实现:使用setTimeout和clearTimeout。"
+      ],
+      "follow_ups": [
+        "防抖和节流的区别?",
+        "如何实现带立即执行的防抖?"
+      ],
+      "source_excerpt": "2019 面试准备 - JS 防抖与节流"
+    },
+    {
+      "question": "JavaScript的原型和原型链是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "原型",
+        "原型链",
+        "继承"
+      ],
+      "answer_points": [
+        "每个对象都有一个__proto__属性指向其原型对象。",
+        "每个函数都有一个prototype属性。",
+        "当访问对象属性时,如果对象本身没有,会沿着原型链向上查找。",
+        "原型链的顶端是Object.prototype。"
+      ],
+      "follow_ups": [
+        "如何实现继承?",
+        "instanceof的原理?"
+      ],
+      "source_excerpt": "2019 面试准备 - JS 原型与原型链"
+    },
+    {
+      "question": "页面加载海量数据时如何优化?",
+      "question_type": "optimization",
+      "category": "performance",
+      "difficulty": "senior",
+      "tags": [
+        "海量数据",
+        "虚拟列表",
+        "分页",
+        "性能优化"
+      ],
+      "answer_points": [
+        "使用虚拟列表,只渲染可视区域的数据。",
+        "使用分页或无限滚动。",
+        "使用Web Worker处理数据。",
+        "使用requestAnimationFrame分批渲染。"
+      ],
+      "follow_ups": [
+        "虚拟列表的实现原理?",
+        "如何实现一个虚拟滚动组件?"
+      ],
+      "source_excerpt": "面试:页面加载海量数据"
+    },
+    {
+      "question": "什么是闭包?闭包有什么作用?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "闭包",
+        "作用域"
+      ],
+      "answer_points": [
+        "闭包是指有权访问另一个函数作用域中变量的函数。",
+        "闭包可以读取函数内部的变量。",
+        "闭包可以让变量的值始终保持在内存中。",
+        "闭包常用于封装私有变量和模块化。"
+      ],
+      "follow_ups": [
+        "闭包的缺点?",
+        "如何解决闭包导致的内存泄漏?"
+      ],
+      "source_excerpt": "征服 JavaScript 面试:什么是闭包?"
+    },
+    {
+      "question": "JavaScript中this的指向如何确定?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "this",
+        "作用域",
+        "调用方式"
+      ],
+      "answer_points": [
+        "默认绑定:非严格模式下指向全局对象,严格模式下为undefined。",
+        "隐式绑定:作为对象方法调用时指向该对象。",
+        "显式绑定:通过call、apply、bind改变this指向。",
+        "new绑定:构造函数中的this指向新创建的对象。",
+        "箭头函数:没有自己的this,继承外层作用域的this。"
+      ],
+      "follow_ups": [
+        "如何改变this指向?",
+        "箭头函数和普通函数的this区别?"
+      ],
+      "source_excerpt": "面试官问:JS的this指向"
+    },
+    {
+      "question": "call、apply、bind的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "call",
+        "apply",
+        "bind",
+        "this"
+      ],
+      "answer_points": [
+        "call和apply立即执行函数,bind返回新函数。",
+        "call参数逐个传递,apply参数以数组形式传递。",
+        "bind可以预设参数,实现柯里化。"
+      ],
+      "follow_ups": [
+        "如何实现一个bind?",
+        "call和apply的应用场景?"
+      ],
+      "source_excerpt": "js基础-面试官想知道你有多理解call,apply,bind?[不看后悔系列]"
+    },
+    {
+      "question": "如何写出一个惊艳面试官的深拷贝?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "senior",
+      "tags": [
+        "深拷贝",
+        "递归",
+        "循环引用"
+      ],
+      "answer_points": [
+        "考虑基本类型和引用类型。",
+        "处理数组和对象。",
+        "处理循环引用,使用WeakMap。",
+        "处理特殊对象如Date、RegExp、Map、Set。",
+        "考虑Symbol属性。"
+      ],
+      "follow_ups": [
+        "深拷贝和浅拷贝的区别?",
+        "JSON.parse(JSON.stringify)的缺点?"
+      ],
+      "source_excerpt": "如何写出一个惊艳面试官的深拷贝?"
+    },
+    {
+      "question": "100万个成员的数组取第一个和最后一个有性能差距吗?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "数组",
+        "性能",
+        "索引"
+      ],
+      "answer_points": [
+        "没有性能差距,数组访问是O(1)操作。",
+        "JavaScript数组是对象,索引访问直接通过哈希表或连续内存。",
+        "现代引擎优化,访问速度几乎相同。"
+      ],
+      "follow_ups": [
+        "数组的底层存储结构?",
+        "稀疏数组和密集数组的区别?"
+      ],
+      "source_excerpt": "面试官: 100万个成员的数组取第一个和最后一个有性能差距吗?"
+    },
+    {
+      "question": "express和koa的区别是什么?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "express",
+        "koa",
+        "Node.js"
+      ],
+      "answer_points": [
+        "Express基于回调,Koa基于async/await。",
+        "Koa的中间件是洋葱模型,Express是线性模型。",
+        "Koa更轻量,没有内置路由和模板。",
+        "Express更成熟,社区资源丰富。"
+      ],
+      "follow_ups": [
+        "Koa的洋葱模型如何实现?",
+        "如何选择express和koa?"
+      ],
+      "source_excerpt": "再也不怕面试官问你express和koa的区别了"
+    },
+    {
+      "question": "递归的思想与实战是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "递归",
+        "算法"
+      ],
+      "answer_points": [
+        "递归函数调用自身,必须有终止条件。",
+        "递归适用于树形结构、分治算法。",
+        "递归可能导致栈溢出,可优化为尾递归或迭代。",
+        "常见递归应用:深拷贝、遍历DOM树、斐波那契数列。"
+      ],
+      "follow_ups": [
+        "尾递归优化是什么?",
+        "递归和迭代的优缺点?"
+      ],
+      "source_excerpt": "聊聊面试必考-递归思想与实战"
+    },
+    {
+      "question": "如何实现防抖和节流?",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "防抖",
+        "节流",
+        "手写"
+      ],
+      "answer_points": [
+        "防抖:设置定时器,每次触发清除并重新设置。",
+        "节流:使用时间戳或定时器,控制执行频率。",
+        "防抖适用于输入框搜索,节流适用于滚动事件。"
+      ],
+      "follow_ups": [
+        "防抖和节流的区别?",
+        "如何实现带立即执行的防抖?"
+      ],
+      "source_excerpt": "js史上最精简!防抖节流(你的比我精简,算我输)"
+    }
+  ]
+}

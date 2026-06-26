@@ -1,0 +1,449 @@
+{
+  "source_title": "大小厂必问 Java 后端面试题",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "你觉得 Java 好在哪儿?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "跨平台",
+        "垃圾回收",
+        "生态"
+      ],
+      "answer_points": [
+        "跨平台:通过 JVM 实现一次编写多平台运行。",
+        "垃圾回收:自动管理内存,减轻程序员负担,提升开发效率。",
+        "生态丰富:第三方类库、资料、企业级框架、中间件等齐全。"
+      ],
+      "follow_ups": [
+        "Java 的跨平台是如何实现的?",
+        "JIT 和 AOT 编译有什么区别?"
+      ],
+      "source_excerpt": "首先 Java 是跨平台的...Java 还提供垃圾自动回收功能...然后现在 Java 生态圈太全了"
+    },
+    {
+      "question": "如果让你设计一个 HashMap,你会如何设计?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "哈希函数",
+        "冲突处理",
+        "扩容"
+      ],
+      "answer_points": [
+        "设计哈希函数:要求运算快、分布均匀,减少碰撞。",
+        "冲突处理:采用拉链法,链表过长时转为红黑树。",
+        "扩容机制:当负载因子过高时扩容,可考虑延迟移动(类似 Redis 的渐进式 rehash)。",
+        "预估数据大小,避免频繁扩容。"
+      ],
+      "follow_ups": [
+        "HashMap 的哈希函数具体如何实现?",
+        "HashMap 是线程安全的吗?如何实现线程安全?"
+      ],
+      "source_excerpt": "基本原理就是将 key 经过 hash 函数进行散列得到散列值...可以采用拉链法来处理冲突...可以考虑和 redis 那样搞两个 table 延迟移动"
+    },
+    {
+      "question": "并发类库提供的线程池实现有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "线程池",
+        "Executors",
+        "newFixedThreadPool",
+        "newCachedThreadPool"
+      ],
+      "answer_points": [
+        "newFixedThreadPool:固定线程数,无界队列,可能 OOM。",
+        "newWorkStealingPool:基于 ForkJoinPool,工作窃取,线程数参照 CPU 核心数。",
+        "newSingleThreadExecutor:单线程,无界队列,保证顺序执行。",
+        "newCachedThreadPool:核心线程数 0,最大线程数无限,同步队列,适合短任务。",
+        "newScheduledThreadPool:定时执行任务,使用延时队列。"
+      ],
+      "follow_ups": [
+        "为什么阿里巴巴禁止使用 Executors 创建线程池?",
+        "线程池的核心参数有哪些?"
+      ],
+      "source_excerpt": "这个实现指的就是 Executors 的 5 个静态工厂方法:newFixedThreadPool、newWorkStealingPool、newSingleThreadExecutor、newCachedThreadPool、newScheduledThreadPool"
+    },
+    {
+      "question": "如果让你设计一个线程池,你会如何设计?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "线程池设计",
+        "核心线程数",
+        "工作队列",
+        "拒绝策略"
+      ],
+      "answer_points": [
+        "考虑池内工作线程的管理:初始化线程数、核心线程数、最大线程数可配置,空闲线程回收策略。",
+        "任务编排执行:任务存储结构可配置(无界/有界队列,多优先级队列,工作窃取)。",
+        "超负荷处理:提供多种拒绝策略(丢弃、抛出异常、丢弃最旧等)。",
+        "监控:暴露已处理任务数、待处理任务数、运行线程数、拒绝任务数等接口。"
+      ],
+      "follow_ups": [
+        "如何区分 IO 密集型和 CPU 密集型任务?",
+        "线程池的拒绝策略有哪些?"
+      ],
+      "source_excerpt": "我个人觉得如果要设计一个线程池的话得考虑池内工作线程的管理、任务编排执行、线程池超负荷处理方案、监控。"
+    },
+    {
+      "question": "GC 如何调优?",
+      "question_type": "optimization",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "GC调优",
+        "年轻代",
+        "老年代",
+        "Full GC"
+      ],
+      "answer_points": [
+        "核心思路:尽可能使对象在年轻代被回收,减少进入老年代。",
+        "关注指标:Young GC 和 Full GC 触发频率、原因、晋升速率、老年代内存占用量。",
+        "常见问题:Survivor 空间太小导致对象过早进入老年代,可调大 Survivor。",
+        "晋升年龄设置过小,或存在内存泄漏、第三方类库调用 System.gc 等。"
+      ],
+      "follow_ups": [
+        "如何分析 GC 日志?",
+        "CMS 和 G1 的调优参数有哪些?"
+      ],
+      "source_excerpt": "GC 调优的核心思路就是尽可能的使对象在年轻代被回收,减少对象进入老年代。"
+    },
+    {
+      "question": "动态代理是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "动态代理",
+        "静态代理",
+        "JDK动态代理",
+        "CGLIB"
+      ],
+      "answer_points": [
+        "代理是调用目标的包装,用于在调用前进行逻辑处理,消除重复代码。",
+        "静态代理:预先编码代理类。",
+        "动态代理:运行时生成代理类,更灵活,可指定一系列目标动态生成代理类(AOP)。",
+        "常见实现:JDK 动态代理和 CGLIB。"
+      ],
+      "follow_ups": [
+        "JDK 动态代理和 CGLIB 有什么区别?",
+        "动态代理的应用场景有哪些?"
+      ],
+      "source_excerpt": "动态代理就是一个代理机制,动态是相对于静态来说的。"
+    },
+    {
+      "question": "JDK 动态代理与 CGLIB 区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "JDK动态代理",
+        "CGLIB",
+        "性能对比"
+      ],
+      "answer_points": [
+        "JDK 动态代理基于接口,要求代理类有定义接口。",
+        "CGLIB 基于 ASM 字节码生成,通过继承实现代理,注意 final 方法。",
+        "性能:JDK7/8 下 JDK 动态代理比 CGLIB 快约 30% 到 1 倍(调用次数多时)。"
+      ],
+      "follow_ups": [
+        "JDK 动态代理的实现原理是什么?",
+        "CGLIB 的实现原理是什么?"
+      ],
+      "source_excerpt": "JDK 动态代理是基于接口的...CGLIB 基于ASM字节码生成工具...性能随着 JDK 版本的不同而不同"
+    },
+    {
+      "question": "注解是什么原理?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "注解",
+        "RetentionPolicy",
+        "反射"
+      ],
+      "answer_points": [
+        "注解是一个标记,可标记在类、方法、属性上,可设置值。",
+        "生命周期:SOURCE(编译器用)、CLASS(写入 class 文件,运行时丢弃)、RUNTIME(永久保存,可通过反射获取)。",
+        "不同生命周期解析动作不同:SOURCE 给编译器,RUNTIME 可通过反射获取注解信息。"
+      ],
+      "follow_ups": [
+        "@Override 注解的生命周期是什么?",
+        "Spring 中 @Autowired 是如何工作的?"
+      ],
+      "source_excerpt": "注解其实就是一个标记...注解生命周期有三大类...RetentionPolicy.SOURCE、CLASS、RUNTIME"
+    },
+    {
+      "question": "反射用过吗?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "反射",
+        "运行时",
+        "框架"
+      ],
+      "answer_points": [
+        "反射是 Java 提供的在运行期获取对象信息的能力,包括属性、方法、注解等。",
+        "一般编码不常用,框架中常用,用于动态获取对象信息。"
+      ],
+      "follow_ups": [
+        "反射的性能问题?",
+        "反射如何获取泛型信息?"
+      ],
+      "source_excerpt": "反射其实就是Java提供的能在运行期可以得到对象信息的能力"
+    },
+    {
+      "question": "能说下类加载过程吗?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "类加载",
+        "加载",
+        "连接",
+        "初始化"
+      ],
+      "answer_points": [
+        "加载:将二进制流加载到内存,生成 Class 对象。",
+        "验证:验证二进制流格式、规范、版本等。",
+        "准备:为静态变量分配内存并赋初始值。",
+        "解析:将常量池的符号引用替换为直接引用。",
+        "初始化:执行静态代码块,为静态变量赋实际值。"
+      ],
+      "follow_ups": [
+        "类加载的触发条件有哪些?",
+        "什么是双亲委派模型?"
+      ],
+      "source_excerpt": "类加载流程分为加载、连接、初始化三个阶段,连接还能拆分为:验证、准备、解析三个阶段。"
+    },
+    {
+      "question": "双亲委派知道不?来说说看?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "双亲委派",
+        "类加载器",
+        "Bootstrap",
+        "Extension",
+        "Application"
+      ],
+      "answer_points": [
+        "双亲委派:类加载器加载类时先委托给父加载器,逐层向上,父加载器无法加载时子加载器才尝试。",
+        "三种类加载器:启动类加载器(Bootstrap)、扩展类加载器(Extension)、应用程序类加载器(Application)。",
+        "作用:保证核心类库安全,防止自定义类覆盖核心类。"
+      ],
+      "follow_ups": [
+        "有违反双亲委派的例子吗?",
+        "如何自定义类加载器?"
+      ],
+      "source_excerpt": "双亲委派的意思是:如果一个类加载器需要加载类,那么首先它会把这个类加载请求委派给父类加载器去完成"
+    },
+    {
+      "question": "JDK 和 JRE 的区别?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "JDK",
+        "JRE"
+      ],
+      "answer_points": [
+        "JRE:Java 运行环境,包含 JVM 和 Java 类库。",
+        "JDK:Java 开发工具包,是 JRE 的超集,还包含开发工具如 jstack、jmap、jstat 等。"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "JRE(Java Runtime Environment)指的是 Java 运行环境...JDK(Java Development Kit) 可以视为 JRE 的超集"
+    },
+    {
+      "question": "用过哪些 JDK 提供的工具?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "JDK工具",
+        "jps",
+        "jstat",
+        "jmap",
+        "jstack"
+      ],
+      "answer_points": [
+        "jps:查看虚拟机进程状况。",
+        "jstat:监视虚拟机统计信息。",
+        "jmap:生成内存映像文件。",
+        "jhat:分析堆转储快照。",
+        "jstack:生成线程堆栈跟踪。",
+        "jinfo:查看配置信息。",
+        "VisualVM:图形化工具,分析内存、CPU 等。"
+      ],
+      "follow_ups": [
+        "如何使用 jmap 分析内存泄漏?",
+        "jstack 如何分析死锁?"
+      ],
+      "source_excerpt": "jps:虚拟机进程状况工具...jstat:虚拟机统计信息监视工具...jmap:Java内存映像工具"
+    },
+    {
+      "question": "接口和抽象类有什么区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "接口",
+        "抽象类",
+        "面向对象"
+      ],
+      "answer_points": [
+        "接口:只能包含抽象方法(Java 8 后可有默认方法),不能包含成员变量,支持多实现,是对行为的抽象。",
+        "抽象类:可包含成员变量、一般方法和抽象方法,单继承,主要用于代码复用。",
+        "设计角度:接口先行(has-a),抽象类后抽象(is-a)。"
+      ],
+      "follow_ups": [
+        "Java 8 中接口的默认方法有什么作用?",
+        "什么时候用接口,什么时候用抽象类?"
+      ],
+      "source_excerpt": "接口:只能包含抽象方法...抽象类: 可以包含成员变量和一般方法和抽象方法"
+    },
+    {
+      "question": "什么是序列化?什么是反序列化?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "序列化",
+        "反序列化",
+        "Serializable",
+        "serialVersionUID"
+      ],
+      "answer_points": [
+        "序列化:将对象转化为可传输的字节序列,便于存储和传输。",
+        "反序列化:将字节序列恢复为对象。",
+        "Serializable 接口:标记接口,表示可序列化。",
+        "serialVersionUID:用于验证序列化和反序列化对象版本一致。",
+        "静态变量不会被序列化。"
+      ],
+      "follow_ups": [
+        "serialVersionUID 不指定会有什么问题?",
+        "Java 序列化有哪些缺点?"
+      ],
+      "source_excerpt": "序列化其实就是将对象转化成可传输的字节序列格式...反序列化就是将字节序列格式转换成对象的过程"
+    },
+    {
+      "question": "什么是不可变类?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "不可变类",
+        "String",
+        "线程安全"
+      ],
+      "answer_points": [
+        "不可变类:创建后对象状态不可修改,如 String。",
+        "好处:安全,多线程环境下无需同步。",
+        "实现方法:类用 final 修饰,所有字段 private final,不提供 setter,修改操作返回新对象。"
+      ],
+      "follow_ups": [
+        "如何实现一个不可变类?",
+        "String 为什么设计成不可变?"
+      ],
+      "source_excerpt": "不可变类指的是无法修改对象的值,比如 String 就是典型的不可变类"
+    },
+    {
+      "question": "Java 按值传递还是按引用传递?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "值传递",
+        "引用传递"
+      ],
+      "answer_points": [
+        "Java 只有按值传递。",
+        "基本类型传递的是值的副本。",
+        "引用类型传递的是对象引用的副本(即地址值)。"
+      ],
+      "follow_ups": [
+        "为什么说 Java 只有值传递?",
+        "如何理解引用类型的值传递?"
+      ],
+      "source_excerpt": "Java 只有按值传递,不论是基本类型还是引用类型。"
+    },
+    {
+      "question": "泛型有什么用?泛型擦除是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "泛型",
+        "类型擦除",
+        "向后兼容"
+      ],
+      "answer_points": [
+        "泛型作用:将类型参数化,使集合类明确存储类型,编译期类型检查,增加健壮性和可读性。",
+        "泛型擦除:编译后泛型信息被抹去,但代码中写死的泛型类型不会被擦除(可通过反射获取)。",
+        "擦除目的:向后兼容 JDK 5 之前的代码。"
+      ],
+      "follow_ups": [
+        "泛型擦除的细节?",
+        "如何通过反射获取泛型信息?"
+      ],
+      "source_excerpt": "泛型可以把类型当作参数一样传递...泛型擦除指的指参数类型其实在编译之后就被抹去了"
+    },
+    {
+      "question": "说说强、软、弱、虚引用?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "强引用",
+        "软引用",
+        "弱引用",
+        "虚引用"
+      ],
+      "answer_points": [
+        "强引用:普通 new 的对象,内存不足时宁愿 OOM 也不回收。",
+        "软引用:内存不足时回收,适合内存敏感缓存。",
+        "弱引用:GC 时立即回收,如 ThreadLocal 的 key。",
+        "虚引用:get 永远返回 null,用于跟踪对象被回收的状态(配合引用队列)。"
+      ],
+      "follow_ups": [
+        "虚引用对 GC 有影响吗?",
+        "软引用和弱引用的应用场景?"
+      ],
+      "source_excerpt": "Java 根据其生命周期的长短将引用类型又分为强引用、软引用、弱引用、幻象引用。"
+    },
+    {
+      "question": "Integer 缓存池知道吗?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Integer缓存",
+        "自动装箱",
+        "IntegerCache"
+      ],
+      "answer_points": [
+        "Integer 缓存池默认范围 -128 到 127,可通过 JVM 参数调整最大值。",
+        "自动装箱调用 Integer.valueOf(),会从缓存中取。",
+        "Long 也有缓存,范围固定 -128 到 127。",
+        "Float 和 Double 没有缓存。"
+      ],
+      "follow_ups": [
+        "为什么 Integer 127 之内相等,超过 127 就不等?",
+        "如何修改 Integer 缓存上限?"
+      ],
+      "source_excerpt": "因为根据实践发现大部分的数据操作都集中在值比较小的范围,因此 Integer 搞了个缓存池"
+    }
+  ]
+}

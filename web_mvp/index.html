@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OfferGo | 程序员刷题与求职导航</title>
+    <title>OfferGo | 求职准备工作台</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +19,7 @@
           <div class="brand-mark">OG</div>
           <div>
             <h1>OfferGo</h1>
-            <p>前端 / 后端 / AI 应用开发求职助手</p>
+            <p>前端 / 后端 / AI 应用开发的求职准备工作台</p>
           </div>
         </div>
 
@@ -30,11 +30,12 @@
           <button class="nav-btn" data-view="resume">简历评审</button>
           <button class="nav-btn" data-view="jobs">招聘导航</button>
           <button class="nav-btn" data-view="review">复习</button>
+          <button class="nav-btn" data-view="account">个人中心</button>
         </nav>
 
         <section class="panel auth-panel">
           <div class="auth-panel-head">
-            <h2>账号中心</h2>
+            <h2>账号与同步</h2>
             <p>登录后可同步收藏、掌握和练习记录</p>
           </div>
           <div class="auth-tabs" id="authTabs">
@@ -104,20 +105,55 @@
 
       <main class="main-content">
         <section class="view-section active" id="homeView">
-          <div class="hero">
-            <div>
-              <p class="eyebrow">求职工作台</p>
-              <h2>刷题、模拟面试、投递岗位，放到一个顺手的入口里</h2>
-              <p class="hero-copy">
-                先把最常用的三件事跑顺：按岗位刷题、集中看招聘入口、拿简历做针对性准备。首页只保留高频入口，减少来回切换。
-              </p>
+          <div class="home-toolbar">
+            <label class="home-search">
+              <span class="home-search-icon">⌕</span>
+              <input id="homeSearchInput" type="search" placeholder="搜索题目、公司、岗位等" />
+              <kbd>⌘ K</kbd>
+            </label>
+            <div class="home-toolbar-actions">
+              <button class="ghost-inline home-auth-btn" id="homeAuthBtn" type="button">登录 / 注册</button>
             </div>
-            <div class="hero-stats" id="heroStats"></div>
+          </div>
+
+          <div class="hero">
+            <div class="hero-copy-wrap">
+              <p class="eyebrow">求职工作台</p>
+              <h2>把刷题、面试和简历准备放进一个安静的工作台</h2>
+              <p class="hero-copy">
+                先把最常用的路径收拢在一起：按岗位刷题、查看招聘入口、用简历做针对性准备。首页只保留高频入口，减少来回切换。
+              </p>
+              <div class="hero-actions">
+                <button class="auth-submit hero-primary-btn" id="heroStartBtn" type="button">开始练习</button>
+                <button class="ghost-inline hero-secondary-btn" id="heroPlanBtn" type="button">制定学习计划</button>
+              </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hero-visual-window">
+                <div class="hero-visual-dot"></div>
+                <div class="hero-visual-dot"></div>
+                <div class="hero-visual-dot"></div>
+                <div class="hero-visual-card hero-visual-chart"></div>
+                <div class="hero-visual-card hero-visual-ring"></div>
+                <div class="hero-visual-card hero-visual-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-stats" id="heroStats"></div>
+
+          <div class="section-card home-featured-card">
+            <div class="section-head">
+              <h3>精选题目</h3>
+              <span>优先把高频、常考、能直接练习的题目放在前面</span>
+            </div>
+            <div class="home-featured-tabs" id="homeFeaturedTabs"></div>
+            <div class="home-featured-list" id="homeFeaturedList"></div>
           </div>
 
           <div class="section-card">
             <div class="section-head">
-              <h3>选择训练赛道</h3>
+              <h3>选择赛道</h3>
               <span>点击卡片直接进入对应题库</span>
             </div>
             <div class="domain-grid" id="homeDomainGrid"></div>
@@ -130,26 +166,78 @@
             </div>
             <div class="quick-grid">
               <button class="quick-card" id="goBrowseBtn">
+                <span class="quick-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M7 5.5c2.8 0 4.5.8 5 1.9v11.1c-.5-1.1-2.2-1.9-5-1.9-1.4 0-2.8.2-4 .7V7.4c1.2-.5 2.6-.7 4-.7Z"/>
+                    <path d="M17 5.5c-2.8 0-4.5.8-5 1.9v11.1c.5-1.1 2.2-1.9 5-1.9 1.4 0 2.8.2 4 .7V7.4c-1.2-.5-2.6-.7-4-.7Z"/>
+                  </svg>
+                </span>
                 <strong>进入题库</strong>
                 <span>按方向、分类和难度刷题</span>
               </button>
               <button class="quick-card" id="goInterviewBtn">
+                <span class="quick-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 6.8h14a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H11l-4.2 3.2v-3.2H5a2 2 0 0 1-2-2V8.8a2 2 0 0 1 2-2Z"/>
+                    <path d="M8 10.2h8"/>
+                    <path d="M8 13h5.4"/>
+                  </svg>
+                </span>
                 <strong>模拟面试</strong>
                 <span>先自己回答，再看答案要点和追问</span>
               </button>
               <button class="quick-card" id="goResumeBtn">
+                <span class="quick-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="5" y="4.8" width="14" height="14.4" rx="2.2"/>
+                    <path d="M8 9h8"/>
+                    <path d="M8 12h8"/>
+                    <path d="M8 15h5.2"/>
+                  </svg>
+                </span>
                 <strong>简历评审</strong>
                 <span>上传简历，生成评审结果、改写建议和模拟题</span>
               </button>
               <button class="quick-card" id="goReviewBtn">
+                <span class="quick-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M20 12a8 8 0 1 1-2.3-5.7"/>
+                    <path d="M20 5.8v4.3h-4.3"/>
+                  </svg>
+                </span>
                 <strong>进入复习</strong>
                 <span>集中查看收藏题和已掌握题</span>
               </button>
               <button class="quick-card" id="randomFromHomeBtn">
+                <span class="quick-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4.5 7.5h4l2.2 3 2.2-3h6.6"/>
+                    <path d="M15 7.5H20v5"/>
+                    <path d="M19.5 16.5h-4l-2.2-3-2.2 3H4.5"/>
+                    <path d="M9 16.5H4v-5"/>
+                  </svg>
+                </span>
                 <strong>随机来一题</strong>
                 <span>直接开始刷一道题，适合碎片时间练习</span>
               </button>
             </div>
+          </div>
+
+          <div class="home-bottom-grid">
+            <section class="section-card home-account-card">
+              <div class="section-head">
+                <h3>个人中心</h3>
+                <span>登录后同步学习进度和收藏</span>
+              </div>
+              <div class="account-user-box" id="homeAccountBox">登录后这里会显示你的账号信息与学习概况。</div>
+            </section>
+            <section class="section-card home-record-card">
+              <div class="section-head">
+                <h3>练习记录</h3>
+                <span>最近练习的题目会出现在这里</span>
+              </div>
+              <div class="home-record-list" id="homeRecordList"></div>
+            </section>
           </div>
         </section>
 
@@ -210,10 +298,12 @@
             <section class="detail-section interview-answer-box">
               <h4>先自己回答</h4>
               <textarea id="interviewDraft" placeholder="先别急着看答案，试着自己组织一段回答。"></textarea>
+              <p id="interviewAnswerStatus" class="resume-hint">先自己作答，再点击提交回答。</p>
             </section>
 
             <section class="detail-section">
               <div class="interview-actions">
+                <button id="interviewSubmitBtn" type="button">提交回答</button>
                 <button id="toggleInterviewAnswerBtn">展开答案</button>
                 <button id="markInterviewFavoriteBtn">收藏这道题</button>
                 <button id="markInterviewMasteredBtn">标记已掌握</button>
@@ -267,8 +357,8 @@
                 </div>
 
                 <div class="resume-actions">
-                  <button type="submit" id="resumeSubmitBtn">开始评审</button>
-                  <p class="resume-hint">如果配置了 `DEEPSEEK_API_KEY`，会优先使用大模型；否则走本地规则版评审。</p>
+                  <button type="button" id="resumeSubmitBtn">开始评审</button>
+                  <p class="resume-hint">如果配置了 `RESUME_REVIEW_API_KEY`（或兼容的 `DEEPSEEK_API_KEY` / `OPENAI_API_KEY`），会优先使用大模型；否则走本地规则版评审。</p>
                 </div>
               </form>
 
@@ -329,6 +419,56 @@
                 <span id="masteredLabel">0 题</span>
               </div>
               <div class="question-list compact" id="masteredList"></div>
+            </div>
+          </div>
+        </section>
+        <section class="view-section" id="accountView">
+          <div class="section-card">
+            <div class="section-head">
+              <h3>个人中心</h3>
+              <span>查看账号信息、学习记录并维护密码</span>
+            </div>
+
+            <div class="account-grid">
+              <section class="account-card">
+                <div class="account-card-head">
+                  <h4>账号概览</h4>
+                  <span id="accountBadge">未登录</span>
+                </div>
+                <div class="account-user-box" id="accountUserBox">登录后这里会显示你的账号信息与学习概况。</div>
+                <div class="account-stats" id="accountStats"></div>
+              </section>
+
+              <section class="account-card">
+                <div class="account-card-head">
+                  <h4>修改密码</h4>
+                  <span>保护你的学习数据</span>
+                </div>
+                <form class="account-password-form" id="changePasswordForm">
+                  <label class="field-block">
+                    <span>当前密码</span>
+                    <input id="currentPasswordInput" type="password" autocomplete="current-password" />
+                  </label>
+                  <label class="field-block">
+                    <span>新密码</span>
+                    <input id="newPasswordInput" type="password" autocomplete="new-password" />
+                  </label>
+                  <label class="field-block">
+                    <span>确认新密码</span>
+                    <input id="confirmPasswordInput" type="password" autocomplete="new-password" />
+                  </label>
+                  <button class="auth-submit" id="changePasswordBtn" type="submit">更新密码</button>
+                </form>
+                <div class="account-status" id="accountStatus">登录后可修改密码，密码规则与注册时一致。</div>
+              </section>
+            </div>
+
+            <div class="account-card">
+              <div class="account-card-head">
+                <h4>最近练习记录</h4>
+                <span id="practiceSummary">登录后查看最近练习情况</span>
+              </div>
+              <div class="account-records" id="accountRecords"></div>
             </div>
           </div>
         </section>

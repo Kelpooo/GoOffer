@@ -10,6 +10,8 @@ OfferGo now supports two storage modes for runtime stats:
 Questions can now be imported into SQLite for the next migration phase.
 Favorites / mastered progress can also be persisted in SQLite and is keyed by anonymous visitor cookie for now.
 
+When `OFFERGO_STORAGE_MODE=sqlite` is enabled, SQLite becomes the runtime source of truth for user accounts, sessions, questions, and learning progress. Frontend `localStorage` is only a fallback cache for offline or API-failure scenarios.
+
 ## Environment variables
 
 - `OFFERGO_STORAGE_MODE=file|sqlite`
@@ -38,7 +40,7 @@ python .\resume_review_server.py
 - `POST /api/user-progress`
 - `POST /api/user-progress/sync`
 
-These currently persist anonymous visitor learning progress by cookie and are designed to be upgraded later to account-based progress.
+These persist anonymous visitor learning progress by cookie and also support account-scoped progress once a user logs in.
 
 ## Next migration targets
 

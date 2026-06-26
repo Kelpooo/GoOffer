@@ -1,0 +1,939 @@
+{
+  "source_file": "D:\\skill\\我的skill\\my_skill\\data\\wechat_restart_20260611_145749.json",
+  "line_count": 473,
+  "turn_count": 233,
+  "turns": [
+    {
+      "speaker": "Kelpo",
+      "text": "42"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "谢谢"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "就第一个颜色塞"
+    },
+    {
+      "speaker": "夏",
+      "text": "浅色"
+    },
+    {
+      "speaker": "夏",
+      "text": "好看"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "[图片]"
+    },
+    {
+      "speaker": "夏",
+      "text": "对不"
+    },
+    {
+      "speaker": "夏",
+      "text": "这两天到多一百但是十天又太久了怕你不在重庆"
+    },
+    {
+      "speaker": "夏",
+      "text": "嗯呢 今天就别太大心理负担 就加油面就行了"
+    },
+    {
+      "speaker": "夏",
+      "text": "加油加油！我相信你！！！！你可以！！！！！！好吗！"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "对头对头"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "都可以 就算被录上了应该也是六月初回去"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "而且不一定被录呢"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "现在刚起来 打算继续挣扎一下"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "等下午面完解脱"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "面完了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我感觉好难"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "但是怎么说呢"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "解脱的感觉"
+    },
+    {
+      "speaker": "夏",
+      "text": "下班了"
+    },
+    {
+      "speaker": "夏",
+      "text": "腿都要废了"
+    },
+    {
+      "speaker": "夏",
+      "text": "嗯嗯好"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "辛苦辛苦"
+    },
+    {
+      "speaker": "夏",
+      "text": "技术岗是难"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我出门去打羽毛球了"
+    },
+    {
+      "speaker": "夏",
+      "text": "辛苦啦尽人事听天命吧"
+    },
+    {
+      "speaker": "夏",
+      "text": "好"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "快递好像到了"
+    },
+    {
+      "speaker": "夏",
+      "text": "嗯嗯好滴"
+    },
+    {
+      "speaker": "夏",
+      "text": "我等下去拿"
+    },
+    {
+      "speaker": "夏",
+      "text": "哇塞！"
+    },
+    {
+      "speaker": "夏",
+      "text": "怎么想着给我买手表哇"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "真好看"
+    },
+    {
+      "speaker": "夏",
+      "text": "[图片]"
+    },
+    {
+      "speaker": "夏",
+      "text": "很好看！"
+    },
+    {
+      "speaker": "夏",
+      "text": "[图片]"
+    },
+    {
+      "speaker": "夏",
+      "text": "就是大了一些 我要查一查怎么调 应该是要取下来一块"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我刚打完"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "热死"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "回家洗澡换衣服"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "因为你左手手腕空空的"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "而且这个表盘就特别适合你的感觉"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "你喜欢就好"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "还怕你不太喜欢这种"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "嗯嗯 搞不定的话可能要去表行"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "空了去搞"
+    },
+    {
+      "speaker": "夏",
+      "text": "很喜欢呢"
+    },
+    {
+      "speaker": "夏",
+      "text": "很有气质"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "好哦"
+    },
+    {
+      "speaker": "夏",
+      "text": "这你都观察到了哈哈哈 我有个运动手环 但是很少带"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "生日快乐哦 今年又没法一起庆祝 但是以后总有机会 等我今年多卷一下 争取以后跟你在字节当同事 希望你多多赚钱 我多接offer"
+    },
+    {
+      "speaker": "夏",
+      "text": "生日快乐！！"
+    },
+    {
+      "speaker": "夏",
+      "text": "我好想你"
+    },
+    {
+      "speaker": "夏",
+      "text": "祝愿你也是实习顺利 工作顺利 可以得偿所愿～"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "等你有空回来就能见到咯"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我挺想和你摆一下这半年发生啥事的"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "平时都没咋说话"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "你也是 工作顺利"
+    },
+    {
+      "speaker": "夏",
+      "text": "感觉需要很充足的时间才可以哈哈哈"
+    },
+    {
+      "speaker": "夏",
+      "text": "真的忙 出社会真的不一样"
+    },
+    {
+      "speaker": "夏",
+      "text": "虽然我在你这个时候我已经觉得自己接触社会了 听别人说这个话还是不以为然 觉得轻飘飘的"
+    },
+    {
+      "speaker": "夏",
+      "text": "但是真的出社会了就真的不一样了"
+    },
+    {
+      "speaker": "夏",
+      "text": "到时候你会累得话都不想说"
+    },
+    {
+      "speaker": "夏",
+      "text": "所以也不是我不想和你说话"
+    },
+    {
+      "speaker": "夏",
+      "text": "我都怕明年这个时候你因为工作压力都不想和我说话了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我理解 所以我们好像没在这个问题上怎么纠结过"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "好像就说过一两次"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "不知道"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "未来的事情说不准"
+    },
+    {
+      "speaker": "夏",
+      "text": "我也没信心"
+    },
+    {
+      "speaker": "夏",
+      "text": "但是管他的"
+    },
+    {
+      "speaker": "夏",
+      "text": "日子还长"
+    },
+    {
+      "speaker": "夏",
+      "text": "开心万岁"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "你是对我没信心"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "还是啥"
+    },
+    {
+      "speaker": "夏",
+      "text": "没有我是说未来的事情谁也说不准"
+    },
+    {
+      "speaker": "夏",
+      "text": "对你有信心"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我不是那种很有规划的人 想象不出以后会啥子样子"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "只有走一步看一步"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "你今天怎么这个点还没睡觉"
+    },
+    {
+      "speaker": "夏",
+      "text": "问完之后就睡了哈哈哈 太累太困了"
+    },
+    {
+      "speaker": "夏",
+      "text": "等着跟你说生日快乐啊"
+    },
+    {
+      "speaker": "夏",
+      "text": "困迷糊了昨天"
+    },
+    {
+      "speaker": "夏",
+      "text": "嗯嗯好"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "你啥时候回来呀"
+    },
+    {
+      "speaker": "夏",
+      "text": "还不知道 我们周六不放假 最近忙得晕头转向的"
+    },
+    {
+      "speaker": "夏",
+      "text": "你的鞋从韩国发过来还在发 早知道直接买那个速运了"
+    },
+    {
+      "speaker": "夏",
+      "text": "你面试有结果了吗"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "面试不出所料没过"
+    },
+    {
+      "speaker": "夏",
+      "text": "我跟你说 真的天天被压力 脚疼 没一天不疼的"
+    },
+    {
+      "speaker": "夏",
+      "text": "没得事来了也累 去试试其他的"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "找了一个永川的实习 在那个什么智能工程学院里面"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我想着当保底"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "最近在投其他的也没啥反馈"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "估计你回来我们两个属于是互相倒苦水"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我回来了之后到现在半个月了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "反正妈老汉就在催"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "喊我出去实习"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "没事"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "感觉你们这个强度真有点大"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "一周工作六天 一天在外面跑"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "还要写什么心得"
+    },
+    {
+      "speaker": "夏",
+      "text": "就是那个华为学校"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "对"
+    },
+    {
+      "speaker": "夏",
+      "text": "我朋友也在那边做辅导"
+    },
+    {
+      "speaker": "夏思洁(5.24)",
+      "text": "[语音]"
+    },
+    {
+      "speaker": "夏",
+      "text": "可能替你着急"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "还在等学校那边安排 前两天加了他们人事部微信"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "可能吧"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "总觉得最近事情都不顺 有很多烦心事 所以问你多久回来来着"
+    },
+    {
+      "speaker": "夏",
+      "text": "感觉要出社会大家都不容易"
+    },
+    {
+      "speaker": "夏",
+      "text": "各有各的苦"
+    },
+    {
+      "speaker": "夏",
+      "text": "我也压力大得很"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "等你放假 好好休息一下"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "端午节什么的会放假吗"
+    },
+    {
+      "speaker": "夏",
+      "text": "下个月19号才端午"
+    },
+    {
+      "speaker": "夏",
+      "text": "都还没通知"
+    },
+    {
+      "speaker": "夏",
+      "text": "应该是正常放"
+    },
+    {
+      "speaker": "夏",
+      "text": "我18号毕业典礼"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "哦哦好"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "毕业快乐哈哈哈"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我明天去那个华为学校"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "后天开始实习"
+    },
+    {
+      "speaker": "夏",
+      "text": "棒棒！"
+    },
+    {
+      "speaker": "夏",
+      "text": "去试试"
+    },
+    {
+      "speaker": "夏",
+      "text": "感受一下怎么样"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "下班了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "第一天啥都没干"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "让我先学东西"
+    },
+    {
+      "speaker": "夏",
+      "text": "在永川实习感觉就是啥都不用干"
+    },
+    {
+      "speaker": "夏",
+      "text": "除非你很想学东西 然后也有人愿意教你"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "今天开始学东西了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "也有一个老师在带我"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "反正让我先熟悉怎么操作他们学校的设备"
+    },
+    {
+      "speaker": "夏",
+      "text": "那就好啊"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "后面就带我去做维护之类的工作"
+    },
+    {
+      "speaker": "夏",
+      "text": "先学着"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我感觉我现在天天过着日出而作 日入而息的日子"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "实习压力也不是很大"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "这样的日子蛮悠闲的"
+    },
+    {
+      "speaker": "夏",
+      "text": "好羡慕"
+    },
+    {
+      "speaker": "夏",
+      "text": "颜子皓我要累成狗了"
+    },
+    {
+      "speaker": "夏",
+      "text": "姨妈又痛"
+    },
+    {
+      "speaker": "夏",
+      "text": "还好我+1最近夸我 评价还不错"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "你工作那么拼 领导都能看到的"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "下班后先休息吧 别忙工作了 今天早点休息"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "请你吃个小蛋糕 想吃啥自己点 我没有你的外卖地址"
+    },
+    {
+      "speaker": "夏",
+      "text": "我刚开完会"
+    },
+    {
+      "speaker": "夏",
+      "text": "长达两个半小时"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "说是7点下班"
+    },
+    {
+      "speaker": "夏",
+      "text": "实则每天七点才开始开总结会"
+    },
+    {
+      "speaker": "夏",
+      "text": "我公司就在重庆国金中心T6 外卖不能送上楼层 但是我们平时一般都在外面跑 只是我今天正好开会才在公司"
+    },
+    {
+      "speaker": "夏",
+      "text": "嘿嘿开心～"
+    },
+    {
+      "speaker": "夏",
+      "text": "就知道你心疼我"
+    },
+    {
+      "speaker": "夏",
+      "text": "但是呢这次好意我心领了 你才刚开始实习还没发工资呢 让自己吃点好的"
+    },
+    {
+      "speaker": "夏",
+      "text": "等你发工资或者以后再说"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "你都是几点到几点呀"
+    },
+    {
+      "speaker": "夏",
+      "text": "现在上手了吗"
+    },
+    {
+      "speaker": "夏",
+      "text": "感觉还适应不"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我是早上八点到下午五点半就下班了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "七点多起来去坐学校的巴士就可以了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "这两天主任也没给我什么任务 让我学这些系统"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "因为整个学校的网络 数据储存 硬件方面的都是我们信息中心做"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "所以说要学的东西还挺多的"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "这两天就装了一下虚拟机 熟悉了功能"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "其实本来我都没想过会发什么工资之类的"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "因为这个岗位是我妈妈的熟人介绍的 后面入职就让我提供一张工资卡 我也不晓得具体好多"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "没事 就算我没实习 我也会请你吃小蛋糕的"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "那你自己照顾好你自己"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "别对自己太严格了"
+    },
+    {
+      "speaker": "夏",
+      "text": "嗯呢"
+    },
+    {
+      "speaker": "夏",
+      "text": "还是可以 能学到东西"
+    },
+    {
+      "speaker": "夏",
+      "text": "就跟着学一学嘛"
+    },
+    {
+      "speaker": "夏",
+      "text": "哦哦 估计实习应该不会太高"
+    },
+    {
+      "speaker": "夏",
+      "text": "反正有总比没有好"
+    },
+    {
+      "speaker": "夏",
+      "text": "嗯嗯"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "我今天姨妈痛不想跑"
+    },
+    {
+      "speaker": "夏",
+      "text": "主要在摸鱼"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "嗯嗯那就休息"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我下班了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "鞋子到了 我等会儿去取"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "嘿嘿好"
+    },
+    {
+      "speaker": "夏",
+      "text": "我也下班了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "[图片]"
+    },
+    {
+      "speaker": "夏",
+      "text": "动作这么迅速"
+    },
+    {
+      "speaker": "夏",
+      "text": "大小合适吗"
+    },
+    {
+      "speaker": "夏",
+      "text": "热不热"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "挺合适的"
+    },
+    {
+      "speaker": "夏",
+      "text": "那就好"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "虽然没得拖孩凉快 但是已经比平时鞋子凉快了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "穿起又方便"
+    },
+    {
+      "speaker": "夏",
+      "text": "珍惜一下这种幸福时光"
+    },
+    {
+      "speaker": "夏",
+      "text": "我每天下班真的要被抽干了"
+    },
+    {
+      "speaker": "夏",
+      "text": "一点儿力气都没有了"
+    },
+    {
+      "speaker": "夏",
+      "text": "以前还做做饭"
+    },
+    {
+      "speaker": "夏",
+      "text": "现在只能点点外卖"
+    },
+    {
+      "speaker": "夏",
+      "text": "难吃的外卖"
+    },
+    {
+      "speaker": "夏",
+      "text": "一点都没有我做的好吃"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "我真的累了"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "赶紧回血"
+    },
+    {
+      "speaker": "夏",
+      "text": "可是来姨妈我在流血"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "毁灭吧"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我就是挺珍惜这种悠闲日子"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "那就沙发上垫一个靠枕在腰后面"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "整舒服点"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我一般累了"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "就浑身瘫着"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "会回血"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "想吃哈哈哈"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我回来都还没点外卖吃过"
+    },
+    {
+      "speaker": "夏",
+      "text": "哈哈哈哈"
+    },
+    {
+      "speaker": "夏",
+      "text": "我要开吃了"
+    },
+    {
+      "speaker": "夏",
+      "text": "乡村基"
+    },
+    {
+      "speaker": "夏",
+      "text": "我会不想动"
+    },
+    {
+      "speaker": "夏",
+      "text": "[动画表情]"
+    },
+    {
+      "speaker": "夏",
+      "text": "等以后有机会的"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我就是想在重庆或者永川实习"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我起码幸福度会高很多"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "好吃好吃"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "我很爱吃这个"
+    },
+    {
+      "speaker": "Kelpo",
+      "text": "喜欢吃炒菜"
+    }
+  ]
+}

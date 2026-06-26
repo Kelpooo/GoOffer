@@ -1,0 +1,791 @@
+{
+  "source_title": "Agent 开发面经",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "什么是上下文窗口?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "上下文窗口"
+      ],
+      "answer_points": [
+        "上下文窗口是AI模型每次处理时能'看到'和记住的最大文本长度限制",
+        "超出这个范围的内容就会被'遗忘'"
+      ],
+      "follow_ups": [
+        "上下文窗口大小对Agent开发有什么影响?"
+      ],
+      "source_excerpt": "上下文窗口 是指AI模型每次处理时能'看到'和记住的最大文本长度限制,超出这个范围的内容就会被'遗忘'。"
+    },
+    {
+      "question": "什么是Token?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "Token"
+      ],
+      "answer_points": [
+        "Token是AI模型处理文本的基本单位",
+        "大约对应一个单词或几个汉字",
+        "模型的计费和上下文长度都以token数量来衡量",
+        "一个汉字约1.5-2 token,一个英文单词约1 token"
+      ],
+      "follow_ups": [
+        "Token数量如何影响Agent的成本?"
+      ],
+      "source_excerpt": "Token 是AI模型处理文本的基本单位,大约对应一个单词或几个汉字,模型的计费和上下文长度都以token数量来衡量。"
+    },
+    {
+      "question": "什么是KV Cache/Prompt Caching?它有什么好处?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "KV Cache",
+        "Prompt Caching"
+      ],
+      "answer_points": [
+        "模型在推理时,会把已经计算过的Token的中间结果(Key-Value矩阵)缓存起来",
+        "下次遇到相同前缀时直接复用,不需要重新计算",
+        "好处:减少重复计算,提升推理速度",
+        "好处:减少成本,模型对命中KV Cache的token收费更低(1/10)"
+      ],
+      "follow_ups": [
+        "KV Cache在什么场景下效果最明显?"
+      ],
+      "source_excerpt": "模型在推理时,会把已经计算过的 Token 的中间结果(Key-Value 矩阵)缓存起来,下次遇到相同前缀时直接复用不需要重新计算。好处:减少重复计算,提升推理速度;减少成本。模型对命中KV Cache的token收费更低(1/10)。"
+    },
+    {
+      "question": "什么是温度/Temperature?在Agent开发中通常如何设置?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "Temperature"
+      ],
+      "answer_points": [
+        "Temperature是控制模型输出随机性的参数,范围0-2",
+        "值越大,模型越随机",
+        "一般Agent的temperature设置为0.1"
+      ],
+      "follow_ups": [
+        "为什么Agent开发中通常使用较低的Temperature?"
+      ],
+      "source_excerpt": "控制模型输出随机性的参数,范围0-2,值越大,模型越随机。一般Agent的temperature设置为0.1。"
+    },
+    {
+      "question": "什么是幻觉/Hallucination?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "幻觉"
+      ],
+      "answer_points": [
+        "模型编造不存在的事实、函数、API等",
+        "但语气十分自信"
+      ],
+      "follow_ups": [
+        "如何减少Agent的幻觉?"
+      ],
+      "source_excerpt": "模型编造不存在的事实、函数、API等,但语气十分自信。"
+    },
+    {
+      "question": "什么是Thinking/深度思考模式?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "Thinking"
+      ],
+      "answer_points": [
+        "部分模型支持在回答前先进行内部推理",
+        "该推理对用户不可见但会消耗额外token",
+        "成本更高,适合复杂任务"
+      ],
+      "follow_ups": [
+        "深度思考模式与普通模式相比有什么优缺点?"
+      ],
+      "source_excerpt": "部分模型(如Claude Opus/Sonnet 4.6)支持在回答前先进行内部推理,该推理对用户不可见但会消耗额外token,成本更高,适合复杂任务。"
+    },
+    {
+      "question": "什么是冷启动和热启动?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "冷启动",
+        "热启动"
+      ],
+      "answer_points": [
+        "冷启动:Agent从零开始,没有任何历史记忆和上下文,需要重新理解任务和环境再开始执行",
+        "热启动:Agent基于已有的历史记忆、上下文或中间状态直接继续执行,无需从头理解任务"
+      ],
+      "follow_ups": [
+        "热启动在Agent开发中有什么实际应用?"
+      ],
+      "source_excerpt": "冷启动:Agent从零开始,没有任何历史记忆和上下文,需要重新理解任务和环境再开始执行。热启动:Agent基于已有的历史记忆、上下文或中间状态直接继续执行,无需从头理解任务。"
+    },
+    {
+      "question": "什么是ReAct框架?它如何工作?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "ReAct"
+      ],
+      "answer_points": [
+        "ReAct是一种让AI交替进行'推理(Reasoning)'和'行动(Acting)'的模式",
+        "通过思考→执行→观察结果→再思考的循环来完成复杂任务",
+        "核心循环:Thought(思考)→ Action(行动)→ Observation(观察)→ 判断是否完成",
+        "优势:可解释性强、减少幻觉、灵活迭代"
+      ],
+      "follow_ups": [
+        "ReAct与Plan-and-Execute模式有什么区别?"
+      ],
+      "source_excerpt": "ReAct框架 是一种让AI交替进行'推理(Reasoning)'和'行动(Acting)'的模式,通过思考→执行→观察结果→再思考的循环来完成复杂任务。"
+    },
+    {
+      "question": "什么是Vibe Coding?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "Vibe Coding"
+      ],
+      "answer_points": [
+        "通过用自然语言描述需求,让AI自动生成代码",
+        "开发者几乎不手写代码、只靠'感觉'来引导和验收结果",
+        "本质:人类是系统的大脑(规划者),大模型是执行工具"
+      ],
+      "follow_ups": [
+        "Vibe Coding与传统编程相比有什么优缺点?"
+      ],
+      "source_excerpt": "Vibe Coding 是指通过用自然语言描述需求,让 AI 自动生成代码,开发者几乎不手写代码、只靠'感觉'来引导和验收结果的编程方式。"
+    },
+    {
+      "question": "什么是Harness Engineering?为什么大模型需要Harness?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Harness Engineering"
+      ],
+      "answer_points": [
+        "Harness Engineering是指围绕AI模型构建一套完整的工程化'脚手架'",
+        "包括提示词管理、工具调用、记忆、评估等基础设施",
+        "让AI能力在生产环境中稳定可靠地运行",
+        "Harness = Tools + Knowledge + Observation + Action Interfaces + Permissions"
+      ],
+      "follow_ups": [
+        "Harness Engineering与传统的软件开发工程有什么异同?"
+      ],
+      "source_excerpt": "Harness Engineering 是指围绕AI模型构建一套完整的工程化'脚手架',包括提示词管理、工具调用、记忆、评估等基础设施,让AI能力在生产环境中稳定可靠地运行。"
+    },
+    {
+      "question": "什么是Agent开发?Agent的核心组件有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "Agent开发"
+      ],
+      "answer_points": [
+        "Agent开发是指构建能够自主感知环境、做出决策并连续调用工具/API来完成复杂任务的AI系统",
+        "核心组件:LLM(大脑)、规划(Planning)、记忆(Memory)、工具(Tools)",
+        "Agent = LLM + 规划 + 记忆 + 工具"
+      ],
+      "follow_ups": [
+        "Agent与传统LLM应用的核心区别是什么?"
+      ],
+      "source_excerpt": "Agent开发 是指构建能够自主感知环境、做出决策并连续调用工具/API来完成复杂任务的AI系统,而不只是简单地问答交互。Agent = LLM + 规划 (Planning) + 记忆 (Memory) + 工具 (Tools)。"
+    },
+    {
+      "question": "什么是Function Calling?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "Function Calling"
+      ],
+      "answer_points": [
+        "Function Calling = 大模型不直接执行操作,而是输出一段结构化JSON,告诉'我想调用哪个函数、传什么参数'",
+        "由代码去真正执行并把结果喂回模型",
+        "模型只负责'决策',不负责执行,执行权始终在代码手里",
+        "是Agent工具调用的底层基础"
+      ],
+      "follow_ups": [
+        "Function Calling与MCP有什么关系?"
+      ],
+      "source_excerpt": "Function Calling = 大模型 不直接执行操作 ,而是输出一段结构化 JSON,告诉你'我想调用哪个函数、传什么参数',由代码去真正执行并把结果喂回模型。"
+    },
+    {
+      "question": "什么是MCP/Model Context Protocol?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "MCP"
+      ],
+      "answer_points": [
+        "MCP是Anthropic提出的工具接入标准协议",
+        "类似AI世界的USB-C接口,让任何工具以统一方式被任何Agent发现和调用",
+        "核心三角色:MCP Host(发起连接的AI应用)、MCP Client(协议客户端)、MCP Server(轻量服务)",
+        "暴露Tools、Resources、Prompts三类能力"
+      ],
+      "follow_ups": [
+        "MCP与Function Calling的关系是什么?"
+      ],
+      "source_excerpt": "MCP 是 Anthropic 提出的 工具接入标准协议 ,类似 AI 世界的 USB-C 接口——让任何工具以统一方式被任何 Agent 发现和调用。"
+    },
+    {
+      "question": "MCP与Function Calling的关系是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "MCP",
+        "Function Calling"
+      ],
+      "answer_points": [
+        "Function Calling定义模型'如何表达想调用工具'",
+        "MCP定义工具'如何被注册、发现和调用'",
+        "一个管调用格式,一个管接入标准"
+      ],
+      "follow_ups": [
+        "MCP的设计借鉴了哪个协议?"
+      ],
+      "source_excerpt": "与 Function Calling 的关系 :Function Calling 定义模型'如何表达想调用工具',MCP 定义工具'如何被注册、发现和调用'。一个管调用格式,一个管接入标准。"
+    },
+    {
+      "question": "什么是LSP/Language Server Protocol?为什么Agent开发者要了解LSP?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "LSP"
+      ],
+      "answer_points": [
+        "LSP是微软提出的编辑器与语言智能服务之间的标准协议",
+        "让代码补全、跳转定义、错误提示等能力只需实现一次,就能在所有编辑器中复用",
+        "MCP的设计直接借鉴了LSP的思路",
+        "理解LSP就理解了MCP的设计哲学"
+      ],
+      "follow_ups": [
+        "Agent接入LSP有什么实际好处?"
+      ],
+      "source_excerpt": "LSP = 微软提出的 编辑器与语言智能服务之间的标准协议 ,让'代码补全、跳转定义、错误提示'等能力只需实现一次,就能在所有编辑器中复用。"
+    },
+    {
+      "question": "Agent接入LSP有什么实际好处?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "LSP"
+      ],
+      "answer_points": [
+        "精准定位:跳转定义、查找引用、符号搜索,Agent改代码时不再靠'猜'文件在哪",
+        "实时纠错:LSP提供的Diagnostics让Agent能在生成代码后立刻自检,形成'写→检→改'的闭环",
+        "上下文感知:Hover获取类型信息、方法签名,Agent能理解代码的真实语义",
+        "安全重构:Rename、Code Action等操作由LSP保证跨文件一致性"
+      ],
+      "follow_ups": [
+        "LSP与MCP在设计上有哪些相似之处?"
+      ],
+      "source_excerpt": "Coding Agent 通过 LSP 可以获得和人类开发者在 IDE 里一样的代码智能能力——精准定位、实时纠错、上下文感知、安全重构。"
+    },
+    {
+      "question": "什么是A2A/Agent to Agent协议?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "A2A"
+      ],
+      "answer_points": [
+        "A2A是Google提出的Agent间通信标准协议",
+        "让不同厂商、不同框架构建的Agent能互相发现、协商和协作",
+        "核心概念:Agent Card(名片)、Task(协作基本单位)、Message & Part(通信载体)"
+      ],
+      "follow_ups": [
+        "MCP与A2A有什么区别和联系?"
+      ],
+      "source_excerpt": "A2A = Google 提出的 Agent 间通信标准协议 ,让不同厂商、不同框架构建的 Agent 能互相发现、协商和协作。"
+    },
+    {
+      "question": "MCP与A2A有什么区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "MCP",
+        "A2A"
+      ],
+      "answer_points": [
+        "MCP解决'Agent↔工具'的连接(纵向)",
+        "A2A解决'Agent↔Agent'的协作(横向)",
+        "两者互补,不冲突"
+      ],
+      "follow_ups": [
+        "在实际Agent系统中如何同时使用MCP和A2A?"
+      ],
+      "source_excerpt": "MCP vs A2A :MCP 解决 'Agent ↔ 工具' 的连接(纵向),A2A 解决 'Agent ↔ Agent' 的协作(横向)。两者互补,不冲突。"
+    },
+    {
+      "question": "什么是RAG/Retrieval Augmented Generation?为什么需要RAG?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "RAG"
+      ],
+      "answer_points": [
+        "RAG = 先从外部知识库检索相关信息,再把检索到的内容塞进Prompt,让模型基于真实数据生成回答",
+        "离线索引阶段:文档→分块→Embedding→存入向量数据库",
+        "在线查询阶段:Query→Embedding→向量检索Top-K→拼入Prompt→LLM生成答案",
+        "需要RAG的原因:模型参数知识有截止日期,且无法包含企业私有数据",
+        "RAG让模型'查资料'而非'凭记忆',大幅减少幻觉"
+      ],
+      "follow_ups": [
+        "RAG与微调相比有什么优缺点?"
+      ],
+      "source_excerpt": "RAG = 先从外部知识库 检索 相关信息,再把检索到的内容塞进 Prompt,让模型基于 真实数据 生成回答,而非仅凭记忆'编造'。"
+    },
+    {
+      "question": "什么是Embedding?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "Embedding"
+      ],
+      "answer_points": [
+        "Embedding(嵌入)= 把离散的、高维稀疏的符号(词、句、图等)映射成连续的、低维稠密的向量",
+        "使得语义/关系相近的对象在向量空间中距离更近"
+      ],
+      "follow_ups": [
+        "Embedding在RAG中扮演什么角色?"
+      ],
+      "source_excerpt": "Embedding(嵌入)= 把离散的、高维稀疏的符号(词、句、图、用户、商品...),映射成 连续的、低维稠密的向量 ,使得 语义/关系相近的对象在向量空间中距离更近。"
+    },
+    {
+      "question": "什么是提示词注入/Prompt Injection?有哪些形式?如何防御?",
+      "question_type": "concept",
+      "category": "security",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "安全",
+        "Prompt Injection"
+      ],
+      "answer_points": [
+        "Prompt Injection是攻击者通过在用户输入中嵌入恶意指令,诱骗大模型忽略原有的System Prompt约束",
+        "两种主要形式:直接注入(用户对话中直接写入'忽略之前的指令')、间接注入(恶意指令藏在Agent读取的外部数据中)",
+        "防御思路:输入过滤、指令与数据分层隔离、设置System Prompt不可覆盖标记、对关键操作要求人工确认"
+      ],
+      "follow_ups": [
+        "间接注入攻击在Agent场景下为什么更危险?"
+      ],
+      "source_excerpt": "Prompt Injection 是 攻击者通过在用户输入中 嵌入恶意指令 ,诱骗大模型忽略原有的 System Prompt 约束,执行非预期行为。"
+    },
+    {
+      "question": "什么是System Prompt?通常包含哪些内容?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "System Prompt"
+      ],
+      "answer_points": [
+        "System Prompt是在对话最开头注入的系统级指令",
+        "用来定义模型的角色、行为边界和输出规范",
+        "对用户不可见但全程生效",
+        "常包含:角色设定、行为约束、输出格式、可用工具列表"
+      ],
+      "follow_ups": [
+        "System Prompt在Agent开发中为什么重要?"
+      ],
+      "source_excerpt": "System Prompt 是 在对话最开头注入的 系统级指令 ,用来定义模型的角色、行为边界和输出规范,对用户不可见但全程生效。"
+    },
+    {
+      "question": "什么是Compaction/上下文压缩?有哪些常见策略?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Compaction"
+      ],
+      "answer_points": [
+        "Compaction是当对话历史超出模型上下文窗口时,对历史消息进行摘要/裁剪/压缩,保留关键信息、丢弃冗余细节",
+        "常见策略:滑动窗口(只保留最近N轮)、摘要压缩(用LLM把旧对话压成摘要)、混合策略(重要节点保留原文,其余压缩)",
+        "代价:压缩必然丢失信息,好的压缩策略是Agent长期记忆设计的核心挑战"
+      ],
+      "follow_ups": [
+        "Claude Code的Compaction策略是怎样的?"
+      ],
+      "source_excerpt": "Compaction 是 当对话历史超出模型上下文窗口(Context Window)时,对历史消息进行 摘要/裁剪/压缩 ,保留关键信息、丢弃冗余细节,使对话能继续进行。"
+    },
+    {
+      "question": "什么是Session/会话?Session中通常维护哪些状态?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "Session"
+      ],
+      "answer_points": [
+        "Session = 一次完整的人机交互会话,是Agent管理上下文、记忆和状态的基本容器",
+        "Session中通常维护:session_id、messages(完整对话历史)、metadata(用户信息等)、工具执行状态"
+      ],
+      "follow_ups": [
+        "Session与Conversation有什么区别?"
+      ],
+      "source_excerpt": "Session = 一次完整的人机交互会话,是 Agent 管理上下文、记忆和状态的 基本容器。"
+    },
+    {
+      "question": "什么是RPA/Robot Process Automation?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "RPA"
+      ],
+      "answer_points": [
+        "RPA是指用软件机器人模拟人类操作界面(点击、填表、复制粘贴等)来自动执行繁琐、重复性业务流程",
+        "无需改造底层系统",
+        "提高效率、减少错误"
+      ],
+      "follow_ups": [
+        "RPA与AI Agent有什么区别?"
+      ],
+      "source_excerpt": "RPA(机器人流程自动化) 是指用软件机器人模拟人类操作界面(点击、填表、复制粘贴等)来自动执行繁琐、重复性业务流程,无需改造底层系统,提高效率、减少错误。"
+    },
+    {
+      "question": "MCP/Tools/Skills在Context中的引入顺序是怎样的?为什么是这个顺序?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Agent",
+        "Context",
+        "Prompt Engineering"
+      ],
+      "answer_points": [
+        "顺序:1 System Prompt → 2 Tools/MCP Definition → 3 RAG/Knowledge Context → 4 Conversation History → 5 Current User Query",
+        "原因:LLM对Context的注意力呈现'U形曲线'(Primacy & Recency Bias),对开头和结尾的内容关注度最高",
+        "System Prompt放最前面利用Primacy Bias确保全程被遵守",
+        "Tools紧跟System Prompt,因为工具定义属于能力声明,模型需要在处理任何请求前就知道自己能做什么",
+        "RAG放在中间,因为它是任务相关的补充信息",
+        "History放在靠后位置,紧邻当前查询,确保对话连贯性",
+        "User Query放最后利用Recency Bias,确保回复紧密围绕当前请求"
+      ],
+      "follow_ups": [
+        "如果Context很长,如何缓解中间部分的注意力衰减?"
+      ],
+      "source_excerpt": "核心原则:LLM 对 Context 的注意力呈现'U 形曲线'(Primacy & Recency Bias),即模型对开头和结尾的内容关注度最高,中间部分容易被'遗忘'。"
+    },
+    {
+      "question": "什么是AI Agent?与传统LLM的核心区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent",
+        "LLM"
+      ],
+      "answer_points": [
+        "AI Agent是一种能够感知环境、进行决策并执行动作以实现特定目标的autonomous系统",
+        "传统LLM本质上是'静态的文本生成器',一次性、无状态",
+        "AI Agent是'有自主意识的执行者',由LLM(大脑)、规划、记忆、工具使用四个核心组件构成"
+      ],
+      "follow_ups": [
+        "Agent的四个核心组件分别承担什么职责?"
+      ],
+      "source_excerpt": "AI Agent(人工智能智能体)是一种能够感知环境、进行决策并执行动作以实现特定目标的 autonomous 系统。与传统的 LLM(大语言模型)相比,核心区别在于:传统 LLM 本质上是一个'静态的文本生成器'... AI Agent 则是一个'有自主意识的执行者'。"
+    },
+    {
+      "question": "Agent的记忆有哪些类型?分别存在哪里?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Memory"
+      ],
+      "answer_points": [
+        "In-context:存在上下文窗口中,如当前对话历史",
+        "External:存在文件/数据库中,如任务计划文件、执行日志",
+        "Semantic:存在向量数据库中,如相似代码片段、历史规范文档,通过RAG检索",
+        "In-weights:存在模型参数中,如模型训练时学到的知识,通过微调获得"
+      ],
+      "follow_ups": [
+        "为什么记忆对Agent至关重要?"
+      ],
+      "source_excerpt": "记忆(Memory):短期记忆(当前会话上下文)+ 长期记忆(知识库存储)。类型:In-context、External、Semantic、In-weights。"
+    },
+    {
+      "question": "为什么记忆对Agent至关重要?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Memory"
+      ],
+      "answer_points": [
+        "记忆决定了Agent是'一次性工具'还是'长期协作伙伴'",
+        "解决四个问题:多轮连贯性(知道'再帮我改一下'指的是什么)、个性化(记住用户偏好)、长任务执行(跨步骤任务需要持续中间状态)、避免重复犯错(从过去的失败中学习)"
+      ],
+      "follow_ups": [
+        "Agent长任务'做着做着忘了自己在干嘛'通常是什么原因?"
+      ],
+      "source_excerpt": "记忆决定了 Agent 是 '一次性工具'还是'长期协作伙伴'。没有记忆,Agent 每次对话都是'失忆症患者'。"
+    },
+    {
+      "question": "工作流(Workflows)与自主智能体(Autonomous Agents)的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Workflow",
+        "Autonomous Agent"
+      ],
+      "answer_points": [
+        "Workflow是开发者画好路线让LLM走,Autonomous Agent是LLM自己边走边画路线",
+        "Workflow控制流由开发者预定义,可预测性高,调试容易,成本可控",
+        "Autonomous Agent控制流由LLM动态决策,灵活性高,但可预测性低,调试难,成本易失控",
+        "Anthropic建议:能用Workflow解决的就别上Agent"
+      ],
+      "follow_ups": [
+        "什么场景适合用Workflow,什么场景适合用Autonomous Agent?"
+      ],
+      "source_excerpt": "核心区别一句话:Workflow 是开发者画好路线让 LLM 走,Autonomous Agent 是 LLM 自己边走边画路线。"
+    },
+    {
+      "question": "什么是编排者-执行者(Orchestrator-Workers)模式?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Orchestrator-Workers"
+      ],
+      "answer_points": [
+        "一种主流的多Agent协作模式:一个Orchestrator LLM负责'指挥',多个Worker负责'干活'",
+        "Orchestrator拆解任务、分配Worker、汇总结果",
+        "Worker各自专业领域(如代码生成、代码审查、测试编写)",
+        "适用场景:任务可以清晰拆分为若干平行子任务"
+      ],
+      "follow_ups": [
+        "Orchestrator-Workers模式与Subagent模式有什么区别?"
+      ],
+      "source_excerpt": "一种主流的多 Agent 协作模式: 一个 Orchestrator LLM 负责'指挥',多个 Worker 负责'干活'。"
+    },
+    {
+      "question": "什么是Agent的'反思/自我纠正'(Reflection)机制?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Reflection"
+      ],
+      "answer_points": [
+        "Reflection = Agent输出结果后不直接返回,而是先'自我审视',发现问题就修正",
+        "形成Generate → Critique → Refine闭环",
+        "典型应用:代码生成(写完→跑测试→失败就改)、写作Agent、研究Agent",
+        "注意:Reflection一定要有终止条件(最大迭代数、收敛判断),否则会陷入死循环"
+      ],
+      "follow_ups": [
+        "如何设计Reflection的终止条件?"
+      ],
+      "source_excerpt": "Reflection = Agent 输出结果后不直接返回,而是先'自我审视',发现问题就修正 ,形成 Generate → Critique → Refine 闭环。"
+    },
+    {
+      "question": "多轮对话中'状态爆炸'和'上下文溢出'如何处理?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Agent",
+        "上下文管理"
+      ],
+      "answer_points": [
+        "滑动窗口:只保留最近N轮,适用于对话独立性强、不依赖远端历史的场景",
+        "摘要压缩:用LLM把旧对话压成摘要,适用于长会话需保留核心信息的场景",
+        "关键消息固化:把'用户需求''关键决策'单独保留原文,适用于任务型对话",
+        "外部记忆+RAG:历史存向量库,按需检索,适用于跨会话长期记忆",
+        "分层架构:System + 摘要 + 最近N轮 + 当前Query,适用于工业级Agent"
+      ],
+      "follow_ups": [
+        "Claude Code的Compaction策略是怎样的?"
+      ],
+      "source_excerpt": "随着对话变长,messages 数组无限增长,必然撞上上下文窗口上限。处理思路是 分层管理。"
+    },
+    {
+      "question": "如何保证工具调用(Tool Calling)的可靠性?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Agent",
+        "Tool Calling"
+      ],
+      "answer_points": [
+        "调用前(防错):JSON Schema严格定义参数,工具描述清晰具体,控制可见工具数量(建议<20)",
+        "调用中(容错):超时控制,输入参数二次校验,沙箱隔离危险操作",
+        "调用后(纠错):错误信息以'工具返回'形式回灌给LLM让其自主修正,重试机制(指数退避,最多N次),幂等性设计"
+      ],
+      "follow_ups": [
+        "什么是'幻觉工具调用'?如何解决?"
+      ],
+      "source_excerpt": "工具调用是 Agent 真正'做事'的环节,可靠性靠 前-中-后三层防护。"
+    },
+    {
+      "question": "什么是'幻觉工具调用'(Hallucinated Tool Calls)?如何解决?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "幻觉",
+        "Tool Calling"
+      ],
+      "answer_points": [
+        "定义:LLM调用了根本不存在的工具,或给已有工具传了乱编的参数",
+        "根因:工具描述模糊、可见工具太多、模型本身能力局限",
+        "解决:Schema强校验、白名单过滤、错误回灌、精简工具集、Few-shot示例"
+      ],
+      "follow_ups": [
+        "如何通过工具描述减少幻觉工具调用?"
+      ],
+      "source_excerpt": "定义 :LLM 调用了 根本不存在的工具 ,或给已有工具传了 乱编的参数。"
+    },
+    {
+      "question": "描述Agent Loop的最小核心实现。",
+      "question_type": "handwrite",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Agent Loop"
+      ],
+      "answer_points": [
+        "Agent Loop本质:LLM推理→工具调用→把结果喂回LLM,直到模型给出最终答案",
+        "关键设计点:max_iter防止死循环、工具结果以role=tool消息形式追加、没有tool_calls即视为结束条件",
+        "真实生产中还要加:流式输出、取消信号、错误回灌、Token预算控制"
+      ],
+      "follow_ups": [
+        "Agent Loop中如何避免无限循环?"
+      ],
+      "source_excerpt": "Agent Loop 的本质是 LLM 推理 → 工具调用 → 把结果喂回 LLM ,直到模型给出最终答案。"
+    },
+    {
+      "question": "Tool Handler(工具调度器)的设计原则是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Agent",
+        "Tool Handler"
+      ],
+      "answer_points": [
+        "单一职责:每个工具只做一件事,便于复用和测试",
+        "明确契约:输入输出用JSON Schema描述,包含错误码",
+        "幂等性:同样参数重复调用结果一致,避免重试副作用",
+        "超时与熔断:防止单个工具阻塞整个Agent",
+        "沙箱隔离:文件/网络/Shell等危险操作走受限环境",
+        "可观测:记录调用时间、参数、结果,便于追踪",
+        "错误友好:返回结构化错误,让LLM能'读懂'并修正"
+      ],
+      "follow_ups": [
+        "举一个违反单一职责原则的反例。"
+      ],
+      "source_excerpt": "Tool Handler 是连接 LLM 决策和真实世界执行的中间层。设计原则:单一职责、明确契约、幂等性、超时与熔断、沙箱隔离、可观测、错误友好。"
+    },
+    {
+      "question": "什么是Subagent(子智能体)模式?解决了什么问题?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Subagent"
+      ],
+      "answer_points": [
+        "Subagent = 主Agent把子任务委派给一个独立的子Agent实例,子Agent完成后只把最终结论返回,中间过程不进入主上下文",
+        "解决的核心问题:上下文隔离(中间结果不污染主上下文)、并行加速、专业化分工、失败收敛"
+      ],
+      "follow_ups": [
+        "Subagent模式与Orchestrator-Workers模式有什么区别?"
+      ],
+      "source_excerpt": "Subagent = 主 Agent 把子任务委派给一个独立的子 Agent 实例,子 Agent 完成后只把 最终结论 返回,中间过程不进入主上下文。"
+    },
+    {
+      "question": "什么是Context Rot?如何防止?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Agent",
+        "Context Rot"
+      ],
+      "answer_points": [
+        "Context Rot(上下文腐烂)= 随着对话长度增长,模型对早期重要信息的注意力被稀释,关键约束、System Prompt中的规则逐渐'被遗忘'",
+        "防止策略:关键约束周期性Refresh、Compaction时保留约束原文、位置工程(把不变的约束放在每次推理的'最近位置')、分层Prompt、定期断点"
+      ],
+      "follow_ups": [
+        "Context Rot与Compaction有什么关系?"
+      ],
+      "source_excerpt": "Context Rot (上下文腐烂)= 随着对话长度增长, 模型对早期重要信息的注意力被稀释 ,关键约束、System Prompt 中的规则、工具描述逐渐'被遗忘',导致 Agent 行为偏离。"
+    },
+    {
+      "question": "Todo工具在Agent中的作用是什么?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Agent",
+        "Todo"
+      ],
+      "answer_points": [
+        "Todo工具让Agent把任务计划显式持久化到外部,是长任务Agent的'任务清单+进度条'",
+        "核心作用:防止跑偏(强制Agent先列计划再执行)、进度可见、抗Context Rot(计划写在外部不怕被压缩丢失)、支持中断恢复、Compaction友好"
+      ],
+      "follow_ups": [
+        "Claude Code中Todo工具是如何实现的?"
+      ],
+      "source_excerpt": "Todo 工具让 Agent 把 任务计划显式持久化 到外部,是长任务 Agent 的'任务清单 + 进度条'。"
+    }
+  ]
+}

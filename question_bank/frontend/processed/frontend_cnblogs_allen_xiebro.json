@@ -1,0 +1,1122 @@
+{
+  "source_title": "前端面试题八股文汇总",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "开发中遇到的困难?请举例说明如何解决。",
+      "question_type": "scenario",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue",
+        "swiper",
+        "nextTick"
+      ],
+      "answer_points": [
+        "使用swiper插件时需要DOM渲染完成才能生效",
+        "在mounted中无法保证v-for遍历完成",
+        "使用$nextTick在DOM更新后执行回调",
+        "结合watch监听数据变化"
+      ],
+      "follow_ups": [
+        "还有哪些场景需要使用$nextTick?"
+      ],
+      "source_excerpt": "才开始做项目的时候,以为插件使用简单,vue项目中轮播图的使用,swiper插件的使用,查看官方的文档是一定要有节点DOM(相应的结构)渲染出来才会有对应的动态效果。"
+    },
+    {
+      "question": "CSS的盒子模型有哪些?请说明标准盒模型和怪异盒模型的区别。",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "盒模型",
+        "box-sizing"
+      ],
+      "answer_points": [
+        "标准盒模型:box-sizing: content-box,width/height只包含内容区",
+        "怪异盒模型:box-sizing: border-box,width/height包含内容区、padding和border",
+        "总宽度计算方式不同"
+      ],
+      "follow_ups": [
+        "如何切换盒模型?"
+      ],
+      "source_excerpt": "标准盒模型(W3C):box-sizeing:content-box(默认值)...怪异盒模型(IE盒模型):box-sizing:border-box"
+    },
+    {
+      "question": "git pull和git fetch的区别是什么?",
+      "question_type": "comparison",
+      "category": "engineering",
+      "difficulty": "junior",
+      "tags": [
+        "git",
+        "pull",
+        "fetch"
+      ],
+      "answer_points": [
+        "git pull将远程仓库的变化下载并与本地分支合并",
+        "git fetch只下载变化,不自动合并",
+        "pull = fetch + merge"
+      ],
+      "follow_ups": [
+        "如何解决git冲突?"
+      ],
+      "source_excerpt": "git pull将远程的仓库的变化下载下来,与和本地的分支做合并;git fetch将远程的仓库的变化下载下来,并没有和本地的分支做合并"
+    },
+    {
+      "question": "什么是SPA单页面应用?它有哪些优缺点?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "SPA",
+        "单页面应用"
+      ],
+      "answer_points": [
+        "SPA在初始化时加载HTML、JS、CSS,之后通过路由切换内容,不重新加载页面",
+        "优点:用户体验好、速度快,服务器压力小,前后端分离",
+        "缺点:初次加载耗时多,前进后退路由管理困难,SEO难度大"
+      ],
+      "follow_ups": [
+        "如何解决SPA的SEO问题?"
+      ],
+      "source_excerpt": "SPA( single-page application )仅在 Web 页面初始化时加载相应的 HTML、JavaScript 和 CSS实现页面的渲染加载。"
+    },
+    {
+      "question": "SPA单页面应用如何实现前进与后退功能?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "SPA",
+        "路由",
+        "hash"
+      ],
+      "answer_points": [
+        "使用window.location.hash和onhashchange事件",
+        "通过hash变化记录页面状态",
+        "也可以使用隐藏iframe实现"
+      ],
+      "follow_ups": [
+        "history API如何实现?"
+      ],
+      "source_excerpt": "设置window.location.hash(location.hash)+ 监听window.onhashchange"
+    },
+    {
+      "question": "什么是SEO优化?如何进行站内和站外优化?",
+      "question_type": "concept",
+      "category": "performance",
+      "difficulty": "junior",
+      "tags": [
+        "SEO"
+      ],
+      "answer_points": [
+        "SEO是搜索引擎优化,提高网站在搜索引擎的排名",
+        "站内优化:META标签优化、网站文章更新",
+        "站外优化:友链互换"
+      ],
+      "follow_ups": [
+        "高质量网站有哪些特点?"
+      ],
+      "source_excerpt": "seo是搜索引擎优化。是一种利用搜索引擎的规律提高网站在有关搜索引擎的排名,是一种网络营销方式。"
+    },
+    {
+      "question": "BOM浏览器对象模型的核心对象是什么?它有哪些常用方法?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "BOM",
+        "window"
+      ],
+      "answer_points": [
+        "核心对象是window,表示浏览器的一个实例",
+        "常用方法:alert()、定时器"
+      ],
+      "follow_ups": [
+        "location对象有哪些属性?"
+      ],
+      "source_excerpt": "BOM的核心对象是window,它表示浏览器的一个实例"
+    },
+    {
+      "question": "location对象有哪些常用方法?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "BOM",
+        "location"
+      ],
+      "answer_points": [
+        "location.href:页面跳转",
+        "location.assign():页面跳转",
+        "location.hash:设置页面的标签值"
+      ],
+      "follow_ups": [
+        "location和document.location的关系?"
+      ],
+      "source_excerpt": "location.href = \"http://www.666.com\"; //页面跳转到该网址"
+    },
+    {
+      "question": "navigator对象有哪些常用属性?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "BOM",
+        "navigator"
+      ],
+      "answer_points": [
+        "navigator.cookieEnabled:判断是否启用cookie",
+        "navigator.userAgent:判断浏览器名称和版本",
+        "navigator.plugins:保存插件信息"
+      ],
+      "follow_ups": [
+        "如何检测浏览器是否支持某个插件?"
+      ],
+      "source_excerpt": "navigator.cookicEnablcd:判断是否启用cookic"
+    },
+    {
+      "question": "history对象有哪些常用方法?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "BOM",
+        "history"
+      ],
+      "answer_points": [
+        "history.forward() / history.go(1):前进",
+        "history.back() / history.go(-1):后退",
+        "history.length:获取记录个数"
+      ],
+      "follow_ups": [
+        "如何实现无刷新改变URL?"
+      ],
+      "source_excerpt": "前进:history.forward();history.go(1);"
+    },
+    {
+      "question": "ES6解构赋值的常见使用场景有哪些?",
+      "question_type": "scenario",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "解构赋值"
+      ],
+      "answer_points": [
+        "交换变量的值",
+        "从函数返回多个值",
+        "提取JSON数据"
+      ],
+      "follow_ups": [
+        "解构赋值的默认值如何设置?"
+      ],
+      "source_excerpt": "交换变量的值:let x = 1; let y = 2; [x, y] = [y, x];"
+    },
+    {
+      "question": "数组解构赋值有哪些注意事项?",
+      "question_type": "principle",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "解构赋值",
+        "数组"
+      ],
+      "answer_points": [
+        "根据位置(模式)对应",
+        "允许默认值,但必须是已声明的变量",
+        "右边不是可遍历结构会报错"
+      ],
+      "follow_ups": [
+        "对象解构赋值和数组解构赋值的区别?"
+      ],
+      "source_excerpt": "数组的解构是根据它的位置(模式)对应的"
+    },
+    {
+      "question": "扩展运算符(...)有哪些使用场景?",
+      "question_type": "scenario",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "扩展运算符"
+      ],
+      "answer_points": [
+        "函数调用中展开数组传参",
+        "合并数组",
+        "类数组对象转为数组",
+        "解构赋值中(只能用在最后)",
+        "对象中拷贝属性"
+      ],
+      "follow_ups": [
+        "扩展运算符和剩余参数的区别?"
+      ],
+      "source_excerpt": "展开运算:允许一个表达式在某处展开。"
+    },
+    {
+      "question": "剩余参数(...)的用法是什么?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "剩余参数"
+      ],
+      "answer_points": [
+        "将不定数量的参数表示为一个数组",
+        "用于函数参数",
+        "用于解构赋值(只能用在最后)"
+      ],
+      "follow_ups": [
+        "剩余参数和arguments对象的区别?"
+      ],
+      "source_excerpt": "剩余参数语法允许我们将一个不定数量的参数表示为一个数组。"
+    },
+    {
+      "question": "arguments对象是什么?它有哪些特性和作用?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "arguments"
+      ],
+      "answer_points": [
+        "arguments是传递给函数的类数组对象",
+        "特性:不是数组,但有length和索引,可转换为数组",
+        "作用:无需明确参数名访问参数、检测参数个数、模拟函数重载"
+      ],
+      "follow_ups": [
+        "箭头函数中可以使用arguments吗?"
+      ],
+      "source_excerpt": "arguments是一个对应传递给函数参数的类数组对象"
+    },
+    {
+      "question": "Promise是什么?它解决了什么问题?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Promise",
+        "异步"
+      ],
+      "answer_points": [
+        "Promise是ES6中用于异步编程的解决方案",
+        "解决了回调地狱问题",
+        "支持链式调用",
+        "状态:pending、resolved、rejected,一旦改变不可逆"
+      ],
+      "follow_ups": [
+        "如何实现一个简单的Promise?"
+      ],
+      "source_excerpt": "promise是一门新的技术,E6中新出的规范,是用来解决JS中进行异步编程的新的解决方案"
+    },
+    {
+      "question": "浅拷贝和深拷贝的区别是什么?如何实现深拷贝?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "浅拷贝",
+        "深拷贝"
+      ],
+      "answer_points": [
+        "浅拷贝只拷贝引用,修改会影响原数据",
+        "深拷贝生成新数据,修改不影响原数据",
+        "深拷贝实现:JSON.parse(JSON.stringify())有弊端,递归拷贝"
+      ],
+      "follow_ups": [
+        "JSON.parse(JSON.stringify())深拷贝的弊端有哪些?"
+      ],
+      "source_excerpt": "浅拷贝(对象,数组)特点:拷贝的时候只是拷贝了一份引用,修改拷贝以后的数据会影响原来的数据。"
+    },
+    {
+      "question": "Vue组件之间有哪些通信方式?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue",
+        "组件通信"
+      ],
+      "answer_points": [
+        "父子组件:props/emit、$parent/$children、ref",
+        "兄弟组件:eventBus、Vuex",
+        "跨层级:provide/inject、$attrs/$listeners"
+      ],
+      "follow_ups": [
+        "Vuex适合什么场景?"
+      ],
+      "source_excerpt": "1、props和emit 2、Ref和$parent/$children 3、eventBus 4、$attrs/$listeners 5、Provide/inject 6、Vuex"
+    },
+    {
+      "question": "JavaScript有哪些数据类型?基本数据类型和引用数据类型的存储方式有何不同?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数据类型"
+      ],
+      "answer_points": [
+        "基本数据类型:String、Number、Boolean、undefined、null、Symbol、BigInt",
+        "引用数据类型:Object、Array、Function等",
+        "基本数据类型存储在栈中,引用数据类型存储在堆中(栈中存指针)"
+      ],
+      "follow_ups": [
+        "Symbol和BigInt的作用是什么?"
+      ],
+      "source_excerpt": "基本数据类型...引用数据类型...栈:原始数据类型直接存储在栈中...堆:引用数据类型存储在堆中"
+    },
+    {
+      "question": "数组和对象有什么区别?如何判断一个对象为空对象?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数组",
+        "对象"
+      ],
+      "answer_points": [
+        "数组有序,对象无序",
+        "数组有length属性,对象没有",
+        "判断空对象:JSON.stringify(obj) === '{}' 或 Object.keys(obj).length === 0"
+      ],
+      "follow_ups": [
+        "如何判断一个变量是数组?"
+      ],
+      "source_excerpt": "数组表示有序数据的集合,而对象表示无序数据的集合。"
+    },
+    {
+      "question": "JavaScript中数据类型的检测方式有哪些?如何区分数组和对象?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "类型检测"
+      ],
+      "answer_points": [
+        "typeof:能检测基本类型,但数组、null、对象都返回object",
+        "instanceof:检测原型链",
+        "constructor:判断构造函数",
+        "Array.isArray():检测数组",
+        "Object.prototype.toString.call():最准确"
+      ],
+      "follow_ups": [
+        "为什么不用obj.toString()判断类型?"
+      ],
+      "source_excerpt": "typeof(数组,null和对象都是object,不能区分)...Object.prototype.toString.call(arr)"
+    },
+    {
+      "question": "请手写实现instanceof操作符。",
+      "question_type": "handwrite",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "instanceof",
+        "手写"
+      ],
+      "answer_points": [
+        "获取对象的原型(Object.getPrototypeOf)",
+        "获取构造函数的prototype",
+        "循环判断原型链上是否存在构造函数的prototype"
+      ],
+      "follow_ups": [
+        "instanceof的原理是什么?"
+      ],
+      "source_excerpt": "判断构造函数的原型是否出现在对象的原型链上的任何位置"
+    },
+    {
+      "question": "如何将一个数组转换为二进制?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "进制转换"
+      ],
+      "answer_points": [
+        "使用循环:let a = x % n,res += a,x = Math.floor(x / n)",
+        "n为几进制"
+      ],
+      "follow_ups": [
+        "如何将二进制字符串转换为数字?"
+      ],
+      "source_excerpt": "1.let a = x % n (n为几进制) 2. res += a 3. x / n"
+    },
+    {
+      "question": "常见的HTTP状态码有哪些?分别代表什么含义?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTTP状态码"
+      ],
+      "answer_points": [
+        "200:成功",
+        "301:永久重定向",
+        "302:临时重定向",
+        "304:协商缓存(未修改)",
+        "400:客户端语法错误",
+        "401:需要认证",
+        "403:拒绝访问",
+        "404:资源不存在",
+        "500:服务器内部错误"
+      ],
+      "follow_ups": [
+        "301和302的区别是什么?"
+      ],
+      "source_excerpt": "200 成功状态码...301 永久重定向...404 找不到资源"
+    },
+    {
+      "question": "项目部署的一般流程是什么?",
+      "question_type": "scenario",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "部署"
+      ],
+      "answer_points": [
+        "系统开发:修改端口,打包",
+        "服务器准备:购买云服务器,配置网络",
+        "环境配置:安装所需环境",
+        "程序部署:上传文件,启动",
+        "域名绑定:购买域名,备案,解析"
+      ],
+      "follow_ups": [
+        "如何配置Nginx?"
+      ],
+      "source_excerpt": "系统开发:修改端口server.port = 80 打包...服务器准备、环境配置..."
+    },
+    {
+      "question": "Vuex的五大属性是什么?它们各自的作用是什么?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vuex"
+      ],
+      "answer_points": [
+        "state:存储变量",
+        "getters:从state派生的数据,类似计算属性",
+        "mutations:同步更新数据",
+        "actions:提交mutation,可包含异步操作",
+        "modules:模块化"
+      ],
+      "follow_ups": [
+        "mutations和actions的区别是什么?"
+      ],
+      "source_excerpt": "state, getters, mutations, actions, modules。"
+    },
+    {
+      "question": "Vue生命周期有哪些?各个阶段适合做什么?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "Vue",
+        "生命周期"
+      ],
+      "answer_points": [
+        "beforeCreate:实例初始化后,data和el未初始化,可加loading",
+        "created:可访问data和methods,适合异步请求",
+        "beforeMount:模板编译完成,未挂载",
+        "mounted:DOM已渲染,可操作DOM",
+        "beforeUpdate:数据更新前,页面旧数据新",
+        "updated:DOM更新后",
+        "beforeDestroy:实例销毁前,释放内存",
+        "destroyed:实例销毁后"
+      ],
+      "follow_ups": [
+        "created和mounted的区别?"
+      ],
+      "source_excerpt": "生命周期:每一个vue实例从创建到销毁的过程就是vue这个实例的生命周期"
+    },
+    {
+      "question": "HTML中meta标签的作用是什么?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "meta"
+      ],
+      "answer_points": [
+        "提供页面的元信息",
+        "设置字符集、关键词、描述等",
+        "用于SEO优化"
+      ],
+      "follow_ups": [
+        "meta标签有哪些常用属性?"
+      ],
+      "source_excerpt": "META标签的优化:例如:title,keywords,description等的优化"
+    },
+    {
+      "question": "Doctype有什么作用?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "Doctype"
+      ],
+      "answer_points": [
+        "声明文档类型和规范",
+        "告诉浏览器以何种标准解析页面",
+        "影响浏览器的渲染模式"
+      ],
+      "follow_ups": [
+        "严格模式和混杂模式的区别?"
+      ],
+      "source_excerpt": "Doctype有什么作用"
+    },
+    {
+      "question": "前端本地存储有哪些方式?它们之间有什么区别?",
+      "question_type": "comparison",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "本地存储",
+        "cookie",
+        "localStorage",
+        "sessionStorage"
+      ],
+      "answer_points": [
+        "cookie:大小约4KB,每次请求自动携带,可设置过期时间",
+        "localStorage:大小约5MB,持久存储,不自动发送",
+        "sessionStorage:大小约5MB,会话级存储,关闭页面清除"
+      ],
+      "follow_ups": [
+        "如何设置和获取cookie?"
+      ],
+      "source_excerpt": "本地存储"
+    },
+    {
+      "question": "用户注册登录的实现大概步骤是什么?",
+      "question_type": "scenario",
+      "category": "scenario",
+      "difficulty": "mid",
+      "tags": [
+        "登录",
+        "注册"
+      ],
+      "answer_points": [
+        "前端表单验证",
+        "发送请求到后端",
+        "后端验证并存储用户信息",
+        "返回token或session",
+        "前端保存token,后续请求携带"
+      ],
+      "follow_ups": [
+        "如何实现记住密码功能?"
+      ],
+      "source_excerpt": "用户注册登录实现大概步骤"
+    },
+    {
+      "question": "CSS盒子居中显示有哪些方法?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "居中"
+      ],
+      "answer_points": [
+        "水平居中:margin: 0 auto; text-align: center;",
+        "垂直居中:flex布局、绝对定位+transform、table-cell"
+      ],
+      "follow_ups": [
+        "如何实现未知宽高的元素居中?"
+      ],
+      "source_excerpt": "CSS盒子居中显示"
+    },
+    {
+      "question": "Flex布局有哪些常用属性?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "Flex"
+      ],
+      "answer_points": [
+        "容器属性:flex-direction, justify-content, align-items, flex-wrap",
+        "项目属性:flex, align-self, order"
+      ],
+      "follow_ups": [
+        "flex:1代表什么?"
+      ],
+      "source_excerpt": "Flex布局"
+    },
+    {
+      "question": "什么是MVVM模式?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "MVVM"
+      ],
+      "answer_points": [
+        "MVVM是Model-View-ViewModel的缩写",
+        "Model:数据模型",
+        "View:视图",
+        "ViewModel:连接Model和View,实现双向绑定"
+      ],
+      "follow_ups": [
+        "MVVM和MVC的区别?"
+      ],
+      "source_excerpt": "MVVM模式"
+    },
+    {
+      "question": "什么是节流和防抖?它们有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "节流",
+        "防抖"
+      ],
+      "answer_points": [
+        "防抖:触发事件后n秒内只执行一次,若再次触发则重新计时",
+        "节流:连续触发事件时,每隔n秒执行一次",
+        "防抖适用于输入搜索,节流适用于滚动加载"
+      ],
+      "follow_ups": [
+        "手写实现防抖和节流。"
+      ],
+      "source_excerpt": "节流和防抖"
+    },
+    {
+      "question": "什么是懒加载?如何实现?",
+      "question_type": "concept",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": [
+        "懒加载"
+      ],
+      "answer_points": [
+        "懒加载是延迟加载,当元素进入视口时才加载",
+        "常用于图片、路由等",
+        "实现方式:IntersectionObserver、监听scroll事件"
+      ],
+      "follow_ups": [
+        "懒加载和预加载的区别?"
+      ],
+      "source_excerpt": "懒加载"
+    },
+    {
+      "question": "什么是预编译、作用域、变量提升和事件委派?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "预编译",
+        "作用域",
+        "变量提升",
+        "事件委派"
+      ],
+      "answer_points": [
+        "预编译:函数声明和变量声明提升",
+        "作用域:变量可访问的范围",
+        "变量提升:var声明的变量提升到作用域顶部",
+        "事件委派:利用事件冒泡,将事件绑定到父元素"
+      ],
+      "follow_ups": [
+        "let和var的区别?"
+      ],
+      "source_excerpt": "预编译、作用域、变量提升、事件委派"
+    },
+    {
+      "question": "JavaScript的执行机制是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "执行机制",
+        "事件循环"
+      ],
+      "answer_points": [
+        "JavaScript是单线程",
+        "执行栈:同步任务在主线程上执行",
+        "事件循环:异步任务放入任务队列,等待执行栈清空后执行"
+      ],
+      "follow_ups": [
+        "宏任务和微任务有哪些?"
+      ],
+      "source_excerpt": "JS执行机制"
+    },
+    {
+      "question": "什么是宏任务和微任务?它们的执行顺序是怎样的?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "宏任务",
+        "微任务"
+      ],
+      "answer_points": [
+        "宏任务:setTimeout, setInterval, I/O, UI渲染",
+        "微任务:Promise.then, MutationObserver",
+        "执行顺序:先执行一个宏任务,然后清空所有微任务,再执行下一个宏任务"
+      ],
+      "follow_ups": [
+        "setTimeout的延迟时间准确吗?"
+      ],
+      "source_excerpt": "异步任务(宏任务和微任务)"
+    },
+    {
+      "question": "定时器的秒数为0是不是立即执行函数?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "setTimeout"
+      ],
+      "answer_points": [
+        "不是立即执行,即使延迟为0也会被放入任务队列",
+        "必须等待当前执行栈清空后才执行"
+      ],
+      "follow_ups": [
+        "setTimeout(0)的应用场景?"
+      ],
+      "source_excerpt": "定时器的秒数为0是不是立即执行函数"
+    },
+    {
+      "question": "ES6有哪些常用的新特性?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "ES6"
+      ],
+      "answer_points": [
+        "let和const",
+        "箭头函数",
+        "模板字符串",
+        "解构赋值",
+        "扩展运算符",
+        "Promise",
+        "模块化"
+      ],
+      "follow_ups": [
+        "let和const的区别?"
+      ],
+      "source_excerpt": "Es6的常用的新特性"
+    },
+    {
+      "question": "跨域的方法有哪些?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "跨域"
+      ],
+      "answer_points": [
+        "JSONP",
+        "CORS",
+        "代理服务器",
+        "postMessage",
+        "WebSocket"
+      ],
+      "follow_ups": [
+        "CORS如何配置?"
+      ],
+      "source_excerpt": "跨域的方法"
+    },
+    {
+      "question": "v-if和v-show的区别是什么?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "Vue",
+        "v-if",
+        "v-show"
+      ],
+      "answer_points": [
+        "v-if:条件渲染,不满足条件时不渲染DOM",
+        "v-show:条件显示,不满足条件时隐藏(display:none)",
+        "v-if有更高的切换开销,v-show有更高的初始渲染开销"
+      ],
+      "follow_ups": [
+        "v-if和v-for的优先级?"
+      ],
+      "source_excerpt": "v-if v-show"
+    },
+    {
+      "question": "JS垃圾回收机制是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "垃圾回收"
+      ],
+      "answer_points": [
+        "自动内存管理,回收不再使用的对象",
+        "主要算法:标记清除、引用计数",
+        "V8引擎使用分代回收"
+      ],
+      "follow_ups": [
+        "如何避免内存泄漏?"
+      ],
+      "source_excerpt": "JS垃圾回收机制"
+    },
+    {
+      "question": "form表单有哪些常用属性?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "form"
+      ],
+      "answer_points": [
+        "action:提交地址",
+        "method:提交方式(get/post)",
+        "enctype:编码类型",
+        "target:打开方式"
+      ],
+      "follow_ups": [
+        "form表单如何阻止默认提交?"
+      ],
+      "source_excerpt": "form表单的使用以及相应的属性值"
+    },
+    {
+      "question": "Vue中的双向数据绑定原理是什么?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "senior",
+      "tags": [
+        "Vue",
+        "双向绑定"
+      ],
+      "answer_points": [
+        "通过数据劫持和发布订阅模式实现",
+        "使用Object.defineProperty()劫持数据getter/setter",
+        "每个数据对应一个Dep实例,用于收集依赖",
+        "当数据变化时,通知Watcher更新视图"
+      ],
+      "follow_ups": [
+        "Vue3中双向绑定有什么变化?"
+      ],
+      "source_excerpt": "vue中的双向数据绑定原理(重点深入学习)"
+    },
+    {
+      "question": "什么是Vue单向数据流?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "Vue",
+        "数据流"
+      ],
+      "answer_points": [
+        "数据从父组件流向子组件,单向流动",
+        "子组件不能直接修改父组件传递的props",
+        "通过事件向父组件通信"
+      ],
+      "follow_ups": [
+        "为什么Vue要设计单向数据流?"
+      ],
+      "source_excerpt": "vue单向数据流"
+    },
+    {
+      "question": "undefined、null、NaN有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "undefined",
+        "null",
+        "NaN"
+      ],
+      "answer_points": [
+        "undefined:变量声明但未赋值",
+        "null:空对象指针",
+        "NaN:非数字,属于Number类型",
+        "undefined == null 为 true,=== 为 false"
+      ],
+      "follow_ups": [
+        "如何判断一个变量是NaN?"
+      ],
+      "source_excerpt": "undefined、null、NaN有什么区别?"
+    },
+    {
+      "question": "如何获取安全的undefined值?",
+      "question_type": "scenario",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "undefined"
+      ],
+      "answer_points": [
+        "使用void 0获取undefined",
+        "因为undefined可以被重写(非严格模式下)"
+      ],
+      "follow_ups": [
+        "void 0的作用?"
+      ],
+      "source_excerpt": "如何获取安全的undefined 值?"
+    },
+    {
+      "question": "Object.is()与比较操作符===、==的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Object.is",
+        "比较"
+      ],
+      "answer_points": [
+        "==:会进行类型转换",
+        "===:严格相等,不进行类型转换",
+        "Object.is():与===类似,但处理NaN和+0/-0不同",
+        "Object.is(NaN, NaN)为true,Object.is(+0, -0)为false"
+      ],
+      "follow_ups": [
+        "Object.is()的实现原理?"
+      ],
+      "source_excerpt": "Object.is() 与比较操作符 “=== ” 、 “==” 的区别?"
+    },
+    {
+      "question": "什么是JavaScript中的包装类型?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "包装类型"
+      ],
+      "answer_points": [
+        "基本类型有对应的包装对象:String、Number、Boolean",
+        "当调用基本类型的方法时,JS会临时创建包装对象",
+        "调用结束后包装对象被销毁"
+      ],
+      "follow_ups": [
+        "如何判断一个值是基本类型还是包装对象?"
+      ],
+      "source_excerpt": "什么是 JavaScript 中的包装类型?"
+    },
+    {
+      "question": "const对象的属性可以修改吗?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "const"
+      ],
+      "answer_points": [
+        "const保证的是变量指向的内存地址不变",
+        "对于对象,属性可以修改",
+        "不能重新赋值"
+      ],
+      "follow_ups": [
+        "如何冻结对象?"
+      ],
+      "source_excerpt": "const 对象的属性可以修改吗"
+    },
+    {
+      "question": "new操作符的实现步骤是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "new"
+      ],
+      "answer_points": [
+        "创建一个空对象",
+        "将空对象的__proto__指向构造函数的prototype",
+        "将构造函数的this指向空对象并执行",
+        "如果构造函数返回对象则返回该对象,否则返回空对象"
+      ],
+      "follow_ups": [
+        "手写实现new操作符。"
+      ],
+      "source_excerpt": "new 操作符的实现步骤"
+    },
+    {
+      "question": "JavaScript中this指向的规则有哪些?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "this"
+      ],
+      "answer_points": [
+        "默认绑定:全局环境指向window(严格模式undefined)",
+        "隐式绑定:作为对象方法调用指向该对象",
+        "显式绑定:call/apply/bind指定this",
+        "new绑定:指向新创建的对象",
+        "箭头函数:继承外层作用域的this"
+      ],
+      "follow_ups": [
+        "如何改变this指向?"
+      ],
+      "source_excerpt": "this指向问题(JS高级)"
+    },
+    {
+      "question": "JavaScript脚本延迟加载的方式有哪些?",
+      "question_type": "concept",
+      "category": "performance",
+      "difficulty": "junior",
+      "tags": [
+        "延迟加载"
+      ],
+      "answer_points": [
+        "defer属性:脚本在文档解析完成后执行",
+        "async属性:脚本下载完成后立即执行",
+        "动态创建script标签",
+        "使用setTimeout延迟"
+      ],
+      "follow_ups": [
+        "defer和async的区别?"
+      ],
+      "source_excerpt": "JavaScript 脚本延迟加载的方式有哪些?"
+    },
+    {
+      "question": "对JSON的理解是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "JSON"
+      ],
+      "answer_points": [
+        "JSON是一种轻量级的数据交换格式",
+        "基于JavaScript语法,但独立于语言",
+        "支持的数据类型:字符串、数字、布尔、数组、对象、null"
+      ],
+      "follow_ups": [
+        "JSON.parse和JSON.stringify的作用?"
+      ],
+      "source_excerpt": "对 JSON 的理解"
+    },
+    {
+      "question": "什么是DOM和BOM?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "DOM",
+        "BOM"
+      ],
+      "answer_points": [
+        "DOM:文档对象模型,操作HTML文档的接口",
+        "BOM:浏览器对象模型,操作浏览器窗口的接口",
+        "DOM是W3C标准,BOM是浏览器厂商实现"
+      ],
+      "follow_ups": [
+        "DOM和BOM的关系?"
+      ],
+      "source_excerpt": "什么是 DOM 和 BOM?"
+    },
+    {
+      "question": "原型和原型链的理解是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "原型",
+        "原型链"
+      ],
+      "answer_points": [
+        "每个函数都有prototype属性,指向原型对象",
+        "每个对象都有__proto__属性,指向构造函数的原型",
+        "原型链:对象通过__proto__连接形成链,用于继承"
+      ],
+      "follow_ups": [
+        "原型链的终点是什么?"
+      ],
+      "source_excerpt": "原型和原型链的理解"
+    }
+  ]
+}

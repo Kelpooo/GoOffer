@@ -1,0 +1,408 @@
+{
+  "source_title": "Java 后端面试题基础部分",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "什么是面向对象?与面向过程有什么区别?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "面向对象",
+        "面向过程"
+      ],
+      "answer_points": [
+        "面向过程注重事情的步骤和顺序,面向对象注重参与者(对象)及其职责。",
+        "面向过程直接高效,面向对象更易于复用、扩展和维护。",
+        "举例:洗衣机洗衣服,面向过程拆解为步骤,面向对象拆出人和洗衣机两个对象。"
+      ],
+      "follow_ups": [
+        "面向对象的三大特性是什么?"
+      ],
+      "source_excerpt": "面向过程更注重事情的每一个步骤及顺序,面向对象更注重事情有哪些参与者(对象)、及各自需要做什么"
+    },
+    {
+      "question": "面向对象的三大特性是什么?请分别解释。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "面向对象",
+        "封装",
+        "继承",
+        "多态"
+      ],
+      "answer_points": [
+        "封装:隐藏内部细节,对外提供访问接口,如JavaBean属性私有、提供getter/setter。",
+        "继承:子类继承父类的属性和方法,并可扩展或修改。",
+        "多态:同一方法调用在不同对象上产生不同行为,通过继承、方法重写和父类引用指向子类对象实现。"
+      ],
+      "follow_ups": [
+        "多态的实现条件是什么?"
+      ],
+      "source_excerpt": "封装:封装的意义,在于明确标识出允许外部使用的所有成员函数和数据项...继承:继承基类的方法,并做出自己的改变和/或扩展...多态:基于对象所属类的不同,外部对同一个方法的调用,实际执行的逻辑不同。"
+    },
+    {
+      "question": "JDK、JRE、JVM 分别是什么?它们之间的关系是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "JDK",
+        "JRE",
+        "JVM"
+      ],
+      "answer_points": [
+        "JDK:Java开发工具包,包含JRE和开发工具。",
+        "JRE:Java运行时环境,包含JVM和核心类库。",
+        "JVM:Java虚拟机,负责执行字节码。",
+        "关系:JDK包含JRE,JRE包含JVM。"
+      ],
+      "follow_ups": [
+        "JVM的作用是什么?"
+      ],
+      "source_excerpt": "JDK:Java Develpment Kit java 开发工具;JRE:Java Runtime Environment java运行时环境;JVM:java Virtual Machine java 虚拟机"
+    },
+    {
+      "question": "== 和 equals 的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "==",
+        "equals",
+        "比较"
+      ],
+      "answer_points": [
+        "== 比较基本数据类型的值或引用类型的地址。",
+        "equals 默认比较地址,但通常被重写为比较内容,如String类。",
+        "示例:String str1 = \"Hello\"; String str2 = new String(\"Hello\"); str1 == str2 为 false,str1.equals(str2) 为 true。"
+      ],
+      "follow_ups": [
+        "如何正确重写 equals 方法?"
+      ],
+      "source_excerpt": "==对比的是栈中的值,基本数据类型是变量值,引用类型是堆中内存对象的地址;equals:object中默认也是采用==比较,通常会重写"
+    },
+    {
+      "question": "hashCode 和 equals 的关系是什么?为什么重写 equals 必须重写 hashCode?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "hashCode",
+        "equals",
+        "哈希表"
+      ],
+      "answer_points": [
+        "hashCode 返回对象的哈希码,用于确定对象在哈希表中的索引。",
+        "如果两个对象相等(equals返回true),则 hashCode 必须相同。",
+        "如果两个对象 hashCode 相同,它们不一定相等。",
+        "重写 equals 必须重写 hashCode,以保证哈希表(如HashSet)的正确性。",
+        "HashSet 先比较 hashCode,再比较 equals,减少 equals 调用次数。"
+      ],
+      "follow_ups": [
+        "如果不重写 hashCode 会有什么问题?"
+      ],
+      "source_excerpt": "(1)如果两个对象相等,则hashcode一定也是相同的...(4)因此,equals方法被覆盖过,则hashCode方法也必须被覆盖"
+    },
+    {
+      "question": "final 关键字的作用是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "final"
+      ],
+      "answer_points": [
+        "修饰类:类不可被继承。",
+        "修饰方法:方法不可被子类覆盖,但可以重载。",
+        "修饰变量:变量一旦赋值不可更改。",
+        "修饰基本类型:值不可变;修饰引用类型:引用不可变,但对象内容可变。"
+      ],
+      "follow_ups": [
+        "final 修饰局部变量时有什么特点?"
+      ],
+      "source_excerpt": "最终的;修饰类:表示类不可被继承;修饰方法:表示方法不可被子类覆盖,但是可以重载;修饰变量:表示变量一旦被赋值就不可以更改它的值。"
+    },
+    {
+      "question": "为什么局部内部类和匿名内部类只能访问局部 final 变量?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "内部类",
+        "final",
+        "变量捕获"
+      ],
+      "answer_points": [
+        "内部类和外部类处于同一级别,内部类对象可能比方法存活更久。",
+        "方法结束后局部变量被销毁,内部类需要访问该变量,因此会复制一份作为内部类的成员变量。",
+        "为保证复制的一致性,要求局部变量为 final,防止修改。"
+      ],
+      "follow_ups": [
+        "Java 8 中局部变量不写 final 也可以被内部类访问,为什么?"
+      ],
+      "source_excerpt": "当外部类的方法结束时,局部变量就会被销毁了,但是内部类对象可能还存在...就将局部变量复制了一份作为内部类的成员变量...就将局部变量设置为final"
+    },
+    {
+      "question": "String、StringBuffer、StringBuilder 的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "String",
+        "StringBuffer",
+        "StringBuilder"
+      ],
+      "answer_points": [
+        "String 不可变,每次操作产生新对象;StringBuffer 和 StringBuilder 可变。",
+        "StringBuffer 线程安全(方法有 synchronized),StringBuilder 线程不安全。",
+        "性能:StringBuilder > StringBuffer > String。",
+        "场景:频繁修改字符串用 StringBuilder,多线程共享变量用 StringBuffer。"
+      ],
+      "follow_ups": [
+        "String 的不可变性有什么好处?"
+      ],
+      "source_excerpt": "String是final修饰的,不可变,每次操作都会产生新的String对象;StringBuffer和StringBuilder都是在原对象上操作;StringBuffer是线程安全的,StringBuilder线程不安全的"
+    },
+    {
+      "question": "重载和重写的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "重载",
+        "重写"
+      ],
+      "answer_points": [
+        "重载:同一类中,方法名相同,参数列表不同,与返回值、修饰符无关,编译时多态。",
+        "重写:子类中,方法名、参数列表相同,返回值、异常范围小于等于父类,访问权限大于等于父类,运行时多态。",
+        "父类 private 方法不能重写。"
+      ],
+      "follow_ups": [
+        "重写时访问修饰符有什么要求?"
+      ],
+      "source_excerpt": "重载:发生在同一个类中,方法名必须相同,参数类型不同、个数不同、顺序不同...重写:发生在父子类中,方法名、参数列表必须相同..."
+    },
+    {
+      "question": "接口和抽象类的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "接口",
+        "抽象类"
+      ],
+      "answer_points": [
+        "抽象类可以有普通成员方法,接口只能有 public abstract 方法(Java 8 后可以有 default 方法)。",
+        "抽象类成员变量任意,接口成员变量只能是 public static final。",
+        "类只能单继承抽象类,但可以实现多个接口。",
+        "抽象类表达 is-a 关系,用于代码复用;接口表达 like-a 关系,用于行为约束。"
+      ],
+      "follow_ups": [
+        "Java 8 中接口的 default 方法有什么作用?"
+      ],
+      "source_excerpt": "抽象类可以存在普通成员函数,而接口中只能存在public abstract 方法...抽象类是对类本质的抽象,表达的是 is a 的关系...接口是对行为的抽象,表达的是 like a 的关系"
+    },
+    {
+      "question": "List 和 Set 的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "List",
+        "Set"
+      ],
+      "answer_points": [
+        "List 有序、可重复、允许多个 null;Set 无序、不可重复、最多一个 null。",
+        "List 可通过索引访问,Set 只能通过迭代器遍历。"
+      ],
+      "follow_ups": [
+        "Set 如何保证元素不重复?"
+      ],
+      "source_excerpt": "List:有序,按对象进入的顺序保存对象,可重复,允许多个Null元素对象...Set:无序,不可重复,最多允许有一个Null元素对象"
+    },
+    {
+      "question": "ArrayList 和 LinkedList 的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "ArrayList",
+        "LinkedList"
+      ],
+      "answer_points": [
+        "ArrayList 基于动态数组,连续内存,适合随机访问;LinkedList 基于链表,分散内存,适合插入删除。",
+        "ArrayList 扩容需要复制数组,插入删除可能移动元素;LinkedList 插入删除只需修改指针。",
+        "遍历 LinkedList 应使用 iterator,避免使用 for 循环 + get(i)。"
+      ],
+      "follow_ups": [
+        "ArrayList 的扩容机制是怎样的?"
+      ],
+      "source_excerpt": "ArrayList:基于动态数组,连续内存存储,适合下标访问(随机访问)...LinkedList:基于链表,可以存储在分散的内存中,适合做数据插入及删除操作,不适合查询"
+    },
+    {
+      "question": "HashMap 和 Hashtable 的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "HashMap",
+        "Hashtable"
+      ],
+      "answer_points": [
+        "HashMap 线程不安全,Hashtable 线程安全(方法有 synchronized)。",
+        "HashMap 允许 key 和 value 为 null,Hashtable 不允许。",
+        "HashMap 在 JDK8 中当链表长度超过 8 且数组长度超过 64 时转为红黑树。"
+      ],
+      "follow_ups": [
+        "HashMap 的底层实现原理是什么?"
+      ],
+      "source_excerpt": "(1)HashMap方法没有synchronized修饰,线程非安全,HashTable线程安全;(2)HashMap允许key和value为null,而HashTable不允许"
+    },
+    {
+      "question": "HashMap 的底层实现原理是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "哈希表",
+        "红黑树"
+      ],
+      "answer_points": [
+        "JDK8 使用数组+链表+红黑树实现,元素以 Node 存储。",
+        "计算 key 的 hash 值,二次 hash 后对数组长度取模得到下标。",
+        "无哈希冲突直接存入;有冲突则比较 equals,相同则覆盖,不同则插入链表。",
+        "链表长度达到 8 且数组长度达到 64 时转为红黑树,长度低于 6 时转回链表。",
+        "key 为 null 时存在下标 0 的位置。"
+      ],
+      "follow_ups": [
+        "HashMap 的扩容机制是怎样的?"
+      ],
+      "source_excerpt": "底层实现:数组+链表实现;jdk8开始链表高度到8、数组长度超过64,链表转变为红黑树"
+    },
+    {
+      "question": "ConcurrentHashMap 在 JDK7 和 JDK8 中的实现有什么区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "ConcurrentHashMap",
+        "并发",
+        "分段锁",
+        "CAS"
+      ],
+      "answer_points": [
+        "JDK7:ReentrantLock + Segment + HashEntry,分段锁,并发度为 segment 个数。",
+        "JDK8:synchronized + CAS + Node + 红黑树,锁链表头节点,粒度更细。",
+        "JDK8 读操作无锁,Node 的 val 和 next 用 volatile 修饰。",
+        "JDK8 扩容时阻塞所有读写操作,支持并发扩容。"
+      ],
+      "follow_ups": [
+        "ConcurrentHashMap 的 get 方法为什么不需要加锁?"
+      ],
+      "source_excerpt": "jdk7:数据结构:ReentrantLock+Segment+HashEntry...jdk8:数据结构:synchronized+CAS+Node+红黑树"
+    },
+    {
+      "question": "什么是字节码?采用字节码的好处是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "字节码",
+        "JVM"
+      ],
+      "answer_points": [
+        "字节码是 Java 源代码编译后生成的 .class 文件,供 JVM 理解。",
+        "好处:解决传统解释型语言执行效率低的问题,同时保留可移植性。",
+        "Java 程序无需重新编译即可在不同平台上运行。"
+      ],
+      "follow_ups": [
+        "Java 是编译型还是解释型语言?"
+      ],
+      "source_excerpt": "在Java中,这种供虚拟机理解的代码叫做 字节码(即扩展名为 .class的文件)...采用字节码的好处:Java语言通过字节码的方式,在一定程度上解决了传统解释型语言执行效率低的问题,同时又保留了解释型语言可移植的特点。"
+    },
+    {
+      "question": "Java 中的异常体系是怎样的?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "异常",
+        "Throwable"
+      ],
+      "answer_points": [
+        "所有异常继承自 Throwable,下分 Exception 和 Error。",
+        "Error 是程序无法处理的错误,导致程序停止。",
+        "Exception 分为 RuntimeException(运行时异常)和 CheckedException(检查异常)。",
+        "RuntimeException 导致当前线程失败,CheckedException 导致编译不通过。"
+      ],
+      "follow_ups": [
+        "常见的 RuntimeException 有哪些?"
+      ],
+      "source_excerpt": "Java中的所有异常都来自顶级父类Throwable。Throwable下有两个子类Exception和Error。"
+    },
+    {
+      "question": "Java 类加载器有哪些?它们的作用是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "类加载器",
+        "ClassLoader"
+      ],
+      "answer_points": [
+        "Bootstrap ClassLoader:加载 %JAVA_HOME%/lib 下的 jar 包和 class 文件。",
+        "ExtClassLoader:加载 %JAVA_HOME%/lib/ext 下的 jar 包和 class 文件。",
+        "AppClassLoader:加载 classpath 下的类文件。",
+        "自定义类加载器继承 ClassLoader。"
+      ],
+      "follow_ups": [
+        "什么是双亲委派模型?"
+      ],
+      "source_excerpt": "JDK自带有三个类加载器:bootstrap ClassLoader、ExtClassLoader、AppClassLoader。"
+    },
+    {
+      "question": "什么是双亲委派模型?它有什么好处?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "双亲委派",
+        "类加载"
+      ],
+      "answer_points": [
+        "当一个类加载器收到加载请求时,先委托给父类加载器加载,父类无法加载时才自己加载。",
+        "好处:安全性,避免用户自定义类替换核心类(如 String)。",
+        "好处:避免类的重复加载。"
+      ],
+      "follow_ups": [
+        "如何打破双亲委派模型?"
+      ],
+      "source_excerpt": "双亲委派模型的好处:主要是为了安全性,避免用户自己编写的类动态替换 Java的一些核心类,比如 String。同时也避免了类的重复加载"
+    },
+    {
+      "question": "GC 如何判断对象可以被回收?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "GC",
+        "可达性分析",
+        "引用计数"
+      ],
+      "answer_points": [
+        "引用计数法:每个对象有引用计数,为0时可回收,但无法解决循环引用。",
+        "可达性分析法:从 GC Roots 开始搜索,不可达的对象可回收。",
+        "GC Roots 包括:虚拟机栈引用、方法区静态属性引用、常量引用、本地方法栈 JNI 引用。",
+        "不可达对象需经过两次标记,并有机会通过 finalize() 方法自救。"
+      ],
+      "follow_ups": [
+        "哪些对象可以作为 GC Roots?"
+      ],
+      "source_excerpt": "引用计数法:每个对象有一个引用计数属性...可达性分析法:从 GC Roots 开始向下搜索...GC Roots的对象有:虚拟机栈(栈帧中的本地变量表)中引用的对象..."
+    }
+  ]
+}

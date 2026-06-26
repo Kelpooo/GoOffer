@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -109,6 +110,17 @@ def initialize_database(db_path: Path) -> None:
         for statement in SCHEMA_STATEMENTS:
             conn.execute(statement)
         migrate_legacy_progress(conn)
+
+
+def ensure_questions_seeded(db_path: Path, questions_path: Path) -> int:
+    with connect_sqlite(db_path) as conn:
+        existing_count = conn.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
+        if int(existing_count or 0) > 0:
+            return 0
+
+    with questions_path.open("r", encoding="utf-8") as file:
+        payload = json.load(file)
+    return upsert_questions_from_payload(db_path, payload)
 
 
 def migrate_legacy_progress(conn: sqlite3.Connection) -> None:
@@ -455,14 +467,15 @@ def create_user(
     username_normalized: str,
     password_hash: str,
     password_salt: str,
+    now_iso: str,
 ) -> dict[str, Any]:
     with connect_sqlite(db_path) as conn:
         conn.execute(
             """
-            INSERT INTO users (id, username, username_normalized, password_hash, password_salt)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO users (id, username, username_normalized, password_hash, password_salt, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
-            (user_id, username, username_normalized, password_hash, password_salt),
+            (user_id, username, username_normalized, password_hash, password_salt, now_iso, now_iso),
         )
         row = conn.execute(
             """
@@ -499,6 +512,100 @@ def get_user_by_id(db_path: Path, user_id: str) -> dict[str, Any] | None:
             (user_id,),
         ).fetchone()
     return _serialize_user(row) if row else None
+
+
+def get_user_auth_record_by_id(db_path: Path, user_id: str) -> dict[str, Any] | None:
+    with connect_sqlite(db_path) as conn:
+        row = conn.execute(
+            """
+            SELECT id, username, username_normalized, password_hash, password_salt, status, created_at
+            FROM users
+            WHERE id = ?
+            """,
+            (user_id,),
+        ).fetchone()
+    return dict(row) if row else None
+
+
+def update_user_password(db_path: Path, user_id: str, password_hash: str, password_salt: str) -> None:
+    with connect_sqlite(db_path) as conn:
+        conn.execute(
+            """
+            UPDATE users
+            SET password_hash = ?, password_salt = ?, updated_at = CURRENT_TIMESTAMP
+            WHERE id = ?
+            """,
+            (password_hash, password_salt, user_id),
+        )
+
+
+def get_account_overview(db_path: Path, user_id: str) -> dict[str, Any]:
+    with connect_sqlite(db_path) as conn:
+        summary_row = conn.execute(
+            """
+            SELECT
+                SUM(CASE WHEN favorite = 1 THEN 1 ELSE 0 END) AS favorite_count,
+                SUM(CASE WHEN mastered = 1 THEN 1 ELSE 0 END) AS mastered_count,
+                SUM(practice_count) AS practice_total,
+                SUM(CASE WHEN practice_count > 0 THEN 1 ELSE 0 END) AS practiced_question_count
+            FROM learning_progress
+            WHERE scope_type = 'user' AND scope_id = ?
+            """,
+            (user_id,),
+        ).fetchone()
+
+        recent_rows = conn.execute(
+            """
+            SELECT
+                lp.question_id,
+                lp.favorite,
+                lp.mastered,
+                lp.practice_count,
+                lp.last_practiced_at,
+                q.question,
+                q.domain,
+                q.section,
+                q.category,
+                q.difficulty
+            FROM learning_progress lp
+            LEFT JOIN questions q ON q.id = lp.question_id
+            WHERE lp.scope_type = 'user'
+              AND lp.scope_id = ?
+              AND lp.practice_count > 0
+            ORDER BY lp.last_practiced_at DESC, lp.updated_at DESC
+            LIMIT 20
+            """,
+            (user_id,),
+        ).fetchall()
+
+    summary = {
+        "favoriteCount": int(summary_row["favorite_count"] or 0),
+        "masteredCount": int(summary_row["mastered_count"] or 0),
+        "practiceTotal": int(summary_row["practice_total"] or 0),
+        "practicedQuestionCount": int(summary_row["practiced_question_count"] or 0),
+    }
+
+    recent_records = [
+        {
+            "questionId": row["question_id"],
+            "question": row["question"] or row["question_id"],
+            "domain": row["domain"] or "other",
+            "section": row["section"] or "",
+            "category": row["category"] or "",
+            "difficulty": row["difficulty"] or "mid",
+            "favorite": bool(row["favorite"]),
+            "mastered": bool(row["mastered"]),
+            "practiceCount": int(row["practice_count"] or 0),
+            "lastPracticedAt": row["last_practiced_at"] or "",
+        }
+        for row in recent_rows
+    ]
+
+    return {
+        "ok": True,
+        "summary": summary,
+        "recentPractice": recent_records,
+    }
 
 
 def create_auth_session(db_path: Path, *, session_id: str, user_id: str, expires_at: str, now_iso: str) -> None:
@@ -544,7 +651,7 @@ def get_auth_session_user(db_path: Path, session_id: str, now_iso: str) -> dict[
         return {
             "id": row["id"],
             "username": row["username"],
-            "createdAt": row["created_at"],
+            "createdAt": normalize_db_timestamp(row["created_at"]),
         }
 
 
@@ -559,5 +666,23 @@ def _serialize_user(row: sqlite3.Row | None) -> dict[str, Any] | None:
     return {
         "id": row["id"],
         "username": row["username"],
-        "createdAt": row["created_at"],
+        "createdAt": normalize_db_timestamp(row["created_at"]),
     }
+
+
+def normalize_db_timestamp(value: str | None) -> str:
+    if not value:
+        return ""
+
+    raw = str(value).strip()
+    if not raw:
+        return ""
+
+    try:
+        parsed = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        return raw
+
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc).isoformat()

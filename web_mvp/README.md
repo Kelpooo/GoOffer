@@ -27,8 +27,9 @@ python .\resume_review_server.py
 
 ## 简历评审模型
 
-- 默认优先读取环境变量 `DEEPSEEK_API_KEY`
-- 如果配置了，就调用 DeepSeek 接口
+- 默认优先读取环境变量 `RESUME_REVIEW_API_KEY`
+- 也兼容 `DEEPSEEK_API_KEY` / `OPENAI_API_KEY`
+- 如果配置了，就调用对应的 OpenAI 兼容接口
 - 当前默认模型：`deepseek-chat`
 - 也可以通过环境变量覆盖：
 

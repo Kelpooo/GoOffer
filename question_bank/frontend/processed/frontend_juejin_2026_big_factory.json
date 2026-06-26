@@ -1,0 +1,1078 @@
+{
+  "source_title": "2026 大厂前端岗必问八股文",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "不会冒泡的事件有哪些?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "事件冒泡",
+        "DOM事件"
+      ],
+      "answer_points": [
+        "focus、blur、mouseenter、mouseleave、load、unload、scroll、resize等事件不会冒泡。",
+        "这些事件通常与特定元素相关,冒泡没有意义。"
+      ],
+      "follow_ups": [
+        "如何让不会冒泡的事件实现事件委托?"
+      ],
+      "source_excerpt": "1.不会冒泡的事件有哪些?"
+    },
+    {
+      "question": "mouseEnter和mouseOver有什么区别?",
+      "question_type": "comparison",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "鼠标事件",
+        "事件冒泡"
+      ],
+      "answer_points": [
+        "mouseEnter不会冒泡,mouseOver会冒泡。",
+        "mouseEnter在鼠标进入元素时触发,不会在子元素上重复触发;mouseOver在鼠标进入元素或子元素时都会触发。"
+      ],
+      "follow_ups": [
+        "如何阻止mouseOver冒泡?"
+      ],
+      "source_excerpt": "2.mouseEnter mouseOver 有么区别?"
+    },
+    {
+      "question": "MessageChannel是什么,有什么使用场景?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "消息通道",
+        "跨线程通信"
+      ],
+      "answer_points": [
+        "MessageChannel是Web API,用于创建双向通信的通道。",
+        "常用于Web Worker、iframe、不同窗口之间的通信。",
+        "也可以用于实现微任务调度。"
+      ],
+      "follow_ups": [
+        "MessageChannel与postMessage的区别?"
+      ],
+      "source_excerpt": "3.MessageChannel是什么,有什么使用场景?"
+    },
+    {
+      "question": "async/await的实现原理是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "async/await",
+        "Generator",
+        "Promise"
+      ],
+      "answer_points": [
+        "async/await是基于Generator和Promise的语法糖。",
+        "async函数返回一个Promise。",
+        "await会暂停函数执行,等待Promise resolve后恢复执行。",
+        "内部通过Generator的yield和next实现暂停和恢复。"
+      ],
+      "follow_ups": [
+        "如何用Generator实现async/await?"
+      ],
+      "source_excerpt": "4.async、await实现原理"
+    },
+    {
+      "question": "Proxy能够监听到对象中的对象的引用吗?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Proxy",
+        "响应式",
+        "深度监听"
+      ],
+      "answer_points": [
+        "Proxy默认只能代理目标对象本身,不能深度监听嵌套对象。",
+        "要监听嵌套对象,需要在get中递归创建Proxy。",
+        "Vue3的reactive就是通过递归Proxy实现的。"
+      ],
+      "follow_ups": [
+        "Vue3中如何实现深度响应式?"
+      ],
+      "source_excerpt": "5.Proxy能够监听到对象中的对象的引用吗?"
+    },
+    {
+      "question": "如何让var [a, b] = {a:1, b:2}解构赋值成功?",
+      "question_type": "scenario",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "解构赋值",
+        "迭代器"
+      ],
+      "answer_points": [
+        "默认对象不可迭代,解构数组语法需要对象实现迭代器。",
+        "可以通过给对象添加Symbol.iterator方法使其可迭代。",
+        "或者使用Object.values()等转换为数组。"
+      ],
+      "follow_ups": [
+        "解构赋值的本质是什么?"
+      ],
+      "source_excerpt": "6.如何让var [a, b]={a:1,b:2}解构赋值成功?"
+    },
+    {
+      "question": "什么是作用域链?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "作用域",
+        "闭包"
+      ],
+      "answer_points": [
+        "作用域链是JavaScript中变量查找的机制。",
+        "当访问变量时,会从当前作用域开始向上查找,直到全局作用域。",
+        "作用域链由当前执行上下文和所有父级执行上下文的变量对象组成。"
+      ],
+      "follow_ups": [
+        "作用域链与闭包的关系?"
+      ],
+      "source_excerpt": "9.什么是作用域链?"
+    },
+    {
+      "question": "bind、call、apply有什么区别?如何实现一个bind?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "this绑定",
+        "函数方法"
+      ],
+      "answer_points": [
+        "call和apply立即执行函数,bind返回新函数。",
+        "call参数列表,apply参数数组。",
+        "bind实现:返回函数,绑定this,支持柯里化。"
+      ],
+      "follow_ups": [
+        "手写call和apply?"
+      ],
+      "source_excerpt": "10.bind、call、apply有什么区别?如何实现一个bind?"
+    },
+    {
+      "question": "CommonJS和ES6模块引入的区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "模块化",
+        "CommonJS",
+        "ES Module"
+      ],
+      "answer_points": [
+        "CommonJS是运行时加载,ES Module是编译时静态加载。",
+        "CommonJS输出值的拷贝,ES Module输出值的引用。",
+        "CommonJS是同步加载,ES Module支持异步加载。"
+      ],
+      "follow_ups": [
+        "CommonJS和ES Module的循环引用处理有何不同?"
+      ],
+      "source_excerpt": "11.common.js和es6中模块引|入的区别?"
+    },
+    {
+      "question": "说说Vue3中的响应式设计原理?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue3",
+        "响应式",
+        "Proxy"
+      ],
+      "answer_points": [
+        "Vue3使用Proxy代替Object.defineProperty。",
+        "通过reactive函数创建响应式对象,内部递归代理。",
+        "依赖收集:在get中收集依赖,在set中触发更新。",
+        "支持数组和新增属性的响应式。"
+      ],
+      "follow_ups": [
+        "Vue2的响应式有什么缺陷?"
+      ],
+      "source_excerpt": "12.说说vue3中的响应式设计原理"
+    },
+    {
+      "question": "script标签放在header里和放在body底部有什么区别?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "script加载",
+        "页面渲染"
+      ],
+      "answer_points": [
+        "放在header中会阻塞DOM解析和渲染,直到脚本下载执行完毕。",
+        "放在body底部不会阻塞DOM解析,但会延迟脚本执行。",
+        "推荐使用defer或async属性来优化。"
+      ],
+      "follow_ups": [
+        "defer和async的区别?"
+      ],
+      "source_excerpt": "13.script标签放在header里和放在body底部里有什么区别?"
+    },
+    {
+      "question": "Vue中,created和mounted两个钩子之间调用时间差值受什么影响?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue生命周期",
+        "渲染"
+      ],
+      "answer_points": [
+        "created在实例创建后立即调用,此时DOM未挂载。",
+        "mounted在DOM挂载后调用。",
+        "时间差值受模板编译、数据初始化、子组件创建等影响。",
+        "如果组件有异步子组件,差值会更大。"
+      ],
+      "follow_ups": [
+        "created中能访问DOM吗?"
+      ],
+      "source_excerpt": "15.Vue中,created和mounted两个钩子之间调用时间差值受什么影响?"
+    },
+    {
+      "question": "Vue中,推荐在哪个生命周期发起请求?",
+      "question_type": "scenario",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "Vue生命周期",
+        "异步请求"
+      ],
+      "answer_points": [
+        "推荐在created或mounted中发起请求。",
+        "created中请求不会影响DOM渲染,但无法操作DOM。",
+        "mounted中请求可以操作DOM,但会延迟渲染。",
+        "通常created更早执行,适合数据初始化。"
+      ],
+      "follow_ups": [
+        "在created中请求和在mounted中请求有什么区别?"
+      ],
+      "source_excerpt": "16.vue中,推荐在哪个生命周期发起请求?"
+    },
+    {
+      "question": "为什么Node在使用ES Module时必须加上文件扩展名?",
+      "question_type": "principle",
+      "category": "node",
+      "difficulty": "mid",
+      "tags": [
+        "Node",
+        "ES Module",
+        "模块解析"
+      ],
+      "answer_points": [
+        "Node的ES Module实现遵循ES规范,要求明确文件扩展名。",
+        "不加扩展名会导致模块查找失败,因为Node不会自动添加。",
+        "CommonJS可以省略扩展名,但ES Module必须指定。"
+      ],
+      "follow_ups": [
+        "Node中如何配置ES Module?"
+      ],
+      "source_excerpt": "17.为什么Node在使用es module时必须加上文件扩展名?"
+    },
+    {
+      "question": "package.json文件中的devDependencies和dependencies对象有什么区别?",
+      "question_type": "concept",
+      "category": "engineering",
+      "difficulty": "junior",
+      "tags": [
+        "npm",
+        "依赖管理"
+      ],
+      "answer_points": [
+        "dependencies是生产环境依赖,项目运行时需要。",
+        "devDependencies是开发环境依赖,如构建工具、测试库。",
+        "安装时使用--save-dev会添加到devDependencies。"
+      ],
+      "follow_ups": [
+        "peerDependencies是什么?"
+      ],
+      "source_excerpt": "18.package.json 文件中的devDependencies 和 dependencies 对象有t么区别?"
+    },
+    {
+      "question": "React Portals有什么用?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "Portal"
+      ],
+      "answer_points": [
+        "Portals允许将子节点渲染到父组件之外的DOM节点。",
+        "常用于模态框、工具提示、全局通知等。",
+        "事件冒泡仍然遵循React组件树,而非DOM树。"
+      ],
+      "follow_ups": [
+        "Portal中的事件冒泡如何工作?"
+      ],
+      "source_excerpt": "19.React Portals有什么用?"
+    },
+    {
+      "question": "react和react-dom是什么关系?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "react-dom"
+      ],
+      "answer_points": [
+        "react是核心库,提供组件、状态管理等API。",
+        "react-dom是渲染器,负责将React组件渲染到浏览器DOM。",
+        "react-native等其他平台使用不同的渲染器。"
+      ],
+      "follow_ups": [
+        "react-dom提供了哪些主要方法?"
+      ],
+      "source_excerpt": "20.react和react-dom是什么关系?"
+    },
+    {
+      "question": "React中为什么不直接使用requestIdleCallback?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "senior",
+      "tags": [
+        "React",
+        "requestIdleCallback",
+        "Fiber"
+      ],
+      "answer_points": [
+        "requestIdleCallback的触发频率不稳定,兼容性差。",
+        "React需要更精确的控制调度,所以自己实现了调度器。",
+        "React的Fiber架构使用自己的优先级调度机制。"
+      ],
+      "follow_ups": [
+        "React的调度器如何工作?"
+      ],
+      "source_excerpt": "22.React 中为什么不直接使用 requestIdleCallback?"
+    },
+    {
+      "question": "为什么React需要Fiber架构,而Vue却不需要?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "senior",
+      "tags": [
+        "React",
+        "Vue",
+        "Fiber",
+        "虚拟DOM"
+      ],
+      "answer_points": [
+        "React的虚拟DOM diff是递归不可中断的,Fiber实现了可中断的异步渲染。",
+        "Vue的响应式系统粒度更细,更新精确,不需要时间切片。",
+        "React追求极致性能,Fiber允许暂停和恢复渲染。"
+      ],
+      "follow_ups": [
+        "Fiber如何实现可中断?"
+      ],
+      "source_excerpt": "23.为什么react需要fiber架构,而Vue却不需要?"
+    },
+    {
+      "question": "子组件是一个Portal,发生点击事件能冒泡到父组件吗?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "Portal",
+        "事件冒泡"
+      ],
+      "answer_points": [
+        "能冒泡到父组件,因为事件冒泡基于React组件树,而非DOM树。",
+        "Portal的虚拟DOM位置在父组件内,所以事件会按组件树冒泡。"
+      ],
+      "follow_ups": [
+        "Portal中事件冒泡与DOM树的关系?"
+      ],
+      "source_excerpt": "24.子组件是一个Portal,发生点击事件能冒泡到父组件吗?"
+    },
+    {
+      "question": "前端性能优化指标有哪些?怎么进行性能检测?",
+      "question_type": "concept",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": [
+        "性能优化",
+        "性能指标"
+      ],
+      "answer_points": [
+        "核心指标:FCP、LCP、FID、TTI、CLS等。",
+        "使用Lighthouse、Performance API、Web Vitals等工具检测。",
+        "通过PerformanceObserver获取性能数据。"
+      ],
+      "follow_ups": [
+        "如何优化LCP?"
+      ],
+      "source_excerpt": "26.前端性能优化指标有哪些?怎么进行性能检测?"
+    },
+    {
+      "question": "CSS中animation、transition、transform有什么区别?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS动画",
+        "transition",
+        "animation",
+        "transform"
+      ],
+      "answer_points": [
+        "transform用于元素变换,如旋转、缩放。",
+        "transition用于过渡动画,需要触发条件。",
+        "animation用于复杂动画,可定义关键帧。",
+        "三者可组合使用。"
+      ],
+      "follow_ups": [
+        "animation和transition如何选择?"
+      ],
+      "source_excerpt": "28. css 中 animation, transition,transform 有t么区别?"
+    },
+    {
+      "question": "使用Promise实现红绿灯交替重复亮?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "Promise",
+        "异步控制"
+      ],
+      "answer_points": [
+        "定义红绿灯状态和延时函数。",
+        "使用Promise和递归实现循环。",
+        "每个状态结束后调用下一个状态。"
+      ],
+      "follow_ups": [
+        "如何用async/await实现?"
+      ],
+      "source_excerpt": "29.使用Promise实现红绿灯交替重复亮"
+    },
+    {
+      "question": "React为什么要废弃componentWillMount、componentWillReceiveProps、componentWillUpdate这三个生命周期?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "生命周期",
+        "废弃原因"
+      ],
+      "answer_points": [
+        "这些生命周期在Fiber架构下容易导致bug。",
+        "componentWillMount在服务端渲染和客户端渲染中行为不一致。",
+        "componentWillReceiveProps容易被滥用,导致副作用。",
+        "推荐使用getDerivedStateFromProps和componentDidUpdate替代。"
+      ],
+      "follow_ups": [
+        "getDerivedStateFromProps有什么缺点?"
+      ],
+      "source_excerpt": "31. React 为么要度弃 componentWillMount, componentWillReceiveProps,componentWillUpdate 这三个生.."
+    },
+    {
+      "question": "说说React render方法的原理?在什么时候会被触发?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "render",
+        "渲染"
+      ],
+      "answer_points": [
+        "render方法返回React元素,描述UI结构。",
+        "触发时机:组件初始化、状态更新、父组件重新渲染。",
+        "render应纯函数,不应有副作用。"
+      ],
+      "follow_ups": [
+        "render返回null会怎样?"
+      ],
+      "source_excerpt": "32.说说React render方法的原理?在什么时候会被触发?"
+    },
+    {
+      "question": "什么是DOM和BOM?",
+      "question_type": "concept",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "DOM",
+        "BOM"
+      ],
+      "answer_points": [
+        "DOM(文档对象模型)操作HTML文档的接口。",
+        "BOM(浏览器对象模型)操作浏览器窗口的接口。",
+        "DOM核心是document,BOM核心是window。"
+      ],
+      "follow_ups": [
+        "BOM包含哪些对象?"
+      ],
+      "source_excerpt": "34.什么是DOM和B0M?"
+    },
+    {
+      "question": "怎么做移动端的样式适配?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "移动端适配",
+        "响应式"
+      ],
+      "answer_points": [
+        "使用rem或vw/vh单位。",
+        "通过媒体查询适配不同屏幕。",
+        "使用flexible方案或postcss-px-to-viewport。",
+        "设置viewport meta标签。"
+      ],
+      "follow_ups": [
+        "rem适配的原理?"
+      ],
+      "source_excerpt": "2.怎么做移动端的样式适配?"
+    },
+    {
+      "question": "相邻的两个inline-block节点为什么会出现间隔,该如何解决?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "inline-block",
+        "空白间隙"
+      ],
+      "answer_points": [
+        "原因是HTML中的空白字符(空格、换行)被渲染为空格。",
+        "解决方法:父元素设置font-size:0,或注释掉空白,或使用flex布局。"
+      ],
+      "follow_ups": [
+        "flex布局中会有这个问题吗?"
+      ],
+      "source_excerpt": "3.相邻的两个inline-block节点为什么会出现间隔,该如何解决?"
+    },
+    {
+      "question": "grid网格布局是什么?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS Grid",
+        "布局"
+      ],
+      "answer_points": [
+        "Grid是二维布局系统,可同时控制行和列。",
+        "通过grid-template-rows/columns定义网格。",
+        "支持网格项合并、对齐等。"
+      ],
+      "follow_ups": [
+        "Grid和Flexbox的区别?"
+      ],
+      "source_excerpt": "4.grid网格布局是什么?"
+    },
+    {
+      "question": "CSS3新增了哪些特性?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS3",
+        "新特性"
+      ],
+      "answer_points": [
+        "选择器:属性选择器、伪类选择器。",
+        "盒模型:box-sizing。",
+        "动画:transition、animation、transform。",
+        "布局:flex、grid。",
+        "其他:圆角、阴影、渐变、媒体查询。"
+      ],
+      "follow_ups": [
+        "CSS3的calc()函数如何使用?"
+      ],
+      "source_excerpt": "5.CSS3新增了哪些特性?"
+    },
+    {
+      "question": "怎么理解回流跟重绘?什么场景下会触发?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "回流",
+        "重绘",
+        "性能"
+      ],
+      "answer_points": [
+        "回流:布局变化导致重新计算元素位置和大小。",
+        "重绘:样式变化不影响布局,只重新绘制。",
+        "触发回流:DOM操作、尺寸变化、窗口resize等。",
+        "触发重绘:颜色、背景等变化。"
+      ],
+      "follow_ups": [
+        "如何减少回流?"
+      ],
+      "source_excerpt": "7.怎么理解回流跟重绘?什么场景下会触发?"
+    },
+    {
+      "question": "什么是响应式设计?响应式设计的基本原理是什么?如何进行实现?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "响应式设计",
+        "媒体查询"
+      ],
+      "answer_points": [
+        "响应式设计使网页在不同设备上良好显示。",
+        "原理:使用媒体查询、弹性布局、相对单位。",
+        "实现:设置viewport,使用flex/grid,媒体查询断点。"
+      ],
+      "follow_ups": [
+        "响应式设计和自适应设计的区别?"
+      ],
+      "source_excerpt": "8.什么是响应式设计?响应式设计的基本原理是什么?如何进行实现?"
+    },
+    {
+      "question": "如何使用CSS提高页面性能?",
+      "question_type": "optimization",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": [
+        "CSS性能",
+        "优化"
+      ],
+      "answer_points": [
+        "减少CSS文件大小,压缩合并。",
+        "使用CSS精灵图减少请求。",
+        "避免使用@import,使用link。",
+        "使用will-change提示浏览器优化。",
+        "避免复杂选择器。"
+      ],
+      "follow_ups": [
+        "CSS动画和JS动画哪个性能更好?"
+      ],
+      "source_excerpt": "9.如果使用CSS提高页面性能?"
+    },
+    {
+      "question": "如何实现单行/多行文本溢出的省略样式?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "文本溢出",
+        "省略号"
+      ],
+      "answer_points": [
+        "单行:overflow:hidden; text-overflow:ellipsis; white-space:nowrap。",
+        "多行:使用-webkit-line-clamp属性。",
+        "或使用伪元素模拟。"
+      ],
+      "follow_ups": [
+        "多行省略的兼容性?"
+      ],
+      "source_excerpt": "10.如何实现单行/多行文本溢出的首略样式?"
+    },
+    {
+      "question": "如何使用CSS完成视差滚动效果?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "视差滚动",
+        "CSS动画"
+      ],
+      "answer_points": [
+        "使用background-attachment: fixed。",
+        "或使用transform: translateZ和perspective。",
+        "通过滚动改变元素位置实现。"
+      ],
+      "follow_ups": [
+        "视差滚动的性能问题?"
+      ],
+      "source_excerpt": "11.如何使用css完成视差滚动效果?"
+    },
+    {
+      "question": "怎么使用CSS画一个三角形?",
+      "question_type": "handwrite",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS形状",
+        "border"
+      ],
+      "answer_points": [
+        "利用border的透明特性。",
+        "设置宽高为0,边框宽度为三角形大小。",
+        "需要哪边的三角形,就设置对应边框颜色,其他透明。"
+      ],
+      "follow_ups": [
+        "如何画一个带边框的三角形?"
+      ],
+      "source_excerpt": "12.怎么使用CSS如何画一个三角形"
+    },
+    {
+      "question": "说说对CSS工程化的理解?",
+      "question_type": "concept",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "CSS工程化",
+        "模块化"
+      ],
+      "answer_points": [
+        "CSS工程化解决样式冲突、复用、维护等问题。",
+        "方法:CSS Modules、CSS-in-JS、预处理器、BEM命名。",
+        "工具:PostCSS、webpack等。"
+      ],
+      "follow_ups": [
+        "CSS Modules的原理?"
+      ],
+      "source_excerpt": "13.说说对 CSS工程化的理解"
+    },
+    {
+      "question": "怎么触发BFC,BFC有什么应用场景?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "BFC",
+        "布局"
+      ],
+      "answer_points": [
+        "触发BFC:overflow不为visible、float、position:absolute/fixed、display:inline-block/flex等。",
+        "应用:清除浮动、防止margin合并、自适应两栏布局。"
+      ],
+      "follow_ups": [
+        "IFC是什么?"
+      ],
+      "source_excerpt": "14.怎么触发BFC,BFC有什么应用场景?"
+    },
+    {
+      "question": "单行文本怎么实现两端对齐?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "文本对齐",
+        "text-align"
+      ],
+      "answer_points": [
+        "使用text-align: justify。",
+        "但单行文本不会两端对齐,需要添加伪元素或使用text-align-last。",
+        "text-align-last: justify可对最后一行生效。"
+      ],
+      "follow_ups": [
+        "多行文本两端对齐?"
+      ],
+      "source_excerpt": "15.单行文本怎么实现两端对齐?"
+    },
+    {
+      "question": "说说你对CSS模块化的理解?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS模块化"
+      ],
+      "answer_points": [
+        "CSS模块化将样式封装到组件中,避免全局污染。",
+        "实现方式:CSS Modules、CSS-in-JS、Scoped CSS。",
+        "优点:样式隔离、可维护性高。"
+      ],
+      "follow_ups": [
+        "CSS Modules和Scoped CSS的区别?"
+      ],
+      "source_excerpt": "16.说说你对CSS模块化的理解"
+    },
+    {
+      "question": "CSS模块化的实现方式?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS模块化",
+        "实现"
+      ],
+      "answer_points": [
+        "CSS Modules:通过webpack生成唯一类名。",
+        "CSS-in-JS:在JS中写CSS,如styled-components。",
+        "Scoped CSS:Vue中通过属性选择器实现。",
+        "BEM命名规范:手动命名避免冲突。"
+      ],
+      "follow_ups": [
+        "CSS Modules的缺点?"
+      ],
+      "source_excerpt": "17.CSS模块化的实现方式"
+    },
+    {
+      "question": "怎么让Chrome支持小于12px的文字?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "字体大小",
+        "Chrome"
+      ],
+      "answer_points": [
+        "Chrome默认最小字体12px。",
+        "使用transform: scale()缩放。",
+        "或设置-webkit-text-size-adjust: none。"
+      ],
+      "follow_ups": [
+        "缩放后如何保持布局?"
+      ],
+      "source_excerpt": "18.怎么让Chrome支持小于12px的文字?"
+    },
+    {
+      "question": "flexbox(弹性盒布局模型)是什么,适用什么场景?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "flexbox",
+        "布局"
+      ],
+      "answer_points": [
+        "flexbox是一维布局模型,可灵活分配空间。",
+        "适用场景:居中、等分布局、自适应布局。",
+        "通过flex-direction控制主轴方向。"
+      ],
+      "follow_ups": [
+        "flex:1代表什么?"
+      ],
+      "source_excerpt": "20.flexbox(弹性盒布局模型)是什么,适用什么场景?"
+    },
+    {
+      "question": "如何实现两栏布局,右侧自适应?三栏布局中间自适应呢?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "布局",
+        "自适应"
+      ],
+      "answer_points": [
+        "两栏:左侧固定,右侧flex:1或overflow:hidden触发BFC。",
+        "三栏:左右固定,中间flex:1,或使用圣杯/双飞翼布局。"
+      ],
+      "follow_ups": [
+        "圣杯布局和双飞翼布局的区别?"
+      ],
+      "source_excerpt": "21.如何实现两栏布局,右侧自适应?三栏布局中间自适应呢?"
+    },
+    {
+      "question": "设备像素、CSS像素、设备独立像素、dpr、ppi之间有什么区别?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "像素",
+        "dpr",
+        "ppi"
+      ],
+      "answer_points": [
+        "设备像素:物理像素点。",
+        "CSS像素:抽象单位,1px对应设备独立像素。",
+        "设备独立像素:逻辑像素,与dpr相关。",
+        "dpr:设备像素比,物理像素/CSS像素。",
+        "ppi:每英寸像素数,衡量屏幕清晰度。"
+      ],
+      "follow_ups": [
+        "dpr对页面有什么影响?"
+      ],
+      "source_excerpt": "22.设备像素、css像素、设备独立像素、dpr、ppi之间有什么区别?"
+    },
+    {
+      "question": "说说你对盒子模型的理解?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "盒子模型"
+      ],
+      "answer_points": [
+        "盒子模型包括content、padding、border、margin。",
+        "标准盒模型:width/height只包含content。",
+        "IE盒模型:width/height包含content、padding、border。",
+        "通过box-sizing切换。"
+      ],
+      "follow_ups": [
+        "box-sizing: border-box有什么好处?"
+      ],
+      "source_excerpt": "23.说说你对盒子模型的理解"
+    },
+    {
+      "question": "怎么实现样式隔离?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "样式隔离",
+        "CSS Modules",
+        "Shadow DOM"
+      ],
+      "answer_points": [
+        "使用CSS Modules生成唯一类名。",
+        "使用Scoped CSS(Vue)。",
+        "使用Shadow DOM。",
+        "使用CSS-in-JS。"
+      ],
+      "follow_ups": [
+        "Shadow DOM的样式隔离原理?"
+      ],
+      "source_excerpt": "24.怎么实现样式隔离?"
+    },
+    {
+      "question": "flex布局下,怎么改变元素的顺序?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "flex",
+        "order"
+      ],
+      "answer_points": [
+        "使用order属性,默认值为0。",
+        "数值越小越靠前。",
+        "可设置为负数。"
+      ],
+      "follow_ups": [
+        "order对可访问性有影响吗?"
+      ],
+      "source_excerpt": "25.flex布局下,怎么改变元素的顺序?"
+    },
+    {
+      "question": "flex:auto;是什么意思?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "flex",
+        "flex属性"
+      ],
+      "answer_points": [
+        "flex:auto是flex: 1 1 auto的简写。",
+        "flex-grow:1,flex-shrink:1,flex-basis:auto。",
+        "表示项目可放大缩小,初始大小根据内容。"
+      ],
+      "follow_ups": [
+        "flex:1和flex:auto的区别?"
+      ],
+      "source_excerpt": "26.\"flex:auto;”是什么意思?"
+    },
+    {
+      "question": "object-fit用法?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "object-fit",
+        "图片适配"
+      ],
+      "answer_points": [
+        "object-fit控制替换元素(如img)的内容如何适应容器。",
+        "值:fill、contain、cover、none、scale-down。",
+        "cover保持比例裁剪,contain保持比例完整显示。"
+      ],
+      "follow_ups": [
+        "object-fit和background-size的区别?"
+      ],
+      "source_excerpt": "27.object-fit用法"
+    },
+    {
+      "question": "行内元素和块级元素有什么区别?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "行内元素",
+        "块级元素"
+      ],
+      "answer_points": [
+        "块级元素独占一行,可设置宽高。",
+        "行内元素不独占一行,宽高由内容决定。",
+        "行内元素不能包含块级元素。"
+      ],
+      "follow_ups": [
+        "行内块元素的特点?"
+      ],
+      "source_excerpt": "28.行内元素和块级元素有什么区别"
+    },
+    {
+      "question": "em/px/rem/vh/vw这些单位有什么区别?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "CSS单位"
+      ],
+      "answer_points": [
+        "px:绝对单位,像素。",
+        "em:相对父元素字体大小。",
+        "rem:相对根元素字体大小。",
+        "vh/vw:相对视口高度/宽度。"
+      ],
+      "follow_ups": [
+        "rem适配的原理?"
+      ],
+      "source_excerpt": "29.em/px/rem/vh/vw 这些单位有什么区别?"
+    },
+    {
+      "question": "html和css中的图片加载与渲染规则是什么样的?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "图片加载",
+        "渲染"
+      ],
+      "answer_points": [
+        "HTML中的img标签会立即请求图片。",
+        "CSS中的background-image等会延迟加载,直到元素可见。",
+        "图片加载不影响DOM解析,但影响渲染。"
+      ],
+      "follow_ups": [
+        "如何优化图片加载?"
+      ],
+      "source_excerpt": "30.html和css中的图片加载与渲染规则是什么样的?"
+    },
+    {
+      "question": "CSS中,有哪些方式可以隐藏页面元素?有什么区别?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "隐藏元素",
+        "display",
+        "visibility"
+      ],
+      "answer_points": [
+        "display:none:不占据空间,不渲染。",
+        "visibility:hidden:占据空间,不可见。",
+        "opacity:0:占据空间,透明,可交互。",
+        "position:absolute移出视口。"
+      ],
+      "follow_ups": [
+        "哪种方式性能最好?"
+      ],
+      "source_excerpt": "31.CSS中,有哪些方式可以隐藏页面元素?有什么区别?"
+    },
+    {
+      "question": "CSS3中transition和animation的属性分别有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "transition",
+        "animation"
+      ],
+      "answer_points": [
+        "transition:transition-property, duration, timing-function, delay。",
+        "animation:animation-name, duration, timing-function, delay, iteration-count, direction, fill-mode, play-state。"
+      ],
+      "follow_ups": [
+        "animation的fill-mode有什么用?"
+      ],
+      "source_excerpt": "32.CSS3中transition和animation的属性分别有哪些?"
+    }
+  ]
+}

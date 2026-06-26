@@ -1,0 +1,1206 @@
+{
+  "source_title": "Java 面试题汇总",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "String、StringBuffer、StringBuilder的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "String",
+        "StringBuffer",
+        "StringBuilder"
+      ],
+      "answer_points": [
+        "String是不可变的,每次修改都会创建新对象",
+        "StringBuffer是线程安全的,方法使用synchronized修饰",
+        "StringBuilder是线程不安全的,但性能更高"
+      ],
+      "follow_ups": [
+        "StringBuffer和StringBuilder分别适用于什么场景?"
+      ],
+      "source_excerpt": "String, StringBuffer, StringBuilder区别"
+    },
+    {
+      "question": "String对象创建时,如何计算创建的对象数目?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "String",
+        "对象创建"
+      ],
+      "answer_points": [
+        "字面量创建时,若常量池已有则引用,否则创建",
+        "new String()会在堆中创建对象,并可能创建常量池中的字符串"
+      ],
+      "follow_ups": [
+        "String s = new String(\"abc\")创建了几个对象?"
+      ],
+      "source_excerpt": "String对象数目"
+    },
+    {
+      "question": "intern方法的作用是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "String",
+        "intern"
+      ],
+      "answer_points": [
+        "将字符串对象放入常量池,并返回常量池中的引用",
+        "如果常量池已有,则直接返回引用"
+      ],
+      "follow_ups": [
+        "intern方法在JDK6和JDK7中的实现有何不同?"
+      ],
+      "source_excerpt": "intern方法的作用"
+    },
+    {
+      "question": "如何修改String对象的数据?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "String",
+        "不可变性"
+      ],
+      "answer_points": [
+        "通过反射获取String内部的value数组",
+        "修改value数组中的元素"
+      ],
+      "follow_ups": [
+        "为什么String被设计为不可变?"
+      ],
+      "source_excerpt": "如何修改String对象的数据?"
+    },
+    {
+      "question": "static的5种用法是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "static"
+      ],
+      "answer_points": [
+        "静态变量",
+        "静态方法",
+        "静态代码块",
+        "静态内部类",
+        "静态导入"
+      ],
+      "follow_ups": [
+        "静态方法能否调用非静态方法?"
+      ],
+      "source_excerpt": "static的5种用法"
+    },
+    {
+      "question": "为什么静态方法不能调用非静态方法和变量?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "static",
+        "类加载"
+      ],
+      "answer_points": [
+        "静态方法在类加载时就已经存在",
+        "非静态方法和变量需要实例化对象后才存在",
+        "调用时可能对象还未创建"
+      ],
+      "follow_ups": [
+        "静态方法中能否使用this关键字?"
+      ],
+      "source_excerpt": "为什么静态方法不能调用非静态方法和变量?"
+    },
+    {
+      "question": "Java中的异常类型有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "异常"
+      ],
+      "answer_points": [
+        "受检异常(Checked Exception)",
+        "非受检异常(RuntimeException)",
+        "错误(Error)"
+      ],
+      "follow_ups": [
+        "受检异常和非受检异常的区别?"
+      ],
+      "source_excerpt": "异常类型"
+    },
+    {
+      "question": "catch里return了,finally是否执行?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "异常",
+        "finally"
+      ],
+      "answer_points": [
+        "finally块一定会执行",
+        "即使catch中有return,finally也会在return之前执行"
+      ],
+      "follow_ups": [
+        "如果finally中也有return,会怎样?"
+      ],
+      "source_excerpt": "catch里return了,finally是否执行?"
+    },
+    {
+      "question": "字节流与字符流的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "IO",
+        "字节流",
+        "字符流"
+      ],
+      "answer_points": [
+        "字节流以字节为单位,字符流以字符为单位",
+        "字符流底层使用字节流,并增加了编码转换",
+        "字符流适合处理文本文件,字节流适合处理二进制文件"
+      ],
+      "follow_ups": [
+        "如何选择字节流和字符流?"
+      ],
+      "source_excerpt": "字节流与字符流区别?"
+    },
+    {
+      "question": "BIO、NIO、AIO的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "IO",
+        "BIO",
+        "NIO",
+        "AIO"
+      ],
+      "answer_points": [
+        "BIO是同步阻塞,每个连接一个线程",
+        "NIO是同步非阻塞,基于Selector多路复用",
+        "AIO是异步非阻塞,基于事件回调"
+      ],
+      "follow_ups": [
+        "NIO中的Buffer和Channel是什么?"
+      ],
+      "source_excerpt": "BIO, NIO, AIO 区别?"
+    },
+    {
+      "question": "JDK8有哪些新特性?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "JDK8",
+        "新特性"
+      ],
+      "answer_points": [
+        "接口允许default和static方法",
+        "Lambda表达式",
+        "Stream API",
+        "新的时间API(LocalDateTime等)",
+        "CompletableFuture"
+      ],
+      "follow_ups": [
+        "Lambda表达式和匿名内部类的区别?"
+      ],
+      "source_excerpt": "JDK8新特性"
+    },
+    {
+      "question": "JDK8接口的default和static方法有什么作用?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "JDK8",
+        "接口"
+      ],
+      "answer_points": [
+        "default方法提供默认实现,子类可以不重写",
+        "static方法提供工具方法,通过接口名直接调用"
+      ],
+      "follow_ups": [
+        "default方法和普通方法有什么区别?"
+      ],
+      "source_excerpt": "JDK8接口的default和static"
+    },
+    {
+      "question": "JDK8 Stream API流操作包括哪些部分?项目中怎么用的Stream?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "JDK8",
+        "Stream"
+      ],
+      "answer_points": [
+        "包括中间操作(filter, map, sorted等)和终端操作(collect, forEach等)",
+        "项目中用于集合的过滤、转换、聚合等"
+      ],
+      "follow_ups": [
+        "Stream的并行流如何实现?"
+      ],
+      "source_excerpt": "JDK8 Stream API 流操作包括哪些部分?项目中怎么用的Stream?"
+    },
+    {
+      "question": "项目中对泛型的使用场景有哪些?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "泛型"
+      ],
+      "answer_points": [
+        "集合类中指定元素类型",
+        "自定义泛型类、泛型方法",
+        "类型安全,避免强制类型转换"
+      ],
+      "follow_ups": [
+        "泛型擦除是什么?"
+      ],
+      "source_excerpt": "项目中对泛型的使用"
+    },
+    {
+      "question": "接口与抽象类的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "接口",
+        "抽象类"
+      ],
+      "answer_points": [
+        "接口只能有抽象方法和默认方法,抽象类可以有具体方法",
+        "接口可以多实现,抽象类只能单继承",
+        "接口成员变量默认public static final,抽象类可以有实例变量"
+      ],
+      "follow_ups": [
+        "什么时候用接口,什么时候用抽象类?"
+      ],
+      "source_excerpt": "接口与抽象类的区别?"
+    },
+    {
+      "question": "SimpleDateFormat线程安全吗?怎么保证线程安全?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "SimpleDateFormat",
+        "线程安全"
+      ],
+      "answer_points": [
+        "SimpleDateFormat不是线程安全的",
+        "可以使用ThreadLocal为每个线程创建独立实例",
+        "或者使用DateTimeFormatter(JDK8)"
+      ],
+      "follow_ups": [
+        "DateTimeFormatter是线程安全的吗?"
+      ],
+      "source_excerpt": "SimpleDateFormat线程安全吗?怎么保证线程安全?"
+    },
+    {
+      "question": "Java反射中forName和classLoader的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "反射",
+        "ClassLoader"
+      ],
+      "answer_points": [
+        "Class.forName()会执行类的静态代码块",
+        "ClassLoader.loadClass()不会执行静态代码块",
+        "Class.forName()默认使用当前类的类加载器"
+      ],
+      "follow_ups": [
+        "反射中如何获取private成员的值?"
+      ],
+      "source_excerpt": "Java反射:forName和classLoader的区别"
+    },
+    {
+      "question": "反射机制中可以获取private成员的值吗?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "反射",
+        "private"
+      ],
+      "answer_points": [
+        "可以,通过Field.setAccessible(true)设置可访问",
+        "然后通过Field.get()获取值"
+      ],
+      "follow_ups": [
+        "反射破坏封装性有什么风险?"
+      ],
+      "source_excerpt": "反射机制中可以获取private成员的值吗?"
+    },
+    {
+      "question": "什么是自动拆箱与装箱?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "拆箱",
+        "装箱"
+      ],
+      "answer_points": [
+        "自动装箱:基本类型自动转换为包装类",
+        "自动拆箱:包装类自动转换为基本类型",
+        "通过编译器自动调用valueOf和xxxValue方法"
+      ],
+      "follow_ups": [
+        "自动装箱的缓存范围是多少?"
+      ],
+      "source_excerpt": "拆箱与装箱"
+    },
+    {
+      "question": "List与Set的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "List",
+        "Set"
+      ],
+      "answer_points": [
+        "List有序,可重复",
+        "Set无序(部分有序),不可重复",
+        "List基于索引,Set基于哈希或树"
+      ],
+      "follow_ups": [
+        "HashSet如何保证元素不重复?"
+      ],
+      "source_excerpt": "List与Set的区别"
+    },
+    {
+      "question": "ArrayList与LinkedList的异同点是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "ArrayList",
+        "LinkedList"
+      ],
+      "answer_points": [
+        "ArrayList基于数组,LinkedList基于双向链表",
+        "ArrayList随机访问快,LinkedList插入删除快",
+        "ArrayList内存连续,LinkedList内存分散"
+      ],
+      "follow_ups": [
+        "ArrayList和LinkedList分别适用于什么场景?"
+      ],
+      "source_excerpt": "ArrayList与LinkedList异同点?"
+    },
+    {
+      "question": "List与数组的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "List",
+        "数组"
+      ],
+      "answer_points": [
+        "List长度可变,数组长度固定",
+        "List只能存储对象,数组可以存储基本类型",
+        "List提供更多操作方法"
+      ],
+      "follow_ups": [
+        "如何将数组转换为List?"
+      ],
+      "source_excerpt": "List与数组的区别?"
+    },
+    {
+      "question": "ArrayList是否线程安全?如何线程安全地操作ArrayList?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "ArrayList",
+        "线程安全"
+      ],
+      "answer_points": [
+        "ArrayList不是线程安全的",
+        "可以使用Collections.synchronizedList()包装",
+        "或者使用CopyOnWriteArrayList"
+      ],
+      "follow_ups": [
+        "CopyOnWriteArrayList的原理是什么?"
+      ],
+      "source_excerpt": "ArrayList是否线程安全?如何线程安全地操作ArrayList?"
+    },
+    {
+      "question": "ArrayList的扩容机制是怎样的?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "ArrayList",
+        "扩容"
+      ],
+      "answer_points": [
+        "默认初始容量为10",
+        "每次扩容为原来的1.5倍",
+        "通过Arrays.copyOf()实现"
+      ],
+      "follow_ups": [
+        "扩容时性能开销大吗?如何优化?"
+      ],
+      "source_excerpt": "ArrayList扩容机制"
+    },
+    {
+      "question": "List.subList()有什么坑?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "List",
+        "subList"
+      ],
+      "answer_points": [
+        "subList返回的是原List的视图,修改会影响原List",
+        "对原List的结构性修改会导致subList失效,抛出ConcurrentModificationException"
+      ],
+      "follow_ups": [
+        "如何安全地获取子列表?"
+      ],
+      "source_excerpt": "List.subList的坑?"
+    },
+    {
+      "question": "List如何安全删除元素?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "List",
+        "删除"
+      ],
+      "answer_points": [
+        "使用迭代器的remove方法",
+        "使用for循环倒序删除",
+        "使用Stream的filter收集新列表"
+      ],
+      "follow_ups": [
+        "为什么for循环正序删除会出问题?"
+      ],
+      "source_excerpt": "List如何安全删除"
+    },
+    {
+      "question": "List如何去重?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "List",
+        "去重"
+      ],
+      "answer_points": [
+        "使用Stream的distinct()",
+        "转换为Set再转回List",
+        "使用LinkedHashSet保持顺序"
+      ],
+      "follow_ups": [
+        "去重时如何自定义比较规则?"
+      ],
+      "source_excerpt": "List如何去重?"
+    },
+    {
+      "question": "List如何实现排序?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "List",
+        "排序"
+      ],
+      "answer_points": [
+        "使用Collections.sort()",
+        "使用List.sort()",
+        "使用Stream的sorted()"
+      ],
+      "follow_ups": [
+        "自定义排序规则如何实现?"
+      ],
+      "source_excerpt": "List如何实现排序"
+    },
+    {
+      "question": "为什么引入迭代器?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "迭代器"
+      ],
+      "answer_points": [
+        "统一遍历集合的方式",
+        "可以在遍历时安全删除元素",
+        "支持多种集合类型"
+      ],
+      "follow_ups": [
+        "迭代器与for循环遍历的区别?"
+      ],
+      "source_excerpt": "为什么引入迭代器?"
+    },
+    {
+      "question": "List哪种遍历性能好,为什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "List",
+        "遍历"
+      ],
+      "answer_points": [
+        "ArrayList使用for循环随机访问性能好",
+        "LinkedList使用迭代器或foreach性能好",
+        "因为底层数据结构不同"
+      ],
+      "follow_ups": [
+        "foreach遍历的底层原理是什么?"
+      ],
+      "source_excerpt": "List哪种遍历性能好,为什么?"
+    },
+    {
+      "question": "HashMap、TreeMap、LinkedHashMap的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "TreeMap",
+        "LinkedHashMap"
+      ],
+      "answer_points": [
+        "HashMap无序,基于哈希表",
+        "TreeMap有序,基于红黑树",
+        "LinkedHashMap保持插入顺序或访问顺序"
+      ],
+      "follow_ups": [
+        "LinkedHashMap如何实现LRU缓存?"
+      ],
+      "source_excerpt": "HashMap、TreeMap、LinkedHashMap和区别?"
+    },
+    {
+      "question": "JDK8的HashMap和ConcurrentHashMap有哪些改变?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "ConcurrentHashMap",
+        "JDK8"
+      ],
+      "answer_points": [
+        "HashMap引入红黑树优化链表过长",
+        "ConcurrentHashMap使用CAS+synchronized替代分段锁",
+        "ConcurrentHashMap的size()方法使用CounterCell"
+      ],
+      "follow_ups": [
+        "JDK7和JDK8的HashMap有什么区别?"
+      ],
+      "source_excerpt": "JDK8的HashMap和ConcurrentHashMap的改变?"
+    },
+    {
+      "question": "HashMap的数据结构是什么?如何解决哈希冲突?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "哈希冲突"
+      ],
+      "answer_points": [
+        "数组+链表+红黑树",
+        "使用链地址法解决冲突",
+        "当链表长度超过8时转为红黑树"
+      ],
+      "follow_ups": [
+        "为什么红黑树阈值是8?"
+      ],
+      "source_excerpt": "HashMap数据结构、哈希冲突解决方法"
+    },
+    {
+      "question": "HashMap扩容的原理是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "扩容"
+      ],
+      "answer_points": [
+        "当元素数量超过阈值(容量*负载因子)时扩容",
+        "扩容为原来的2倍",
+        "重新计算哈希并分配元素"
+      ],
+      "follow_ups": [
+        "扩容时如何保证性能?"
+      ],
+      "source_excerpt": "HashMap扩容的原理"
+    },
+    {
+      "question": "HashMap为什么线程不安全?如何线程安全地操作?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "线程安全"
+      ],
+      "answer_points": [
+        "多线程put可能导致死循环(JDK7)或数据丢失",
+        "可以使用ConcurrentHashMap",
+        "或者使用Collections.synchronizedMap()"
+      ],
+      "follow_ups": [
+        "ConcurrentHashMap如何保证线程安全?"
+      ],
+      "source_excerpt": "HashMap为什么线程不安全?如何线程安全地操作?"
+    },
+    {
+      "question": "ConcurrentHashMap的原理是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "ConcurrentHashMap"
+      ],
+      "answer_points": [
+        "JDK7使用分段锁,JDK8使用CAS+synchronized",
+        "每个桶独立加锁,提高并发度",
+        "使用volatile保证可见性"
+      ],
+      "follow_ups": [
+        "ConcurrentHashMap的size()如何实现?"
+      ],
+      "source_excerpt": "ConcurrentHashMap原理?"
+    },
+    {
+      "question": "String的hashCode是怎么实现的?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "String",
+        "hashCode"
+      ],
+      "answer_points": [
+        "公式:s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]",
+        "使用31作为乘数,因为31是质数且性能好"
+      ],
+      "follow_ups": [
+        "为什么选择31?"
+      ],
+      "source_excerpt": "String的hashCode怎么实现的?"
+    },
+    {
+      "question": "HashMap和HashSet的区别及其实现原理?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "HashMap",
+        "HashSet"
+      ],
+      "answer_points": [
+        "HashSet底层使用HashMap",
+        "HashSet的元素作为HashMap的key,value为常量PRESENT",
+        "HashSet的add方法调用HashMap的put方法"
+      ],
+      "follow_ups": [
+        "HashSet如何保证元素不重复?"
+      ],
+      "source_excerpt": "HashMap和HashSet的区别及其实现原理?"
+    },
+    {
+      "question": "HashMap如果使用对象作为key,要注意什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "HashMap",
+        "key"
+      ],
+      "answer_points": [
+        "必须重写hashCode和equals方法",
+        "保证equals相等时hashCode也相等",
+        "key对象最好不可变"
+      ],
+      "follow_ups": [
+        "如果key的hashCode变化了会怎样?"
+      ],
+      "source_excerpt": "HashMap如果使用对象最为key,要注意什么?"
+    },
+    {
+      "question": "对象比较为什么重写hashCode和equals?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "hashCode",
+        "equals"
+      ],
+      "answer_points": [
+        "集合类(如HashMap、HashSet)先比较hashCode再比较equals",
+        "保证对象在集合中的唯一性",
+        "如果不重写,默认使用对象地址比较"
+      ],
+      "follow_ups": [
+        "只重写equals不重写hashCode会怎样?"
+      ],
+      "source_excerpt": "对象比较为什么重写hashCode和equals?"
+    },
+    {
+      "question": "JVM运行时数据区是怎样的?哪些是线程私有的?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "JVM",
+        "运行时数据区"
+      ],
+      "answer_points": [
+        "包括程序计数器、虚拟机栈、本地方法栈、堆、方法区",
+        "程序计数器、虚拟机栈、本地方法栈是线程私有的",
+        "堆和方法区是线程共享的"
+      ],
+      "follow_ups": [
+        "堆和栈分别存储什么?"
+      ],
+      "source_excerpt": "运行时数据区是怎样的?线程安全(即线程私有)的有哪些?"
+    },
+    {
+      "question": "对象实例、类信息、常量、静态变量分别在运行时数据区的哪个位置?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "JVM",
+        "运行时数据区"
+      ],
+      "answer_points": [
+        "对象实例存储在堆中",
+        "类信息存储在方法区",
+        "常量存储在方法区的运行时常量池",
+        "静态变量存储在方法区"
+      ],
+      "follow_ups": [
+        "JDK8中方法区有什么变化?"
+      ],
+      "source_excerpt": "对象实例、类信息、常量、静态变量分别在运行时数据区的哪个位置?"
+    },
+    {
+      "question": "Java类加载流程是什么?初始化流程是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "类加载"
+      ],
+      "answer_points": [
+        "加载、验证、准备、解析、初始化",
+        "初始化阶段执行类构造器<clinit>()方法",
+        "初始化触发条件:new、反射、访问静态变量等"
+      ],
+      "follow_ups": [
+        "类加载的触发条件有哪些?"
+      ],
+      "source_excerpt": "Java类加载流程?初始化流程?"
+    },
+    {
+      "question": "JVM双亲委派模型是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "双亲委派"
+      ],
+      "answer_points": [
+        "类加载器收到加载请求时,先委托给父加载器",
+        "父加载器无法加载时,才由自己加载",
+        "保证核心类库的安全性"
+      ],
+      "follow_ups": [
+        "如何打破双亲委派模型?"
+      ],
+      "source_excerpt": "JVM双亲委派模型"
+    },
+    {
+      "question": "Java内存泄露什么时候会发生?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "内存泄露"
+      ],
+      "answer_points": [
+        "长生命周期对象持有短生命周期对象的引用",
+        "集合类中无用对象未清理",
+        "内部类持有外部类引用"
+      ],
+      "follow_ups": [
+        "如何排查内存泄露?"
+      ],
+      "source_excerpt": "Java内存泄露什么时候会发生?"
+    },
+    {
+      "question": "为什么内部类持有外部类可能内存泄露?如何解决?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "内部类",
+        "内存泄露"
+      ],
+      "answer_points": [
+        "非静态内部类持有外部类的隐式引用",
+        "如果内部类生命周期长,外部类无法被回收",
+        "解决方法:使用静态内部类,或弱引用"
+      ],
+      "follow_ups": [
+        "匿名内部类也会导致内存泄露吗?"
+      ],
+      "source_excerpt": "为什么内部类持有外部类可能内存泄露?如何解决?"
+    },
+    {
+      "question": "为什么ThreadLocal会导致内存泄露?如何解决?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "ThreadLocal",
+        "内存泄露"
+      ],
+      "answer_points": [
+        "ThreadLocalMap的key是弱引用,value是强引用",
+        "ThreadLocal被回收后,value无法被访问",
+        "解决方法:使用完调用remove()"
+      ],
+      "follow_ups": [
+        "ThreadLocalMap的key为什么设计为弱引用?"
+      ],
+      "source_excerpt": "为什么ThreadLocal会导致内存泄露?如何解决?"
+    },
+    {
+      "question": "Java中的引用类型有哪些?各有什么含义?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "引用类型"
+      ],
+      "answer_points": [
+        "强引用:不会被回收",
+        "软引用:内存不足时回收",
+        "弱引用:下次GC时回收",
+        "虚引用:无法通过它获取对象,用于跟踪对象回收"
+      ],
+      "follow_ups": [
+        "软引用和弱引用分别适用于什么场景?"
+      ],
+      "source_excerpt": "引用类型及其含义"
+    },
+    {
+      "question": "finalize方法做什么用的?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "finalize"
+      ],
+      "answer_points": [
+        "垃圾回收时调用,用于资源释放",
+        "但执行时机不确定,不推荐使用"
+      ],
+      "follow_ups": [
+        "finalize和try-finally哪个更可靠?"
+      ],
+      "source_excerpt": "finalize方法做什么用的?"
+    },
+    {
+      "question": "可以作为GC Roots的对象有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "GC Roots"
+      ],
+      "answer_points": [
+        "虚拟机栈中引用的对象",
+        "方法区中静态属性引用的对象",
+        "方法区中常量引用的对象",
+        "本地方法栈中JNI引用的对象"
+      ],
+      "follow_ups": [
+        "GC Roots如何确定?"
+      ],
+      "source_excerpt": "可以作为GC.Roots的对象有哪些?"
+    },
+    {
+      "question": "调用System.gc()会立刻垃圾回收吗?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "System.gc"
+      ],
+      "answer_points": [
+        "不会立刻执行,只是建议JVM进行GC",
+        "JVM可以忽略该调用"
+      ],
+      "follow_ups": [
+        "如何强制触发GC?"
+      ],
+      "source_excerpt": "调用System.gc()会立刻垃圾回收吗?"
+    },
+    {
+      "question": "Minor GC和Full GC的触发时机是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "GC",
+        "Minor GC",
+        "Full GC"
+      ],
+      "answer_points": [
+        "Minor GC在Eden区满时触发",
+        "Full GC在老年代满、永久代满、System.gc()等时触发"
+      ],
+      "follow_ups": [
+        "如何减少Full GC?"
+      ],
+      "source_excerpt": "Minor GC和Full GC的触发时机。"
+    },
+    {
+      "question": "频繁Full GC如何排查?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Full GC",
+        "排查"
+      ],
+      "answer_points": [
+        "使用jstat查看GC情况",
+        "使用jmap dump堆内存分析",
+        "检查代码中是否有内存泄露"
+      ],
+      "follow_ups": [
+        "Full GC频繁通常是什么原因?"
+      ],
+      "source_excerpt": "频繁Full GC如何排查"
+    },
+    {
+      "question": "JDK默认的垃圾回收器是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "垃圾回收器"
+      ],
+      "answer_points": [
+        "JDK8默认使用Parallel Scavenge(新生代)+ Parallel Old(老年代)",
+        "JDK9+默认使用G1"
+      ],
+      "follow_ups": [
+        "G1和CMS有什么区别?"
+      ],
+      "source_excerpt": "JDK默认的垃圾回收器是什么?"
+    },
+    {
+      "question": "CMS垃圾回收器的流程是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "CMS"
+      ],
+      "answer_points": [
+        "初始标记(STW)",
+        "并发标记",
+        "重新标记(STW)",
+        "并发清除"
+      ],
+      "follow_ups": [
+        "CMS的缺点是什么?"
+      ],
+      "source_excerpt": "CMS垃圾回收器的流程?"
+    },
+    {
+      "question": "CMS和G1的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "CMS",
+        "G1"
+      ],
+      "answer_points": [
+        "CMS基于标记-清除,G1基于标记-整理",
+        "G1可预测停顿时间",
+        "G1将堆划分为Region,CMS分代连续"
+      ],
+      "follow_ups": [
+        "G1的Region大小如何设置?"
+      ],
+      "source_excerpt": "CMS和G1区别"
+    },
+    {
+      "question": "CMS与其他老年代垃圾回收器的区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "CMS",
+        "老年代回收器"
+      ],
+      "answer_points": [
+        "CMS是并发回收,减少停顿",
+        "Serial Old是单线程串行",
+        "Parallel Old是多线程并行"
+      ],
+      "follow_ups": [
+        "什么场景下选择CMS?"
+      ],
+      "source_excerpt": "CMS与其他老年代垃圾回收器的区别?"
+    },
+    {
+      "question": "JVM通常设置哪些参数来调优?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "JVM调优"
+      ],
+      "answer_points": [
+        "-Xms和-Xmx设置堆大小",
+        "-XX:NewRatio设置新生代比例",
+        "-XX:+UseG1GC选择垃圾回收器"
+      ],
+      "follow_ups": [
+        "如何根据应用场景设置堆大小?"
+      ],
+      "source_excerpt": "JVM通常设置哪些参数来调优?"
+    },
+    {
+      "question": "怎么分配堆外内存?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "堆外内存"
+      ],
+      "answer_points": [
+        "使用ByteBuffer.allocateDirect()分配直接内存",
+        "直接内存不受堆大小限制",
+        "需要手动释放"
+      ],
+      "follow_ups": [
+        "堆外内存有什么优缺点?"
+      ],
+      "source_excerpt": "怎么分配堆外内存"
+    },
+    {
+      "question": "项目中哪些地方用到了多线程?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "多线程"
+      ],
+      "answer_points": [
+        "定时任务处理",
+        "异步处理(发邮件、日志等)",
+        "批量处理缩短响应时间"
+      ],
+      "follow_ups": [
+        "多线程带来的问题有哪些?"
+      ],
+      "source_excerpt": "项目中哪些地方用到了多线程?"
+    },
+    {
+      "question": "线程的安全性问题体现在哪些方面?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "线程安全"
+      ],
+      "answer_points": [
+        "原子性",
+        "可见性",
+        "有序性"
+      ],
+      "follow_ups": [
+        "如何保证线程安全?"
+      ],
+      "source_excerpt": "线程的安全性问题体现在哪些方面?"
+    },
+    {
+      "question": "死锁产生的条件是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "死锁"
+      ],
+      "answer_points": [
+        "互斥条件",
+        "请求与保持条件",
+        "不剥夺条件",
+        "循环等待条件"
+      ],
+      "follow_ups": [
+        "如何避免死锁?"
+      ],
+      "source_excerpt": "死锁产生的条件?"
+    },
+    {
+      "question": "i++是否线程安全?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "i++",
+        "线程安全"
+      ],
+      "answer_points": [
+        "不是线程安全的",
+        "i++包含读取、修改、写入三步,非原子操作",
+        "可以使用AtomicInteger保证原子性"
+      ],
+      "follow_ups": [
+        "如何实现线程安全的i++?"
+      ],
+      "source_excerpt": "i++是否线程安全?"
+    },
+    {
+      "question": "JMM内存结构是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "JMM"
+      ],
+      "answer_points": [
+        "Java内存模型,规定线程如何与主内存交互",
+        "每个线程有自己的工作内存",
+        "通过volatile、synchronized等保证可见性"
+      ],
+      "follow_ups": [
+        "JMM与JVM运行时数据区的区别?"
+      ],
+      "source_excerpt": "JMM内存结构"
+    }
+  ]
+}

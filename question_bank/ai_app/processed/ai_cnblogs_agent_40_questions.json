@@ -1,0 +1,712 @@
+{
+  "source_title": "AI Agent 工程师面试题梳理",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "CoT(Chain-of-Thought)的核心思想是什么?为什么能提升推理能力?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "CoT",
+        "推理框架",
+        "LLM"
+      ],
+      "answer_points": [
+        "让LLM把推理过程一步步写出来,而不是直接给答案。",
+        "通过中间步骤引导模型逐步推理,减少错误。",
+        "在足够大的模型(如540B参数)上,仅用8个示例即可在GSM8K上达到SOTA。"
+      ],
+      "follow_ups": [
+        "CoT在什么条件下才会涌现?",
+        "CoT的局限性是什么?"
+      ],
+      "source_excerpt": "核心思想:让 LLM 把推理过程一步步写出来,而不是直接给答案。仅用 8 个 CoT 示例提示 540B 参数模型,GSM8K 数学推理就达到了 SOTA。"
+    },
+    {
+      "question": "Zero-shot CoT 和 Few-shot CoT 有什么区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "CoT",
+        "Zero-shot",
+        "Few-shot"
+      ],
+      "answer_points": [
+        "Zero-shot CoT使用'Let's think step by step'等提示,无需示例。",
+        "Few-shot CoT提供少量推理示例引导模型。",
+        "Zero-shot更通用但效果可能不如Few-shot稳定。"
+      ],
+      "follow_ups": [
+        "Auto-CoT如何自动生成CoT示例?"
+      ],
+      "source_excerpt": "Zero-shot CoT('Let's think step by step')和 Few-shot CoT 有什么区别?"
+    },
+    {
+      "question": "CoT 的局限性是什么?什么时候 CoT 反而会降低性能?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "CoT",
+        "局限性"
+      ],
+      "answer_points": [
+        "CoT可能增加推理时间,对简单问题不必要。",
+        "在模型能力不足时,CoT可能引入错误推理。",
+        "对于不需要逐步推理的任务(如直接问答),CoT可能降低性能。"
+      ],
+      "follow_ups": [
+        "如何判断是否应该使用CoT?"
+      ],
+      "source_excerpt": "CoT 的局限性是什么?什么时候 CoT 反而会降低性能?"
+    },
+    {
+      "question": "Auto-CoT(自动生成CoT)怎么实现?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "CoT",
+        "Auto-CoT"
+      ],
+      "answer_points": [
+        "自动生成CoT示例,无需人工标注。",
+        "通常通过采样或聚类方法生成多样化示例。",
+        "减少人工成本,但需保证示例质量。"
+      ],
+      "follow_ups": [
+        "Auto-CoT与Few-shot CoT相比有何优劣?"
+      ],
+      "source_excerpt": "自动生成 CoT(Auto-CoT)怎么实现?"
+    },
+    {
+      "question": "ReAct 的核心思想是什么?与 CoT 有什么不同?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "ReAct",
+        "CoT",
+        "推理框架"
+      ],
+      "answer_points": [
+        "ReAct将推理轨迹(Thought)和具体动作(Action)交错生成。",
+        "CoT只能'想',不能'做';ReAct边想边做。",
+        "ReAct通过观察(Observation)反馈调整后续推理。"
+      ],
+      "follow_ups": [
+        "ReAct的典型流程是什么?"
+      ],
+      "source_excerpt": "CoT 只能'想',不能'做'。ReAct 把推理轨迹(Thought)和具体动作(Action)交错生成,让 Agent 边想边做。"
+    },
+    {
+      "question": "ReAct 的典型流程是什么?请描述每一步。",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "ReAct",
+        "流程"
+      ],
+      "answer_points": [
+        "Thought: 分析当前状态,决定下一步。",
+        "Action: 执行具体动作(如调用API)。",
+        "Observation: 获取动作结果。",
+        "循环直到得到最终答案。"
+      ],
+      "follow_ups": [
+        "ReAct如何处理错误动作?"
+      ],
+      "source_excerpt": "Thought: 我需要查一下北京今天的天气 Action: call_weather_api('北京') Observation: 晴,28°C Thought: 天气不错,可以推荐户外活动 Action: search_activities('北京', '户外') Observation: ..."
+    },
+    {
+      "question": "Agent 工程师需要具备哪些核心能力?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "岗位要求",
+        "技能"
+      ],
+      "answer_points": [
+        "理解LLM能力边界,具备工程化系统设计能力。",
+        "编程语言:Python必须,TypeScript/Go/Java加分。",
+        "LLM基础:Transformer、Tokenizer、上下文窗口管理。",
+        "Agent框架:LangChain、CrewAI等。",
+        "RAG、工具调用、Prompt Engineering、系统工程。"
+      ],
+      "follow_ups": [
+        "Agent工程师与普通后端工程师的区别是什么?"
+      ],
+      "source_excerpt": "Agent 工程师不是'会调 API 就行',也不是'搞模型训练的'。它是一个交叉岗位——既需要理解 LLM 的能力边界,又需要工程化的系统设计能力。"
+    },
+    {
+      "question": "Agent 架构通常包含哪三大组件?请分别说明。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Agent架构",
+        "记忆",
+        "规划",
+        "行动"
+      ],
+      "answer_points": [
+        "记忆:存储历史信息和知识。",
+        "规划:制定任务步骤和策略。",
+        "行动:执行具体操作(如调用工具)。"
+      ],
+      "follow_ups": [
+        "记忆组件如何实现长期记忆?"
+      ],
+      "source_excerpt": "Agent 架构:记忆、规划、行动三大组件"
+    },
+    {
+      "question": "Function Calling 协议是什么?在 Agent 中如何工作?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Function Calling",
+        "工具调用",
+        "协议"
+      ],
+      "answer_points": [
+        "LLM根据用户请求生成函数调用参数。",
+        "模型输出结构化数据(如JSON)指定函数名和参数。",
+        "系统执行函数并返回结果给模型。"
+      ],
+      "follow_ups": [
+        "Function Calling与MCP协议有什么区别?"
+      ],
+      "source_excerpt": "工具调用:Function Calling 协议、MCP 协议、工具编排"
+    },
+    {
+      "question": "MCP 协议是什么?与 Function Calling 有何不同?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "MCP",
+        "Function Calling",
+        "协议"
+      ],
+      "answer_points": [
+        "MCP(Model Context Protocol)是标准化工具调用协议。",
+        "Function Calling是特定模型(如OpenAI)的API特性。",
+        "MCP更通用,支持跨模型和工具互操作。"
+      ],
+      "follow_ups": [
+        "MCP如何实现工具发现?"
+      ],
+      "source_excerpt": "工具与协议:Function Calling、MCP、A2A"
+    },
+    {
+      "question": "A2A 协议是什么?在 Agent 系统中起什么作用?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "A2A",
+        "协议",
+        "Agent通信"
+      ],
+      "answer_points": [
+        "A2A(Agent-to-Agent)协议用于Agent间通信。",
+        "支持多Agent协作和任务分配。",
+        "标准化消息格式和交互流程。"
+      ],
+      "follow_ups": [
+        "A2A与MCP的关系是什么?"
+      ],
+      "source_excerpt": "工具与协议:Function Calling、MCP、A2A"
+    },
+    {
+      "question": "RAG 系统中向量数据库的作用是什么?如何选择 Embedding 模型?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "RAG",
+        "向量数据库",
+        "Embedding"
+      ],
+      "answer_points": [
+        "向量数据库存储文档的向量表示,支持相似性检索。",
+        "Embedding模型将文本转换为向量。",
+        "选择时考虑维度、性能、领域适配性。"
+      ],
+      "follow_ups": [
+        "Chunking策略如何影响检索效果?"
+      ],
+      "source_excerpt": "RAG:向量数据库、Embedding、Chunking 策略、检索评估"
+    },
+    {
+      "question": "Chunking 策略有哪些?如何评估检索效果?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "RAG",
+        "Chunking",
+        "检索评估"
+      ],
+      "answer_points": [
+        "常见策略:固定大小、语义分割、递归分割。",
+        "评估指标:召回率、精确率、MRR等。",
+        "需要根据文档类型和任务调整。"
+      ],
+      "follow_ups": [
+        "如何优化Chunking以提升RAG效果?"
+      ],
+      "source_excerpt": "RAG:向量数据库、Embedding、Chunking 策略、检索评估"
+    },
+    {
+      "question": "Prompt Engineering 中 CoT、Few-shot、System Prompt 分别是什么?如何设计有效的 System Prompt?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Prompt Engineering",
+        "CoT",
+        "Few-shot",
+        "System Prompt"
+      ],
+      "answer_points": [
+        "CoT:引导模型逐步推理。",
+        "Few-shot:提供少量示例。",
+        "System Prompt:设定模型角色和行为规则。",
+        "设计System Prompt需明确任务、约束、输出格式。"
+      ],
+      "follow_ups": [
+        "如何防御Prompt注入攻击?"
+      ],
+      "source_excerpt": "Prompt Engineering:CoT、Few-shot、System Prompt 设计、Prompt 注入防御"
+    },
+    {
+      "question": "Prompt 注入攻击是什么?如何防御?",
+      "question_type": "security",
+      "category": "security",
+      "difficulty": "mid",
+      "tags": [
+        "Prompt注入",
+        "安全",
+        "防御"
+      ],
+      "answer_points": [
+        "攻击者通过输入恶意指令劫持模型行为。",
+        "防御方法:输入过滤、权限控制、输出验证。",
+        "使用System Prompt强化边界。"
+      ],
+      "follow_ups": [
+        "有哪些常见的Prompt注入攻击模式?"
+      ],
+      "source_excerpt": "Prompt Engineering:CoT、Few-shot、System Prompt 设计、Prompt 注入防御"
+    },
+    {
+      "question": "Agent 系统中如何实现记忆管理?短期记忆和长期记忆有什么区别?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "记忆",
+        "短期记忆",
+        "长期记忆"
+      ],
+      "answer_points": [
+        "短期记忆:对话历史,上下文窗口内。",
+        "长期记忆:外部存储(如向量数据库)。",
+        "管理策略:摘要、检索、遗忘机制。"
+      ],
+      "follow_ups": [
+        "如何解决上下文窗口限制?"
+      ],
+      "source_excerpt": "Agent 架构:记忆、规划、行动三大组件"
+    },
+    {
+      "question": "Agent 的规划组件如何实现任务分解?有哪些常见策略?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "规划",
+        "任务分解"
+      ],
+      "answer_points": [
+        "将复杂任务拆分为子任务。",
+        "策略:层次规划、动态规划、基于模板。",
+        "使用LLM生成步骤序列。"
+      ],
+      "follow_ups": [
+        "如何处理规划中的不确定性?"
+      ],
+      "source_excerpt": "Agent 架构:记忆、规划、行动三大组件"
+    },
+    {
+      "question": "Agent 系统中如何实现工具编排?请描述一个典型场景。",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "工具编排",
+        "场景"
+      ],
+      "answer_points": [
+        "定义工具列表和调用规则。",
+        "Agent根据任务选择并调用工具。",
+        "处理工具返回结果并决定下一步。",
+        "示例:天气查询后推荐活动。"
+      ],
+      "follow_ups": [
+        "如何处理工具调用失败?"
+      ],
+      "source_excerpt": "工具调用:Function Calling 协议、MCP 协议、工具编排"
+    },
+    {
+      "question": "Agent 系统设计中如何保证安全性和可控性?",
+      "question_type": "security",
+      "category": "security",
+      "difficulty": "senior",
+      "tags": [
+        "安全",
+        "可控性",
+        "系统设计"
+      ],
+      "answer_points": [
+        "输入验证和输出过滤。",
+        "权限控制和沙箱执行。",
+        "审计日志和监控。",
+        "人工干预机制。"
+      ],
+      "follow_ups": [
+        "如何评估Agent的安全性?"
+      ],
+      "source_excerpt": "安全、可控性与评估"
+    },
+    {
+      "question": "如何评估 Agent 系统的性能?有哪些关键指标?",
+      "question_type": "optimization",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": [
+        "评估",
+        "性能指标"
+      ],
+      "answer_points": [
+        "任务完成率、准确率。",
+        "响应时间、成本。",
+        "鲁棒性、安全性。",
+        "用户满意度。"
+      ],
+      "follow_ups": [
+        "如何优化Agent的推理成本?"
+      ],
+      "source_excerpt": "安全、可控性与评估"
+    },
+    {
+      "question": "Agent 系统中如何处理错误和异常?请举例。",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "错误处理",
+        "异常"
+      ],
+      "answer_points": [
+        "重试机制:失败后重试。",
+        "回退策略:使用默认值或人工介入。",
+        "日志记录:便于调试。",
+        "示例:API调用超时后重试或换用备用API。"
+      ],
+      "follow_ups": [
+        "如何设计优雅的降级方案?"
+      ],
+      "source_excerpt": "系统工程:异步编程、流式输出、错误处理、成本优化"
+    },
+    {
+      "question": "Agent 系统中如何实现流式输出?有什么挑战?",
+      "question_type": "optimization",
+      "category": "performance",
+      "difficulty": "senior",
+      "tags": [
+        "流式输出",
+        "性能"
+      ],
+      "answer_points": [
+        "使用SSE或WebSocket实时推送。",
+        "挑战:部分结果不完整,需处理中间状态。",
+        "需协调多个异步任务。"
+      ],
+      "follow_ups": [
+        "流式输出如何与工具调用结合?"
+      ],
+      "source_excerpt": "系统工程:异步编程、流式输出、错误处理、成本优化"
+    },
+    {
+      "question": "Agent 系统中如何优化成本?有哪些策略?",
+      "question_type": "optimization",
+      "category": "performance",
+      "difficulty": "senior",
+      "tags": [
+        "成本优化",
+        "性能"
+      ],
+      "answer_points": [
+        "减少不必要的LLM调用。",
+        "使用缓存和批处理。",
+        "选择合适模型(小模型处理简单任务)。",
+        "控制上下文长度。"
+      ],
+      "follow_ups": [
+        "如何平衡成本和性能?"
+      ],
+      "source_excerpt": "系统工程:异步编程、流式输出、错误处理、成本优化"
+    },
+    {
+      "question": "Transformer 架构的核心组件是什么?为什么适合 Agent 任务?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Transformer",
+        "架构"
+      ],
+      "answer_points": [
+        "核心:自注意力机制、多头注意力、前馈网络。",
+        "并行计算,适合长序列。",
+        "可扩展,支持大规模预训练。"
+      ],
+      "follow_ups": [
+        "Transformer的上下文窗口限制如何影响Agent?"
+      ],
+      "source_excerpt": "LLM 基础:Transformer 架构理解、Tokenizer、上下文窗口管理"
+    },
+    {
+      "question": "Tokenizer 在 LLM 中的作用是什么?如何处理中文?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Tokenizer",
+        "LLM"
+      ],
+      "answer_points": [
+        "将文本转换为模型可处理的token序列。",
+        "中文常用BPE或SentencePiece。",
+        "不同tokenizer影响模型效果和效率。"
+      ],
+      "follow_ups": [
+        "如何管理上下文窗口中的token数量?"
+      ],
+      "source_excerpt": "LLM 基础:Transformer 架构理解、Tokenizer、上下文窗口管理"
+    },
+    {
+      "question": "上下文窗口管理有哪些策略?如何解决长文本问题?",
+      "question_type": "optimization",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "上下文窗口",
+        "管理"
+      ],
+      "answer_points": [
+        "滑动窗口:只保留最近N个token。",
+        "摘要:对历史进行压缩。",
+        "检索:从外部存储获取相关信息。",
+        "分块处理。"
+      ],
+      "follow_ups": [
+        "如何选择窗口大小?"
+      ],
+      "source_excerpt": "LLM 基础:Transformer 架构理解、Tokenizer、上下文窗口管理"
+    },
+    {
+      "question": "LangChain 和 LangGraph 有什么区别?各自适用什么场景?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "LangChain",
+        "LangGraph",
+        "框架"
+      ],
+      "answer_points": [
+        "LangChain:链式调用,适合线性流程。",
+        "LangGraph:图结构,支持复杂分支和循环。",
+        "LangGraph更灵活,适合多步推理。"
+      ],
+      "follow_ups": [
+        "如何选择Agent框架?"
+      ],
+      "source_excerpt": "Agent 框架:LangChain/LangGraph、CrewAI、AutoGen、Semantic Kernel"
+    },
+    {
+      "question": "CrewAI 和 AutoGen 的核心特点是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "CrewAI",
+        "AutoGen",
+        "框架"
+      ],
+      "answer_points": [
+        "CrewAI:多Agent协作,角色分工。",
+        "AutoGen:微软出品,支持对话和代码生成。",
+        "两者都简化多Agent系统构建。"
+      ],
+      "follow_ups": [
+        "Semantic Kernel与它们有何不同?"
+      ],
+      "source_excerpt": "Agent 框架:LangChain/LangGraph、CrewAI、AutoGen、Semantic Kernel"
+    },
+    {
+      "question": "Semantic Kernel 是什么?与 LangChain 相比有何优势?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "Semantic Kernel",
+        "LangChain",
+        "框架"
+      ],
+      "answer_points": [
+        "微软的AI编排框架,深度集成Azure。",
+        "支持多种编程语言(C#, Python)。",
+        "强调语义函数和插件。"
+      ],
+      "follow_ups": [
+        "Semantic Kernel如何处理记忆?"
+      ],
+      "source_excerpt": "Agent 框架:LangChain/LangGraph、CrewAI、AutoGen、Semantic Kernel"
+    },
+    {
+      "question": "请设计一个多Agent协作系统,实现复杂任务(如旅行规划)。",
+      "question_type": "scenario",
+      "category": "scenario",
+      "difficulty": "senior",
+      "tags": [
+        "系统设计",
+        "多Agent",
+        "场景"
+      ],
+      "answer_points": [
+        "定义Agent角色:规划Agent、搜索Agent、预订Agent。",
+        "使用A2A协议通信。",
+        "任务分解:查询航班、酒店、景点。",
+        "协调和冲突解决。"
+      ],
+      "follow_ups": [
+        "如何处理Agent间的依赖和死锁?"
+      ],
+      "source_excerpt": "系统设计题:面试中最高频的 5 道大题"
+    },
+    {
+      "question": "如何设计一个可扩展的 Agent 系统?考虑高并发和容错。",
+      "question_type": "scenario",
+      "category": "scenario",
+      "difficulty": "senior",
+      "tags": [
+        "系统设计",
+        "可扩展",
+        "高并发"
+      ],
+      "answer_points": [
+        "微服务架构,独立部署各组件。",
+        "消息队列解耦。",
+        "无状态设计,水平扩展。",
+        "熔断和重试机制。"
+      ],
+      "follow_ups": [
+        "如何监控Agent系统的健康状态?"
+      ],
+      "source_excerpt": "系统设计题:面试中最高频的 5 道大题"
+    },
+    {
+      "question": "手写一个简单的 ReAct Agent 核心循环(伪代码或Python)。",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "手写",
+        "ReAct",
+        "Agent"
+      ],
+      "answer_points": [
+        "初始化系统提示和工具列表。",
+        "循环:获取用户输入,调用LLM生成Thought和Action。",
+        "执行Action,获取Observation。",
+        "重复直到生成最终答案。"
+      ],
+      "follow_ups": [
+        "如何处理Action执行失败?"
+      ],
+      "source_excerpt": "编码实现题:手写 Agent 的核心模块"
+    },
+    {
+      "question": "手写一个函数调用解析器,从LLM输出中提取函数名和参数。",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "手写",
+        "Function Calling",
+        "解析"
+      ],
+      "answer_points": [
+        "解析JSON格式输出。",
+        "提取函数名和参数。",
+        "验证参数类型和必填项。",
+        "返回结构化调用请求。"
+      ],
+      "follow_ups": [
+        "如何处理嵌套函数调用?"
+      ],
+      "source_excerpt": "编码实现题:手写 Agent 的核心模块"
+    },
+    {
+      "question": "如何实现一个简单的 RAG 系统?请描述关键步骤。",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "手写",
+        "RAG",
+        "系统"
+      ],
+      "answer_points": [
+        "文档分块和向量化。",
+        "构建向量索引。",
+        "用户查询向量化,检索相似块。",
+        "将检索结果与查询拼接,输入LLM生成答案。"
+      ],
+      "follow_ups": [
+        "如何优化检索质量?"
+      ],
+      "source_excerpt": "编码实现题:手写 Agent 的核心模块"
+    },
+    {
+      "question": "各公司(如OpenAI、字节、百度)面试Agent工程师的风格有何差异?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "面试风格",
+        "公司差异"
+      ],
+      "answer_points": [
+        "OpenAI:侧重LLM原理和推理框架。",
+        "字节:侧重工程实现和系统设计。",
+        "百度:侧重RAG和工具调用。",
+        "需根据公司调整准备重点。"
+      ],
+      "follow_ups": [
+        "如何针对不同公司准备面试?"
+      ],
+      "source_excerpt": "各公司面试风格差异"
+    }
+  ]
+}

@@ -1,0 +1,785 @@
+{
+  "source_title": "【2026年3月】最新计算机专业面试八股文(全体系总结)",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "请解释HTML5的新特性,并列举几个重要的语义化标签。",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "HTML5",
+        "语义化标签"
+      ],
+      "answer_points": [
+        "HTML5新增了语义化标签如header、nav、main、article、section、aside、footer等,增强了文档结构的可读性和SEO友好性。",
+        "新增了音频视频标签audio、video,无需插件即可播放。",
+        "新增了Canvas和SVG绘图功能,以及Web Storage、Web Workers、Geolocation等API。",
+        "改进表单控件,如新增input类型(email、url、date等)和表单验证属性。"
+      ],
+      "follow_ups": [
+        "语义化标签对SEO有什么具体影响?",
+        "HTML5的哪些特性对移动端开发有帮助?"
+      ],
+      "source_excerpt": "HTML5新特性、语义化标签、浏览器渲染流程"
+    },
+    {
+      "question": "描述浏览器的渲染流程。",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "浏览器渲染",
+        "渲染流程"
+      ],
+      "answer_points": [
+        "解析HTML生成DOM树,解析CSS生成CSSOM树。",
+        "将DOM树和CSSOM树结合生成渲染树(Render Tree),只包含可见元素。",
+        "布局(Layout/Reflow):计算每个节点的几何位置和大小。",
+        "绘制(Painting):将渲染树转换为屏幕上的像素,可能包括分层和合成。",
+        "浏览器利用GPU加速合成层,提高渲染性能。"
+      ],
+      "follow_ups": [
+        "重排和重绘有什么区别?如何优化?",
+        "如何减少渲染阻塞?"
+      ],
+      "source_excerpt": "浏览器渲染流程"
+    },
+    {
+      "question": "解释CSS盒模型,并说明标准盒模型和IE盒模型的区别。",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "盒模型",
+        "CSS"
+      ],
+      "answer_points": [
+        "CSS盒模型由content、padding、border、margin组成,标准盒模型width/height只包含content,IE盒模型(怪异模式)width/height包含content、padding和border。",
+        "通过box-sizing属性切换模型:content-box(标准)、border-box(IE)。",
+        "盒模型影响元素的实际占用空间和布局计算。"
+      ],
+      "follow_ups": [
+        "margin collapsing是什么?如何解决?",
+        "box-sizing: border-box有什么实际应用?"
+      ],
+      "source_excerpt": "CSS核心:盒模型、BFC/IFC、Flex/Grid布局、响应式布局、移动端适配"
+    },
+    {
+      "question": "什么是BFC?如何触发BFC?BFC有什么作用?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "BFC",
+        "CSS"
+      ],
+      "answer_points": [
+        "BFC(Block Formatting Context)是块级格式化上下文,是一个独立的渲染区域,内部元素布局不受外界影响。",
+        "触发BFC的方式:overflow不为visible、float、position为absolute或fixed、display为inline-block或flex等。",
+        "BFC作用:清除浮动、防止margin重叠、实现自适应两栏布局等。"
+      ],
+      "follow_ups": [
+        "IFC是什么?与BFC有什么区别?",
+        "如何利用BFC解决父元素高度塌陷?"
+      ],
+      "source_excerpt": "CSS核心:盒模型、BFC/IFC、Flex/Grid布局、响应式布局、移动端适配"
+    },
+    {
+      "question": "比较Flex布局和Grid布局的适用场景和核心区别。",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "Flex",
+        "Grid",
+        "布局"
+      ],
+      "answer_points": [
+        "Flex布局适合一维布局(行或列),通过flex-direction控制主轴方向,子项弹性伸缩。",
+        "Grid布局适合二维布局,可以同时控制行和列,更强大的网格对齐能力。",
+        "Flex适用于导航、居中、等分布局等;Grid适用于复杂页面结构如仪表盘、卡片网格。",
+        "两者可以结合使用,Grid处理整体布局,Flex处理局部细节。"
+      ],
+      "follow_ups": [
+        "如何实现水平垂直居中?",
+        "Grid中如何实现响应式布局?"
+      ],
+      "source_excerpt": "CSS核心:盒模型、BFC/IFC、Flex/Grid布局、响应式布局、移动端适配"
+    },
+    {
+      "question": "如何实现移动端适配?请列举常用的方案。",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "移动端适配",
+        "响应式"
+      ],
+      "answer_points": [
+        "使用viewport meta标签控制视口宽度和缩放。",
+        "使用rem或vw/vh单位进行相对尺寸设置,配合合适的根字体大小或视口单位。",
+        "媒体查询(@media)针对不同屏幕宽度编写不同样式。",
+        "使用flexible方案或lib-flexible等库来动态计算根字体大小。"
+      ],
+      "follow_ups": [
+        "1px像素问题如何解决?",
+        "rem和vw/vh各有什么优缺点?"
+      ],
+      "source_excerpt": "CSS核心:盒模型、BFC/IFC、Flex/Grid布局、响应式布局、移动端适配"
+    },
+    {
+      "question": "解释CSS动画中的transition和animation的区别。",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS动画",
+        "transition",
+        "animation"
+      ],
+      "answer_points": [
+        "transition需要触发事件(如hover、click)才会执行,只有开始和结束两个状态,不能控制中间状态。",
+        "animation无需触发,可以自动播放;可以定义多个关键帧(@keyframes)实现复杂动画。",
+        "animation提供更多控制属性:方向、循环次数、填充模式等。"
+      ],
+      "follow_ups": [
+        "如何优化CSS动画性能?",
+        "transform和left/top相比有什么性能优势?"
+      ],
+      "source_excerpt": "CSS动画:transition、animation、transform、CSS3新特性"
+    },
+    {
+      "question": "CSS预处理器(如Sass、Less)有哪些核心特性?与CSS-in-JS相比有什么优缺点?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "CSS预处理器",
+        "CSS-in-JS"
+      ],
+      "answer_points": [
+        "CSS预处理器提供变量、嵌套、混合、函数、继承等,增强CSS的可维护性。",
+        "CSS-in-JS将样式写在JavaScript中,实现样式的组件隔离和动态样式的灵活性。",
+        "预处理器适合全局样式和主题管理,CSS-in-JS更适合组件库和动态样式场景。",
+        "预处理器需要编译,CSS-in-JS运行时可能影响性能,但通过工具优化可缓解。"
+      ],
+      "follow_ups": [
+        "CSS Modules是什么?与CSS-in-JS有什么区别?",
+        "如何在项目中选用合适的样式方案?"
+      ],
+      "source_excerpt": "CSS预处理器、CSS Modules、CSS-in-JS"
+    },
+    {
+      "question": "请解释JavaScript的原型链。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "原型链",
+        "继承"
+      ],
+      "answer_points": [
+        "每个对象都有一个__proto__属性指向其构造函数的prototype。",
+        "当访问对象的一个属性时,如果自身没有,则沿着__proto__链向上查找,直到Object.prototype,如果还未找到则返回undefined。",
+        "所有函数都有一个prototype属性,用于实现基于原型的继承。"
+      ],
+      "follow_ups": [
+        "如何通过原型链实现继承?",
+        "Object.create()的作用是什么?"
+      ],
+      "source_excerpt": "JS核心:原型链、继承、闭包、作用域、执行上下文、this指向、call/apply/bind"
+    },
+    {
+      "question": "JavaScript中实现继承的几种方式,并比较优缺点。",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "继承",
+        "原型"
+      ],
+      "answer_points": [
+        "原型链继承:子类prototype指向父类的实例,缺点:引用类型共享、不能传参。",
+        "借用构造函数继承:在子类构造函数中调用父类构造函数,缺点:函数无法复用。",
+        "组合继承:结合原型链和借用构造函数,最常用,但会调用两次父类构造函数。",
+        "ES6 class extends语法糖,底层仍是原型链。"
+      ],
+      "follow_ups": [
+        "ES6继承与原型链继承的关系是什么?",
+        "如何实现寄生组合式继承?"
+      ],
+      "source_excerpt": "JS核心:原型链、继承、闭包、作用域、执行上下文、this指向、call/apply/bind"
+    },
+    {
+      "question": "什么是闭包?闭包有什么应用场景和潜在问题?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "闭包",
+        "作用域"
+      ],
+      "answer_points": [
+        "闭包是指能够访问自由变量的函数(自由变量是指在函数外部定义的变量,即使在外部函数执行后仍然被内部函数引用)。",
+        "闭包的常见应用:数据私有化、模拟块级作用域、高阶函数、模块模式。",
+        "闭包的潜在问题:内存泄漏(不再需要的变量被引用导致无法回收),需注意及时解除引用。"
+      ],
+      "follow_ups": [
+        "闭包是如何实现变量隐藏的?",
+        "如何避免闭包导致的内存泄漏?"
+      ],
+      "source_excerpt": "JS核心:原型链、继承、闭包、作用域、执行上下文、this指向、call/apply/bind"
+    },
+    {
+      "question": "解释JavaScript的执行上下文和作用域链。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "执行上下文",
+        "作用域链"
+      ],
+      "answer_points": [
+        "执行上下文是代码执行的环境,包含变量对象、作用域链和this。",
+        "JavaScript代码执行时会创建全局执行上下文和函数执行上下文。",
+        "作用域链由当前执行上下文的变量对象和所有父级执行上下文的变量对象组成,用于变量查找。",
+        "作用域链在函数定义时确定(静态作用域),而非调用时。"
+      ],
+      "follow_ups": [
+        "变量提升和函数提升有什么区别?",
+        "let和const的暂时性死区是什么?"
+      ],
+      "source_excerpt": "JS核心:原型链、继承、闭包、作用域、执行上下文、this指向、call/apply/bind"
+    },
+    {
+      "question": "JavaScript中this的指向规则有哪些?如何改变this指向?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "this",
+        "指向"
+      ],
+      "answer_points": [
+        "默认绑定:非严格模式下指向全局对象(window/global),严格模式下为undefined。",
+        "隐式绑定:作为对象方法调用时指向该对象。",
+        "显示绑定:通过call、apply、bind方法强制绑定this。",
+        "new绑定:通过new调用构造函数时,this指向新创建的对象。",
+        "箭头函数没有自己的this,继承外层作用域的this。"
+      ],
+      "follow_ups": [
+        "call、apply、bind三者的区别是什么?",
+        "箭头函数中的this为什么不能改变?"
+      ],
+      "source_excerpt": "JS核心:原型链、继承、闭包、作用域、执行上下文、this指向、call/apply/bind"
+    },
+    {
+      "question": "call、apply、bind的区别和使用场景。",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "call",
+        "apply",
+        "bind"
+      ],
+      "answer_points": [
+        "call和apply立即调用函数,第一个参数都是this指向,call后面接受参数列表,apply接受参数数组。",
+        "bind返回一个新函数,不会立即执行,可以预先绑定部分参数(柯里化)。",
+        "使用场景:call用于明确参数数量时,apply用于参数动态或数组形式,bind常用于事件回调、偏函数。"
+      ],
+      "follow_ups": [
+        "手动实现一个bind函数。",
+        "如何利用call/apply实现借用方法?"
+      ],
+      "source_excerpt": "JS核心:原型链、继承、闭包、作用域、执行上下文、this指向、call/apply/bind"
+    },
+    {
+      "question": "解释JavaScript的事件循环(Event Loop)机制。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "事件循环",
+        "Event Loop"
+      ],
+      "answer_points": [
+        "JavaScript是单线程语言,通过事件循环机制实现异步非阻塞。",
+        "执行栈(Call Stack)中执行同步任务,遇到异步任务(如setTimeout、Promise)将其放入任务队列。",
+        "任务分为宏任务(macrotask)和微任务(microtask),微任务优先级高于宏任务。",
+        "事件循环从宏任务开始,执行完一个宏任务后清空所有微任务,然后进行UI渲染(如果必要),再取下一个宏任务。"
+      ],
+      "follow_ups": [
+        "宏任务和微任务分别包括哪些API?",
+        "async/await在事件循环中如何执行?"
+      ],
+      "source_excerpt": "事件循环Event Loop:宏任务 vs 微任务、浏览器 vs Node.js Event Loop(必考)"
+    },
+    {
+      "question": "浏览器和Node.js的事件循环有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "senior",
+      "tags": [
+        "事件循环",
+        "Node.js"
+      ],
+      "answer_points": [
+        "浏览器事件循环基于HTML规范,宏任务队列、微任务队列和渲染步骤。",
+        "Node.js事件循环基于libuv,有多个阶段:timers、I/O callbacks、idle/prepare、poll、check、close callbacks。",
+        "Node.js中微任务在每个阶段之间执行,而非浏览器中每个宏任务之后。",
+        "Node.js 11+版本后行为与浏览器趋于一致,但仍有差异。"
+      ],
+      "follow_ups": [
+        "Node.js中process.nextTick和Promise的微任务执行顺序?",
+        "如何理解Node.js的setImmediate和setTimeout执行顺序?"
+      ],
+      "source_excerpt": "事件循环Event Loop:宏任务 vs 微任务、浏览器 vs Node.js Event Loop(必考)"
+    },
+    {
+      "question": "Promise有哪些状态?如何实现Promise链式调用?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Promise",
+        "异步"
+      ],
+      "answer_points": [
+        "Promise有三种状态:pending(进行中)、fulfilled(已成功)、rejected(已失败),状态一旦改变不可逆。",
+        "Promise.prototype.then方法返回一个新的Promise,从而实现链式调用。",
+        "链式调用中可以在then中返回一个值或另一个Promise,后续的then会接收该值或等待Promise完成。",
+        "catch用于捕获链中的错误,finally无论成功失败都会执行。"
+      ],
+      "follow_ups": [
+        "Promise.all、Promise.race、Promise.allSettled的区别?",
+        "如何手动实现一个简单的Promise?"
+      ],
+      "source_excerpt": "异步编程:Promise、async/await、Generator、异步并发控制"
+    },
+    {
+      "question": "async/await的原理是什么?与Promise相比有什么优势?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "async/await",
+        "Promise"
+      ],
+      "answer_points": [
+        "async函数返回一个Promise,await关键字等待一个Promise结果,使异步代码看起来像同步。",
+        "await实际上是将后续代码放入Promise的then回调中,内部使用生成器(Generator)和自动执行器。",
+        "优势:代码更直观,错误处理更简洁(try/catch),避免了回调地狱和链式调用的嵌套。"
+      ],
+      "follow_ups": [
+        "async/await中的错误如何捕获?",
+        "多个await如何并发执行?"
+      ],
+      "source_excerpt": "异步编程:Promise、async/await、Generator、异步并发控制"
+    },
+    {
+      "question": "什么是深拷贝和浅拷贝?如何实现一个深拷贝函数?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "深拷贝",
+        "浅拷贝"
+      ],
+      "answer_points": [
+        "浅拷贝只复制对象的第一层属性,对于引用类型只复制引用。",
+        "深拷贝递归复制所有层级的属性,生成完全独立的对象。",
+        "实现方法:JSON.parse(JSON.stringify(obj))(缺点:无法拷贝函数、undefined、Symbol、循环引用等);递归实现注意循环引用。",
+        "lodash的_.cloneDeep是常用的深拷贝函数。"
+      ],
+      "follow_ups": [
+        "浅拷贝有哪些方式?Object.assign和扩展运算符的区别?",
+        "如何处理循环引用对象的深拷贝?"
+      ],
+      "source_excerpt": "深拷贝/浅拷贝、防抖与节流、数组常用方法、函数柯里化"
+    },
+    {
+      "question": "什么是防抖和节流?分别的应用场景是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "防抖",
+        "节流"
+      ],
+      "answer_points": [
+        "防抖(debounce):在事件被触发n秒后再执行回调,如果n秒内又被触发,则重新计时。适用于输入框搜索、窗口resize等场景。",
+        "节流(throttle):规定一个单位时间,在这个时间内只执行一次回调。适用于滚动加载、按钮点击等场景。",
+        "防抖和节流都可以减少高频事件的触发频率,但防抖更严格,节流更平滑。"
+      ],
+      "follow_ups": [
+        "如何实现带立即执行版本和延迟执行版本的防抖?",
+        "节流有leading和trailing模式,分别是什么意思?"
+      ],
+      "source_excerpt": "深拷贝/浅拷贝、防抖与节流、数组常用方法、函数柯里化"
+    },
+    {
+      "question": "JavaScript的垃圾回收机制是什么?V8引擎如何实现分代回收?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "senior",
+      "tags": [
+        "垃圾回收",
+        "V8"
+      ],
+      "answer_points": [
+        "JavaScript通过自动垃圾回收管理内存,主要算法有标记-清除和引用计数。",
+        "V8将堆空间分为新生代(年轻代)和老生代,新生代使用Scavenge算法(标记-复制),老生代使用标记-整理算法。",
+        "新生代对象经过多次回收仍存活则晋升到老生代。",
+        "V8还引入了增量标记、惰性清扫、并发标记等优化,减少STW(全停顿)时间。"
+      ],
+      "follow_ups": [
+        "常见的JavaScript内存泄漏场景有哪些?如何排查?",
+        "V8中的隐藏类和内联缓存是什么?"
+      ],
+      "source_excerpt": "JS垃圾回收机制、V8垃圾回收、分代回收"
+    },
+    {
+      "question": "解释浏览器的重排(Reflow)和重绘(Repaint)及其优化方法。",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "重排",
+        "重绘",
+        "性能优化"
+      ],
+      "answer_points": [
+        "重排:当DOM几何属性(如宽高、位置)改变时,浏览器重新计算元素布局的过程。",
+        "重绘:当元素的样式不影响布局(如颜色、可见性)改变时,浏览器重新绘制的过程。",
+        "重排一定会触发重绘,重绘不一定触发重排。",
+        "优化:避免频繁操作样式,使用class切换代替style读写;读写分离;使用transform代替left/top;文档片段操作DOM。"
+      ],
+      "follow_ups": [
+        "如何强制触发重排?",
+        "requestAnimationFrame与setTimeout在动画中的区别?"
+      ],
+      "source_excerpt": "浏览器原理:渲染流程、重排重绘、浏览器缓存(强缓存/协商缓存)、XSS/CSRF攻击与防范"
+    },
+    {
+      "question": "什么是浏览器缓存?强缓存和协商缓存的区别是什么?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "浏览器缓存",
+        "强缓存",
+        "协商缓存"
+      ],
+      "answer_points": [
+        "浏览器缓存分为强缓存和协商缓存,由HTTP响应头控制。",
+        "强缓存(Cache-Control、Expires):直接使用本地缓存,不发送请求,状态码200(from cache)。",
+        "协商缓存(Last-Modified/Etag):向服务器发送请求校验缓存资源是否修改,服务器返回304 Not Modified则使用缓存。",
+        "优先级:强缓存优先于协商缓存。"
+      ],
+      "follow_ups": [
+        "Cache-Control有哪些指令?",
+        "ETag和Last-Modified的优缺点?"
+      ],
+      "source_excerpt": "浏览器原理:渲染流程、重排重绘、浏览器缓存(强缓存/协商缓存)、XSS/CSRF攻击与防范"
+    },
+    {
+      "question": "什么是XSS攻击?如何防范?",
+      "question_type": "concept",
+      "category": "security",
+      "difficulty": "mid",
+      "tags": [
+        "XSS",
+        "安全"
+      ],
+      "answer_points": [
+        "XSS(跨站脚本攻击)指攻击者将恶意脚本注入到网页中,在用户浏览时执行。",
+        "常见类型:存储型(数据持久化)、反射型(URL参数)、DOM型(客户端执行)。",
+        "防范:对用户输入进行转义或过滤;使用Content-Security-Policy头;设置HttpOnly Cookie。"
+      ],
+      "follow_ups": [
+        "CSRF攻击原理和防范措施?",
+        "如何预防SQL注入?"
+      ],
+      "source_excerpt": "浏览器原理:渲染流程、重排重绘、浏览器缓存(强缓存/协商缓存)、XSS/CSRF攻击与防范"
+    },
+    {
+      "question": "简述CSRF攻击的原理及防御方法。",
+      "question_type": "concept",
+      "category": "security",
+      "difficulty": "mid",
+      "tags": [
+        "CSRF",
+        "安全"
+      ],
+      "answer_points": [
+        "CSRF(跨站请求伪造)诱导用户点击链接,在用户已登录状态下向目标网站发送恶意请求。",
+        "防御:使用CSRF Token(验证请求来源);检查Referer/Origin头;设置SameSite Cookie属性。"
+      ],
+      "follow_ups": [
+        "如何区分XSS和CSRF?",
+        "前后端分离项目中如何防御CSRF?"
+      ],
+      "source_excerpt": "浏览器原理:渲染流程、重排重绘、浏览器缓存(强缓存/协商缓存)、XSS/CSRF攻击与防范"
+    },
+    {
+      "question": "TypeScript中的基础类型有哪些?如何定义自定义类型?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "类型"
+      ],
+      "answer_points": [
+        "基础类型:boolean、number、string、null、undefined、void、any、never、enum、元组、unknown。",
+        "自定义类型:通过interface定义对象类型,通过type创建类型别名,支持联合类型、交叉类型。",
+        "泛型可以帮助保持类型灵活性。"
+      ],
+      "follow_ups": [
+        "interface和type的区别是什么?",
+        "如何使用泛型约束?"
+      ],
+      "source_excerpt": "TypeScript核心:基础类型、接口、泛型、联合类型、类型守卫、类型体操、装饰器"
+    },
+    {
+      "question": "解释TypeScript中的泛型,并举例说明。",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "泛型"
+      ],
+      "answer_points": [
+        "泛型允许在定义函数、接口或类时不指定具体类型,而在使用时才确定类型。",
+        "例如:function identity<T>(arg: T): T { return arg; }",
+        "泛型可以提高代码的复用性和类型安全性。",
+        "支持泛型约束(extends)、泛型默认值。"
+      ],
+      "follow_ups": [
+        "泛型工具类型如Partial、Required、Pick等如何使用?",
+        "条件类型和映射类型是什么?"
+      ],
+      "source_excerpt": "TypeScript核心:基础类型、接口、泛型、联合类型、类型守卫、类型体操、装饰器"
+    },
+    {
+      "question": "Vue3的响应式原理是什么?与Vue2相比有什么改进?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue3",
+        "响应式",
+        "Proxy"
+      ],
+      "answer_points": [
+        "Vue3使用Proxy代替Vue2的Object.defineProperty,拦截对象属性的读取和设置。",
+        "Proxy可以拦截数组下标变化、对象新增和删除属性,无需使用Vue.set和Vue.delete。",
+        "Vue3的响应式系统支持懒收集依赖(Computed和Watch按需触发)。",
+        "通过ref和reactive创建响应式数据,ref用于基本类型,reactive用于对象。"
+      ],
+      "follow_ups": [
+        "Vue3中ref和reactive的区别是什么?什么时候使用?",
+        "Vue3的setup语法糖有什么优势?"
+      ],
+      "source_excerpt": "Vue3核心:组合式API、setup语法糖、响应式原理(Proxy)、ref/reactive、生命周期、Vue Router 4、Pinia状态管理、编译优化"
+    },
+    {
+      "question": "Vue3的组合式API(Composition API)与Vue2的选项式API相比有什么优势?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue3",
+        "组合式API"
+      ],
+      "answer_points": [
+        "组合式API允许按逻辑关注点组织代码,而非按选项类型(data、methods、computed)。",
+        "更好的逻辑复用:自定义组合函数(hooks)替代混入(mixins),避免命名冲突和来源不清。",
+        "更好的TypeScript类型推断支持。",
+        "在大型项目中更易于维护和测试。"
+      ],
+      "follow_ups": [
+        "如何在Vue3中实现逻辑复用?",
+        "setup函数中不能使用this,为什么?"
+      ],
+      "source_excerpt": "Vue3核心:组合式API、setup语法糖、响应式原理(Proxy)、ref/reactive、生命周期、Vue Router 4、Pinia状态管理、编译优化"
+    },
+    {
+      "question": "React的Fiber架构是什么?解决了什么问题?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "senior",
+      "tags": [
+        "React",
+        "Fiber",
+        "架构"
+      ],
+      "answer_points": [
+        "Fiber是React16引入的重构架构,将vDOM的递归更新改为可中断的链表结构。",
+        "每个Fiber节点对应一个虚拟DOM节点,记录了工作单元和链接,支持增量渲染。",
+        "解决了大型应用更新时长时间占用主线程导致页面卡顿的问题,实现了并发模式。",
+        "通过调度器(Scheduler)将更新任务分片执行,优先级高的更新可以中断低优先级更新。"
+      ],
+      "follow_ups": [
+        "React的调和(Reconciliation)算法是什么?",
+        "Fiber树与DOM树的关系?"
+      ],
+      "source_excerpt": "React18核心:JSX原理、Fiber架构、并发渲染、Hooks全家桶、状态管理(Redux Toolkit、Zustand)、React Router v6、Server Components"
+    },
+    {
+      "question": "React Hooks有哪些常用?解释useState和useEffect的原理。",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "React Hooks",
+        "useState",
+        "useEffect"
+      ],
+      "answer_points": [
+        "常用Hooks:useState、useEffect、useContext、useReducer、useRef、useMemo、useCallback。",
+        "useState返回一个状态值和更新函数,更新时触发组件重新渲染。",
+        "useEffect接受一个副作用函数和依赖数组,组件渲染后执行,清理函数会在组件卸载或依赖变化时执行。",
+        "Hooks依赖严格的调用顺序,不能在条件语句中使用。"
+      ],
+      "follow_ups": [
+        "useEffect的依赖数组如何工作?",
+        "useRef与普通变量的区别?"
+      ],
+      "source_excerpt": "React18核心:JSX原理、Fiber架构、并发渲染、Hooks全家桶、状态管理(Redux Toolkit、Zustand)、React Router v6、Server Components"
+    },
+    {
+      "question": "React中Server Components是什么?有什么优势?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "senior",
+      "tags": [
+        "React",
+        "Server Components"
+      ],
+      "answer_points": [
+        "Server Components是React18引入的概念,允许组件在服务器端渲染,减少客户端JavaScript。",
+        "优势:减少打包体积(服务端组件不发送到客户端)、直接访问后端资源(数据库、文件系统)、自动代码分割。",
+        "与客户端组件可以混合使用,切换明确。"
+      ],
+      "follow_ups": [
+        "Server Components与SSR有什么区别?",
+        "在Next.js中如何实现服务器组件?"
+      ],
+      "source_excerpt": "React18核心:JSX原理、Fiber架构、并发渲染、Hooks全家桶、状态管理(Redux Toolkit、Zustand)、React Router v6、Server Components"
+    },
+    {
+      "question": "比较Webpack和Vite的核心原理和优缺点。",
+      "question_type": "comparison",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "构建工具",
+        "Webpack",
+        "Vite"
+      ],
+      "answer_points": [
+        "Webpack基于打包,将所有模块打包成一个或几个bundle,支持丰富的loader和plugin。",
+        "Vite基于ES Module,开发环境利用浏览器原生模块加载,速度极快;生产环境使用Rollup打包。",
+        "Webpack适合大型复杂工程,配置灵活;Vite适合中小型项目,开发体验好。",
+        "Vite的热更新(HMR)速度远快于Webpack。"
+      ],
+      "follow_ups": [
+        "Vite的依赖预构建原理是什么?",
+        "Webpack的Tree Shaking如何工作?"
+      ],
+      "source_excerpt": "工程化:构建工具(Vite、Webpack、Turbopack)、模块化(CommonJS/ES Module)、代码规范、单元测试、CI/CD"
+    },
+    {
+      "question": "CommonJS和ES Module有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "模块化",
+        "CommonJS",
+        "ES Module"
+      ],
+      "answer_points": [
+        "CommonJS使用require/module.exports,同步加载,运行时执行。",
+        "ES Module使用import/export,静态分析,编译时确定依赖关系,支持异步加载。",
+        "ES Module有dead code elimination(摇树优化)天然支持,而CommonJS不易。",
+        "ES Module支持循环依赖处理(按需取值),CommonJS循环依赖可能导致空对象。"
+      ],
+      "follow_ups": [
+        "如何解决CommonJS和ES Module混用的问题?",
+        "import()动态加载的原理?"
+      ],
+      "source_excerpt": "工程化:构建工具(Vite、Webpack、Turbopack)、模块化(CommonJS/ES Module)、代码规范、单元测试、CI/CD"
+    },
+    {
+      "question": "Next.js/Nuxt.js的SSR、SSG、ISR有什么区别?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "SSR",
+        "SSG",
+        "ISR",
+        "Next.js",
+        "Nuxt.js"
+      ],
+      "answer_points": [
+        "SSR(服务端渲染):每次请求时在服务器生成HTML,适合动态内容。",
+        "SSG(静态站点生成):在构建时生成HTML,适合内容固定、访问量大的页面。",
+        "ISR(增量静态生成):结合SSG和SSR,允许在构建后按需重新生成部分页面,实现内容更新。",
+        "选择依据:内容更新频率、SEO需求、性能要求。"
+      ],
+      "follow_ups": [
+        "SSR的性能瓶颈是什么?如何优化?",
+        "在Next.js中如何启用ISR?"
+      ],
+      "source_excerpt": "全栈开发:Node.js、NestJS、Next.js/Nuxt.js SSR/SSG/ISR"
+    },
+    {
+      "question": "什么是WebAssembly?在前端有什么应用场景?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "WebAssembly",
+        "WASM"
+      ],
+      "answer_points": [
+        "WebAssembly是一种低级的二进制格式,可以在浏览器中接近原生速度运行。",
+        "通过将C/C++/Rust等代码编译为.wasm文件,实现高性能计算。",
+        "应用场景:图像/视频处理、游戏引擎、加密算法、虚拟现实、大型数据转换等。"
+      ],
+      "follow_ups": [
+        "WebAssembly与JavaScript如何交互?",
+        "WebAssembly在多线程方面的支持如何?"
+      ],
+      "source_excerpt": "WebAssembly核心原理、前端WASM应用、性能优化"
+    },
+    {
+      "question": "低代码平台的核心原理是什么?如何在前端实现?",
+      "question_type": "principle",
+      "category": "engineering",
+      "difficulty": "senior",
+      "tags": [
+        "低代码",
+        "前端架构"
+      ],
+      "answer_points": [
+        "低代码平台通过可视化拖拽和配置生成应用,减少手写代码量。",
+        "核心原理:数据结构描述(JSON Schema)、组件库、渲染引擎、属性面板和逻辑配置。",
+        "前端实现:使用动态组件渲染、递归组件嵌套、状态管理、插件系统。",
+        "常见技术栈:React/Vue + 组件库 + JSON驱动的UI渲染。"
+      ],
+      "follow_ups": [
+        "低代码平台如何处理复杂业务逻辑?",
+        "低代码平台的优缺点有哪些?"
+      ],
+      "source_excerpt": "低代码平台核心原理、前端安全、全链路性能优化"
+    }
+  ]
+}

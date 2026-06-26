@@ -1,0 +1,1299 @@
+{
+  "source_title": "大厂常考的软件测试面试题",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "按测试内容划分,测试有哪些种类?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "测试分类"
+      ],
+      "answer_points": [
+        "功能测试",
+        "性能测试",
+        "安全测试",
+        "兼容性测试",
+        "易用性测试",
+        "可靠性测试"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "按测试内容划分,测试有哪些种类?"
+    },
+    {
+      "question": "软件开发(测试)的流程是怎么样的?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "测试流程"
+      ],
+      "answer_points": [
+        "需求分析",
+        "测试计划",
+        "测试设计",
+        "测试执行",
+        "缺陷管理",
+        "测试报告"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "软件开发(测试)的流程是怎么样的?"
+    },
+    {
+      "question": "你印象最深刻的 bug 是?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "bug分析"
+      ],
+      "answer_points": [
+        "描述bug现象",
+        "分析原因",
+        "影响范围",
+        "如何发现",
+        "如何解决"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "你印象最深刻的 bug 是?"
+    },
+    {
+      "question": "谈谈你对 CI/CD 的理解?",
+      "question_type": "concept",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "CI/CD",
+        "持续集成",
+        "持续交付"
+      ],
+      "answer_points": [
+        "CI持续集成:频繁将代码合并到主干,自动构建和测试",
+        "CD持续交付:自动部署到生产环境",
+        "目的:提高交付效率和质量",
+        "常用工具:Jenkins、GitLab CI"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "谈谈你对 CI/CD 的理解"
+    },
+    {
+      "question": "谈谈你对 DevOps 的理解?",
+      "question_type": "concept",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "DevOps"
+      ],
+      "answer_points": [
+        "DevOps是开发与运维的结合",
+        "强调协作、自动化、监控",
+        "文化、实践和工具的结合",
+        "目标:缩短开发周期,持续交付"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "谈谈你对 DevOps 的理解"
+    },
+    {
+      "question": "什么是 BDD ? 什么是 TDD ?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "BDD",
+        "TDD"
+      ],
+      "answer_points": [
+        "TDD测试驱动开发:先写测试,再写代码",
+        "BDD行为驱动开发:基于用户行为描述测试场景",
+        "BDD更关注业务需求,TDD更关注代码质量"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "什么是 BDD ? 什么是 TDD ?"
+    },
+    {
+      "question": "APP的一个页面,你怎么区分是原生Native页面,还是H5?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "原生",
+        "H5",
+        "页面识别"
+      ],
+      "answer_points": [
+        "查看页面是否可复制文本",
+        "查看页面是否有加载进度条",
+        "断网后页面是否可显示",
+        "使用抓包工具查看请求"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "APP的一个页面,你怎么区分是原生Native页面,还是H5?"
+    },
+    {
+      "question": "黑盒测试的方法有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "黑盒测试"
+      ],
+      "answer_points": [
+        "等价类划分",
+        "边界值分析",
+        "因果图法",
+        "判定表法",
+        "正交实验法",
+        "场景法"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "黑盒测试的方法有哪些?"
+    },
+    {
+      "question": "白盒测试的方法有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "白盒测试"
+      ],
+      "answer_points": [
+        "语句覆盖",
+        "判定覆盖",
+        "条件覆盖",
+        "判定条件覆盖",
+        "条件组合覆盖",
+        "路径覆盖"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "白盒测试的方法有哪些?"
+    },
+    {
+      "question": "什么是单元测试?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "单元测试"
+      ],
+      "answer_points": [
+        "对软件最小可测试单元进行验证",
+        "通常由开发人员编写",
+        "目的是确保每个单元功能正确",
+        "常用框架:JUnit、pytest"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "什么是单元测试?"
+    },
+    {
+      "question": "什么是集成测试?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "集成测试"
+      ],
+      "answer_points": [
+        "将多个单元组合在一起测试",
+        "验证模块间的接口和交互",
+        "发现集成错误",
+        "通常在单元测试之后进行"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "什么是集成测试?"
+    },
+    {
+      "question": "测试用例怎么编写与设计?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "测试用例"
+      ],
+      "answer_points": [
+        "明确测试目的",
+        "确定测试步骤",
+        "设计测试数据",
+        "预期结果",
+        "使用等价类、边界值等方法"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "测试用例怎么编写与设计?"
+    },
+    {
+      "question": "什么是灰盒测试?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "灰盒测试"
+      ],
+      "answer_points": [
+        "介于黑盒和白盒之间",
+        "关注内部逻辑但不需要完全了解",
+        "通常用于集成测试"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "什么是灰盒测试?"
+    },
+    {
+      "question": "测试用例都包含哪些要素?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "测试用例要素"
+      ],
+      "answer_points": [
+        "用例编号",
+        "测试模块",
+        "测试标题",
+        "前置条件",
+        "测试步骤",
+        "预期结果"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "测试用例都包含哪些要素?"
+    },
+    {
+      "question": "测试报告需要展示哪些要素?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "测试报告"
+      ],
+      "answer_points": [
+        "测试概述",
+        "测试范围",
+        "测试结果统计",
+        "缺陷分析",
+        "风险评估",
+        "测试结论"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "测试报告需要展示哪些要素?"
+    },
+    {
+      "question": "测试排期应该怎么估算?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试排期"
+      ],
+      "answer_points": [
+        "根据需求复杂度",
+        "参考历史经验",
+        "考虑资源情况",
+        "预留缓冲时间",
+        "使用WBS分解任务"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "测试排期应该怎么估算?"
+    },
+    {
+      "question": "谈谈你构造数据的经历?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "数据构造"
+      ],
+      "answer_points": [
+        "使用SQL插入数据",
+        "调用API生成数据",
+        "使用测试数据工具",
+        "注意数据边界和异常"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "谈谈你构造数据的经历?"
+    },
+    {
+      "question": "举例说明,都有哪些功能可以用自动化来进行?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "自动化测试"
+      ],
+      "answer_points": [
+        "回归测试",
+        "冒烟测试",
+        "数据驱动测试",
+        "性能测试",
+        "重复性操作"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "举例说明,都有哪些功能可以用自动化来进行?"
+    },
+    {
+      "question": "如何判断一个功能能否进行自动化测试?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "自动化测试"
+      ],
+      "answer_points": [
+        "功能是否稳定",
+        "是否频繁回归",
+        "自动化成本与收益",
+        "是否有可用的测试工具"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "如何判断一个功能能否进行自动化测试?"
+    },
+    {
+      "question": "定位xpath路径都有哪些方法?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "xpath",
+        "定位"
+      ],
+      "answer_points": [
+        "绝对路径",
+        "相对路径",
+        "使用属性定位",
+        "使用文本定位",
+        "使用轴定位"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "定位xpath路径都有哪些方法?"
+    },
+    {
+      "question": "如何定位一个动态的元素?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "动态元素",
+        "定位"
+      ],
+      "answer_points": [
+        "使用相对路径",
+        "使用部分属性匹配",
+        "使用父元素或兄弟元素定位",
+        "使用等待机制"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "如何定位一个动态的元素?"
+    },
+    {
+      "question": "如何定位类似于悬浮在web页面上的元素(类似于web上飞来飞去的广告)?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "悬浮元素",
+        "定位"
+      ],
+      "answer_points": [
+        "使用JavaScript执行点击",
+        "使用ActionChains模拟鼠标操作",
+        "等待元素出现",
+        "使用坐标定位"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "如何定位类似于悬浮在web页面上的元素(类似于web上飞来飞去的广告)"
+    },
+    {
+      "question": "列举你知道的自动化测试工具?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "自动化测试工具"
+      ],
+      "answer_points": [
+        "Selenium",
+        "Appium",
+        "JUnit",
+        "TestNG",
+        "Pytest",
+        "Cypress"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "列举你知道的自动化测试工具"
+    },
+    {
+      "question": "聊聊 fiddler 的抓包原理?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "Fiddler",
+        "抓包"
+      ],
+      "answer_points": [
+        "作为代理服务器",
+        "拦截HTTP/HTTPS请求",
+        "修改请求和响应",
+        "支持解密HTTPS"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "聊聊 fiddler 的抓包原理"
+    },
+    {
+      "question": "fiddler 怎么抓取 https 请求?",
+      "question_type": "scenario",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "Fiddler",
+        "HTTPS"
+      ],
+      "answer_points": [
+        "安装Fiddler根证书",
+        "启用HTTPS解密",
+        "配置代理",
+        "信任证书"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "fiddler 怎么抓取 https 请求?"
+    },
+    {
+      "question": "wireshark 抓包的头部有什么?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "Wireshark",
+        "抓包"
+      ],
+      "answer_points": [
+        "以太网帧头",
+        "IP头部",
+        "TCP/UDP头部",
+        "应用层数据"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "wireshark 抓包的头部有什么?"
+    },
+    {
+      "question": "性能测试如何做的?",
+      "question_type": "scenario",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": [
+        "性能测试"
+      ],
+      "answer_points": [
+        "确定性能指标",
+        "设计测试场景",
+        "使用工具如JMeter",
+        "执行测试并监控",
+        "分析结果并调优"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "性能测试如何做的?"
+    },
+    {
+      "question": "性能测试需要关注哪些方面?",
+      "question_type": "concept",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": [
+        "性能测试"
+      ],
+      "answer_points": [
+        "响应时间",
+        "吞吐量",
+        "并发用户数",
+        "资源利用率",
+        "错误率"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "性能测试需要关注哪些方面?"
+    },
+    {
+      "question": "网页崩溃的原因是什么?",
+      "question_type": "scenario",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "网页崩溃"
+      ],
+      "answer_points": [
+        "内存泄漏",
+        "JavaScript错误",
+        "资源加载失败",
+        "浏览器兼容性问题",
+        "插件冲突"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "网页崩溃的原因是什么?"
+    },
+    {
+      "question": "有个用户反馈上传头像失败,分析原因?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "问题排查"
+      ],
+      "answer_points": [
+        "文件大小超限",
+        "文件格式不支持",
+        "网络问题",
+        "服务器错误",
+        "权限问题"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "有个用户反馈上传头像失败,分析原因?"
+    },
+    {
+      "question": "app闪退的原因?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "闪退"
+      ],
+      "answer_points": [
+        "内存不足",
+        "代码异常",
+        "系统兼容性",
+        "资源文件缺失",
+        "第三方SDK问题"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "app闪退的原因?"
+    },
+    {
+      "question": "偶然闪退的排查?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "闪退排查"
+      ],
+      "answer_points": [
+        "查看日志",
+        "复现条件",
+        "内存分析",
+        "线程问题",
+        "使用工具如LeakCanary"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "偶然闪退的排查?"
+    },
+    {
+      "question": "网页卡顿的原因是什么?",
+      "question_type": "scenario",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": [
+        "卡顿"
+      ],
+      "answer_points": [
+        "大量DOM操作",
+        "资源加载过多",
+        "JavaScript执行阻塞",
+        "网络延迟",
+        "内存泄漏"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "网页卡顿的原因是什么?"
+    },
+    {
+      "question": "10%的用户反馈用不了功能,你讲如何排查?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "问题排查"
+      ],
+      "answer_points": [
+        "收集用户信息",
+        "分析日志",
+        "检查版本差异",
+        "网络环境",
+        "设备兼容性"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "10%的用户反馈用不了功能,你讲如何排查?"
+    },
+    {
+      "question": "登录的按钮不能点击,如何排查问题?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "问题排查"
+      ],
+      "answer_points": [
+        "检查元素是否被遮挡",
+        "检查JavaScript错误",
+        "检查CSS样式",
+        "检查事件绑定",
+        "检查网络请求"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "登录的按钮不能点击,如何排查问题?"
+    },
+    {
+      "question": "压测的时候,QPS一直上不去,你会怎么排查?",
+      "question_type": "scenario",
+      "category": "performance",
+      "difficulty": "senior",
+      "tags": [
+        "压测",
+        "QPS"
+      ],
+      "answer_points": [
+        "检查服务器资源",
+        "检查数据库连接池",
+        "检查代码瓶颈",
+        "检查网络带宽",
+        "检查缓存策略"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "压测的时候,QPS一直上不去,你会怎么排查?"
+    },
+    {
+      "question": "APP提示无法连接网络,你会如何排查?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "网络问题"
+      ],
+      "answer_points": [
+        "检查网络权限",
+        "检查服务器状态",
+        "检查DNS解析",
+        "检查代理设置",
+        "检查防火墙"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "APP提示无法连接网络,你会如何排查?"
+    },
+    {
+      "question": "怎么判断一个BUG到底是前端的BUG还是后端的BUG?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "bug定位"
+      ],
+      "answer_points": [
+        "查看网络请求和响应",
+        "检查前端日志",
+        "检查后端日志",
+        "复现并分析",
+        "使用抓包工具"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "怎么判断一个BUG到底是前端的BUG还是后端的BUG?"
+    },
+    {
+      "question": "微博发动态,设计一下测试点?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "输入内容长度限制",
+        "图片上传功能",
+        "发布按钮状态",
+        "网络异常处理",
+        "发布后显示"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "微博发动态,设计一下测试点"
+    },
+    {
+      "question": "对一台自动售货机进行测试用例设计?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "投币功能",
+        "选择商品",
+        "找零功能",
+        "缺货处理",
+        "故障处理"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对一台自动售货机进行测试用例设计"
+    },
+    {
+      "question": "设计微信发红包测试用例?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "红包金额限制",
+        "红包个数限制",
+        "支付功能",
+        "领取功能",
+        "过期处理"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "设计微信发红包测试用例"
+    },
+    {
+      "question": "设计抖音直播功能测试用例?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "直播启动",
+        "画面和声音",
+        "互动功能",
+        "网络切换",
+        "直播结束"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "设计抖音直播功能测试用例"
+    },
+    {
+      "question": "设计微信扫码支付的测试用例?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "扫码识别",
+        "支付金额",
+        "支付方式",
+        "支付结果",
+        "异常处理"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "设计微信扫码支付的测试用例"
+    },
+    {
+      "question": "设计百度首页的测试用例?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "搜索功能",
+        "链接跳转",
+        "页面加载",
+        "兼容性",
+        "安全性"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "设计百度首页的测试用例"
+    },
+    {
+      "question": "微信的点赞功能怎么测试?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "点赞和取消点赞",
+        "点赞数更新",
+        "点赞通知",
+        "并发点赞",
+        "网络异常"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "微信的点赞功能怎么测试?"
+    },
+    {
+      "question": "微信红包是先计算每个人能获得的钱还是当这个人点了再计算。",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "红包逻辑"
+      ],
+      "answer_points": [
+        "先计算每个人能获得的钱",
+        "采用预分配策略",
+        "点开时显示金额",
+        "避免并发问题"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "微信红包是先计算每个人能获得的钱还是当这个人点了再计算。"
+    },
+    {
+      "question": "微信朋友圈评论功能怎么测试?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "评论输入",
+        "评论显示",
+        "删除评论",
+        "回复评论",
+        "评论通知"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "微信朋友圈评论功能怎么测试?"
+    },
+    {
+      "question": "微信上线一个新的好友推荐功能功能如何测试?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "推荐算法准确性",
+        "推荐列表显示",
+        "添加好友功能",
+        "隐私设置",
+        "性能测试"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "微信上线一个新的好友推荐功能功能如何测试?"
+    },
+    {
+      "question": "测试微信换头像功能,设计测试用例?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "选择图片",
+        "裁剪功能",
+        "上传功能",
+        "头像显示",
+        "异常处理"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "测试微信换头像功能,设计测试用例"
+    },
+    {
+      "question": "抖音视频的安全性测试,测试点有哪些?",
+      "question_type": "scenario",
+      "category": "security",
+      "difficulty": "mid",
+      "tags": [
+        "安全测试"
+      ],
+      "answer_points": [
+        "内容审核",
+        "用户隐私",
+        "数据加密",
+        "防篡改",
+        "权限控制"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "抖音视频的安全性测试,测试点有哪些?"
+    },
+    {
+      "question": "如果手机浏览器输入 baidu.com打不开页面,你会怎么排查?",
+      "question_type": "scenario",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "问题排查"
+      ],
+      "answer_points": [
+        "检查网络连接",
+        "检查DNS解析",
+        "检查浏览器设置",
+        "检查服务器状态",
+        "使用其他设备测试"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "如果手机浏览器输入 baidu.com打不开页面,你会怎么排查?"
+    },
+    {
+      "question": "设计输入框测试用例?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "输入长度限制",
+        "输入类型验证",
+        "特殊字符处理",
+        "边界值测试",
+        "必填项验证"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "设计输入框测试用例?"
+    },
+    {
+      "question": "编写一个登录界面的测试用例?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "正确用户名密码",
+        "错误用户名密码",
+        "空输入",
+        "密码显示隐藏",
+        "记住密码功能"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "编写一个登录界面的测试用例?"
+    },
+    {
+      "question": "对一个接口编写测试用例?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "接口测试"
+      ],
+      "answer_points": [
+        "正常参数",
+        "异常参数",
+        "边界值",
+        "鉴权测试",
+        "响应时间"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "对一个接口编写测试用例"
+    },
+    {
+      "question": "搜索功能怎么测试?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "测试用例设计"
+      ],
+      "answer_points": [
+        "搜索关键词",
+        "搜索结果",
+        "搜索建议",
+        "搜索历史",
+        "性能测试"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "搜索功能怎么测试?"
+    },
+    {
+      "question": "什么是多态?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "多态"
+      ],
+      "answer_points": [
+        "同一操作作用于不同对象产生不同结果",
+        "通过继承和接口实现",
+        "分为编译时多态和运行时多态"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "什么是多态?"
+    },
+    {
+      "question": "什么是GC?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "GC"
+      ],
+      "answer_points": [
+        "垃圾回收",
+        "自动回收不再使用的对象",
+        "避免内存泄漏",
+        "常见算法:标记清除、复制、标记整理"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "什么是GC?"
+    },
+    {
+      "question": "set 与 hashset 的区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "集合"
+      ],
+      "answer_points": [
+        "Set是接口,HashSet是实现类",
+        "HashSet基于HashMap实现",
+        "HashSet允许null元素",
+        "HashSet无序"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "set 与 hashset 的区别"
+    },
+    {
+      "question": "map 与 hashmap 的区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "集合"
+      ],
+      "answer_points": [
+        "Map是接口,HashMap是实现类",
+        "HashMap基于哈希表",
+        "HashMap允许null键和值",
+        "HashMap非线程安全"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "map 与 hashmap 的区别"
+    },
+    {
+      "question": "hashmap 的查找,删除,添加的时间复杂度?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Java",
+        "HashMap"
+      ],
+      "answer_points": [
+        "平均O(1)",
+        "最坏O(n)(哈希冲突严重时)",
+        "依赖于哈希函数和负载因子"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "hashmap 的查找,删除,添加的时间复杂度"
+    },
+    {
+      "question": "查找所有java进程?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "命令"
+      ],
+      "answer_points": [
+        "使用ps -ef | grep java",
+        "使用jps命令",
+        "Windows下使用tasklist"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "查找所有java进程"
+    },
+    {
+      "question": "杀死java进程?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "命令"
+      ],
+      "answer_points": [
+        "使用kill -9 PID",
+        "使用jps找到PID",
+        "Windows下使用taskkill"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "杀死java进程"
+    },
+    {
+      "question": "介绍一下 java 的拷贝、四种引用?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Java",
+        "引用"
+      ],
+      "answer_points": [
+        "强引用:不会被回收",
+        "软引用:内存不足时回收",
+        "弱引用:下次GC回收",
+        "虚引用:用于跟踪对象回收"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "介绍一下 java 的拷贝、四种引用"
+    },
+    {
+      "question": "java容器有哪些?简要介绍一下 java 的数组和链表?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "容器"
+      ],
+      "answer_points": [
+        "List、Set、Map",
+        "数组:连续内存,随机访问快",
+        "链表:非连续,插入删除快"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "java容器有哪些?简要介绍一下 java 的数组和链表"
+    },
+    {
+      "question": "谈谈你对 java 集合了解多少?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "集合"
+      ],
+      "answer_points": [
+        "Collection接口:List、Set",
+        "Map接口:HashMap、TreeMap",
+        "常用实现类",
+        "线程安全集合"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "谈谈你对 java 集合了解多少?"
+    },
+    {
+      "question": "Java 三大特性是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "特性"
+      ],
+      "answer_points": [
+        "封装",
+        "继承",
+        "多态"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Java 三大特性是什么?"
+    },
+    {
+      "question": "List 和 Map 有什么区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "集合"
+      ],
+      "answer_points": [
+        "List存储有序元素,可重复",
+        "Map存储键值对,键唯一",
+        "List通过索引访问",
+        "Map通过键访问"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "List 和 Map 有什么区别?"
+    },
+    {
+      "question": "谈谈 List、Set、Map的区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "集合"
+      ],
+      "answer_points": [
+        "List有序可重复",
+        "Set无序不可重复",
+        "Map键值对,键唯一"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "谈谈 List、Set、Map的区别?"
+    },
+    {
+      "question": "重写与重载的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "重写",
+        "重载"
+      ],
+      "answer_points": [
+        "重写发生在父子类,方法签名相同",
+        "重载发生在同类,方法名相同参数不同",
+        "重写是运行时多态,重载是编译时多态"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "重写与重载的区别是什么?"
+    },
+    {
+      "question": "HashMap 和 HashTable 的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Java",
+        "HashMap",
+        "HashTable"
+      ],
+      "answer_points": [
+        "HashMap非线程安全,HashTable线程安全",
+        "HashMap允许null键值,HashTable不允许",
+        "HashMap效率更高",
+        "HashMap初始容量16,HashTable11"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "HashMap 和 HashTable 的区别是什么?"
+    },
+    {
+      "question": "ArrayList 和 LinkedList 的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "Java",
+        "ArrayList",
+        "LinkedList"
+      ],
+      "answer_points": [
+        "ArrayList基于数组,LinkedList基于链表",
+        "ArrayList随机访问快,LinkedList插入删除快",
+        "ArrayList内存连续,LinkedList非连续"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "ArrayList 和 LinkedList 的区别是什么?"
+    },
+    {
+      "question": "Map 的 put 方法?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "Java",
+        "Map"
+      ],
+      "answer_points": [
+        "计算key的哈希值",
+        "定位桶位置",
+        "处理哈希冲突",
+        "插入或更新键值对"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "Map 的 put 方法"
+    }
+  ]
+}

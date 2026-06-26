@@ -1,0 +1,869 @@
+{
+  "source_title": "2026 前端面试八股文",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "JavaScript 基本数据类型有哪些?引用类型有哪些?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数据类型"
+      ],
+      "answer_points": [
+        "基本类型:String、Number、Boolean、Null、Undefined、Symbol、BigInt",
+        "引用类型:Object、Array、Function、RegExp、Date"
+      ],
+      "follow_ups": [
+        "基本类型和引用类型在内存存储上有什么区别?"
+      ],
+      "source_excerpt": "基本数据类型(7种):String、Number、Boolean、Null、Undefined、Symbol、BigInt。引用类型:Object、Array、Function、RegExp、Date。"
+    },
+    {
+      "question": "基本类型和引用类型的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数据类型",
+        "内存"
+      ],
+      "answer_points": [
+        "基本类型:值传递,存在栈内存",
+        "引用类型:地址引用,栈存地址,堆存数据"
+      ],
+      "follow_ups": [
+        "如何判断一个值是基本类型还是引用类型?"
+      ],
+      "source_excerpt": "区别:基本类型:值传递,存在栈内存;引用类型:地址引用,栈存地址,堆存数据。"
+    },
+    {
+      "question": "null 和 undefined 的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数据类型",
+        "null",
+        "undefined"
+      ],
+      "answer_points": [
+        "undefined:变量声明未赋值、函数无返回、对象不存在属性",
+        "null:手动置空,代表空对象",
+        "共同点:都表示“无”,== 相等,=== 不等"
+      ],
+      "follow_ups": [
+        "如何判断一个变量是 null 还是 undefined?"
+      ],
+      "source_excerpt": "undefined:变量声明未赋值、函数无返回、对象不存在属性;null:手动置空,代表空对象;共同点:都表示“无”,== 相等,=== 不等。"
+    },
+    {
+      "question": "var、let、const 的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "变量声明",
+        "作用域"
+      ],
+      "answer_points": [
+        "var:函数作用域、变量提升、可重复声明、可修改、挂载window",
+        "let:块级作用域、无变量提升、暂时性死区、不可重复声明",
+        "const:同let,声明必须赋值、不可修改引用地址"
+      ],
+      "follow_ups": [
+        "什么是暂时性死区?"
+      ],
+      "source_excerpt": "var:函数作用域、变量提升、可重复声明、可修改、挂载window;let:块级作用域、无变量提升、暂时性死区、不可重复声明;const:同let,声明必须赋值、不可修改引用地址。"
+    },
+    {
+      "question": "什么是暂时性死区(TDZ)?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "变量声明",
+        "作用域"
+      ],
+      "answer_points": [
+        "块级作用域内,let/const 声明之前不能访问,否则报错"
+      ],
+      "follow_ups": [
+        "暂时性死区与变量提升有什么关系?"
+      ],
+      "source_excerpt": "暂时性死区TDZ:块级作用域内,let/const 声明之前不能访问,否则报错。"
+    },
+    {
+      "question": "什么是作用域链?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "作用域",
+        "作用域链"
+      ],
+      "answer_points": [
+        "当前作用域 → 逐层向上查找变量,直到全局"
+      ],
+      "follow_ups": [
+        "作用域链与闭包有什么关系?"
+      ],
+      "source_excerpt": "作用域链:当前作用域 → 逐层向上查找变量,直到全局。"
+    },
+    {
+      "question": "什么是闭包?闭包的用途和缺点是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "闭包"
+      ],
+      "answer_points": [
+        "内层函数引用外层函数变量,外层执行后变量不销毁",
+        "用途:私有变量、缓存、防抖节流、模块化",
+        "缺点:容易内存泄漏"
+      ],
+      "follow_ups": [
+        "如何避免闭包导致的内存泄漏?"
+      ],
+      "source_excerpt": "闭包:内层函数引用外层函数变量,外层执行后变量不销毁。闭包用途:私有变量、缓存、防抖节流、模块化。闭包缺点:容易内存泄漏。"
+    },
+    {
+      "question": "this 指向的 5 种场景是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "this"
+      ],
+      "answer_points": [
+        "普通函数调用:this → window(严格模式undefined)",
+        "对象方法调用:this → 调用者对象",
+        "构造函数new:this → 实例对象",
+        "箭头函数:无自身this,继承外层作用域this",
+        "call/apply/bind:手动绑定this"
+      ],
+      "follow_ups": [
+        "箭头函数的 this 为什么不能通过 call/apply/bind 改变?"
+      ],
+      "source_excerpt": "普通函数调用:this → window(严格模式undefined);对象方法调用:this → 调用者对象;构造函数new:this → 实例对象;箭头函数:无自身this,继承外层作用域this;call/apply/bind:手动绑定this。"
+    },
+    {
+      "question": "call、apply、bind 的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "this",
+        "call",
+        "apply",
+        "bind"
+      ],
+      "answer_points": [
+        "作用:改变函数this指向",
+        "call:参数逐个传,立即执行",
+        "apply:参数数组传,立即执行",
+        "bind:返回新函数,不立即执行,可延迟调用"
+      ],
+      "follow_ups": [
+        "手写一个 bind 函数"
+      ],
+      "source_excerpt": "call:参数逐个传,立即执行;apply:参数数组传,立即执行;bind:返回新函数,不立即执行,可延迟调用。"
+    },
+    {
+      "question": "什么是原型和原型链?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "原型",
+        "原型链"
+      ],
+      "answer_points": [
+        "构造函数 Person() 自带 prototype 原型对象",
+        "实例 new Person() 自带 __proto__ 指向构造函数 prototype",
+        "原型链:实例.__proto__ → 构造原型 → Object.prototype → null",
+        "instanceof 原理:沿着原型链查找是否为该构造函数实例"
+      ],
+      "follow_ups": [
+        "如何实现原型继承?"
+      ],
+      "source_excerpt": "构造函数:Person() 自带 prototype 原型对象;实例:new Person() 自带 __proto__ 指向构造函数 prototype;原型链:实例.__proto__ → 构造原型 → Object.prototype → null;instanceof 原理:沿着原型链查找是否为该构造函数实例。"
+    },
+    {
+      "question": "箭头函数和普通函数的区别有哪些?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "箭头函数"
+      ],
+      "answer_points": [
+        "无自己this,继承外层this",
+        "不能作为构造函数,不能new",
+        "无arguments,用剩余参数 ...args",
+        "无prototype原型",
+        "不支持call/apply/bind改变this"
+      ],
+      "follow_ups": [
+        "箭头函数适合在什么场景下使用?"
+      ],
+      "source_excerpt": "无自己this,继承外层this;不能作为构造函数,不能new;无arguments,用剩余参数...args;无prototype原型;不支持call/apply/bind改变this。"
+    },
+    {
+      "question": "数组常用方法中,哪些会改变原数组?哪些不会?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数组",
+        "方法"
+      ],
+      "answer_points": [
+        "改变原数组:push、pop、shift、unshift、splice、sort、reverse",
+        "不改变原数组:map、filter、reduce、forEach、find、findIndex、every、some、slice、concat、join"
+      ],
+      "follow_ups": [
+        "如何实现数组去重?"
+      ],
+      "source_excerpt": "改变原数组:push pop shift unshift splice sort reverse;不改变原数组:map filter reduce forEach find findIndex every some slice concat join。"
+    },
+    {
+      "question": "forEach、for...in、for...of、map 遍历方式的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "遍历",
+        "数组"
+      ],
+      "answer_points": [
+        "forEach:不能break、return无效",
+        "for...in:遍历可枚举属性,包括原型属性",
+        "for...of:遍历迭代器,支持break/continue,推荐遍历数组",
+        "map:返回新数组,适合映射加工"
+      ],
+      "follow_ups": [
+        "for...of 可以遍历对象吗?如何遍历对象?"
+      ],
+      "source_excerpt": "forEach:不能break、return无效;for...in:遍历可枚举属性,包括原型属性;for...of:遍历迭代器,支持break/continue,推荐遍历数组;map:返回新数组,适合映射加工。"
+    },
+    {
+      "question": "什么是浅拷贝?什么是深拷贝?如何实现?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "拷贝",
+        "深拷贝",
+        "浅拷贝"
+      ],
+      "answer_points": [
+        "浅拷贝:只拷贝第一层,引用类型共享地址;方式:Object.assign()、扩展运算符...、slice、concat",
+        "深拷贝:完全独立,互不影响;简易:JSON.parse(JSON.stringify()),缺点:丢失函数、正则、Symbol、循环引用、undefined",
+        "手写深拷贝:递归遍历,判断类型处理数组、对象、正则、日期"
+      ],
+      "follow_ups": [
+        "如何解决 JSON.parse(JSON.stringify()) 的缺点?"
+      ],
+      "source_excerpt": "浅拷贝:只拷贝第一层,引用类型共享地址;方式:Object.assign()、扩展运算符...、slice、concat。深拷贝:完全独立,互不影响;简易:JSON.parse(JSON.stringify());缺点:丢失函数、正则、Symbol、循环引用、undefined;手写深拷贝:递归遍历,判断类型处理数组、对象、正则、日期。"
+    },
+    {
+      "question": "JavaScript 异步发展历程是怎样的?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "异步"
+      ],
+      "answer_points": [
+        "回调函数 → Promise → Generator → async/await"
+      ],
+      "follow_ups": [
+        "为什么需要 async/await?"
+      ],
+      "source_excerpt": "回调函数 → Promise → Generator → async/await。"
+    },
+    {
+      "question": "Promise 的三种状态和特点是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Promise"
+      ],
+      "answer_points": [
+        "三种状态:pending(进行中)、fulfilled(成功)、rejected(失败)",
+        "特点:状态一旦改变不可逆"
+      ],
+      "follow_ups": [
+        "Promise 如何实现链式调用?"
+      ],
+      "source_excerpt": "三种状态:pending(进行中)、fulfilled(成功)、rejected(失败);特点:状态一旦改变不可逆。"
+    },
+    {
+      "question": "Promise 的常用 API 有哪些?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "Promise"
+      ],
+      "answer_points": [
+        "then、catch、finally、all、race、allSettled、resolve、reject",
+        "Promise.all:全部成功才成功,一个失败直接失败",
+        "Promise.race:谁先完成就返回谁",
+        "Promise.allSettled:全部执行完,不管成功失败"
+      ],
+      "follow_ups": [
+        "Promise.all 和 Promise.allSettled 有什么区别?"
+      ],
+      "source_excerpt": "then、catch、finally、all、race、allSettled、resolve、reject。Promise.all:全部成功才成功,一个失败直接失败;Promise.race:谁先完成就返回谁;Promise.allSettled:全部执行完,不管成功失败。"
+    },
+    {
+      "question": "什么是宏任务和微任务?事件循环的执行顺序是怎样的?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "事件循环",
+        "宏任务",
+        "微任务"
+      ],
+      "answer_points": [
+        "微任务(优先级高):Promise.then/catch、async/await、queueMicrotask、MutationObserver",
+        "宏任务:script整体代码、setTimeout、setInterval、AJAX、DOM事件、IO操作",
+        "执行顺序:同步代码 → 清空所有微任务 → 执行一个宏任务 → 再清空微任务,循环往复"
+      ],
+      "follow_ups": [
+        "async/await 在事件循环中是如何处理的?"
+      ],
+      "source_excerpt": "微任务(优先级高):Promise.then/catch、async/await、queueMicrotask、MutationObserver;宏任务:script整体代码、setTimeout、setInterval、AJAX、DOM事件、IO操作;执行顺序:同步代码 → 清空所有微任务 → 执行一个宏任务 → 再清空微任务,循环往复。"
+    },
+    {
+      "question": "async/await 的原理是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "async/await"
+      ],
+      "answer_points": [
+        "async 函数默认返回 Promise",
+        "await 暂停执行,等待 Promise 完成",
+        "本质:Generator + Promise 语法糖",
+        "错误捕获:try/catch"
+      ],
+      "follow_ups": [
+        "async/await 与 Promise 相比有什么优势?"
+      ],
+      "source_excerpt": "async 函数默认返回 Promise;await 暂停执行,等待 Promise 完成;本质:Generator + Promise 语法糖;错误捕获:try/catch。"
+    },
+    {
+      "question": "什么是防抖和节流?它们的使用场景是什么?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "防抖",
+        "节流"
+      ],
+      "answer_points": [
+        "防抖:频繁触发,停止触发后 n 秒才执行一次;适用:搜索框输入、窗口resize、输入框联想",
+        "节流:固定时间内只执行一次;适用:滚动监听、鼠标移动、高频点击、拖拽"
+      ],
+      "follow_ups": [
+        "手写防抖和节流函数"
+      ],
+      "source_excerpt": "防抖:频繁触发,停止触发后 n 秒才执行一次;适用:搜索框输入、窗口resize、输入框联想。节流:固定时间内只执行一次;适用:滚动监听、鼠标移动、高频点击、拖拽。"
+    },
+    {
+      "question": "浏览器的垃圾回收机制有哪些?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "垃圾回收"
+      ],
+      "answer_points": [
+        "引用计数:引用为0就回收,缺点:循环引用无法回收",
+        "标记清除:从根对象标记可达对象,不可达则回收(主流)"
+      ],
+      "follow_ups": [
+        "如何避免内存泄漏?"
+      ],
+      "source_excerpt": "引用计数:引用为0就回收,缺点:循环引用无法回收;标记清除:从根对象标记可达对象,不可达则回收(主流)。"
+    },
+    {
+      "question": "常见的内存泄漏场景有哪些?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "内存泄漏"
+      ],
+      "answer_points": [
+        "全局变量过多",
+        "闭包未释放",
+        "定时器未清除",
+        "事件监听未解绑",
+        "DOM引用未清空"
+      ],
+      "follow_ups": [
+        "如何检测内存泄漏?"
+      ],
+      "source_excerpt": "全局变量过多、闭包未释放、定时器未清除、事件监听未解绑、DOM引用未清空。"
+    },
+    {
+      "question": "ES6 的解构赋值有哪些用法?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "解构赋值"
+      ],
+      "answer_points": [
+        "数组解构、对象解构、默认值、剩余解构"
+      ],
+      "follow_ups": [
+        "解构赋值的原理是什么?"
+      ],
+      "source_excerpt": "解构赋值:数组解构、对象解构、默认值、剩余解构。"
+    },
+    {
+      "question": "Set 和 Map 的特点是什么?",
+      "question_type": "comparison",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "Set",
+        "Map"
+      ],
+      "answer_points": [
+        "Set:数组去重,元素唯一",
+        "Map:键可以是引用类型,遍历更友好"
+      ],
+      "follow_ups": [
+        "WeakSet 和 WeakMap 与 Set、Map 有什么区别?"
+      ],
+      "source_excerpt": "Set:数组去重,元素唯一;Map:键可以是引用类型,遍历更友好。"
+    },
+    {
+      "question": "ES6 的 class 如何实现继承?",
+      "question_type": "principle",
+      "category": "es6",
+      "difficulty": "mid",
+      "tags": [
+        "class",
+        "继承"
+      ],
+      "answer_points": [
+        "使用 extends 关键字",
+        "子类 constructor 中调用 super()",
+        "静态属性使用 static"
+      ],
+      "follow_ups": [
+        "class 继承与原型链继承有什么区别?"
+      ],
+      "source_excerpt": "class 类:constructor、继承extends、super静态属性static。"
+    },
+    {
+      "question": "ES6 模块化中 export default 和 export 的区别是什么?",
+      "question_type": "comparison",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "模块化"
+      ],
+      "answer_points": [
+        "export default 默认导出,一个模块只能有一个",
+        "export 命名导出,可以多个",
+        "导入方式不同:import xxx from 和 import { xxx } from"
+      ],
+      "follow_ups": [
+        "ES6 模块与 CommonJS 模块有什么区别?"
+      ],
+      "source_excerpt": "模块化:import / export default / export 命名导出。"
+    },
+    {
+      "question": "可选链 ?. 和空值合并 ?? 的作用是什么?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "可选链",
+        "空值合并"
+      ],
+      "answer_points": [
+        "可选链 ?.:安全访问深层嵌套属性,避免报错",
+        "空值合并 ??:当左侧为 null 或 undefined 时返回右侧值"
+      ],
+      "follow_ups": [
+        "可选链与逻辑与 && 有什么区别?"
+      ],
+      "source_excerpt": "可选链 ?. 、空值合并 ??。"
+    },
+    {
+      "question": "从输入 URL 到页面展示的全过程是什么?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "浏览器",
+        "加载过程"
+      ],
+      "answer_points": [
+        "DNS 域名解析(域名→IP)",
+        "TCP 三次握手建立连接",
+        "HTTPS TLS 安全握手",
+        "发送 HTTP 请求",
+        "服务器返回响应报文",
+        "浏览器解析HTML → 生成DOM树",
+        "解析CSS → 生成CSSOM树",
+        "合成渲染树 Render Tree",
+        "布局 Layout(回流)",
+        "绘制 Paint(重绘)",
+        "分层合成 Composite"
+      ],
+      "follow_ups": [
+        "在这个过程中如何优化性能?"
+      ],
+      "source_excerpt": "DNS 域名解析(域名→IP);TCP 三次握手建立连接;HTTPS TLS 安全握手;发送 HTTP 请求;服务器返回响应报文;浏览器解析HTML → 生成DOM树;解析CSS → 生成CSSOM树;合成渲染树 Render Tree;布局 Layout(回流);绘制 Paint(重绘);分层合成 Composite。"
+    },
+    {
+      "question": "什么是回流(重排)和重绘?触发回流的场景有哪些?如何优化?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "回流",
+        "重绘"
+      ],
+      "answer_points": [
+        "回流:元素布局、宽高、位置、隐藏变化,重新计算布局,开销大",
+        "重绘:仅颜色、背景、文字样式变化,不改变布局",
+        "触发回流场景:修改宽高、margin、padding、display、获取offset/scroll/client系列属性",
+        "优化:批量DOM操作,先离线修改再插入页面;用 transform/opacity 做动画;避免频繁读取布局属性,缓存值"
+      ],
+      "follow_ups": [
+        "如何强制触发回流?"
+      ],
+      "source_excerpt": "回流:元素布局、宽高、位置、隐藏变化,重新计算布局,开销大;重绘:仅颜色、背景、文字样式变化,不改变布局。触发回流场景:修改宽高、margin、padding、display、获取offset/scroll/client系列属性。优化:批量DOM操作,先离线修改再插入页面;用 transform/opacity 做动画;避免频繁读取布局属性,缓存值。"
+    },
+    {
+      "question": "浏览器缓存机制中,强缓存和协商缓存分别是什么?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "缓存"
+      ],
+      "answer_points": [
+        "强缓存(不发请求,直接用本地):Expires(绝对时间,受本地时间影响)、Cache-Control: max-age=xxx(相对时间,优先级更高)",
+        "协商缓存(发请求,服务端比对):Last-Modified/If-Modified-Since(文件修改时间)、ETag/If-None-Match(文件唯一标识,优先级更高),命中返回304"
+      ],
+      "follow_ups": [
+        "如何设置强缓存和协商缓存?"
+      ],
+      "source_excerpt": "强缓存(不发请求,直接用本地):Expires:绝对时间,受本地时间影响;Cache-Control: max-age=xxx 相对时间,优先级更高。协商缓存(发请求,服务端比对):Last-Modified / If-Modified-Since (文件修改时间);ETag / If-None-Match (文件唯一标识,优先级更高);命中返回 304,使用本地缓存。"
+    },
+    {
+      "question": "什么是跨域?有哪些解决方案?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "跨域"
+      ],
+      "answer_points": [
+        "同源策略:协议、域名、端口有一个不同即为跨域",
+        "解决方案:CORS(后端配置响应头,主流)、JSONP(仅支持GET)、Nginx反向代理、本地开发devServer代理、postMessage、WebSocket、后端接口中转"
+      ],
+      "follow_ups": [
+        "CORS 中简单请求和复杂请求的区别是什么?"
+      ],
+      "source_excerpt": "同源策略:协议、域名、端口有一个不同即为跨域。跨域方案:CORS 后端配置响应头(主流);JSONP 仅支持GET,兼容性好;Nginx 反向代理;本地开发 devServer 代理;postMessage 跨页面通信;WebSocket 天然不受跨域限制;后端接口中转。"
+    },
+    {
+      "question": "localStorage、sessionStorage、cookie、indexedDB 的区别是什么?",
+      "question_type": "comparison",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "存储"
+      ],
+      "answer_points": [
+        "容量:localStorage/sessionStorage 约5M,cookie 4K,indexedDB 超大",
+        "有效期:localStorage 永久,sessionStorage 标签关闭失效,cookie 可设置过期,indexedDB 永久",
+        "自动带请求:cookie 是,其他否",
+        "操作端:localStorage/sessionStorage/indexedDB 前端,cookie 前后端",
+        "适用:localStorage 普通本地存储,sessionStorage 临时会话,cookie 登录态/token,indexedDB 大量离线数据"
+      ],
+      "follow_ups": [
+        "如何实现跨标签页通信?"
+      ],
+      "source_excerpt": "特性 localStorage sessionStorage cookie indexedDB;容量 约5M 约5M 4K 超大;有效期 永久 标签关闭失效 可设置过期 永久;自动带请求 否 否 是 否;操作端 前端 前端 前后端 前端;适用 普通本地存储 临时会话 登录态、token 大量离线数据。"
+    },
+    {
+      "question": "浏览器渲染流水线是怎样的?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "渲染"
+      ],
+      "answer_points": [
+        "构建DOM → 构建CSSOM → 渲染树 → 布局 → 绘制 → 合成"
+      ],
+      "follow_ups": [
+        "渲染过程中哪些步骤会阻塞渲染?"
+      ],
+      "source_excerpt": "浏览器渲染流水线:构建DOM → 构建CSSOM → 渲染树 → 布局 → 绘制 → 合成。"
+    },
+    {
+      "question": "HTTP1.0、HTTP1.1、HTTP2.0、HTTP3.0 的区别是什么?",
+      "question_type": "comparison",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTTP"
+      ],
+      "answer_points": [
+        "HTTP1.0:短连接,每次请求新建TCP",
+        "HTTP1.1:长连接、管道化、缓存、虚拟主机",
+        "HTTP2.0:二进制帧、多路复用、头部压缩、服务器推送",
+        "HTTP3.0:基于QUIC、UDP、握手更快、弱网更稳"
+      ],
+      "follow_ups": [
+        "HTTP2.0 的多路复用解决了什么问题?"
+      ],
+      "source_excerpt": "HTTP1.0:短连接,每次请求新建TCP;HTTP1.1:长连接、管道化、缓存、虚拟主机;HTTP2.0:二进制帧、多路复用、头部压缩、服务器推送;HTTP3.0:基于QUIC、UDP、握手更快、弱网更稳。"
+    },
+    {
+      "question": "HTTP 请求方法有哪些?各自的特点是什么?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTTP",
+        "请求方法"
+      ],
+      "answer_points": [
+        "GET:查询,参数放URL,不安全,有缓存",
+        "POST:提交,参数放请求体,无默认缓存",
+        "PUT:全量更新",
+        "DELETE:删除",
+        "OPTIONS:跨域预检请求"
+      ],
+      "follow_ups": [
+        "GET 和 POST 的区别是什么?"
+      ],
+      "source_excerpt": "GET:查询,参数放URL,不安全,有缓存;POST:提交,参数放请求体,无默认缓存;PUT:全量更新;DELETE:删除;OPTIONS:跨域预检请求。"
+    },
+    {
+      "question": "常见的 HTTP 状态码有哪些?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTTP",
+        "状态码"
+      ],
+      "answer_points": [
+        "200 成功",
+        "204 无内容",
+        "301 永久重定向",
+        "302 临时重定向",
+        "304 协商缓存命中",
+        "400 参数错误",
+        "401 未授权",
+        "403 禁止访问",
+        "404 资源不存在",
+        "500 服务器内部错误",
+        "502 网关错误",
+        "503 服务不可用"
+      ],
+      "follow_ups": [
+        "301 和 302 的区别是什么?"
+      ],
+      "source_excerpt": "200 成功;204 无内容;301 永久重定向;302 临时重定向;304 协商缓存命中;400 参数错误;401 未授权;403 禁止访问;404 资源不存在;500 服务器内部错误;502 网关错误;503 服务不可用。"
+    },
+    {
+      "question": "HTTPS 的原理是什么?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTTPS"
+      ],
+      "answer_points": [
+        "HTTP + TLS/SSL 加密",
+        "流程:握手协商加密算法 → 服务端下发证书 → 客户端验证证书 → 协商会话密钥 → 后续通信对称加密传输"
+      ],
+      "follow_ups": [
+        "HTTPS 为什么是安全的?"
+      ],
+      "source_excerpt": "HTTP + TLS/SSL 加密。流程:握手协商加密算法;服务端下发证书;客户端验证证书;协商会话密钥;后续通信对称加密传输。"
+    },
+    {
+      "question": "常见的请求头和响应头有哪些?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTTP",
+        "请求头",
+        "响应头"
+      ],
+      "answer_points": [
+        "请求头:Host、User-Agent、Referer、Origin、Cookie、Content-Type、Authorization",
+        "响应头:Cache-Control、Set-Cookie、Access-Control-*、ETag、Last-Modified"
+      ],
+      "follow_ups": [
+        "Content-Type 有哪些常见值?"
+      ],
+      "source_excerpt": "请求头:Host、User-Agent、Referer、Origin、Cookie、Content-Type、Authorization;响应头:Cache-Control、Set-Cookie、Access-Control-*、ETag、Last-Modified。"
+    },
+    {
+      "question": "什么是预检请求 OPTIONS?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "跨域",
+        "OPTIONS"
+      ],
+      "answer_points": [
+        "跨域复杂请求(带cookie、自定义请求头、非简单content-type)",
+        "浏览器先发OPTIONS预检,确认允许跨域再发真实请求"
+      ],
+      "follow_ups": [
+        "如何减少预检请求?"
+      ],
+      "source_excerpt": "跨域复杂请求(带cookie、自定义请求头、非简单content-type);浏览器先发OPTIONS预检,确认允许跨域再发真实请求。"
+    },
+    {
+      "question": "CSS 盒子模型有哪些?如何控制?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "盒子模型"
+      ],
+      "answer_points": [
+        "标准盒:content + padding + border + margin",
+        "IE怪异盒:宽高包含 padding+border",
+        "控制:box-sizing: content-box / border-box"
+      ],
+      "follow_ups": [
+        "box-sizing: border-box 有什么好处?"
+      ],
+      "source_excerpt": "标准盒:content + padding + border + margin;IE怪异盒:宽高包含 padding+border;控制:box-sizing: content-box / border-box。"
+    },
+    {
+      "question": "什么是 BFC?如何触发?有什么作用?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "BFC"
+      ],
+      "answer_points": [
+        "BFC:块级格式化上下文",
+        "触发条件:浮动、绝对定位、overflow非visible、display:inline-block/table等",
+        "作用:清除浮动、解决margin塌陷、阻止元素被浮动覆盖"
+      ],
+      "follow_ups": [
+        "BFC 与 IFC 有什么区别?"
+      ],
+      "source_excerpt": "BFC 块级格式化上下文。触发条件:浮动、绝对定位、overflow非visible、display:inline-block/table等。作用:清除浮动、解决margin塌陷、阻止元素被浮动覆盖。"
+    },
+    {
+      "question": "CSS 实现垂直居中有哪些方式?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "垂直居中"
+      ],
+      "answer_points": [
+        "flex、grid、绝对定位+transform、table-cell、line-height"
+      ],
+      "follow_ups": [
+        "不同方式的适用场景是什么?"
+      ],
+      "source_excerpt": "flex、grid、绝对定位+transform、table-cell、line-height。"
+    },
+    {
+      "question": "CSS 三栏布局有哪些实现方式?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "布局"
+      ],
+      "answer_points": [
+        "圣杯布局、双飞翼布局、Flex布局、Grid布局"
+      ],
+      "follow_ups": [
+        "圣杯布局和双飞翼布局的区别是什么?"
+      ],
+      "source_excerpt": "圣杯布局、双飞翼布局、Flex布局、Grid布局。"
+    },
+    {
+      "question": "浮动有什么优缺点?如何清除浮动?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "浮动"
+      ],
+      "answer_points": [
+        "优点:实现文字环绕等",
+        "缺点:脱离文档流,父元素高度塌陷",
+        "清除浮动:clear:both、伪元素清除、父级BFC"
+      ],
+      "follow_ups": [
+        "伪元素清除浮动的原理是什么?"
+      ],
+      "source_excerpt": "清除浮动:clear:both、伪元素清除、父级BFC。"
+    },
+    {
+      "question": "Flex 布局的常用属性有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "Flex"
+      ],
+      "answer_points": [
+        "主轴:justify-content",
+        "侧轴:align-items",
+        "换行:flex-wrap",
+        "弹性占比:flex:1"
+      ],
+      "follow_ups": [
+        "flex:1 的含义是什么?"
+      ],
+      "source_excerpt": "主轴:justify-content;侧轴:align-items;换行:flex-wrap;弹性占比:flex:1。"
+    },
+    {
+      "question": "移动端适配方案有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "移动端",
+        "适配"
+      ],
+      "answer_points": [
+        "rem、vw/vh、媒体查询、flex布局、viewport适配"
+      ],
+      "follow_ups": [
+        "rem 和 vw 的区别是什么?"
+      ],
+      "source_excerpt": "rem、vw/vh、媒体查询、flex布局、viewport适配。"
+    }
+  ]
+}

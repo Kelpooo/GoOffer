@@ -1,0 +1,1052 @@
+{
+  "source_title": "JAVA 后端开发面试题库",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "进程有哪几种状态?请画出状态转换图,并说明导致转换的事件。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "操作系统",
+        "进程状态"
+      ],
+      "answer_points": [
+        "进程状态包括:就绪、运行、阻塞。",
+        "就绪→运行:进程被调度程序选中,获得CPU。",
+        "运行→就绪:时间片用完或CPU被抢占。",
+        "运行→阻塞:等待I/O或事件。",
+        "阻塞→就绪:I/O完成或事件发生。"
+      ],
+      "follow_ups": [
+        "进程状态转换图中是否包含创建和终止状态?"
+      ],
+      "source_excerpt": "1. 进程的有哪几种状态,状态转换图,及导致转换的事件。"
+    },
+    {
+      "question": "进程与线程的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "操作系统",
+        "进程",
+        "线程"
+      ],
+      "answer_points": [
+        "进程是资源分配的基本单位,线程是CPU调度的基本单位。",
+        "进程拥有独立的地址空间,线程共享进程的地址空间。",
+        "进程切换开销大,线程切换开销小。",
+        "进程间通信复杂,线程间通信简单(共享内存)。"
+      ],
+      "follow_ups": [
+        "多线程编程中如何保证线程安全?"
+      ],
+      "source_excerpt": "2. 进程与线程的区别。"
+    },
+    {
+      "question": "进程通信有哪几种方式?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "进程通信"
+      ],
+      "answer_points": [
+        "管道(匿名管道、命名管道)。",
+        "消息队列。",
+        "共享内存。",
+        "信号量。",
+        "套接字。",
+        "信号。"
+      ],
+      "follow_ups": [
+        "共享内存如何实现同步?"
+      ],
+      "source_excerpt": "3. 进程通信的几种方式。"
+    },
+    {
+      "question": "线程同步有哪几种方式?请实现生产者-消费者问题。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "线程同步"
+      ],
+      "answer_points": [
+        "互斥锁(Mutex)。",
+        "条件变量。",
+        "信号量。",
+        "读写锁。",
+        "生产者-消费者问题:使用互斥锁和条件变量实现。"
+      ],
+      "follow_ups": [
+        "什么是死锁?如何避免?"
+      ],
+      "source_excerpt": "4. 线程同步几种方式。(一定要会写生产者、消费者问题,完全消化理解)"
+    },
+    {
+      "question": "用户线程与内核线程的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "线程实现"
+      ],
+      "answer_points": [
+        "用户线程由用户空间线程库管理,内核线程由内核管理。",
+        "用户线程切换无需内核参与,速度快;内核线程切换需要内核参与,速度慢。",
+        "用户线程对多核CPU利用不充分,内核线程可以充分利用多核。",
+        "用户线程阻塞会导致整个进程阻塞,内核线程阻塞不影响其他线程。"
+      ],
+      "follow_ups": [
+        "Java中的线程是用户线程还是内核线程?"
+      ],
+      "source_excerpt": "5. 线程的实现方式. (也就是用户线程与内核线程的区别)"
+    },
+    {
+      "question": "用户态和核心态的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "操作系统",
+        "用户态",
+        "核心态"
+      ],
+      "answer_points": [
+        "用户态:只能执行非特权指令,不能直接访问硬件。",
+        "核心态:可以执行所有指令,直接访问硬件。",
+        "用户态切换到核心态通过系统调用或中断。",
+        "核心态下运行操作系统内核代码。"
+      ],
+      "follow_ups": [
+        "系统调用的过程是怎样的?"
+      ],
+      "source_excerpt": "6. 用户态和核心态的区别。"
+    },
+    {
+      "question": "用户栈和内核栈的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "栈"
+      ],
+      "answer_points": [
+        "用户栈用于保存用户态程序运行时的局部变量、函数调用信息。",
+        "内核栈用于保存内核态程序运行时的上下文。",
+        "每个进程都有自己的用户栈和内核栈。",
+        "当发生系统调用或中断时,从用户栈切换到内核栈。"
+      ],
+      "follow_ups": [
+        "内核栈的大小通常是多少?"
+      ],
+      "source_excerpt": "7. 用户栈和内核栈的区别。"
+    },
+    {
+      "question": "什么是内存池、进程池、线程池?它们的作用是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "池化技术"
+      ],
+      "answer_points": [
+        "内存池:预先分配一块内存,避免频繁申请和释放内存。",
+        "进程池:预先创建一组进程,避免频繁创建和销毁进程。",
+        "线程池:预先创建一组线程,避免频繁创建和销毁线程。",
+        "作用:提高性能,减少开销。"
+      ],
+      "follow_ups": [
+        "线程池的核心参数有哪些?"
+      ],
+      "source_excerpt": "8. 内存池、进程池、线程池。(c++程序员必须掌握)"
+    },
+    {
+      "question": "什么是死锁?导致死锁的原因是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "操作系统",
+        "死锁"
+      ],
+      "answer_points": [
+        "死锁是指两个或多个进程互相等待对方释放资源,导致所有进程无法继续执行。",
+        "原因:资源竞争、进程推进顺序不当。"
+      ],
+      "follow_ups": [
+        "如何检测死锁?"
+      ],
+      "source_excerpt": "9. 死锁的概念,导致死锁的原因."
+    },
+    {
+      "question": "死锁的四个必要条件是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "操作系统",
+        "死锁"
+      ],
+      "answer_points": [
+        "互斥条件:资源一次只能被一个进程使用。",
+        "请求与保持条件:进程已持有资源,又请求其他资源。",
+        "不可剥夺条件:资源只能由进程主动释放。",
+        "循环等待条件:存在进程资源的循环等待链。"
+      ],
+      "follow_ups": [
+        "如何破坏循环等待条件?"
+      ],
+      "source_excerpt": "10. 导致死锁的四个必要条件。"
+    },
+    {
+      "question": "处理死锁的四种方式是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "死锁"
+      ],
+      "answer_points": [
+        "预防死锁:破坏四个必要条件之一。",
+        "避免死锁:使用银行家算法等。",
+        "检测死锁:定期检测,发现后恢复。",
+        "解除死锁:撤销进程或剥夺资源。"
+      ],
+      "follow_ups": [
+        "银行家算法如何避免死锁?"
+      ],
+      "source_excerpt": "11. 处理死锁的四个方式。"
+    },
+    {
+      "question": "预防死锁和避免死锁的方法分别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "死锁"
+      ],
+      "answer_points": [
+        "预防死锁:通过破坏四个必要条件之一,如资源一次性分配、资源有序分配等。",
+        "避免死锁:在资源分配前判断是否安全,如银行家算法。",
+        "预防死锁是静态的,避免死锁是动态的。"
+      ],
+      "follow_ups": [
+        "银行家算法中安全状态如何判断?"
+      ],
+      "source_excerpt": "12. 预防死锁的方法、避免死锁的方法。"
+    },
+    {
+      "question": "进程调度算法有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "操作系统",
+        "调度算法"
+      ],
+      "answer_points": [
+        "先来先服务(FCFS)。",
+        "短作业优先(SJF)。",
+        "优先级调度。",
+        "时间片轮转(RR)。",
+        "多级反馈队列。"
+      ],
+      "follow_ups": [
+        "多级反馈队列如何避免饥饿?"
+      ],
+      "source_excerpt": "13. 进程调度算法。"
+    },
+    {
+      "question": "Windows内存管理的方式有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "内存管理"
+      ],
+      "answer_points": [
+        "块式管理:固定大小的块。",
+        "页式管理:将内存分为固定大小的页。",
+        "段式管理:按逻辑段分配内存。",
+        "段页式管理:结合段式和页式。"
+      ],
+      "follow_ups": [
+        "页式管理和段式管理的区别?"
+      ],
+      "source_excerpt": "14. Windows内存管理的方式(块式、页式、段式、段页式)."
+    },
+    {
+      "question": "内存连续分配方式采用的几种算法及各自优劣是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "内存分配"
+      ],
+      "answer_points": [
+        "首次适应算法:分配第一个足够大的空闲块,速度快但可能产生碎片。",
+        "最佳适应算法:分配最小的足够大的空闲块,碎片小但速度慢。",
+        "最差适应算法:分配最大的空闲块,减少小碎片但可能浪费空间。"
+      ],
+      "follow_ups": [
+        "如何解决外部碎片?"
+      ],
+      "source_excerpt": "15. 内存连续分配方式采用的几种算法及各自优劣。"
+    },
+    {
+      "question": "动态链接与静态链接的区别是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "链接"
+      ],
+      "answer_points": [
+        "静态链接:在编译时将库代码复制到可执行文件中,生成的文件大,但运行时无需依赖库。",
+        "动态链接:在运行时加载库,生成的文件小,但需要库文件存在。",
+        "动态链接节省内存,便于更新库。"
+      ],
+      "follow_ups": [
+        "动态链接库的加载方式有哪些?"
+      ],
+      "source_excerpt": "16. 动态链接及静态链接."
+    },
+    {
+      "question": "基本分页和请求分页储存管理方式有什么区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "分页管理"
+      ],
+      "answer_points": [
+        "基本分页:所有页都在内存中,无需页面置换。",
+        "请求分页:只加载需要的页,缺页时从磁盘调入,需要页面置换算法。",
+        "请求分页支持虚拟内存。"
+      ],
+      "follow_ups": [
+        "请求分页中缺页中断的处理流程?"
+      ],
+      "source_excerpt": "17. 基本分页、请求分页储存管理方式。"
+    },
+    {
+      "question": "基本分段和请求分段储存管理方式有什么区别?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "分段管理"
+      ],
+      "answer_points": [
+        "基本分段:所有段都在内存中。",
+        "请求分段:只加载需要的段,缺段时从磁盘调入。",
+        "请求分段支持虚拟内存。"
+      ],
+      "follow_ups": [
+        "分段和分页的优缺点?"
+      ],
+      "source_excerpt": "18. 基本分段、请求分段储存管理方式。"
+    },
+    {
+      "question": "分段和分页方式的比较,各自优缺点是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "内存管理"
+      ],
+      "answer_points": [
+        "分页:固定大小,无外部碎片,但内部碎片;逻辑地址连续,物理地址可以不连续。",
+        "分段:按逻辑划分,便于共享和保护,但会产生外部碎片。",
+        "分页对用户透明,分段用户可见。"
+      ],
+      "follow_ups": [
+        "段页式管理如何结合两者优点?"
+      ],
+      "source_excerpt": "19. 分段分页方式的比较各自优缺点。"
+    },
+    {
+      "question": "几种页面置换算法是什么?如何计算所需换页数?LRU如何用程序实现?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "页面置换"
+      ],
+      "answer_points": [
+        "常见算法:FIFO、LRU、LFU、Clock。",
+        "计算换页数:给定页面访问序列和内存帧数,模拟置换过程。",
+        "LRU实现:使用双向链表+哈希表,每次访问将节点移到链表头。"
+      ],
+      "follow_ups": [
+        "Clock算法与LRU的区别?"
+      ],
+      "source_excerpt": "20. 几种页面置换算法,会算所需换页数。(LRU用程序如何实现?)"
+    },
+    {
+      "question": "虚拟内存的定义及实现方式是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "虚拟内存"
+      ],
+      "answer_points": [
+        "虚拟内存:将物理内存和磁盘空间组合,使程序认为有连续的大内存。",
+        "实现方式:请求分页或请求分段,通过页表/段表映射,缺页时从磁盘调入。"
+      ],
+      "follow_ups": [
+        "虚拟内存的大小受什么限制?"
+      ],
+      "source_excerpt": "21. 虚拟内存的定义及实现方式。"
+    },
+    {
+      "question": "操作系统的四个特性是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "操作系统",
+        "特性"
+      ],
+      "answer_points": [
+        "并发:多个程序同时运行。",
+        "共享:资源可被多个程序共享。",
+        "虚拟:将物理资源虚拟化。",
+        "异步:程序执行不是一贯到底,而是走走停停。"
+      ],
+      "follow_ups": [
+        "并发和并行的区别?"
+      ],
+      "source_excerpt": "22.操作系统的四个特性。"
+    },
+    {
+      "question": "什么是DMA?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "DMA"
+      ],
+      "answer_points": [
+        "DMA(直接存储器访问):允许硬件设备直接访问内存,无需CPU干预。",
+        "DMA控制器负责数据传输,CPU可以执行其他任务。",
+        "提高I/O效率。"
+      ],
+      "follow_ups": [
+        "DMA传输的步骤?"
+      ],
+      "source_excerpt": "23. DMA。"
+    },
+    {
+      "question": "什么是Spooling?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "Spooling"
+      ],
+      "answer_points": [
+        "Spooling(假脱机技术):将低速I/O设备的数据先缓存到高速磁盘,再统一处理。",
+        "典型应用:打印机共享。",
+        "提高I/O速度,实现虚拟设备。"
+      ],
+      "follow_ups": [
+        "Spooling系统由哪些部分组成?"
+      ],
+      "source_excerpt": "24. Spooling。"
+    },
+    {
+      "question": "外存分配的几种方式及各自优劣是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "操作系统",
+        "外存分配"
+      ],
+      "answer_points": [
+        "连续分配:文件占用连续块,访问快但易产生碎片。",
+        "链接分配:每个块指向下一个,无碎片但随机访问慢。",
+        "索引分配:使用索引块记录数据块地址,支持随机访问,但索引块占用空间。"
+      ],
+      "follow_ups": [
+        "FAT文件系统使用哪种分配方式?"
+      ],
+      "source_excerpt": "25. 外存分配的几种方式,及各种优劣。"
+    },
+    {
+      "question": "索引的作用是什么?优点和缺点是什么?使用索引查询一定能提高查询的性能吗?为什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "数据库",
+        "索引"
+      ],
+      "answer_points": [
+        "索引:加快数据检索速度的数据结构。",
+        "优点:提高查询速度,保证唯一性。",
+        "缺点:占用额外空间,降低增删改速度。",
+        "不一定:当数据量小或索引列选择性低时,全表扫描可能更快。"
+      ],
+      "follow_ups": [
+        "什么情况下索引会失效?"
+      ],
+      "source_excerpt": "索引的作用?和它的优点缺点是什么?使用索引查询一定能提高查询的性能吗?为什么"
+    },
+    {
+      "question": "什么是内存泄漏?如何避免内存泄露?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "数据库",
+        "内存泄漏"
+      ],
+      "answer_points": [
+        "内存泄漏:程序未能释放不再使用的内存,导致内存浪费。",
+        "避免:使用智能指针、及时释放资源、使用内存分析工具。"
+      ],
+      "follow_ups": [
+        "Java中如何避免内存泄漏?"
+      ],
+      "source_excerpt": "什么是内存泄漏?如何避免内存泄露?"
+    },
+    {
+      "question": "如何维护数据库的完整性和一致性?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "数据库",
+        "完整性",
+        "一致性"
+      ],
+      "answer_points": [
+        "完整性:通过约束(主键、外键、唯一、非空、检查)保证。",
+        "一致性:通过事务、锁、隔离级别保证。"
+      ],
+      "follow_ups": [
+        "数据库的ACID特性是什么?"
+      ],
+      "source_excerpt": "如何维护数据库的完整性和一致性?"
+    },
+    {
+      "question": "什么是事务?什么是锁?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "数据库",
+        "事务",
+        "锁"
+      ],
+      "answer_points": [
+        "事务:一组逻辑操作单元,要么全部成功,要么全部失败。",
+        "锁:用于控制并发访问的机制,防止数据不一致。"
+      ],
+      "follow_ups": [
+        "事务的隔离级别有哪些?"
+      ],
+      "source_excerpt": "什么是事务?什么是锁?"
+    },
+    {
+      "question": "事务四大特性是什么?事务的隔离级别有哪些?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "数据库",
+        "事务",
+        "隔离级别"
+      ],
+      "answer_points": [
+        "四大特性:原子性、一致性、隔离性、持久性。",
+        "隔离级别:读未提交、读已提交、可重复读、串行化。"
+      ],
+      "follow_ups": [
+        "MySQL默认隔离级别是什么?"
+      ],
+      "source_excerpt": "事务四大特性是什么?事务的隔离级别有哪些?"
+    },
+    {
+      "question": "什么是主键?什么是外键?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "数据库",
+        "主键",
+        "外键"
+      ],
+      "answer_points": [
+        "主键:唯一标识表中每一行的字段或字段组合,不能为空。",
+        "外键:引用另一个表的主键,用于建立表间关系。"
+      ],
+      "follow_ups": [
+        "主键和唯一索引的区别?"
+      ],
+      "source_excerpt": "什么是主键?什么是外键?"
+    },
+    {
+      "question": "对一个投入使用的在线事务处理表格有过多索引需要有什么样的性能考虑?",
+      "question_type": "scenario",
+      "category": "other",
+      "difficulty": "senior",
+      "tags": [
+        "数据库",
+        "索引",
+        "性能"
+      ],
+      "answer_points": [
+        "过多索引会降低插入、更新、删除的性能。",
+        "占用额外磁盘空间。",
+        "查询优化器可能选择不当的索引。",
+        "需要权衡查询频率和更新频率。"
+      ],
+      "follow_ups": [
+        "如何监控索引的使用情况?"
+      ],
+      "source_excerpt": "对一个投入使用的在线事务处理表格有过多索引需要有什么样的性能考虑?"
+    },
+    {
+      "question": "什么是数据模型?什么是规范化?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "数据库",
+        "数据模型",
+        "规范化"
+      ],
+      "answer_points": [
+        "数据模型:描述数据、数据关系、数据约束的抽象模型。",
+        "规范化:通过分解表来减少数据冗余和异常。"
+      ],
+      "follow_ups": [
+        "规范化的优缺点?"
+      ],
+      "source_excerpt": "什么是数据模型?什么是规范化?"
+    },
+    {
+      "question": "谈谈数据库设计的三范式。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "数据库",
+        "范式"
+      ],
+      "answer_points": [
+        "第一范式:每个列都是不可分割的原子值。",
+        "第二范式:满足第一范式,且非主键列完全依赖于主键。",
+        "第三范式:满足第二范式,且非主键列不传递依赖于主键。"
+      ],
+      "follow_ups": [
+        "什么是BCNF?"
+      ],
+      "source_excerpt": "谈谈数据库设计的三范式"
+    },
+    {
+      "question": "数据库的乐观锁和悲观锁是什么?",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "数据库",
+        "锁"
+      ],
+      "answer_points": [
+        "悲观锁:假设会发生冲突,操作数据时加锁,直到提交。",
+        "乐观锁:假设不会冲突,更新时检查版本号或时间戳。",
+        "悲观锁适合写多读少,乐观锁适合读多写少。"
+      ],
+      "follow_ups": [
+        "乐观锁如何实现?"
+      ],
+      "source_excerpt": "数据库的乐观锁和悲观锁是什么?"
+    },
+    {
+      "question": "什么是死锁?如何避免死锁?如何处理死锁问题?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "数据库",
+        "死锁"
+      ],
+      "answer_points": [
+        "死锁:两个或多个事务互相等待对方释放资源。",
+        "避免:按相同顺序访问资源,使用超时机制。",
+        "处理:死锁检测和回滚其中一个事务。"
+      ],
+      "follow_ups": [
+        "MySQL如何检测死锁?"
+      ],
+      "source_excerpt": "什么是死锁?如何避免死锁?如何处理死锁问题?"
+    },
+    {
+      "question": "电路交换与分组交换的区别是什么?优劣对比。",
+      "question_type": "comparison",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "交换技术"
+      ],
+      "answer_points": [
+        "电路交换:建立专用路径,实时性好,但线路利用率低。",
+        "分组交换:数据分成包,共享链路,利用率高,但可能有延迟。",
+        "电路交换适合语音,分组交换适合数据。"
+      ],
+      "follow_ups": [
+        "分组交换中的虚电路和数据报有什么区别?"
+      ],
+      "source_excerpt": "1. 电路交换与分组交换的区别? 优劣对比。"
+    },
+    {
+      "question": "OSI有哪几层?请画出并说明主要几层的各自作用。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "OSI模型"
+      ],
+      "answer_points": [
+        "物理层:传输比特流。",
+        "数据链路层:帧传输和差错控制。",
+        "网络层:路由和寻址。",
+        "传输层:端到端可靠传输。",
+        "会话层:建立和管理会话。",
+        "表示层:数据格式转换。",
+        "应用层:用户接口。"
+      ],
+      "follow_ups": [
+        "OSI模型和TCP/IP模型的对应关系?"
+      ],
+      "source_excerpt": "2. OSI有哪几层,会画出来,知道主要几层的各自作用。"
+    },
+    {
+      "question": "TCP/IP有哪几层?请画出并说明所有层的作用,列举各层主要的协议。",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "TCP/IP模型"
+      ],
+      "answer_points": [
+        "网络接口层:物理传输,如以太网。",
+        "网络层:IP、ICMP、ARP。",
+        "传输层:TCP、UDP。",
+        "应用层:HTTP、FTP、DNS等。"
+      ],
+      "follow_ups": [
+        "TCP和UDP的区别?"
+      ],
+      "source_excerpt": "3.TCP/IP有哪几层,会画出来,知道所有层数的作用,会列举各层主要的协议名称。"
+    },
+    {
+      "question": "硬件(MAC)地址的概念及作用是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "MAC地址"
+      ],
+      "answer_points": [
+        "MAC地址:网络接口卡的物理地址,48位。",
+        "作用:在数据链路层唯一标识设备。"
+      ],
+      "follow_ups": [
+        "MAC地址和IP地址的区别?"
+      ],
+      "source_excerpt": "4. 硬件(MAC)地址的概念及作用。"
+    },
+    {
+      "question": "ARP协议的用途、算法及在哪一层上使用?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "ARP"
+      ],
+      "answer_points": [
+        "ARP:将IP地址解析为MAC地址。",
+        "算法:广播ARP请求,目标主机回复MAC地址。",
+        "工作在网络层和数据链路层之间。"
+      ],
+      "follow_ups": [
+        "ARP欺骗的原理?"
+      ],
+      "source_excerpt": "5. ARP协议的用途 及算法、在哪一层上会使用arp?"
+    },
+    {
+      "question": "CRC冗余校验算法和反码和检验算法是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "校验算法"
+      ],
+      "answer_points": [
+        "CRC:循环冗余校验,通过多项式除法计算校验码。",
+        "反码和检验:将数据按16位求和,取反码作为校验和。"
+      ],
+      "follow_ups": [
+        "CRC和校验和的区别?"
+      ],
+      "source_excerpt": "6. CRC冗余校验算法,反码和检验算法。"
+    },
+    {
+      "question": "如何实现透明传输?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "透明传输"
+      ],
+      "answer_points": [
+        "透明传输:数据链路层对上层数据不做任何限制。",
+        "实现:使用字符填充或比特填充,避免特殊字符被误解。"
+      ],
+      "follow_ups": [
+        "PPP协议如何实现透明传输?"
+      ],
+      "source_excerpt": "7. 如何实现透明传输。"
+    },
+    {
+      "question": "各个层使用的是哪个数据交换设备?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "网络设备"
+      ],
+      "answer_points": [
+        "物理层:中继器、集线器。",
+        "数据链路层:交换机、网桥。",
+        "网络层:路由器。",
+        "传输层及以上:网关。"
+      ],
+      "follow_ups": [
+        "交换机和路由器的区别?"
+      ],
+      "source_excerpt": "8. 知道各个层使用的是哪个数据交换设备。(交换机、路由器、网关)"
+    },
+    {
+      "question": "路由表的内容是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "路由表"
+      ],
+      "answer_points": [
+        "路由表包含:目的网络地址、子网掩码、下一跳地址、接口、度量值。"
+      ],
+      "follow_ups": [
+        "路由表如何生成?"
+      ],
+      "source_excerpt": "9. 路由表的内容。"
+    },
+    {
+      "question": "分组转发算法是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "分组转发"
+      ],
+      "answer_points": [
+        "提取目的IP地址。",
+        "与路由表条目匹配,找到最长前缀匹配。",
+        "根据下一跳地址转发。"
+      ],
+      "follow_ups": [
+        "最长前缀匹配如何实现?"
+      ],
+      "source_excerpt": "10. 分组转发算法。"
+    },
+    {
+      "question": "IP报文的格式是什么?各个字段的含义是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "IP协议"
+      ],
+      "answer_points": [
+        "版本、首部长度、服务类型、总长度、标识、标志、片偏移、生存时间、协议、首部校验和、源IP地址、目的IP地址、选项。"
+      ],
+      "follow_ups": [
+        "IP分片是如何进行的?"
+      ],
+      "source_excerpt": "11.IP报文的格式,格式的各个字段的含义要理解。"
+    },
+    {
+      "question": "什么是MTU?什么是路径MTU?MTU发现机制是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "MTU"
+      ],
+      "answer_points": [
+        "MTU:最大传输单元,链路层能传输的最大数据帧大小。",
+        "路径MTU:从源到目的路径上最小的MTU。",
+        "MTU发现:发送大包并设置DF标志,收到ICMP需要分片消息后减小包大小。"
+      ],
+      "follow_ups": [
+        "TraceRoute的原理?"
+      ],
+      "source_excerpt": "12. MTU的概念,啥叫路径MTU?MTU发现机制,TraceRoute(了解)。"
+    },
+    {
+      "question": "RIP协议的概念及算法是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "RIP"
+      ],
+      "answer_points": [
+        "RIP:路由信息协议,基于距离向量算法。",
+        "使用跳数作为度量,最大15跳。",
+        "每30秒广播路由表。"
+      ],
+      "follow_ups": [
+        "RIP的缺点?"
+      ],
+      "source_excerpt": "13. RIP协议的概念 及算法。"
+    },
+    {
+      "question": "ICMP协议的主要功能是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "ICMP"
+      ],
+      "answer_points": [
+        "ICMP:互联网控制报文协议,用于报告错误和诊断。",
+        "功能:ping、traceroute、目的不可达、超时等。"
+      ],
+      "follow_ups": [
+        "ICMP报文类型有哪些?"
+      ],
+      "source_excerpt": "14. ICMP协议的主要功能。"
+    },
+    {
+      "question": "组播和多播的概念是什么?IGMP的用途是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "组播",
+        "IGMP"
+      ],
+      "answer_points": [
+        "组播:一对多通信,数据只发送给加入组播组的成员。",
+        "多播与组播同义。",
+        "IGMP:互联网组管理协议,用于管理组播组成员。"
+      ],
+      "follow_ups": [
+        "组播路由协议有哪些?"
+      ],
+      "source_excerpt": "15. 组播和多播的概念,IGMP的用途。"
+    },
+    {
+      "question": "Ping协议的实现原理是什么?ping命令格式是什么?",
+      "question_type": "principle",
+      "category": "other",
+      "difficulty": "mid",
+      "tags": [
+        "计算机网络",
+        "Ping"
+      ],
+      "answer_points": [
+        "Ping使用ICMP回显请求和回显应答。",
+        "发送ICMP请求,目标主机回复,计算往返时间。",
+        "命令格式:ping [选项] 目标地址。"
+      ],
+      "follow_ups": [
+        "Ping能否用于测试端口?"
+      ],
+      "source_excerpt": "16. Ping协议的实现原理,ping命令格式。"
+    },
+    {
+      "question": "子网划分的概念是什么?子网掩码的作用是什么?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "子网划分"
+      ],
+      "answer_points": [
+        "子网划分:将IP网络分成更小的子网。",
+        "子网掩码:用于区分网络位和主机位。"
+      ],
+      "follow_ups": [
+        "如何计算子网地址?"
+      ],
+      "source_excerpt": "17.子网划分的概念,子网掩码。"
+    },
+    {
+      "question": "IP地址的分类有哪些?如何划分的?如何计算各类地址支持的主机数?",
+      "question_type": "concept",
+      "category": "other",
+      "difficulty": "junior",
+      "tags": [
+        "计算机网络",
+        "IP地址"
+      ],
+      "answer_points": [
+        "A类:1.0.0.0-126.255.255.255,主机数2^24-2。",
+        "B类:128.0.0.0-191.255.255.255,主机数2^16-2。",
+        "C类:192.0.0.0-223.255.255.255,主机数2^8-2。",
+        "D类:组播地址,E类:保留。"
+      ],
+      "follow_ups": [
+        "CIDR是什么?"
+      ],
+      "source_excerpt": "18.IP地址的分类,如何划分的,及会计算各类地址支持的主机数。"
+    }
+  ]
+}

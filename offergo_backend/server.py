@@ -1,10 +1,11 @@
-"""HTTP server for the OfferGo MVP application."""
+﻿"""HTTP server for the OfferGo MVP application."""
 
 import io
 import json
 import os
 import re
 import sys
+import traceback
 import urllib.error
 import urllib.request
 import uuid
@@ -35,13 +36,17 @@ from offergo_backend.database import (
     create_auth_session,
     create_user,
     delete_auth_session,
+    get_account_overview,
     get_user_progress_payload,
     get_auth_session_user,
+    get_user_auth_record_by_id,
     get_user_by_username,
     initialize_database,
+    ensure_questions_seeded,
     load_questions_payload,
     merge_progress_into_user,
     sync_user_progress,
+    update_user_password,
     upsert_question_progress,
 )
 from offergo_backend.storage import FileVisitorTracker, InMemoryResumeSessionStore, SqliteVisitorTracker
@@ -98,6 +103,31 @@ def load_prompt_templates():
 PROMPTS = load_prompt_templates()
 PASSWORD_POLICY = build_password_policy()
 
+RESUME_LLM_API_KEY_ENV_VARS = (
+    "RESUME_REVIEW_API_KEY",
+    "DEEPSEEK_API_KEY",
+    "OPENAI_API_KEY",
+)
+RESUME_LLM_API_URL_ENV_VARS = (
+    "RESUME_REVIEW_API_URL",
+    "DEEPSEEK_API_URL",
+    "OPENAI_API_URL",
+)
+RESUME_LLM_MODEL_ENV_VARS = (
+    "RESUME_REVIEW_MODEL",
+    "DEEPSEEK_MODEL",
+    "OPENAI_MODEL",
+)
+RESUME_LLM_MAX_TOKENS_ENV_VAR = "RESUME_REVIEW_MAX_TOKENS"
+
+STRUCTURED_OUTPUT_HINT = (
+    "\n\n请只输出 JSON 对象，不要输出代码块或额外说明。"
+    "\n返回示例（仅作结构参考，不要照抄内容）："
+    '{"overallScore":80,"summary":"...","dimensionScores":[{"name":"技术栈","score":80,"verdict":"较为完整","reasoning":"..."}],'
+    '"jobMatch":{"targetRole":"...","matchScore":80,"reasoning":"...","matchedKeywords":["..."],"missingKeywords":["..."]},'
+    '"highlights":["..."],"risks":["..."],"suggestions":["..."],"rewrittenBullets":["..."]}'
+)
+
 
 class UploadedFile:
     def __init__(self, filename, content):
@@ -111,6 +141,26 @@ class SimpleForm(dict):
         if isinstance(value, list):
             return value[0] if value else default
         return value
+
+
+def first_non_empty_env(*names, default=""):
+    for name in names:
+        value = os.environ.get(name, "").strip()
+        if value:
+            return value
+    return default
+
+
+def resolve_resume_llm_config():
+    model = first_non_empty_env(*RESUME_LLM_MODEL_ENV_VARS, default=SETTINGS.deepseek_model)
+    if model.startswith("DEEPSEEK_MODEL=") or model.startswith("OPENAI_MODEL=") or model.startswith("RESUME_REVIEW_MODEL="):
+        model = model.split("=", 1)[1].strip()
+    return {
+        "api_key": first_non_empty_env(*RESUME_LLM_API_KEY_ENV_VARS),
+        "api_url": first_non_empty_env(*RESUME_LLM_API_URL_ENV_VARS, default=SETTINGS.deepseek_api_url),
+        "model": model,
+        "max_tokens": int(os.environ.get(RESUME_LLM_MAX_TOKENS_ENV_VAR, "2500")),
+    }
 
 
 def json_response(handler, status, payload):
@@ -170,6 +220,8 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             return json_response(self, HTTPStatus.OK, load_questions_response())
         if self.path == "/api/auth/me":
             return self.handle_auth_me()
+        if self.path == "/api/account/overview":
+            return self.handle_account_overview()
         if self.path == "/api/user-progress":
             return self.handle_get_user_progress()
         if self.path in {"/web_mvp/", "/web_mvp/index.html"}:
@@ -184,6 +236,8 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
                 return self.handle_auth_login()
             if self.path == "/api/auth/logout":
                 return self.handle_auth_logout()
+            if self.path == "/api/auth/change-password":
+                return self.handle_change_password()
             if self.path == "/api/review-resume":
                 return self.handle_review_resume()
             if self.path == "/api/rewrite-resume":
@@ -194,11 +248,11 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
                 return self.handle_update_user_progress()
             if self.path == "/api/user-progress/sync":
                 return self.handle_sync_user_progress()
-            return json_response(self, HTTPStatus.NOT_FOUND, {"ok": False, "error": "接口不存在"})
+            return json_response(self, HTTPStatus.NOT_FOUND, {"ok": False, "error": "未找到对应接口"})
         except ValueError as exc:
             return json_response(self, HTTPStatus.BAD_REQUEST, {"ok": False, "error": str(exc)})
         except Exception as exc:
-            return json_response(self, HTTPStatus.INTERNAL_SERVER_ERROR, {"ok": False, "error": f"服务异常：{exc}"})
+            return json_response(self, HTTPStatus.INTERNAL_SERVER_ERROR, {"ok": False, "error": f"服务器内部错误：{exc}"})
 
     def handle_auth_me(self):
         user, session_id = self.resolve_current_user()
@@ -226,7 +280,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         password = validate_password(str(payload.get("password", "")))
         confirm_password = str(payload.get("confirmPassword", ""))
         if password != confirm_password:
-            raise ValueError("两次输入的密码不一致")
+            raise ValueError("涓ゆ杈撳叆鐨勫瘑鐮佷笉涓€鑷?")
 
         username_normalized = normalize_username(username)
         existing = get_user_by_username(SETTINGS.app_db_path, username_normalized)
@@ -241,6 +295,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             username_normalized=username_normalized,
             password_hash=password_hash,
             password_salt=password_salt,
+            now_iso=now_iso(),
         )
         visitor_id, visitor_created = self.resolve_visitor_id()
         session_id = new_session_id()
@@ -327,9 +382,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         if SETTINGS.storage_mode == "sqlite" and session_id:
             delete_auth_session(SETTINGS.app_db_path, session_id)
 
-        body = json.dumps({"ok": True, "message": "已退出登录", "policy": PASSWORD_POLICY}, ensure_ascii=False).encode(
-            "utf-8"
-        )
+        body = json.dumps({"ok": True, "message": "密码规则已获取", "policy": PASSWORD_POLICY}, ensure_ascii=False).encode("utf-8")
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
@@ -337,7 +390,43 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def handle_change_password(self):
+        if SETTINGS.storage_mode != "sqlite":
+            raise ValueError("修改密码需要启用 sqlite 存储模式")
+
+        user = self.require_authenticated_user()
+        payload = self.parse_json_body()
+        current_password = str(payload.get("currentPassword", ""))
+        new_password = validate_password(str(payload.get("newPassword", "")))
+        confirm_password = str(payload.get("confirmPassword", ""))
+
+        if new_password != confirm_password:
+            raise ValueError("两次输入的新密码不一致")
+        if current_password == new_password:
+            raise ValueError("新密码不能与当前密码相同")
+
+        user_record = get_user_auth_record_by_id(SETTINGS.app_db_path, user["id"])
+        if not user_record:
+            raise ValueError("当前账号不存在，请重新登录")
+        if not verify_password(current_password, user_record["password_hash"], user_record["password_salt"]):
+            raise ValueError("当前密码错误")
+
+        password_hash, password_salt = hash_password(new_password)
+        update_user_password(SETTINGS.app_db_path, user["id"], password_hash, password_salt)
+        return json_response(self, HTTPStatus.OK, {"ok": True, "message": "密码修改成功"})
+
+    def handle_account_overview(self):
+        if SETTINGS.storage_mode != "sqlite":
+            raise ValueError("个人中心需要启用 sqlite 存储模式")
+
+        user = self.require_authenticated_user()
+        overview = get_account_overview(SETTINGS.app_db_path, user["id"])
+        overview["user"] = user
+        overview["storageMode"] = SETTINGS.storage_mode
+        return json_response(self, HTTPStatus.OK, overview)
+
     def handle_review_resume(self):
+        print("[OfferGo] /api/review-resume requested", flush=True)
         form = self.parse_multipart_form()
         file_item = form["resume_file"] if "resume_file" in form else None
         target_role = form.getfirst("target_role", "").strip()
@@ -348,7 +437,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         if file_item is None or getattr(file_item, "file", None) is None:
             raise ValueError("请先上传简历文件")
         if not target_role:
-            raise ValueError("请填写目标岗位")
+            raise ValueError("璇峰～鍐欑洰鏍囧矖浣?")
 
         filename = Path(file_item.filename or "resume.txt").name
         file_bytes = file_item.file.read()
@@ -360,7 +449,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             raise ValueError("未能从简历中提取有效文本，请优先尝试 DOCX / TXT 格式")
 
         extracted = extract_resume_keywords(resume_text, target_stack, target_jd, target_role)
-        review, mode_label = review_resume(
+        review, mode_label, ai_error = review_resume(
             resume_text=resume_text,
             filename=filename,
             target_role=target_role,
@@ -371,9 +460,20 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         )
 
         resume_id = uuid.uuid4().hex
+        review = review or fallback_review(
+            resume_text=resume_text,
+            filename=filename,
+            target_role=target_role,
+            target_stack=target_stack,
+            target_jd=target_jd,
+            selected_domain=selected_domain,
+            extracted_keywords=extracted,
+        )
         review["modeLabel"] = mode_label
         review["resumeId"] = resume_id
         review["keywordExtraction"] = extracted
+        if ai_error:
+            review["aiFallbackReason"] = ai_error
         RESUME_SESSIONS.save(
             resume_id,
             {
@@ -385,6 +485,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
                 "selected_domain": selected_domain,
                 "review": review,
                 "mode_label": mode_label,
+                "ai_error": ai_error,
                 "keywords": extracted,
             },
         )
@@ -394,7 +495,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             HTTPStatus.OK,
             {
                 "ok": True,
-                "message": f"评审完成，当前模式：{mode_label}",
+                "message": f"评审完成，当前模式：{mode_label}" + (f"，AI 回退原因：{ai_error}" if ai_error else ""),
                 "review": review,
             },
         )
@@ -513,12 +614,12 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
     def parse_multipart_form(self):
         content_length = int(self.headers.get("Content-Length", "0"))
         if content_length <= 0:
-            raise ValueError("请求体为空")
+            raise ValueError("璇锋眰浣撲负绌?")
         if content_length > SETTINGS.max_upload_size:
             raise ValueError("上传文件过大，请控制在 5MB 以内")
         content_type = self.headers.get("Content-Type", "")
         if "multipart/form-data" not in content_type:
-            raise ValueError("请求格式不正确，需要 multipart/form-data")
+            raise ValueError("璇锋眰鏍煎紡涓嶆纭紝闇€瑕?multipart/form-data")
 
         boundary_match = re.search(r'boundary="?([^";]+)"?', content_type)
         if not boundary_match:
@@ -561,12 +662,13 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
     def parse_json_body(self):
         content_length = int(self.headers.get("Content-Length", "0"))
         if content_length <= 0:
-            raise ValueError("请求体为空")
+            raise ValueError("璇锋眰浣撲负绌?")
         raw = self.rfile.read(content_length).decode("utf-8")
         return json.loads(raw)
 
     def log_message(self, format, *args):
         sys.stdout.write("%s - - [%s] %s\n" % (self.address_string(), self.log_date_time_string(), format % args))
+        sys.stdout.flush()
 
     def serve_tracked_index(self):
         visitor_id = self.ensure_visitor_cookie()
@@ -622,6 +724,12 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         if not session_id:
             return None, ""
         return get_auth_session_user(SETTINGS.app_db_path, session_id, now_iso()), session_id
+
+    def require_authenticated_user(self):
+        user, _session_id = self.resolve_current_user()
+        if not user:
+            raise ValueError("请先登录后再继续操作")
+        return user
 
     def build_auth_cookie(self, session_id):
         return f"{AUTH_COOKIE_NAME}={session_id}; Path=/; Max-Age={SESSION_MAX_AGE_SECONDS}; HttpOnly; SameSite=Lax"
@@ -679,7 +787,7 @@ def extract_pdf_text(data):
     try:
         from pypdf import PdfReader
     except Exception as exc:
-        raise ValueError("当前 Python 环境没有安装 pypdf，建议先用 DOCX / TXT，或安装 pypdf 后再试 PDF") from exc
+        raise ValueError("当前 Python 环境没有安装 pypdf，建议先用 DOCX / TXT，或者安装 pypdf 后再试 PDF") from exc
 
     reader = PdfReader(io.BytesIO(data))
     parts = []
@@ -690,9 +798,29 @@ def extract_pdf_text(data):
     return "\n".join(parts)
 
 
+def split_keywords(*texts):
+    tokens = []
+    for text in texts:
+        if not text:
+            continue
+        for piece in re.split(r"[,\n，。；;、|()\[\]\s]+", str(text)):
+            clean = piece.strip()
+            if len(clean) >= 2:
+                tokens.append(clean)
+    ordered = []
+    seen = set()
+    for token in tokens:
+        key = token.lower()
+        if key not in seen:
+            seen.add(key)
+            ordered.append(token)
+    return ordered[:25]
+
+
 def extract_resume_keywords(resume_text, target_stack, target_jd, target_role):
     source = "\n".join([resume_text, target_stack, target_jd, target_role]).lower()
     matched = [keyword for keyword in COMMON_TECH_KEYWORDS if keyword.lower() in source]
+    resume_keywords = [keyword for keyword in COMMON_TECH_KEYWORDS if keyword.lower() in resume_text.lower()]
 
     custom_keywords = split_keywords(target_stack, target_jd, target_role)
     resume_lines = [line.strip() for line in resume_text.splitlines() if line.strip()]
@@ -706,16 +834,25 @@ def extract_resume_keywords(resume_text, target_stack, target_jd, target_role):
     return {
         "targetKeywords": custom_keywords[:15],
         "detectedTechKeywords": matched[:15],
+        "resumeTechKeywords": resume_keywords[:15],
         "experienceSignals": experience_signals,
     }
 
 
 def review_resume(resume_text, filename, target_role, target_stack, target_jd, selected_domain, extracted_keywords):
-    api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    llm_config = resolve_resume_llm_config()
+    api_key = llm_config["api_key"]
     if api_key:
         try:
+            print(
+                f"[OfferGo] Starting resume review LLM call: file={filename}, role={target_role}, domain={selected_domain or 'all'}, model={llm_config['model']}",
+                flush=True,
+            )
             review = call_llm_review(
                 api_key=api_key,
+                api_url=llm_config["api_url"],
+                model=llm_config["model"],
+                max_tokens=llm_config["max_tokens"],
                 resume_text=resume_text,
                 filename=filename,
                 target_role=target_role,
@@ -724,9 +861,13 @@ def review_resume(resume_text, filename, target_role, target_stack, target_jd, s
                 selected_domain=selected_domain,
                 extracted_keywords=extracted_keywords,
             )
-            return review, "大模型评审"
-        except Exception:
-            pass
+            print("[OfferGo] Resume review LLM succeeded.", flush=True)
+            return review, "AI 模型版", ""
+        except Exception as exc:
+            error_message = str(exc).strip() or exc.__class__.__name__
+            print(f"[OfferGo] Resume review LLM failed: {error_message}", file=sys.stderr, flush=True)
+            traceback.print_exc()
+            return None, "AI 调用失败，已切换本地规则版", error_message
 
     review = fallback_review(
         resume_text=resume_text,
@@ -737,18 +878,18 @@ def review_resume(resume_text, filename, target_role, target_stack, target_jd, s
         selected_domain=selected_domain,
         extracted_keywords=extracted_keywords,
     )
-    return review, "本地规则评审"
-
+    return review, "本地规则版", ""
 
 def build_prompt(name, **kwargs):
     template = PROMPTS[name]
     return template.format(**kwargs)
 
 
-def call_deepseek_json(api_key, system_prompt, user_prompt):
+def call_deepseek_json(api_key, api_url, model, max_tokens, system_prompt, user_prompt):
     payload = {
-        "model": SETTINGS.deepseek_model,
+        "model": model,
         "temperature": 0.2,
+        "max_tokens": max_tokens,
         "response_format": {"type": "json_object"},
         "messages": [
             {"role": "system", "content": system_prompt},
@@ -757,7 +898,7 @@ def call_deepseek_json(api_key, system_prompt, user_prompt):
     }
 
     request = urllib.request.Request(
-        SETTINGS.deepseek_api_url,
+        api_url,
         data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
         headers={
             "Content-Type": "application/json",
@@ -767,30 +908,39 @@ def call_deepseek_json(api_key, system_prompt, user_prompt):
     )
 
     try:
-        with urllib.request.urlopen(request, timeout=90) as response:
+        print(f"[OfferGo] POST {api_url}", flush=True)
+        # Avoid inheriting any broken system proxy settings such as 127.0.0.1:9.
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        with opener.open(request, timeout=90) as response:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="ignore")
         raise ValueError(f"大模型接口调用失败：HTTP {exc.code} {detail}") from exc
+    except urllib.error.URLError as exc:
+        raise ValueError(f"大模型接口网络不可达：{exc.reason}") from exc
 
     content = result["choices"][0]["message"]["content"]
     return safe_parse_json(content)
 
 
-def call_llm_review(api_key, resume_text, filename, target_role, target_stack, target_jd, selected_domain, extracted_keywords):
+def call_llm_review(api_key, api_url, model, max_tokens, resume_text, filename, target_role, target_stack, target_jd, selected_domain, extracted_keywords):
     parsed = call_deepseek_json(
         api_key=api_key,
+        api_url=api_url,
+        model=model,
+        max_tokens=max_tokens,
         system_prompt=PROMPTS["review_system"],
         user_prompt=build_prompt(
             "review_user",
             target_role=target_role,
-            selected_domain=selected_domain or "未指定",
-            target_stack=target_stack or "未提供",
-            target_jd=target_jd or "未提供",
+            selected_domain=selected_domain or "鏈寚瀹?",
+            target_stack=target_stack or "鏈彁渚?",
+            target_jd=target_jd or "鏈彁渚?",
             filename=filename,
             extracted_keywords=json.dumps(extracted_keywords, ensure_ascii=False),
             resume_text=resume_text[:18000],
-        ),
+        )
+        + STRUCTURED_OUTPUT_HINT,
     )
     if not isinstance(parsed, dict):
         raise ValueError("大模型返回的不是有效 JSON")
@@ -798,46 +948,56 @@ def call_llm_review(api_key, resume_text, filename, target_role, target_stack, t
 
 
 def generate_resume_rewrite(record):
-    api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    llm_config = resolve_resume_llm_config()
+    api_key = llm_config["api_key"]
     if api_key:
         try:
             parsed = call_deepseek_json(
                 api_key=api_key,
+                api_url=llm_config["api_url"],
+                model=llm_config["model"],
+                max_tokens=llm_config["max_tokens"],
                 system_prompt=PROMPTS["rewrite_system"],
                 user_prompt=build_prompt(
                     "rewrite_user",
                     target_role=record["target_role"],
-                    target_stack=record["target_stack"] or "未提供",
-                    target_jd=record["target_jd"] or "未提供",
+                    target_stack=record["target_stack"] or "鏈彁渚?",
+                    target_jd=record["target_jd"] or "鏈彁渚?",
                     review=json.dumps(record["review"], ensure_ascii=False),
                     resume_text=record["resume_text"][:18000],
-                ),
+                )
+                + STRUCTURED_OUTPUT_HINT,
             )
             return normalize_rewrite(parsed)
-        except Exception:
-            pass
+        except Exception as exc:
+            print(f"[OfferGo] Resume rewrite LLM failed: {str(exc).strip() or exc.__class__.__name__}", file=sys.stderr, flush=True)
     return fallback_rewrite(record)
 
 
 def generate_resume_interview_questions(record):
-    api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    llm_config = resolve_resume_llm_config()
+    api_key = llm_config["api_key"]
     if api_key:
         try:
             parsed = call_deepseek_json(
                 api_key=api_key,
+                api_url=llm_config["api_url"],
+                model=llm_config["model"],
+                max_tokens=llm_config["max_tokens"],
                 system_prompt=PROMPTS["interview_system"],
                 user_prompt=build_prompt(
                     "interview_user",
                     target_role=record["target_role"],
-                    target_stack=record["target_stack"] or "未提供",
-                    target_jd=record["target_jd"] or "未提供",
+                    target_stack=record["target_stack"] or "鏈彁渚?",
+                    target_jd=record["target_jd"] or "鏈彁渚?",
                     review=json.dumps(record["review"], ensure_ascii=False),
                     resume_text=record["resume_text"][:18000],
-                ),
+                )
+                + STRUCTURED_OUTPUT_HINT,
             )
             return normalize_interview_pack(parsed)
-        except Exception:
-            pass
+        except Exception as exc:
+            print(f"[OfferGo] Resume interview LLM failed: {str(exc).strip() or exc.__class__.__name__}", file=sys.stderr, flush=True)
     return fallback_interview_pack(record)
 
 
@@ -858,13 +1018,13 @@ def fallback_review(resume_text, filename, target_role, target_stack, target_jd,
     missing = [keyword for keyword in keywords if keyword.lower() not in lowered]
 
     dimension_scores = [
-        score_dimension("技术栈", has_keywords(resume_text, COMMON_TECH_KEYWORDS), has_keywords(resume_text, matched), "核心技术栈覆盖情况"),
-        score_dimension("项目经历", section_signal(resume_text, ["项目", "项目经历", "项目经验"]), count_project_signals(resume_text), "项目是否具体、是否有产出"),
-        score_dimension("实习经历", section_signal(resume_text, ["实习", "工作经历", "实践经历"]), count_project_signals(resume_text, internship=True), "是否体现真实业务经历"),
-        score_dimension("学历背景", section_signal(resume_text, ["教育背景", "学历", "毕业", "本科", "硕士", "博士"]), count_education_signals(resume_text), "教育信息是否完整"),
-        score_dimension("科研经历", section_signal(resume_text, ["科研", "论文", "专利", "课题", "实验室"]), count_research_signals(resume_text), "科研能力是否体现"),
-        score_dimension("岗位匹配度", max(len(keywords), 1), len(matched), "简历中的技术栈与目标岗位匹配程度"),
-        score_dimension("表达质量", max(len(resume_text) // 600, 1), count_bullet_signals(resume_text), "是否有结构化、结果导向表达"),
+        score_dimension("技术栈", has_keywords(resume_text, COMMON_TECH_KEYWORDS), has_keywords(resume_text, matched), "技术关键词覆盖情况"),
+        score_dimension("项目经历", section_signal(resume_text, ["项目", "经历", "负责"]), count_project_signals(resume_text), "项目描述展开情况"),
+        score_dimension("实习经历", section_signal(resume_text, ["实习", "实训", "校招"]), count_project_signals(resume_text, internship=True), "实习经历展示情况"),
+        score_dimension("学历背景", section_signal(resume_text, ["本科", "硕士", "博士", "学校", "院校", "专业"]), count_education_signals(resume_text), "教育背景展示情况"),
+        score_dimension("科研经历", section_signal(resume_text, ["科研", "论文", "实验", "竞赛", "课题"]), count_research_signals(resume_text), "科研内容展示情况"),
+        score_dimension("岗位匹配度", max(len(keywords), 1), len(matched), "目标岗位关键词匹配情况"),
+        score_dimension("表达质量", max(len(resume_text) // 600, 1), count_bullet_signals(resume_text), "条理化表达情况"),
     ]
 
     overall = int(sum(item["score"] for item in dimension_scores) / len(dimension_scores))
@@ -893,78 +1053,82 @@ def fallback_rewrite(record):
     matched = record["review"]["jobMatch"].get("matchedKeywords", [])
     missing = record["review"]["jobMatch"].get("missingKeywords", [])
     role = record["target_role"]
-    target_stack = record["target_stack"] or "目标技术栈"
+    target_stack = record["target_stack"] or "未填写"
     return normalize_rewrite(
         {
             "headline": f"面向 {role} 的简历改写建议",
-            "summaryRewrite": f"聚焦 {role}，突出 {target_stack}，把项目描述改成结果导向表达，优先展示最贴近岗位的经历。",
+            "summaryRewrite": f"针对 {role} 岗位和 {target_stack} 技术栈，可把项目和经历写得更具体一些，突出结果、职责和技术关键词。",
             "skillsRewrite": [
-                f"把技能栏按“核心匹配 / 工程能力 / 了解方向”重组，优先写 {', '.join(matched[:6]) or target_stack}。",
-                "避免平铺罗列工具名，改成按岗位价值排序的技术能力表达。",
+                "把技术栈按“熟练 / 掌握 / 了解”分层写清楚，避免只堆关键词：" + ((", ".join(matched[:6])) or target_stack) + "。",
+                "优先补充和岗位最相关的技术关键词、工具和业务场景。",
             ],
             "projectRewrite": build_rewritten_bullets(role, matched),
             "experienceRewrite": [
-                "如果有实习经历，补齐业务场景、协作对象、上线结果和个人贡献边界。",
-                "如果没有正式实习，可把课程项目、竞赛项目按真实项目方式重写。",
+                "每段经历尽量写清楚：背景、你的职责、具体动作、结果指标。",
+                "如果有成果，尽量补数字，比如性能提升、转化率、节省时间等。",
             ],
             "educationRewrite": [
-                "教育背景补齐学校、专业、时间；如果成绩、排名、竞赛有优势可以前置。",
-                "与岗位相关的课程、科研、比赛可以合并成“补充亮点”。",
+                "教育经历可以补充专业方向、核心课程和项目关联性。",
+                "如果有竞赛、科研或实验室经历，也可以补到这一部分。",
             ],
             "missingKeywordsAdvice": missing[:10],
         }
     )
 
-
 def fallback_interview_pack(record):
     role = record["target_role"]
     matched = record["review"]["jobMatch"].get("matchedKeywords", [])
     missing = record["review"]["jobMatch"].get("missingKeywords", [])
-    top_keyword = matched[0] if matched else (missing[0] if missing else "项目")
+    top_keyword = matched[0] if matched else (missing[0] if missing else "暂无关键词")
     questions = [
         {
-            "question": f"请你围绕简历里最相关的一个项目，介绍你是如何支撑 {role} 目标能力的？",
-            "intent": "考察项目真实性、个人贡献边界和表达能力",
-            "answerTips": ["按背景、目标、方案、难点、结果来讲", "明确你本人负责的部分", "最好给出量化结果"],
+            "question": f"请结合你的简历，介绍一下你为什么适合 {role} 这个岗位？",
+            "intent": "考察你对岗位要求和个人经历的匹配理解",
+            "answerTips": ["对齐岗位要求", "结合简历中的项目或经历", "说明你的优势和补足方向"],
         },
         {
-            "question": f"你在简历中提到了 {top_keyword}，能具体讲讲你在项目中是怎么用它的吗？",
-            "intent": "考察技术栈是否真正用过，而不是只写在技能栏",
-            "answerTips": ["说清楚使用场景", "说明为什么选它", "补充踩坑和优化点"],
+            "question": f"你在简历里提到的 {top_keyword}，能展开讲讲你的实际贡献吗？",
+            "intent": "考察关键词背后的真实经历和深度",
+            "answerTips": ["说清楚具体做了什么", "解释你的技术选择", "补充结果和影响"],
         },
         {
-            "question": "如果让你重新做这个项目，你会优先重构哪一块，为什么？",
-            "intent": "考察复盘能力和工程判断",
-            "answerTips": ["从性能、稳定性、扩展性或可维护性切入", "不要只说表面问题"],
+            "question": "如果让你重新做一次这段项目经历，你会怎么优化？",
+            "intent": "考察复盘能力和成长意识",
+            "answerTips": ["讲优化思路", "讲取舍", "讲结果提升空间"],
         },
         {
-            "question": "简历里哪些经历最能证明你和目标岗位匹配？",
-            "intent": "考察岗位理解和自我包装能力",
-            "answerTips": ["把经历和岗位 JD 一一对应", "优先说能产生业务价值的部分"],
+            "question": "你会如何把简历中的内容改得更贴合岗位 JD？",
+            "intent": "考察岗位匹配意识",
+            "answerTips": ["找出关键词", "补充相关经历", "删掉不相关内容"],
         },
+    ]
+    follow_ups = [
+        f"你在 {top_keyword} 这部分有没有量化结果或业务收益？",
+        f"如果面试官继续追问 {role} 岗位相关技术，你怎么接？",
+        "这段经历里最难的一点是什么，你怎么解决的？",
     ]
     if missing:
         questions.append(
             {
-                "question": f"岗位比较看重 {missing[0]}，如果你现在经验不多，你会怎么补足并向面试官解释？",
-                "intent": "考察学习能力和风险应对",
-                "answerTips": ["承认短板", "给出补足计划", "强调可迁移能力"],
+                "question": f"简历里还没有明显体现 {missing[0]}，如果面试官问到你会怎么补充？",
+                "intent": "考察补强能力与表达策略",
+                "answerTips": ["说明已有经验", "补充学习或项目计划", "把空缺转成成长方向"],
             }
         )
+        follow_ups.append(f"如果岗位强依赖 {missing[0]}，你打算怎么在短期内补齐？")
     return normalize_interview_pack(
         {
             "headline": "基于简历的模拟面试题",
             "questions": questions,
+            "followUps": follow_ups,
         }
     )
 
-
-def split_keywords(*texts):
     tokens = []
     for text in texts:
         if not text:
             continue
-        for piece in re.split(r"[,\n，、/；;|()\[\]：:\s]+", text):
+        for piece in re.split(r"[,\n锛屻€?锛?|()\[\]锛?\s]+", text):
             clean = piece.strip()
             if len(clean) >= 2:
                 tokens.append(clean)
@@ -1000,30 +1164,29 @@ def count_education_signals(text):
 
 
 def count_research_signals(text):
-    return has_keywords(text, ["论文", "专利", "实验室", "课题", "科研", "竞赛", "发表"])
+    return has_keywords(text, ["科研", "论文", "实验", "课题", "竞赛", "专利", "研究"])
 
 
 def count_bullet_signals(text):
-    return text.count("•") + text.count("-") + text.count("1.") + text.count("2.") + text.count("3.")
-
+    return text.count("?") + text.count("-") + text.count("1.") + text.count("2.") + text.count("3.")
 
 def score_dimension(name, total_signal, positive_signal, reasoning_label):
     if total_signal <= 0:
         score = 35
-        verdict = "信息不足"
-        reasoning = f"简历里对{name}的呈现较弱，{reasoning_label}没有展开。"
+        verdict = "不足"
+        reasoning = f"简历中尚未看到足够的{name}信息，建议补充{reasoning_label}。"
     else:
         ratio = positive_signal / max(total_signal, 1)
         score = clamp_score(int(45 + ratio * 45 + min(positive_signal, 5) * 3))
         if score >= 80:
             verdict = "表现较强"
         elif score >= 65:
-            verdict = "中上水平"
+            verdict = "较为完整"
         elif score >= 50:
-            verdict = "基础可用"
-        else:
             verdict = "需要补强"
-        reasoning = f"{name}维度目前识别到 {positive_signal} 个有效信号，{reasoning_label}还有提升空间。"
+        else:
+            verdict = "明显不足"
+        reasoning = f"{name}维度识别到 {positive_signal} 个有效信号，{reasoning_label} 仍有提升空间。"
     return {"name": name, "score": score, "verdict": verdict, "reasoning": reasoning}
 
 
@@ -1033,74 +1196,74 @@ def clamp_score(value):
 
 def build_summary(overall, target_role, matched, missing):
     if overall >= 80:
-        prefix = "这份简历整体竞争力较强"
+        prefix = "整体表现不错，"
     elif overall >= 65:
-        prefix = "这份简历具备一定竞争力"
+        prefix = "整体处于中等水平，"
     else:
-        prefix = "这份简历目前还需要明显补强"
-    matched_text = "、".join(matched[:5]) if matched else "暂无明显匹配技术栈"
-    missing_text = "、".join(missing[:5]) if missing else "暂无明显缺口"
-    return f"{prefix}，适配目标岗位“{target_role}”。已匹配：{matched_text}。待补充：{missing_text}。"
+        prefix = "整体匹配度偏低，"
+    matched_text = "、".join(matched[:5]) if matched else "暂无明显匹配项"
+    missing_text = "、".join(missing[:5]) if missing else "暂无明显缺失项"
+    return f"{prefix}当前简历与 {target_role} 岗位的匹配重点在 {matched_text}；建议优先补足 {missing_text}。"
 
 
 def build_match_reasoning(matched, missing, target_jd):
     if matched and not missing:
-        return "简历中已有较多与目标岗位直接相关的技术关键词，岗位匹配度较高。"
+        return "已经覆盖了较多目标关键词，但仍建议结合岗位 JD 再补充细节。"
     if matched:
-        return f"简历已体现 {len(matched)} 个目标关键词，但仍缺少 {len(missing)} 个岗位关注点，建议围绕 JD 补强。"
+        return f"已匹配 {len(matched)} 个目标关键词，仍有 {len(missing)} 个关键词未覆盖，建议继续贴合 JD 优化。"
     if target_jd:
-        return "目标 JD 已提供，但简历中没有明显对应的关键词，建议按岗位要求重写项目与技能部分。"
-    return "目前缺少足够的岗位匹配信号，建议补充与目标岗位强相关的技术栈和项目成果。"
+        return "已结合 JD 做基础判断，但简历与目标岗位的关键词匹配仍然偏少。"
+    return "当前简历缺少足够的岗位信息，建议补充经历与成果后再评审。"
 
 
 def build_highlights(resume_text, matched):
     highlights = []
     if matched:
-        highlights.append(f"简历里已经覆盖了部分目标关键词：{'、'.join(matched[:6])}。")
-    if section_signal(resume_text, ["项目", "项目经历", "项目经验"]):
-        highlights.append("具备项目经历描述基础，可以继续往“背景-动作-结果”方向强化。")
-    if section_signal(resume_text, ["实习", "工作经历"]):
-        highlights.append("存在实习或工作经历信号，比纯校园简历更容易建立业务可信度。")
-    if section_signal(resume_text, ["本科", "硕士", "博士", "大学"]):
-        highlights.append("教育背景有体现，基础信息框架较完整。")
-    return highlights or ["简历基础结构已具备，适合继续精修为岗位定制版本。"]
+        highlights.append("简历中已体现：" + "、".join(matched[:6]) + "。")
+    if section_signal(resume_text, ["项目", "经历", "负责"]):
+        highlights.append("项目/经历部分比较完整，说明你有一定的实战表达基础。")
+    if section_signal(resume_text, ["实习", "校招"]):
+        highlights.append("简历里有实习或校招相关信息，和岗位衔接更自然。")
+    if section_signal(resume_text, ["本科", "硕士", "博士", "学校", "专业"]):
+        highlights.append("教育背景信息较完整，方便快速判断基础能力。")
+    return highlights or ["简历中可直接用于岗位判断的信息还不够多。"]
 
 
 def build_risks(resume_text, missing):
     risks = []
     if missing:
-        risks.append(f"目标岗位关注的关键词仍有缺失：{'、'.join(missing[:6])}。")
-    if not section_signal(resume_text, ["量化", "%", "提升", "降低", "增长", "优化"]):
-        risks.append("项目描述偏过程陈述，缺少量化结果或业务影响。")
-    if not section_signal(resume_text, ["实习", "工作经历"]):
-        risks.append("缺少实习/工作场景支撑，面试官可能会担心真实业务经验不足。")
-    if not section_signal(resume_text, ["科研", "论文", "专利", "课题"]):
-        risks.append("科研经历未体现，如果目标岗位偏算法/研究，会拉低印象分。")
+        risks.append("目标岗位关键词缺失：" + "、".join(missing[:6]) + "。")
+    if not section_signal(resume_text, ["负责", "%", "提升", "优化", "增长", "减少"]):
+        risks.append("缺少量化结果，简历说服力会偏弱。")
+    if not section_signal(resume_text, ["项目", "经历"]):
+        risks.append("项目/实习经历展示不够清晰，可能影响岗位匹配判断。")
+    if not section_signal(resume_text, ["本科", "硕士", "博士", "学校"]):
+        risks.append("学历或教育背景信息不够完整，建议补充。")
     return risks[:6]
 
 
 def build_suggestions(resume_text, missing):
     suggestions = [
-        "把技术栈从简单罗列改成“熟练 / 掌握 / 了解”三级表达，避免堆词。",
-        "每个项目至少补齐业务场景、技术方案、个人职责、结果指标四部分。",
-        "优先把最贴近目标岗位的项目放在最前面，并把关键词写进项目描述而不只是技能栏。",
-        "如果有性能优化、稳定性治理、成本优化、效率提升，尽量写出具体数字。",
-        "把实习/项目中的协作对象、产出形态、上线结果补出来，增强真实性。",
+        "把技术栈按“熟练 / 掌握 / 了解”三层写法整理清楚。",
+        "每段项目经历补上业务背景、你的职责、技术方案和结果。",
+        "优先把和目标岗位最近的项目放到最前面。",
+        "尽量写出具体数字，比如性能提升、效率提升、用户增长等。",
+        "如果有实习/项目协作经历，也要写清楚你在团队中的角色。",
     ]
     if missing:
-        suggestions.append(f"围绕目标岗位补充这些能力的项目表达：{'、'.join(missing[:8])}。")
-    if not section_signal(resume_text, ["科研", "论文", "课题"]):
-        suggestions.append("如果有课程设计、比赛、实验室经历，也可以作为科研/探索能力的替代补充。")
+        suggestions.append("重点补足：" + "、".join(missing[:8]) + "。")
+    if not section_signal(resume_text, ["项目", "经历", "负责"]):
+        suggestions.append("建议增加项目或实战经历，让岗位匹配更直观。")
     return suggestions[:10]
 
 
 def build_rewritten_bullets(target_role, matched):
-    matched_text = "、".join(matched[:4]) if matched else "目标技术栈"
+    matched_text = "、".join(matched[:4]) if matched else "岗位关键能力"
     return [
-        f"围绕 {matched_text} 设计并落地核心模块，负责方案拆解、技术实现与联调上线，支撑 {target_role} 相关业务需求快速交付。",
-        "针对系统瓶颈完成性能优化与稳定性治理，结合监控和压测定位问题，显著提升页面 / 接口响应效率与可用性。",
-        "主导项目关键功能的技术方案选型与实现，推动工程规范、代码质量和协作效率提升，缩短版本交付周期。",
-        "结合真实业务场景沉淀可复用能力，将一次性需求抽象为通用组件 / 服务，降低后续维护成本。",
+        f"围绕 {matched_text} 这些关键词，把与 {target_role} 岗位相关的项目和职责写得更具体。",
+        "每段经历尽量用“背景 - 行动 - 结果”结构来写。",
+        "如果有技术方案，补上为什么这么做，以及带来了什么收益。",
+        "没有现成成果时，也可以写学习过程和迭代过程，但要写得具体。",
     ]
 
 
@@ -1161,15 +1324,28 @@ def normalize_interview_pack(payload):
                     "answerTips": list(item.get("answerTips", []))[:6],
                 }
             )
+        elif isinstance(item, str) and item.strip():
+            questions.append({"question": item.strip(), "intent": "", "answerTips": []})
+
+    follow_ups = []
+    for item in payload.get("followUps", []):
+        if isinstance(item, dict):
+            text = item.get("question") or item.get("text") or item.get("content") or item.get("title") or ""
+        else:
+            text = str(item)
+        text = str(text).strip()
+        if text:
+            follow_ups.append(text)
     return {
         "headline": str(payload.get("headline", "基于简历的模拟面试题")),
         "questions": questions[:12],
+        "followUps": follow_ups[:12],
     }
-
 
 def main():
     if SETTINGS.storage_mode == "sqlite":
         initialize_database(SETTINGS.app_db_path)
+        ensure_questions_seeded(SETTINGS.app_db_path, WEB_DIR / "data" / "questions.json")
     server = ThreadingHTTPServer((SETTINGS.host, SETTINGS.port), ResumeReviewHandler)
     print(f"Resume review server running at http://{SETTINGS.host}:{SETTINGS.port}/web_mvp/")
     print(f"API health: http://{SETTINGS.host}:{SETTINGS.port}/api/health")
@@ -1179,3 +1355,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

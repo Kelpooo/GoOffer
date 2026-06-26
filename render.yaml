@@ -8,5 +8,5 @@ services:
     envVars:
       - key: RESUME_REVIEW_HOST
         value: 0.0.0.0
-      - key: RESUME_REVIEW_PORT
-        value: 10000
+      - key: OFFERGO_STORAGE_MODE
+        value: sqlite

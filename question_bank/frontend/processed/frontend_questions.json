@@ -1,0 +1,1814 @@
+{
+  "source_title": "2026 前端面试八股文〖超全完整版〗",
+  "source_type": "baguwen",
+  "domain": "frontend",
+  "questions": [
+    {
+      "question": "JavaScript的基本数据类型和引用类型有哪些?它们有什么区别?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "基本数据类型",
+        "引用类型",
+        "值传递",
+        "栈内存",
+        "堆内存"
+      ],
+      "answer_points": [
+        "基本类型:String、Number、Boolean、Null、Undefined、Symbol、BigInt,值传递,存在栈内存",
+        "引用类型:Object、Array、Function、RegExp、Date,地址引用,栈存地址,堆存数据"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "基本数据类型(7种):String、Number、Boolean、Null、Undefined、Symbol、BigInt 引用类型:Object、Array、Function、RegExp、Date 区别:基本类型:值传递,存在栈内存;引用类型:地址引用,栈存地址,堆存数据"
+    },
+    {
+      "question": "null和undefined有什么区别?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "null",
+        "undefined"
+      ],
+      "answer_points": [
+        "undefined:变量声明未赋值、函数无返回、对象不存在属性",
+        "null:手动置空,代表空对象",
+        "共同点:都表示“无”,==相等,===不等"
+      ],
+      "follow_ups": [],
+      "source_excerpt": "undefined:变量声明未赋值、函数无返回、对象不存在属性;null:手动置空,代表空对象;共同点:都表示“无”,==相等,===不等"
+    },
+    {
+      "question": "var、let、const的区别是什么?什么是变量提升和暂时性死区?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "var",
+        "let",
+        "const",
+        "变量提升",
+        "暂时性死区"
+      ],
+      "answer_points": [
+        "var:函数作用域、变量提升、可重复声明、可修改、挂载window",
+        "let:块级作用域、无变量提升、暂时性死区、不可重复声明",
+        "const:同let,声明必须赋值、不可修改引用地址"
+      ],
+      "follow_ups": [
+        "什么是暂时性死区?"
+      ],
+      "source_excerpt": "var:函数作用域、变量提升、可重复声明、可修改、挂载window;let:块级作用域、无变量提升、暂时性死区、不可重复声明;const:同let,声明必须赋值、不可修改引用地址"
+    },
+    {
+      "question": "什么是作用域链和闭包?闭包有什么用途和缺点?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "作用域",
+        "作用域链",
+        "闭包"
+      ],
+      "answer_points": [
+        "作用域链:当前作用域→逐层向上查找变量,直到全局",
+        "闭包:内层函数引用外层函数变量,外层执行后变量不销毁",
+        "用途:私有变量、缓存、防抖节流、模块化",
+        "缺点:容易内存泄漏"
+      ],
+      "follow_ups": [
+        "如何避免闭包导致的内存泄漏?"
+      ],
+      "source_excerpt": "作用域链:当前作用域→逐层向上查找变量,直到全局;闭包:内层函数引用外层函数变量,外层执行后变量不销毁;闭包用途:私有变量、缓存、防抖节流、模块化;闭包缺点:容易内存泄漏"
+    },
+    {
+      "question": "JavaScript中this的指向有哪些情况?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "this"
+      ],
+      "answer_points": [
+        "普通函数调用:this→window(严格模式undefined)",
+        "对象方法调用:this→调用者对象",
+        "构造函数new:this→实例对象",
+        "箭头函数:无自身this,继承外层作用域this",
+        "call/apply/bind:手动绑定this"
+      ],
+      "follow_ups": [
+        "箭头函数的this为什么不能改变?"
+      ],
+      "source_excerpt": "普通函数调用:this→window(严格模式undefined);对象方法调用:this→调用者对象;构造函数new:this→实例对象;箭头函数:无自身this,继承外层作用域this;call/apply/bind:手动绑定this"
+    },
+    {
+      "question": "call、apply、bind的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "call",
+        "apply",
+        "bind"
+      ],
+      "answer_points": [
+        "作用:改变函数this指向",
+        "call:参数逐个传,立即执行",
+        "apply:参数数组传,立即执行",
+        "bind:返回新函数,不立即执行,可延迟调用"
+      ],
+      "follow_ups": [
+        "手写一个bind函数"
+      ],
+      "source_excerpt": "call:参数逐个传,立即执行;apply:参数数组传,立即执行;bind:返回新函数,不立即执行,可延迟调用"
+    },
+    {
+      "question": "什么是原型和原型链?instanceof的原理是什么?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "原型",
+        "原型链",
+        "instanceof"
+      ],
+      "answer_points": [
+        "构造函数有prototype原型对象,实例有__proto__指向构造函数的prototype",
+        "原型链:实例.__proto__→构造原型→Object.prototype→null",
+        "instanceof原理:沿着原型链查找是否为该构造函数实例"
+      ],
+      "follow_ups": [
+        "如何实现一个instanceof?"
+      ],
+      "source_excerpt": "构造函数:Person()自带prototype原型对象;实例:newPerson()自带__proto__指向构造函数prototype;原型链:实例.__proto__→构造原型→Object.prototype→null;instanceof原理:沿着原型链查找是否为该构造函数实例"
+    },
+    {
+      "question": "箭头函数和普通函数有什么区别?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "箭头函数",
+        "普通函数"
+      ],
+      "answer_points": [
+        "无自己this,继承外层this",
+        "不能作为构造函数,不能new",
+        "无arguments,用剩余参数...args",
+        "无prototype原型",
+        "不支持call/apply/bind改变this"
+      ],
+      "follow_ups": [
+        "箭头函数适合在什么场景下使用?"
+      ],
+      "source_excerpt": "无自己this,继承外层this;不能作为构造函数,不能new;无arguments,用剩余参数...args;无prototype原型;不支持call/apply/bind改变this"
+    },
+    {
+      "question": "数组的常用方法有哪些?哪些会改变原数组?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "junior",
+      "tags": [
+        "数组",
+        "数组方法"
+      ],
+      "answer_points": [
+        "改变原数组:push、pop、shift、unshift、splice、sort、reverse",
+        "不改变原数组:map、filter、reduce、forEach、find、findIndex、every、some、slice、concat、join"
+      ],
+      "follow_ups": [
+        "数组的map和forEach有什么区别?"
+      ],
+      "source_excerpt": "改变原数组:pushpopshipunshiftsplicesortreverse;不改变原数组:mapfilterreduceforEachfindfindIndexeverysomesliceconcatjoin"
+    },
+    {
+      "question": "forEach、for...in、for...of、map的区别是什么?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "遍历",
+        "forEach",
+        "for...in",
+        "for...of",
+        "map"
+      ],
+      "answer_points": [
+        "forEach:不能break、return无效",
+        "for...in:遍历可枚举属性,包括原型属性",
+        "for...of:遍历迭代器,支持break/continue,推荐遍历数组",
+        "map:返回新数组,适合映射加工"
+      ],
+      "follow_ups": [
+        "for...of能遍历对象吗?如何遍历对象?"
+      ],
+      "source_excerpt": "forEach:不能break、return无效;for...in:遍历可枚举属性,包括原型属性;for...of:遍历迭代器,支持break/continue,推荐遍历数组;map:返回新数组,适合映射加工"
+    },
+    {
+      "question": "浅拷贝和深拷贝的区别是什么?如何实现深拷贝?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "浅拷贝",
+        "深拷贝"
+      ],
+      "answer_points": [
+        "浅拷贝:只拷贝第一层,引用类型共享地址;方式:Object.assign()、扩展运算符...、slice、concat",
+        "深拷贝:完全独立,互不影响;简易:JSON.parse(JSON.stringify()),缺点:丢失函数、正则、Symbol、循环引用、undefined",
+        "手写深拷贝:递归遍历,判断类型处理数组、对象、正则、日期"
+      ],
+      "follow_ups": [
+        "如何解决JSON.stringify深拷贝的缺点?"
+      ],
+      "source_excerpt": "浅拷贝:只拷贝第一层,引用类型共享地址;深拷贝:完全独立,互不影响;简易:JSON.parse(JSON.stringify()),缺点:丢失函数、正则、Symbol、循环引用、undefined;手写深拷贝:递归遍历,判断类型处理数组、对象、正则、日期"
+    },
+    {
+      "question": "JavaScript异步编程的发展历程是怎样的?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "异步",
+        "回调",
+        "Promise",
+        "Generator",
+        "async/await"
+      ],
+      "answer_points": [
+        "回调函数 → Promise → Generator → async/await"
+      ],
+      "follow_ups": [
+        "async/await相比Promise有哪些优势?"
+      ],
+      "source_excerpt": "回调函数 → Promise → Generator → async/await"
+    },
+    {
+      "question": "Promise的三种状态和常用API有哪些?Promise.all、Promise.race、Promise.allSettled的区别?",
+      "question_type": "concept",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "Promise",
+        "状态",
+        "API"
+      ],
+      "answer_points": [
+        "三种状态:pending(进行中)、fulfilled(成功)、rejected(失败),状态一旦改变不可逆",
+        "常用API:then、catch、finally、all、race、allSettled、resolve、reject",
+        "Promise.all:全部成功才成功,一个失败直接失败",
+        "Promise.race:谁先完成就返回谁",
+        "Promise.allSettled:全部执行完,不管成功失败"
+      ],
+      "follow_ups": [
+        "如何实现一个Promise.all?"
+      ],
+      "source_excerpt": "三种状态:pending(进行中)、fulfilled(成功)、rejected(失败),特点:状态一旦改变不可逆。常用API:then、catch、finally、all、race、allSettled、resolve、reject。Promise.all:全部成功才成功,一个失败直接失败;Promise.race:谁先完成就返回谁;Promise.allSettled:全部执行完,不管成功失败"
+    },
+    {
+      "question": "什么是宏任务和微任务?事件循环的执行顺序是怎样的?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "事件循环",
+        "宏任务",
+        "微任务"
+      ],
+      "answer_points": [
+        "微任务(优先级高):Promise.then/catch、async/await、queueMicrotask、MutationObserver",
+        "宏任务:script整体代码、setTimeout、setInterval、AJAX、DOM事件、IO操作",
+        "执行顺序:同步代码 → 清空所有微任务 → 执行一个宏任务 → 再清空微任务,循环往复"
+      ],
+      "follow_ups": [
+        "async/await在事件循环中的表现如何?"
+      ],
+      "source_excerpt": "微任务(优先级高):Promise.then/catch、async/await、queueMicrotask、MutationObserver;宏任务:script整体代码、setTimeout、setInterval、AJAX、DOM事件、IO操作;执行顺序:同步代码→清空所有微任务→执行一个宏任务→再清空微任务循环往复"
+    },
+    {
+      "question": "async/await的原理是什么?如何捕获错误?",
+      "question_type": "principle",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "async/await",
+        "Generator",
+        "错误捕获"
+      ],
+      "answer_points": [
+        "async函数默认返回Promise",
+        "await暂停执行,等待Promise完成",
+        "本质:Generator + Promise语法糖",
+        "错误捕获:try/catch"
+      ],
+      "follow_ups": [
+        "await后面的代码在微任务中执行还是宏任务?"
+      ],
+      "source_excerpt": "async函数默认返回Promise;await暂停执行,等待Promise完成;本质:Generator+Promise语法糖;错误捕获:try/catch"
+    },
+    {
+      "question": "防抖和节流的区别是什么?分别适用于什么场景?",
+      "question_type": "comparison",
+      "category": "javascript",
+      "difficulty": "mid",
+      "tags": [
+        "防抖",
+        "节流"
+      ],
+      "answer_points": [
+        "防抖:频繁触发,停止触发后n秒才执行一次;适用:搜索框输入、窗口resize、输入框联想",
+        "节流:固定时间内只执行一次;适用:滚动监听、鼠标移动、高频点击、拖拽"
+      ],
+      "follow_ups": [
+        "手写一个防抖函数"
+      ],
+      "source_excerpt": "防抖:频繁触发,停止触发后n秒才执行一次;适用:搜索框输入、窗口resize、输入框联想;节流:固定时间内只执行一次;适用:滚动监听、鼠标移动、高频点击、拖拽"
+    },
+    {
+      "question": "浏览器的垃圾回收机制有哪些?常见的内存泄漏场景有哪些?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "垃圾回收",
+        "内存泄漏"
+      ],
+      "answer_points": [
+        "引用计数:引用为0就回收,缺点:循环引用无法回收",
+        "标记清除:从根对象标记可达对象,不可达则回收(主流)",
+        "内存泄漏场景:全局变量过多、闭包未释放、定时器未清除、事件监听未解绑、DOM引用未清空"
+      ],
+      "follow_ups": [
+        "如何检测内存泄漏?"
+      ],
+      "source_excerpt": "浏览器GC方式:引用计数(缺点循环引用),标记清除(主流);内存泄漏常见场景:全局变量过多、闭包未释放、定时器未清除、事件监听未解绑、DOM引用未清空"
+    },
+    {
+      "question": "什么是解构赋值?数组和对象解构的语法是什么?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "解构赋值"
+      ],
+      "answer_points": [
+        "数组解构:let [a, b] = [1, 2]",
+        "对象解构:let {name, age} = obj",
+        "支持默认值、剩余解构"
+      ],
+      "follow_ups": [
+        "解构赋值在函数参数中的应用?"
+      ],
+      "source_excerpt": "解构赋值:数组解构、对象解构、默认值、剩余解构"
+    },
+    {
+      "question": "模板字符串有哪些特性?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "模板字符串"
+      ],
+      "answer_points": [
+        "支持换行",
+        "支持变量插值 ${}",
+        "可以嵌套"
+      ],
+      "follow_ups": [
+        "模板字符串如何实现标签模板?"
+      ],
+      "source_excerpt": "模板字符串:``支持换行、变量插值"
+    },
+    {
+      "question": "Set和Map的区别是什么?Set如何实现数组去重?",
+      "question_type": "comparison",
+      "category": "es6",
+      "difficulty": "mid",
+      "tags": [
+        "Set",
+        "Map"
+      ],
+      "answer_points": [
+        "Set:类似数组,元素唯一",
+        "Map:键可以是引用类型,遍历更友好",
+        "数组去重:[...new Set(arr)]"
+      ],
+      "follow_ups": [
+        "WeakSet和WeakMap有什么作用?"
+      ],
+      "source_excerpt": "Set:数组去重,元素唯一;Map:键可以是引用类型,遍历更友好"
+    },
+    {
+      "question": "ES6的class如何定义?继承如何实现?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "mid",
+      "tags": [
+        "class",
+        "继承"
+      ],
+      "answer_points": [
+        "定义:class Person { constructor() {} }",
+        "继承:class Student extends Person { super() }",
+        "支持静态属性static"
+      ],
+      "follow_ups": [
+        "class和普通构造函数有什么区别?"
+      ],
+      "source_excerpt": "class类:constructor、继承extends、super静态属性static"
+    },
+    {
+      "question": "ES6模块化中export和export default的区别?",
+      "question_type": "comparison",
+      "category": "es6",
+      "difficulty": "mid",
+      "tags": [
+        "模块化",
+        "export"
+      ],
+      "answer_points": [
+        "export:命名导出,可以多个,导入需用{}",
+        "export default:默认导出,只能一个,导入无需{}",
+        "可以混合使用"
+      ],
+      "follow_ups": [
+        "模块的循环引用如何处理?"
+      ],
+      "source_excerpt": "模块化:import/export default/export命名导出"
+    },
+    {
+      "question": "剩余参数和默认参数如何使用?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "剩余参数",
+        "默认参数"
+      ],
+      "answer_points": [
+        "剩余参数:function(...args) {},将多余参数收集为数组",
+        "默认参数:function(a = 10) {},参数未传时使用默认值"
+      ],
+      "follow_ups": [
+        "剩余参数和arguments对象的区别?"
+      ],
+      "source_excerpt": "剩余参数...、默认参数"
+    },
+    {
+      "question": "什么是迭代器和生成器?生成器的用途?",
+      "question_type": "principle",
+      "category": "es6",
+      "difficulty": "mid",
+      "tags": [
+        "迭代器",
+        "生成器"
+      ],
+      "answer_points": [
+        "迭代器:具有next()方法的对象,返回{value, done}",
+        "生成器:function*() { yield },返回迭代器",
+        "用途:惰性求值、控制异步流程"
+      ],
+      "follow_ups": [
+        "for...of如何遍历自定义对象?"
+      ],
+      "source_excerpt": "迭代器Iterator、生成器Generator"
+    },
+    {
+      "question": "可选链?.和空值合并??的用法和作用?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "可选链",
+        "空值合并"
+      ],
+      "answer_points": [
+        "可选链:obj?.a,避免因属性不存在报错",
+        "空值合并:a ?? b,当a为null或undefined时返回b"
+      ],
+      "follow_ups": [
+        "可选链和逻辑与&&的区别?"
+      ],
+      "source_excerpt": "可选链?.、空值合并??"
+    },
+    {
+      "question": "flat和flatMap的作用是什么?",
+      "question_type": "concept",
+      "category": "es6",
+      "difficulty": "junior",
+      "tags": [
+        "flat",
+        "flatMap"
+      ],
+      "answer_points": [
+        "flat(depth):将嵌套数组扁平化,默认深度1",
+        "flatMap:先map再flat,深度为1"
+      ],
+      "follow_ups": [
+        "实现一个数组扁平化函数"
+      ],
+      "source_excerpt": "数组扩展:flat扁平化、flatMap"
+    },
+    {
+      "question": "从输入URL到页面展示,经历了哪些过程?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "加载过程",
+        "DNS",
+        "TCP",
+        "HTTP",
+        "渲染"
+      ],
+      "answer_points": [
+        "DNS域名解析(域名→IP)",
+        "TCP三次握手建立连接",
+        "HTTPS TLS安全握手",
+        "发送HTTP请求",
+        "服务器返回响应报文",
+        "浏览器解析HTML→生成DOM树",
+        "解析CSS→生成CSSOM树",
+        "合成渲染树Render Tree",
+        "布局Layout(回流)",
+        "绘制Paint(重绘)",
+        "分层合成Composite"
+      ],
+      "follow_ups": [
+        "页面加载过程中哪些步骤会阻塞?"
+      ],
+      "source_excerpt": "DNS域名解析→TCP三次握手→HTTPS TLS握手→发送HTTP请求→服务器返回→浏览器解析HTML→CSS→渲染树→布局→绘制→合成"
+    },
+    {
+      "question": "什么是回流和重绘?如何优化?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "回流",
+        "重绘",
+        "性能优化"
+      ],
+      "answer_points": [
+        "回流:元素布局、宽高、位置、隐藏变化,重新计算布局,开销大",
+        "重绘:仅颜色、背景、文字样式变化,不改变布局",
+        "触发回流场景:修改宽高、margin、padding、display、获取offset/scroll/client系列属性",
+        "优化:批量DOM操作,先离线修改再插入;用transform/opacity做动画;避免频繁读取布局属性"
+      ],
+      "follow_ups": [
+        "哪些CSS属性会引起回流?哪些只引起重绘?"
+      ],
+      "source_excerpt": "回流:元素布局、宽高、位置、隐藏变化,重新计算布局,开销大;重绘:仅颜色、背景、文字样式变化,不改变布局;触发回流场景:修改宽高、margin、padding、display、获取offset/scroll/client系列属性;优化:批量DOM操作,先离线修改再插入;用transform/opacity做动画;避免频繁读取布局属性"
+    },
+    {
+      "question": "浏览器缓存机制有哪些?强缓存和协商缓存分别是什么?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "缓存",
+        "强缓存",
+        "协商缓存"
+      ],
+      "answer_points": [
+        "强缓存(不发请求,直接用本地):Expires(绝对时间),Cache-Control: max-age(相对时间,优先级更高)",
+        "协商缓存(发请求,服务端比对):Last-Modified/If-Modified-Since(文件修改时间),ETag/If-None-Match(文件唯一标识,优先级更高)",
+        "命中协商缓存返回304,使用本地缓存"
+      ],
+      "follow_ups": [
+        "如何设置强缓存和协商缓存?"
+      ],
+      "source_excerpt": "强缓存:Expires(绝对时间),Cache-Control:max-age(相对时间,优先级更高);协商缓存:Last-Modified/If-Modified-Since,ETag/If-None-Match(优先级更高);命中返回304"
+    },
+    {
+      "question": "什么是跨域?有哪些常见的跨域解决方案?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "跨域",
+        "同源策略"
+      ],
+      "answer_points": [
+        "同源策略:协议、域名、端口有一个不同即为跨域",
+        "解决方案:CORS(后端配置响应头,主流)、JSONP(仅GET,兼容好)、Nginx反向代理、本地devServer代理、postMessage、WebSocket、后端接口中转"
+      ],
+      "follow_ups": [
+        "CORS中简单请求和复杂请求的区别?"
+      ],
+      "source_excerpt": "同源策略:协议、域名、端口有一个不同即为跨域;跨域方案:CORS、JSONP、Nginx反向代理、本地代理、postMessage、WebSocket、后端接口中转"
+    },
+    {
+      "question": "localStorage、sessionStorage、cookie、indexedDB的区别是什么?",
+      "question_type": "comparison",
+      "category": "browser",
+      "difficulty": "junior",
+      "tags": [
+        "本地存储",
+        "cookie",
+        "indexedDB"
+      ],
+      "answer_points": [
+        "容量:localStorage约5M,sessionStorage约5M,cookie约4K,indexedDB超大",
+        "有效期:localStorage永久,sessionStorage标签关闭失效,cookie可设置过期,indexedDB永久",
+        "自动带请求:cookie是,其他否",
+        "操作端:cookie前后端,其他仅前端"
+      ],
+      "follow_ups": [
+        "cookie如何设置和读取?"
+      ],
+      "source_excerpt": "特性:容量、有效期、自动带请求、操作端、适用场景"
+    },
+    {
+      "question": "浏览器的渲染流水线是怎样的?",
+      "question_type": "principle",
+      "category": "browser",
+      "difficulty": "mid",
+      "tags": [
+        "渲染",
+        "DOM",
+        "CSSOM",
+        "渲染树"
+      ],
+      "answer_points": [
+        "构建DOM树",
+        "构建CSSOM树",
+        "合成渲染树(Render Tree)",
+        "布局(Layout)",
+        "绘制(Paint)",
+        "合成(Composite)"
+      ],
+      "follow_ups": [
+        "渲染树和DOM树有什么关系?"
+      ],
+      "source_excerpt": "浏览器渲染流水线:构建DOM→构建CSSOM→渲染树→布局→绘制→合成"
+    },
+    {
+      "question": "HTTP1.0、1.1、2.0、3.0有什么区别?",
+      "question_type": "comparison",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTTP版本",
+        "HTTP1.0",
+        "HTTP1.1",
+        "HTTP2.0",
+        "HTTP3.0"
+      ],
+      "answer_points": [
+        "HTTP1.0:短连接,每次请求新建TCP",
+        "HTTP1.1:长连接、管道化、缓存、虚拟主机",
+        "HTTP2.0:二进制帧、多路复用、头部压缩、服务器推送",
+        "HTTP3.0:基于QUIC、UDP、握手更快、弱网更稳"
+      ],
+      "follow_ups": [
+        "HTTP2.0的多路复用如何解决队头阻塞?"
+      ],
+      "source_excerpt": "HTTP1.0:短连接;HTTP1.1:长连接、管道化、缓存;HTTP2.0:二进制帧、多路复用、头部压缩、服务器推送;HTTP3.0:基于QUIC、UDP"
+    },
+    {
+      "question": "常见的HTTP请求方法有哪些?GET和POST的区别?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "请求方法",
+        "GET",
+        "POST"
+      ],
+      "answer_points": [
+        "常用:GET、POST、PUT、DELETE、HEAD、OPTIONS",
+        "GET:查询,参数放URL,不安全,有缓存",
+        "POST:提交,参数放请求体,无默认缓存",
+        "PUT:全量更新;DELETE:删除;OPTIONS:跨域预检请求"
+      ],
+      "follow_ups": [
+        "PUT和PATCH的区别?"
+      ],
+      "source_excerpt": "GET:查询,参数放URL,不安全,有缓存;POST:提交,参数放请求体,无默认缓存;PUT:全量更新;DELETE:删除;OPTIONS:跨域预检请求"
+    },
+    {
+      "question": "常见的HTTP状态码有哪些?分别代表什么含义?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "状态码"
+      ],
+      "answer_points": [
+        "1xx信息,2xx成功,3xx重定向,4xx客户端错误,5xx服务端错误",
+        "200成功,204无内容,301永久重定向,302临时重定向,304协商缓存命中,400参数错误,401未授权,403禁止访问,404资源不存在,500服务器内部错误,502网关错误,503服务不可用"
+      ],
+      "follow_ups": [
+        "301和302的区别?"
+      ],
+      "source_excerpt": "200成功,204无内容,301永久重定向,302临时重定向,304协商缓存命中,400参数错误,401未授权,403禁止访问,404资源不存在,500服务器内部错误,502网关错误,503服务不可用"
+    },
+    {
+      "question": "HTTPS的工作原理是什么?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTTPS",
+        "SSL/TLS"
+      ],
+      "answer_points": [
+        "HTTP + TLS/SSL加密",
+        "流程:握手协商加密算法→服务端下发证书→客户端验证证书→协商会话密钥→后续通信对称加密传输",
+        "结合对称加密 + 非对称加密 + 数字证书"
+      ],
+      "follow_ups": [
+        "HTTPS建立连接比HTTP多几次握手?"
+      ],
+      "source_excerpt": "HTTPS: HTTP+TLS/SSL;流程:握手协商加密算法→服务端下发证书→客户端验证证书→协商会话密钥→后续通信对称加密传输"
+    },
+    {
+      "question": "常见的HTTP请求头和响应头有哪些?",
+      "question_type": "concept",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "请求头",
+        "响应头"
+      ],
+      "answer_points": [
+        "请求头:Host、User-Agent、Referer、Origin、Cookie、Content-Type、Authorization",
+        "响应头:Cache-Control、Set-Cookie、Access-Control-*、ETag、Last-Modified"
+      ],
+      "follow_ups": [
+        "Content-Type常见的取值有哪些?"
+      ],
+      "source_excerpt": "请求头:Host、User-Agent、Referer、Origin、Cookie、Content-Type、Authorization;响应头:Cache-Control、Set-Cookie、Access-Control-*、ETag、Last-Modified"
+    },
+    {
+      "question": "什么是预检请求OPTIONS?什么情况下会触发?",
+      "question_type": "principle",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "预检请求",
+        "OPTIONS"
+      ],
+      "answer_points": [
+        "跨域复杂请求(带cookie、自定义请求头、非简单content-type)时触发",
+        "浏览器先发OPTIONS预检,确认允许跨域再发真实请求"
+      ],
+      "follow_ups": [
+        "什么是简单请求?什么是复杂请求?"
+      ],
+      "source_excerpt": "跨域复杂请求(带cookie、自定义请求头、非简单content-type);浏览器先发OPTIONS预检,确认允许跨域再发真实请求"
+    },
+    {
+      "question": "标准盒模型和IE怪异盒模型有什么区别?如何控制?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "盒子模型",
+        "box-sizing"
+      ],
+      "answer_points": [
+        "标准盒:content + padding + border + margin",
+        "IE怪异盒:宽高包含padding + border",
+        "控制:box-sizing: content-box(标准) / border-box(怪异)"
+      ],
+      "follow_ups": [
+        "box-sizing的默认值是什么?"
+      ],
+      "source_excerpt": "标准盒:content+padding+border+margin;IE怪异盒:宽高包含padding+border;控制:box-sizing:content-box/border-box"
+    },
+    {
+      "question": "什么是BFC?如何触发?有什么作用?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "BFC"
+      ],
+      "answer_points": [
+        "BFC:块级格式化上下文,独立渲染区域",
+        "触发条件:浮动、绝对定位、overflow非visible、display:inline-block/table等",
+        "作用:清除浮动、解决margin塌陷、阻止元素被浮动覆盖"
+      ],
+      "follow_ups": [
+        "如何创建BFC?"
+      ],
+      "source_excerpt": "BFC触发条件:浮动、绝对定位、overflow非visible、display:inline-block/table等;作用:清除浮动、解决margin塌陷、阻止元素被浮动覆盖"
+    },
+    {
+      "question": "CSS实现垂直居中有哪些方式?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "垂直居中"
+      ],
+      "answer_points": [
+        "flex:display:flex; align-items:center; justify-content:center",
+        "grid:display:grid; place-items:center",
+        "绝对定位+transform:position:absolute; top:50%; left:50%; transform:translate(-50%,-50%)",
+        "table-cell:display:table-cell; vertical-align:middle; text-align:center",
+        "line-height:单行文本设置line-height等于高度"
+      ],
+      "follow_ups": [
+        "如何实现水平垂直居中?"
+      ],
+      "source_excerpt": "flex、grid、绝对定位+transform、table-cell、line-height"
+    },
+    {
+      "question": "三栏布局有哪些实现方式?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "三栏布局"
+      ],
+      "answer_points": [
+        "圣杯布局:浮动+负margin+relative",
+        "双飞翼布局:浮动+负margin+中间内层由padding隔离",
+        "Flex布局:display:flex; 中间flex:1",
+        "Grid布局:display:grid; grid-template-columns: 200px 1fr 200px"
+      ],
+      "follow_ups": [
+        "圣杯布局和双飞翼布局的区别?"
+      ],
+      "source_excerpt": "圣杯布局、双飞翼布局、Flex布局、Grid布局"
+    },
+    {
+      "question": "浮动有什么优缺点?如何清除浮动?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "浮动",
+        "清除浮动"
+      ],
+      "answer_points": [
+        "优点:实现文字环绕、多列布局",
+        "缺点:脱离文档流导致父元素高度塌陷",
+        "清除浮动:clear:both、伪元素清除(::after{clear:both})、父级触发BFC(overflow:hidden等)"
+      ],
+      "follow_ups": [
+        "浮动元素对后面元素的影响?"
+      ],
+      "source_excerpt": "清除浮动:clear:both、伪元素清除、父级BFC"
+    },
+    {
+      "question": "Flex布局中常用的属性有哪些?",
+      "question_type": "concept",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "Flex"
+      ],
+      "answer_points": [
+        "主轴:justify-content(flex-start/center/flex-end/space-between/space-around)",
+        "侧轴:align-items(stretch/center/flex-start/flex-end/baseline)",
+        "换行:flex-wrap(wrap/nowrap)",
+        "弹性占比:flex:1(即flex-grow:1)"
+      ],
+      "follow_ups": [
+        "flex:1是什么意思?"
+      ],
+      "source_excerpt": "主轴:justify-content;侧轴:align-items;换行:flex-wrap;弹性占比:flex:1"
+    },
+    {
+      "question": "移动端适配有哪些常见方案?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "移动端适配",
+        "rem",
+        "vw"
+      ],
+      "answer_points": [
+        "rem:根据html的font-size计算,配合媒体查询或动态设置",
+        "vw/vh:视口单位,1vw=视口宽度的1%",
+        "媒体查询:根据屏幕宽度设置不同样式",
+        "flex布局:弹性布局自适应",
+        "viewport适配:设置meta viewport,width=device-width"
+      ],
+      "follow_ups": [
+        "rem和vw有什么区别?"
+      ],
+      "source_excerpt": "rem、vw/vh、媒体查询、flex布局、viewport适配"
+    },
+    {
+      "question": "CSS动画有哪些实现方式?transition和animation的区别?",
+      "question_type": "comparison",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "动画",
+        "transition",
+        "animation"
+      ],
+      "answer_points": [
+        "transition:过渡动画,需触发状态变化(如:hover),只有开始和结束状态",
+        "animation:关键帧动画,可定义多个关键帧,可循环、反向等",
+        "transform:变形(平移/缩放/旋转/倾斜),常配合transition或animation使用"
+      ],
+      "follow_ups": [
+        "如何用CSS实现一个旋转动画?"
+      ],
+      "source_excerpt": "transition过渡、animation关键帧动画、transform变形(平移/缩放/旋转/倾斜)"
+    },
+    {
+      "question": "CSS选择器的权重是如何计算的?",
+      "question_type": "principle",
+      "category": "css",
+      "difficulty": "junior",
+      "tags": [
+        "权重",
+        "选择器"
+      ],
+      "answer_points": [
+        "!important > 行内样式 > id选择器 > 类选择器/伪类 > 标签选择器 > 通配符",
+        "权重可以累加,如 class+class 比单个class高"
+      ],
+      "follow_ups": [
+        "多个类选择器权重怎么计算?"
+      ],
+      "source_excerpt": "!important > 行内样式 > id > 类/伪类 > 标签 > 通配符"
+    },
+    {
+      "question": "Vue2双向绑定的原理是什么?有什么缺点?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue2",
+        "双向绑定",
+        "Object.defineProperty"
+      ],
+      "answer_points": [
+        "核心:Object.defineProperty数据劫持 + 发布订阅模式",
+        "流程:递归遍历data所有属性,设置getter/setter;模板编译收集依赖Watcher;数据变化触发setter,通知Watcher更新视图",
+        "缺点:无法监听对象新增/删除属性;无法监听数组下标修改、length修改"
+      ],
+      "follow_ups": [
+        "Vue2是如何解决数组监听问题的?"
+      ],
+      "source_excerpt": "核心:Object.defineProperty数据劫持+发布订阅模式;流程:递归遍历data属性,设置getter/setter,编译收集Watcher,数据变化触发setter更新视图;缺点:无法监听对象新增/删除和数组下标/length变化"
+    },
+    {
+      "question": "Vue2如何监听数组变化?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue2",
+        "数组",
+        "变异方法"
+      ],
+      "answer_points": [
+        "重写数组7个变异方法:push、pop、shift、unshift、splice、sort、reverse",
+        "通过包裹方法,触发视图更新"
+      ],
+      "follow_ups": [
+        "Vue2中如何检测数组索引和length变化?"
+      ],
+      "source_excerpt": "重写数组7个变异方法:push、pop、shift、unshift、splice、sort、reverse;通过包裹方法,触发视图更新"
+    },
+    {
+      "question": "Vue2的生命周期有哪些?created和mounted的区别?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "Vue2",
+        "生命周期"
+      ],
+      "answer_points": [
+        "8个:beforeCreate→created→beforeMount→mounted→beforeUpdate→updated→beforeDestroy→destroyed",
+        "created:可请求接口、拿不到DOM",
+        "mounted:可操作DOM、初始化插件、请求接口",
+        "beforeDestroy:清除定时器、解绑事件、销毁定时器"
+      ],
+      "follow_ups": [
+        "activated和deactivated在哪些组件中使用?"
+      ],
+      "source_excerpt": "8个生命周期;created:可请求接口、拿不到DOM;mounted:可操作DOM、初始化插件、请求接口;beforeDestroy:清除定时器、解绑事件、销毁定时器"
+    },
+    {
+      "question": "Vue2中组件通信有哪些方式?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "组件通信",
+        "Vue2"
+      ],
+      "answer_points": [
+        "父子:props / $emit",
+        "父获子实例:$refs / $children",
+        "子获父实例:$parent",
+        "祖孙跨级:provide / inject",
+        "全局事件总线:EventBus",
+        "全局状态:Vuex",
+        "属性透传:$attrs / $listeners",
+        "插槽:默认插槽、具名插槽、作用域插槽"
+      ],
+      "follow_ups": [
+        "$attrs和$listeners在Vue3中有哪些变化?"
+      ],
+      "source_excerpt": "8种方式:props/emit、$refs/$children、$parent、provide/inject、EventBus、Vuex、$attrs/$listeners、插槽"
+    },
+    {
+      "question": "Vue2中v-if和v-for的优先级?如何优化?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "v-if",
+        "v-for"
+      ],
+      "answer_points": [
+        "Vue2中v-for优先级 > v-if",
+        "问题:先循环再判断,浪费性能",
+        "优化:外层套<template>写v-if,减少循环次数"
+      ],
+      "follow_ups": [
+        "Vue3中v-if和v-for的优先级?"
+      ],
+      "source_excerpt": "Vue2中v-for优先级>v-if;问题:先循环再判断,浪费性能;优化:外层套<template>写v-if,减少循环次数"
+    },
+    {
+      "question": "Vue中key的作用是什么?为什么不能用索引作为key?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "key",
+        "虚拟DOM",
+        "Diff"
+      ],
+      "answer_points": [
+        "key是虚拟DOM Diff算法唯一标识",
+        "无key会就地复用,渲染错乱",
+        "用索引做key:列表增删、排序时索引变化,导致DOM复用错误、表单错乱",
+        "最优:用后端返回唯一id"
+      ],
+      "follow_ups": [
+        "key为什么不能是Math.random()?"
+      ],
+      "source_excerpt": "key是虚拟DOM Diff算法唯一标识;无key会就地复用,渲染错乱;用索引做key:列表增删、排序时索引变化,导致DOM复用错误、表单错乱;最优:用后端返回唯一id"
+    },
+    {
+      "question": "什么是虚拟DOM?Vue的Diff算法是怎么工作的?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "虚拟DOM",
+        "Diff算法"
+      ],
+      "answer_points": [
+        "虚拟DOM:用JS对象描述真实DOM结构,减少频繁DOM操作",
+        "Diff策略:同层比较,不跨层级对比;双端头尾对比;key标识节点;最长递增子序列优化移动逻辑"
+      ],
+      "follow_ups": [
+        "Vue的Diff算法和React的Diff算法有什么异同?"
+      ],
+      "source_excerpt": "虚拟DOM:用JS对象描述真实DOM结构;Diff策略:同层比较,双端头尾对比,key标识节点,最长递增子序列优化移动逻辑"
+    },
+    {
+      "question": "computed和watch的区别是什么?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "computed",
+        "watch"
+      ],
+      "answer_points": [
+        "computed:有缓存,依赖不变不重新计算;适合派生数据、简单计算;同步执行",
+        "watch:无缓存,数据变就执行;适合异步请求、复杂业务逻辑、多数据监听;可深度监听deep、立即执行immediate"
+      ],
+      "follow_ups": [
+        "computed和methods的区别?"
+      ],
+      "source_excerpt": "computed:有缓存,依赖不变不重新计算;适合派生数据、简单计算;同步执行;watch:无缓存,数据变就执行;适合异步请求、复杂业务逻辑;可深度监听deep、立即执行immediate"
+    },
+    {
+      "question": "Vue中的$nextTick是什么?原理是什么?",
+      "question_type": "principle",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "nextTick"
+      ],
+      "answer_points": [
+        "Vue更新视图是异步批量更新,修改数据后DOM还没更新,$nextTick在下次DOM更新完毕后执行回调",
+        "原理:优先微任务(Promise),降级宏任务(setTimeout)"
+      ],
+      "follow_ups": [
+        "$nextTick和setTimeout的区别?"
+      ],
+      "source_excerpt": "Vue更新视图是异步批量更新;$nextTick:在下次DOM更新完毕后执行回调;原理:优先微任务(Promise),降级宏任务(setTimeout)"
+    },
+    {
+      "question": "Vuex的五大核心是什么?Mutations和Actions的区别?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vuex",
+        "Mutations",
+        "Actions"
+      ],
+      "answer_points": [
+        "五大核心:State、Getters、Mutations、Actions、Modules",
+        "State:全局状态;Getters:计算属性;Mutations:同步修改状态,唯一修改入口;Actions:处理异步逻辑,提交mutation;Modules:模块化拆分"
+      ],
+      "follow_ups": [
+        "为什么Mutations必须是同步的?"
+      ],
+      "source_excerpt": "五大核心:State、Getters、Mutations、Actions、Modules;Mutations:同步修改状态,唯一修改入口;Actions:处理异步逻辑,提交mutation"
+    },
+    {
+      "question": "Vue路由有哪些模式?路由守卫有哪些?如何实现路由懒加载?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "路由",
+        "路由守卫",
+        "懒加载"
+      ],
+      "answer_points": [
+        "路由模式:hash(#)、history(需后端配置)",
+        "路由守卫:全局前置/后置、路由独享、组件内守卫",
+        "懒加载:()=>import('@/views/xxx') 减小首屏体积"
+      ],
+      "follow_ups": [
+        "history模式刷新页面404如何解决?"
+      ],
+      "source_excerpt": "路由模式:hash(#)、history(需后端配置);路由守卫:全局前置/后置、路由独享、组件内守卫;懒加载:()=>import('@/views/xxx')"
+    },
+    {
+      "question": "Vue项目中有哪些常见的性能优化手段?",
+      "question_type": "optimization",
+      "category": "framework",
+      "difficulty": "senior",
+      "tags": [
+        "Vue",
+        "性能优化"
+      ],
+      "answer_points": [
+        "首屏优化:路由懒加载、组件懒加载、图片懒加载、静态资源CDN、Gzip压缩、骨架屏",
+        "代码层面:避免全局变量、防抖节流、虚拟列表、销毁定时器",
+        "打包优化:拆分chunk、tree-shaking、压缩、缓存"
+      ],
+      "follow_ups": [
+        "如何对长列表进行优化?"
+      ],
+      "source_excerpt": "首屏优化:路由懒加载、组件懒加载、图片懒加载、CDN、Gzip、骨架屏;代码:防抖节流、虚拟列表、销毁资源;打包:拆分、tree-shaking、压缩"
+    },
+    {
+      "question": "Vue3的双向绑定相比Vue2有哪些改进?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue3",
+        "Proxy",
+        "双向绑定"
+      ],
+      "answer_points": [
+        "改用Proxy,可以监听对象新增/删除、数组下标、length,支持Map/Set"
+      ],
+      "follow_ups": [
+        "Proxy相比Object.defineProperty的优势?"
+      ],
+      "source_excerpt": "双向绑定改用Proxy,优势:监听对象新增/删除、数组下标、length,支持Map/Set"
+    },
+    {
+      "question": "Vue3的Composition API和Options API有什么区别?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Composition API",
+        "Options API"
+      ],
+      "answer_points": [
+        "Options API:选项分散,大型组件难维护",
+        "Composition API:按业务逻辑聚合、可抽离复用、TS友好"
+      ],
+      "follow_ups": [
+        "如何用Composition API封装一个自定义Hook?"
+      ],
+      "source_excerpt": "Options API:选项分散,大型组件难维护;Composition API:按业务逻辑聚合、可抽离复用、TS友好"
+    },
+    {
+      "question": "Vue3中ref和reactive的区别?setup函数的作用?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "ref",
+        "reactive",
+        "setup"
+      ],
+      "answer_points": [
+        "ref:基本类型、简单对象,返回一个包含.value的对象",
+        "reactive:复杂对象、数组,直接返回响应式对象",
+        "setup:组合式API的入口,在beforeCreate之前执行"
+      ],
+      "follow_ups": [
+        "toRefs的作用是什么?"
+      ],
+      "source_excerpt": "ref:基本类型、简单对象;reactive:复杂对象、数组;setup语法糖;toRefs解构保持响应式"
+    },
+    {
+      "question": "Vue3的组合式API中生命周期钩子有哪些?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": [
+        "Vue3",
+        "生命周期"
+      ],
+      "answer_points": [
+        "onBeforeMount、onMounted、onBeforeUpdate、onUpdated、onBeforeUnmount、onUnmounted"
+      ],
+      "follow_ups": [
+        "Vue3中如何监听生命周期变化?"
+      ],
+      "source_excerpt": "onBeforeMount、onMounted、onBeforeUpdate、onUpdated、onBeforeUnmount、onUnmounted"
+    },
+    {
+      "question": "Pinia相比Vuex有什么优势?",
+      "question_type": "comparison",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Pinia",
+        "Vuex"
+      ],
+      "answer_points": [
+        "无Mutations,直接修改",
+        "极简API、模块化、TS友好、无需嵌套"
+      ],
+      "follow_ups": [
+        "Pinia如何处理异步操作?"
+      ],
+      "source_excerpt": "无Mutations,直接修改;极简API、模块化、TS友好、无需嵌套"
+    },
+    {
+      "question": "Vue3新增了哪些常用特性?",
+      "question_type": "concept",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vue3",
+        "新特性"
+      ],
+      "answer_points": [
+        "Teleport:传送组件,将内容渲染到指定DOM",
+        "Suspense:异步组件兜底",
+        "Fragment:多根节点无需根标签",
+        "自定义hooks:逻辑复用"
+      ],
+      "follow_ups": [
+        "Fragment在DOM中会产生额外的标签吗?"
+      ],
+      "source_excerpt": "Teleport传送组件、Suspense异步组件兜底、Fragment多根节点、自定义hooks"
+    },
+    {
+      "question": "Webpack的五大核心概念是什么?",
+      "question_type": "concept",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "Webpack"
+      ],
+      "answer_points": [
+        "入口entry、出口output、loader、plugin、模式mode"
+      ],
+      "follow_ups": [
+        "Webpack构建流程是怎样的?"
+      ],
+      "source_excerpt": "五大核心:入口entry、出口output、loader、plugin、mode"
+    },
+    {
+      "question": "Webpack中loader和plugin的区别是什么?",
+      "question_type": "comparison",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "loader",
+        "plugin"
+      ],
+      "answer_points": [
+        "loader:处理非JS文件(css、less、图片、字体),转换文件内容",
+        "plugin:增强打包全过程(html生成、压缩、拷贝、gzip),扩展功能"
+      ],
+      "follow_ups": [
+        "常见的loader有哪些?"
+      ],
+      "source_excerpt": "loader:处理非JS文件;plugin:打包全过程增强"
+    },
+    {
+      "question": "Webpack的热更新(HMR)是如何实现的?",
+      "question_type": "principle",
+      "category": "engineering",
+      "difficulty": "senior",
+      "tags": [
+        "HMR",
+        "热更新"
+      ],
+      "answer_points": [
+        "局部刷新,不整页重载",
+        "在开发服务器和浏览器之间建立websocket连接",
+        "当模块变化时,只更新变化的模块"
+      ],
+      "follow_ups": [
+        "HMR对样式和脚本的处理有什么不同?"
+      ],
+      "source_excerpt": "热更新HMR原理:局部刷新,不整页重载"
+    },
+    {
+      "question": "Webpack打包优化有哪些常见手段?",
+      "question_type": "optimization",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "打包优化",
+        "Webpack"
+      ],
+      "answer_points": [
+        "代码分割(Code Splitting)",
+        "路由懒加载",
+        "第三方库CDN",
+        "tree-shaking",
+        "Gzip压缩",
+        "缓存分包"
+      ],
+      "follow_ups": [
+        "如何配置Webpack的代码分割?"
+      ],
+      "source_excerpt": "打包优化:代码分割、路由懒加载、第三方库CDN、tree-shaking、gzip压缩、缓存分包"
+    },
+    {
+      "question": "Vite相比Webpack有哪些优势?为什么更快?",
+      "question_type": "comparison",
+      "category": "engineering",
+      "difficulty": "mid",
+      "tags": [
+        "Vite",
+        "Webpack"
+      ],
+      "answer_points": [
+        "开发环境基于原生ES Module,按需加载,无需打包",
+        "依赖预构建,避免重复请求",
+        "生产环境用Rollup打包",
+        "启动快、热更新快"
+      ],
+      "follow_ups": [
+        "Vite如何处理CSS和静态资源?"
+      ],
+      "source_excerpt": "开发环境基于原生ES Module,按需加载;依赖预构建;生产用Rollup;启动快、热更新快"
+    },
+    {
+      "question": "ESLint和Prettier的作用是什么?",
+      "question_type": "concept",
+      "category": "engineering",
+      "difficulty": "junior",
+      "tags": [
+        "ESLint",
+        "Prettier"
+      ],
+      "answer_points": [
+        "ESLint:代码校验,检查语法错误和代码规范",
+        "Prettier:代码格式化,统一代码风格"
+      ],
+      "follow_ups": [
+        "如何在项目中集成ESLint和Prettier?"
+      ],
+      "source_excerpt": "ESLint代码校验、Prettier格式化"
+    },
+    {
+      "question": "前端性能优化有哪些常见策略?从首屏加载、代码、打包、渲染等方面说明。",
+      "question_type": "optimization",
+      "category": "performance",
+      "difficulty": "senior",
+      "tags": [
+        "性能优化",
+        "首屏",
+        "渲染"
+      ],
+      "answer_points": [
+        "首屏优化:路由懒加载、图片懒加载、webp格式、雪碧图、静态资源CDN、Gzip压缩、减少首屏请求、骨架屏",
+        "代码层面:避免全局变量、防抖节流、虚拟列表、销毁定时器/事件监听",
+        "打包优化:代码分割、tree-shaking、压缩、缓存",
+        "渲染优化:避免回流重绘、动画用transform/opacity、虚拟滚动"
+      ],
+      "follow_ups": [
+        "如何首屏时间过长如何排查?"
+      ],
+      "source_excerpt": "首屏优化、代码优化、打包优化、渲染优化"
+    },
+    {
+      "question": "什么是XSS攻击?如何防御?",
+      "question_type": "principle",
+      "category": "security",
+      "difficulty": "mid",
+      "tags": [
+        "XSS"
+      ],
+      "answer_points": [
+        "XSS:跨站脚本攻击,分为存储型、反射型、DOM型",
+        "防御:转义输入输出、CSP策略(Content Security Policy)、禁用unsafe-inline"
+      ],
+      "follow_ups": [
+        "XSS和CSRF的区别?"
+      ],
+      "source_excerpt": "XSS分类:存储型、反射型、DOM型;防御:转义输入输出、CSP策略、禁用unsafe-inline"
+    },
+    {
+      "question": "什么是CSRF攻击?如何防御?",
+      "question_type": "principle",
+      "category": "security",
+      "difficulty": "mid",
+      "tags": [
+        "CSRF"
+      ],
+      "answer_points": [
+        "CSRF:跨站请求伪造,诱导用户访问恶意网站发起请求",
+        "防御:Token校验、Referer校验、SameSite Cookie属性"
+      ],
+      "follow_ups": [
+        "SameSite Cookie有哪几种属性?"
+      ],
+      "source_excerpt": "CSRF防御:Token校验、Referer校验、SameSite Cookie"
+    },
+    {
+      "question": "前端安全中还有什么常见攻击和防御措施?",
+      "question_type": "concept",
+      "category": "security",
+      "difficulty": "mid",
+      "tags": [
+        "安全",
+        "防刷",
+        "加密"
+      ],
+      "answer_points": [
+        "接口防刷:限制频率、验证码",
+        "参数签名:防篡改",
+        "敏感数据加密:HTTPS、前端加密传输"
+      ],
+      "follow_ups": [
+        "如何防止接口被重复调用?"
+      ],
+      "source_excerpt": "接口防刷、参数签名、敏感数据加密"
+    },
+    {
+      "question": "手写防抖函数?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "防抖",
+        "手写"
+      ],
+      "answer_points": [
+        "function debounce(fn, delay) { let timer; return function(...args) { clearTimeout(timer); timer = setTimeout(() => fn.apply(this, args), delay); } }"
+      ],
+      "follow_ups": [
+        "手写节流函数"
+      ],
+      "source_excerpt": "手写防抖函数"
+    },
+    {
+      "question": "手写节流函数?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "节流",
+        "手写"
+      ],
+      "answer_points": [
+        "function throttle(fn, delay) { let last = 0; return function(...args) { const now = Date.now(); if (now - last >= delay) { last = now; fn.apply(this, args); } } }"
+      ],
+      "follow_ups": [
+        "手写防抖函数"
+      ],
+      "source_excerpt": "手写节流函数"
+    },
+    {
+      "question": "手写深拷贝函数?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "深拷贝",
+        "手写"
+      ],
+      "answer_points": [
+        "function deepClone(obj, map = new WeakMap()) { if (obj === null || typeof obj !== 'object') return obj; if (map.has(obj)) return map.get(obj); const result = Array.isArray(obj) ? [] : {}; map.set(obj, result); for (let key in obj) { if (obj.hasOwnProperty(key)) { result[key] = deepClone(obj[key], map); } } return result; }"
+      ],
+      "follow_ups": [
+        "如何解决循环引用?"
+      ],
+      "source_excerpt": "手写深拷贝:递归遍历,判断类型处理数组、对象、正则、日期"
+    },
+    {
+      "question": "手写Promise.all?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "senior",
+      "tags": [
+        "Promise.all",
+        "手写"
+      ],
+      "answer_points": [
+        "function promiseAll(promises) { return new Promise((resolve, reject) => { const results = []; let count = 0; for (let i = 0; i < promises.length; i++) { Promise.resolve(promises[i]).then(res => { results[i] = res; count++; if (count === promises.length) resolve(results); }, reject); } }); }"
+      ],
+      "follow_ups": [
+        "手写Promise.race"
+      ],
+      "source_excerpt": "手写Promise, promiseAll"
+    },
+    {
+      "question": "手写call/apply/bind?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "call",
+        "apply",
+        "bind",
+        "手写"
+      ],
+      "answer_points": [
+        "Function.prototype.myCall = function(context, ...args) { context = context || window; const fn = Symbol(); context[fn] = this; const result = context[fn](...args); delete context[fn]; return result; }",
+        "Function.prototype.myApply = function(context, args) { context = context || window; const fn = Symbol(); context[fn] = this; const result = context[fn](...args); delete context[fn]; return result; }",
+        "Function.prototype.myBind = function(context, ...args1) { const fn = this; return function(...args2) { return fn.apply(context, args1.concat(args2)); } }"
+      ],
+      "follow_ups": [
+        "手写一个new操作符"
+      ],
+      "source_excerpt": "手写call/apply/bind"
+    },
+    {
+      "question": "手写数组去重?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "junior",
+      "tags": [
+        "数组去重",
+        "手写"
+      ],
+      "answer_points": [
+        "使用Set: [...new Set(arr)]",
+        "使用indexOf: arr.filter((item, index) => arr.indexOf(item) === index)",
+        "使用Map: arr.filter((item) => { if (!map.has(item)) { map.set(item, true); return true; } })"
+      ],
+      "follow_ups": [
+        "手写数组扁平化"
+      ],
+      "source_excerpt": "手写数组去重"
+    },
+    {
+      "question": "手写数组扁平化?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "数组扁平化",
+        "手写"
+      ],
+      "answer_points": [
+        "function flatten(arr) { return arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val), []); }"
+      ],
+      "follow_ups": [
+        "手写一个指定深度的扁平化"
+      ],
+      "source_excerpt": "手写数组扁平化"
+    },
+    {
+      "question": "手写继承(寄生组合继承)?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "mid",
+      "tags": [
+        "继承",
+        "手写"
+      ],
+      "answer_points": [
+        "function inherit(child, parent) { child.prototype = Object.create(parent.prototype); child.prototype.constructor = child; Object.setPrototypeOf(child, parent); }"
+      ],
+      "follow_ups": [
+        "手写class继承"
+      ],
+      "source_excerpt": "手写继承(原型继承、寄生组合继承)"
+    },
+    {
+      "question": "手写EventBus事件总线?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "senior",
+      "tags": [
+        "EventBus",
+        "手写"
+      ],
+      "answer_points": [
+        "class EventBus { constructor() { this.events = {}; } on(event, callback) { if (!this.events[event]) this.events[event] = []; this.events[event].push(callback); } emit(event, ...args) { (this.events[event] || []).forEach(cb => cb(...args)); } off(event, callback) { if (!this.events[event]) return; this.events[event] = this.events[event].filter(cb => cb !== callback); } once(event, callback) { const wrapper = (...args) => { callback(...args); this.off(event, wrapper); }; this.on(event, wrapper); } }"
+      ],
+      "follow_ups": [
+        "如何实现一个Vuex-like的状态管理?"
+      ],
+      "source_excerpt": "手写EventBus事件总线"
+    },
+    {
+      "question": "手写Vue双向绑定简易版?",
+      "question_type": "handwrite",
+      "category": "handwrite",
+      "difficulty": "senior",
+      "tags": [
+        "双向绑定",
+        "手写"
+      ],
+      "answer_points": [
+        "利用Object.defineProperty或Proxy劫持数据,添加依赖收集和通知更新",
+        "简易实现:遍历data,定义getter/setter,在getter中收集watcher,在setter中通知watcher更新"
+      ],
+      "follow_ups": [
+        "手写一个响应式系统"
+      ],
+      "source_excerpt": "手写Vue双向绑定简易版"
+    },
+    {
+      "question": "el-table几千条数据滚动卡顿怎么优化?",
+      "question_type": "scenario",
+      "category": "scenario",
+      "difficulty": "senior",
+      "tags": [
+        "大数据",
+        "表格优化",
+        "虚拟滚动"
+      ],
+      "answer_points": [
+        "使用虚拟滚动技术,只渲染可视区域的行",
+        "使用分页加载",
+        "开启el-table的virtualized属性(如果支持)",
+        "表格高度固定,避免重新计算布局"
+      ],
+      "follow_ups": [
+        "如何实现一个虚拟滚动组件?"
+      ],
+      "source_excerpt": "el-table几千条数据滚动卡顿怎么优化?"
+    },
+    {
+      "question": "首屏白屏时间过长怎么排查优化?",
+      "question_type": "scenario",
+      "category": "scenario",
+      "difficulty": "senior",
+      "tags": [
+        "首屏白屏",
+        "性能"
+      ],
+      "answer_points": [
+        "使用Performance工具分析关键指标(FP、FCP、LCP)",
+        "优化资源加载:压缩、CDN、懒加载",
+        "减少首屏请求数量:合并请求、按需加载",
+        "使用骨架屏或loading",
+        "启用HTTP/2多路复用"
+      ],
+      "follow_ups": [
+        "如何监控首屏加载性能?"
+      ],
+      "source_excerpt": "首屏白屏时间过长怎么排查优化?"
+    },
+    {
+      "question": "项目打包后体积过大如何瘦身?",
+      "question_type": "scenario",
+      "category": "scenario",
+      "difficulty": "senior",
+      "tags": [
+        "打包体积",
+        "优化"
+      ],
+      "answer_points": [
+        "使用Webpack Bundle Analyzer分析体积",
+        "按需加载第三方库(如lodash使用lodash-es)",
+        "代码分割(Code Splitting)",
+        "tree-shaking移除未使用代码",
+        "压缩图片、使用webp",
+        "开启Gzip压缩",
+        "将大库通过CDN引入"
+      ],
+      "follow_ups": [
+        "如何配置Webpack的懒加载?"
+      ],
+      "source_excerpt": "项目打包后体积过大如何瘦身?"
+    },
+    {
+      "question": "移动端适配怎么做?",
+      "question_type": "scenario",
+      "category": "css",
+      "difficulty": "mid",
+      "tags": [
+        "移动端适配"
+      ],
+      "answer_points": [
+        "设置viewport:<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+        "使用rem或vw单位",
+        "媒体查询断点",
+        "使用flexible布局",
+        "图片使用可缩放的多倍图",
+        "开发时使用移动端调试工具"
+      ],
+      "follow_ups": [
+        "如何处理1px边框问题?"
+      ],
+      "source_excerpt": "移动端适配怎么做?"
+    },
+    {
+      "question": "怎么解决跨域?",
+      "question_type": "scenario",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "跨域",
+        "解决方案"
+      ],
+      "answer_points": [
+        "最常用:后端配置CORS(设置Access-Control-Allow-Origin等)",
+        "JSONP(仅支持GET,需要后端配合)",
+        "Nginx反向代理",
+        "本地开发使用webpack-dev-server的proxy代理",
+        "后端的接口中转"
+      ],
+      "follow_ups": [
+        "CORS中如何处理带cookie的请求?"
+      ],
+      "source_excerpt": "怎么解决跨域?"
+    },
+    {
+      "question": "Vue页面刷新后vuex数据丢失怎么办?",
+      "question_type": "scenario",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": [
+        "Vuex",
+        "数据持久化"
+      ],
+      "answer_points": [
+        "利用localStorage或sessionStorage保存状态",
+        "使用vuex-persistedstate插件自动存储和恢复",
+        "在mounted或created中从本地存储读取并恢复到vuex",
+        "注意敏感数据不要存储在本地"
+      ],
+      "follow_ups": [
+        "vuex-persistedstate的原理是什么?"
+      ],
+      "source_excerpt": "Vue页面刷新后vuex数据丢失怎么办?"
+    },
+    {
+      "question": "怎么防止按钮重复点击?",
+      "question_type": "scenario",
+      "category": "scenario",
+      "difficulty": "mid",
+      "tags": [
+        "防重复点击"
+      ],
+      "answer_points": [
+        "使用loading状态:点击后禁用按钮,请求完成后再启用",
+        "使用防抖或节流",
+        "使用一个标记变量判断是否正在请求",
+        "在Vue中可以使用directive自定义指令封装"
+      ],
+      "follow_ups": [
+        "如何实现一个防止重复点击的自定义指令?"
+      ],
+      "source_excerpt": "怎么防止按钮重复点击?"
+    },
+    {
+      "question": "图片加载失败如何处理?",
+      "question_type": "scenario",
+      "category": "scenario",
+      "difficulty": "junior",
+      "tags": [
+        "图片",
+        "容错"
+      ],
+      "answer_points": [
+        "使用img标签的onerror事件,设置默认图片",
+        "使用CSS的background-image配合onerror处理",
+        "对于重要图片,使用服务端缩略图或图片CDN的回退机制",
+        "监听onerror后重新请求或显示占位图"
+      ],
+      "follow_ups": [
+        "如何实现图片的懒加载?"
+      ],
+      "source_excerpt": "图片加载失败如何处理?"
+    }
+  ]
+}
