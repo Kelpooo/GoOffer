@@ -259,7 +259,8 @@ def initialize_database(db_path: Path | str) -> None:
 
 def ensure_questions_seeded(db_path: Path | str, questions_path: Path) -> int:
     with connect_sqlite(db_path) as conn:
-        existing_count = conn.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
+        existing_row = conn.execute("SELECT COUNT(*) AS existing_count FROM questions").fetchone()
+        existing_count = existing_row["existing_count"] if existing_row else 0
         if int(existing_count or 0) > 0:
             return 0
 
