@@ -911,7 +911,9 @@ def call_deepseek_json(api_key, api_url, model, max_tokens, system_prompt, user_
         print(f"[OfferGo] POST {api_url}", flush=True)
         # Avoid inheriting any broken system proxy settings such as 127.0.0.1:9.
         opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
-        with opener.open(request, timeout=90) as response:
+        # Keep the request short enough for Render's web request timeouts.
+        # If the model call is slow, callers will fall back to local rules.
+        with opener.open(request, timeout=25) as response:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="ignore")
@@ -1312,6 +1314,22 @@ def normalize_rewrite(payload):
     }
 
 
+def normalize_text_list(value, limit=8):
+    if not value:
+        return []
+    if isinstance(value, str):
+        value = re.split(r"[;\n，。、|]+", value)
+    elif not isinstance(value, (list, tuple)):
+        value = [value]
+
+    items = []
+    for item in value:
+        text = str(item).strip()
+        if text:
+            items.append(text)
+    return items[:limit]
+
+
 def normalize_interview_pack(payload):
     payload = payload if isinstance(payload, dict) else {}
     questions = []
@@ -1321,7 +1339,7 @@ def normalize_interview_pack(payload):
                 {
                     "question": str(item.get("question", "")),
                     "intent": str(item.get("intent", "")),
-                    "answerTips": list(item.get("answerTips", []))[:6],
+                    "answerTips": normalize_text_list(item.get("answerTips", []), limit=6),
                 }
             )
         elif isinstance(item, str) and item.strip():
