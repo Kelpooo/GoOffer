@@ -9,4 +9,4 @@ services:
       - key: RESUME_REVIEW_HOST
         value: 0.0.0.0
       - key: OFFERGO_STORAGE_MODE
-        value: sqlite
+        value: postgres

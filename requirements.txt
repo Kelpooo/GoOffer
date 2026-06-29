@@ -1,2 +1,3 @@
 # Core runtime dependency for PDF resume parsing.
 pypdf>=5.0.0
+psycopg[binary]>=3.2.0

@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 import json
-import sqlite3
 from pathlib import Path
 from threading import Lock
 from typing import Any
+
+from offergo_backend.database import connect_sqlite
 
 
 def ensure_parent_dir(path: Path) -> None:
@@ -106,17 +107,12 @@ class SqliteVisitorTracker:
         self.db_path = db_path
         self.now_factory = now_factory
         self.lock = Lock()
-
-    def _connect(self) -> sqlite3.Connection:
-        ensure_parent_dir(self.db_path)
-        connection = sqlite3.connect(self.db_path)
-        connection.row_factory = sqlite3.Row
-        return connection
+        self.storage_mode = "postgres" if isinstance(db_path, str) and db_path.startswith(("postgres://", "postgresql://")) else "sqlite"
 
     def track_visit(self, visitor_id: str, path: str, user_agent: str = "") -> None:
         now = self.now_factory()
         with self.lock:
-            with self._connect() as conn:
+            with connect_sqlite(self.db_path) as conn:
                 conn.execute(
                     """
                     INSERT INTO visitor_events (visitor_id, path, user_agent, visited_at)
@@ -149,21 +145,21 @@ class SqliteVisitorTracker:
 
     def get_public_stats(self) -> dict[str, Any]:
         with self.lock:
-            with self._connect() as conn:
-                total_visits = conn.execute("SELECT COUNT(*) FROM visitor_events").fetchone()[0]
-                unique_visitors = conn.execute("SELECT COUNT(*) FROM visitors").fetchone()[0]
+            with connect_sqlite(self.db_path) as conn:
+                total_visits_row = conn.execute("SELECT COUNT(*) AS total_visits FROM visitor_events").fetchone()
+                unique_visitors_row = conn.execute("SELECT COUNT(*) AS unique_visitors FROM visitors").fetchone()
                 home_visits = conn.execute(
-                    "SELECT COUNT(*) FROM visitor_events WHERE path = ?",
+                    "SELECT COUNT(*) AS home_visits FROM visitor_events WHERE path = ?",
                     ("/web_mvp/",),
-                ).fetchone()[0]
+                ).fetchone()
                 last_visit_at_row = conn.execute(
                     "SELECT visited_at FROM visitor_events ORDER BY id DESC LIMIT 1"
                 ).fetchone()
         return {
             "ok": True,
-            "totalVisits": int(total_visits or 0),
-            "uniqueVisitors": int(unique_visitors or 0),
-            "homeVisits": int(home_visits or 0),
+            "totalVisits": int((total_visits_row["total_visits"] if total_visits_row else 0) or 0),
+            "uniqueVisitors": int((unique_visitors_row["unique_visitors"] if unique_visitors_row else 0) or 0),
+            "homeVisits": int((home_visits["home_visits"] if home_visits else 0) or 0),
             "lastVisitAt": last_visit_at_row["visited_at"] if last_visit_at_row else "",
-            "storageMode": "sqlite",
+            "storageMode": self.storage_mode,
         }

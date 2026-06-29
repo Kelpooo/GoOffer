@@ -15,6 +15,7 @@ class Settings:
     port: int
     max_upload_size: int
     deepseek_api_url: str
+    database_url: str
     visitor_cookie_name: str
     visitor_stats_path: Path
     deepseek_model: str
@@ -54,6 +55,10 @@ def load_settings() -> Settings:
     base_dir = Path(__file__).resolve().parent.parent
     runtime_dir = base_dir / ".runtime"
     load_dotenv_file(base_dir / ".env")
+    database_url = os.environ.get("DATABASE_URL", "").strip()
+    storage_mode = os.environ.get("OFFERGO_STORAGE_MODE", "").strip().lower()
+    if not storage_mode:
+        storage_mode = "postgres" if database_url else "file"
     return Settings(
         base_dir=base_dir,
         web_dir=base_dir / "web_mvp",
@@ -63,9 +68,10 @@ def load_settings() -> Settings:
         port=int(os.environ.get("PORT", os.environ.get("RESUME_REVIEW_PORT", "8000"))),
         max_upload_size=5 * 1024 * 1024,
         deepseek_api_url=os.environ.get("DEEPSEEK_API_URL", "https://api.deepseek.com/chat/completions"),
+        database_url=database_url,
         visitor_cookie_name=os.environ.get("VISITOR_COOKIE_NAME", "offergo_vid"),
         visitor_stats_path=Path(os.environ.get("VISITOR_STATS_PATH", runtime_dir / "visitor_stats.json")),
         deepseek_model=os.environ.get("DEEPSEEK_MODEL", "deepseek-chat"),
-        storage_mode=os.environ.get("OFFERGO_STORAGE_MODE", "file").strip().lower() or "file",
+        storage_mode=storage_mode,
         app_db_path=Path(os.environ.get("OFFERGO_DB_PATH", runtime_dir / "offergo.db")),
     )

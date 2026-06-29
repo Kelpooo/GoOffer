@@ -56,6 +56,10 @@ SETTINGS = load_settings()
 BASE_DIR = SETTINGS.base_dir
 WEB_DIR = SETTINGS.web_dir
 PROMPT_FILE = SETTINGS.prompt_file
+if SETTINGS.storage_mode == "postgres" and not SETTINGS.database_url:
+    raise RuntimeError("DATABASE_URL is required when OFFERGO_STORAGE_MODE=postgres")
+DB_TARGET = SETTINGS.database_url if SETTINGS.storage_mode == "postgres" else SETTINGS.app_db_path
+DB_STORAGE_MODES = {"sqlite", "postgres"}
 
 COMMON_TECH_KEYWORDS = [
     "React",
@@ -182,8 +186,8 @@ RESUME_SESSIONS = InMemoryResumeSessionStore()
 
 
 def build_visitor_tracker():
-    if SETTINGS.storage_mode == "sqlite":
-        return SqliteVisitorTracker(SETTINGS.app_db_path, current_timestamp)
+    if SETTINGS.storage_mode in DB_STORAGE_MODES:
+        return SqliteVisitorTracker(DB_TARGET, current_timestamp)
     return FileVisitorTracker(SETTINGS.visitor_stats_path, current_timestamp)
 
 
@@ -191,8 +195,8 @@ VISITOR_TRACKER = build_visitor_tracker()
 
 
 def load_questions_response():
-    if SETTINGS.storage_mode == "sqlite":
-        return load_questions_payload(SETTINGS.app_db_path)
+    if SETTINGS.storage_mode in DB_STORAGE_MODES:
+        return load_questions_payload(DB_TARGET)
     with (WEB_DIR / "data" / "questions.json").open("r", encoding="utf-8") as file:
         return json.load(file)
 
@@ -272,8 +276,8 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def handle_auth_register(self):
-        if SETTINGS.storage_mode != "sqlite":
-            raise ValueError("注册功能需要启用 sqlite 存储模式")
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
+            raise ValueError("注册功能需要启用数据库存储模式")
 
         payload = self.parse_json_body()
         username = validate_username(str(payload.get("username", "")))
@@ -283,13 +287,13 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             raise ValueError("涓ゆ杈撳叆鐨勫瘑鐮佷笉涓€鑷?")
 
         username_normalized = normalize_username(username)
-        existing = get_user_by_username(SETTINGS.app_db_path, username_normalized)
+        existing = get_user_by_username(DB_TARGET, username_normalized)
         if existing:
             raise ValueError("用户名已存在，请换一个试试")
 
         password_hash, password_salt = hash_password(password)
         user = create_user(
-            SETTINGS.app_db_path,
+            DB_TARGET,
             user_id=new_user_id(),
             username=username,
             username_normalized=username_normalized,
@@ -300,13 +304,13 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         visitor_id, visitor_created = self.resolve_visitor_id()
         session_id = new_session_id()
         create_auth_session(
-            SETTINGS.app_db_path,
+            DB_TARGET,
             session_id=session_id,
             user_id=user["id"],
             expires_at=session_expires_at(),
             now_iso=now_iso(),
         )
-        progress = merge_progress_into_user(SETTINGS.app_db_path, visitor_id, user["id"])
+        progress = merge_progress_into_user(DB_TARGET, visitor_id, user["id"])
 
         body = json.dumps(
             {
@@ -328,8 +332,8 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def handle_auth_login(self):
-        if SETTINGS.storage_mode != "sqlite":
-            raise ValueError("登录功能需要启用 sqlite 存储模式")
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
+            raise ValueError("登录功能需要启用数据库存储模式")
 
         payload = self.parse_json_body()
         username = str(payload.get("username", "")).strip()
@@ -338,7 +342,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             raise ValueError("请输入用户名和密码")
 
         username_normalized = normalize_username(username)
-        user_record = get_user_by_username(SETTINGS.app_db_path, username_normalized)
+        user_record = get_user_by_username(DB_TARGET, username_normalized)
         if not user_record or not verify_password(password, user_record["password_hash"], user_record["password_salt"]):
             raise ValueError("用户名或密码错误")
 
@@ -350,13 +354,13 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         visitor_id, visitor_created = self.resolve_visitor_id()
         session_id = new_session_id()
         create_auth_session(
-            SETTINGS.app_db_path,
+            DB_TARGET,
             session_id=session_id,
             user_id=user["id"],
             expires_at=session_expires_at(),
             now_iso=now_iso(),
         )
-        progress = merge_progress_into_user(SETTINGS.app_db_path, visitor_id, user["id"])
+        progress = merge_progress_into_user(DB_TARGET, visitor_id, user["id"])
 
         body = json.dumps(
             {
@@ -379,8 +383,8 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
 
     def handle_auth_logout(self):
         session_id = self.get_auth_session_id()
-        if SETTINGS.storage_mode == "sqlite" and session_id:
-            delete_auth_session(SETTINGS.app_db_path, session_id)
+        if SETTINGS.storage_mode in DB_STORAGE_MODES and session_id:
+            delete_auth_session(DB_TARGET, session_id)
 
         body = json.dumps({"ok": True, "message": "密码规则已获取", "policy": PASSWORD_POLICY}, ensure_ascii=False).encode("utf-8")
         self.send_response(HTTPStatus.OK)
@@ -391,8 +395,8 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def handle_change_password(self):
-        if SETTINGS.storage_mode != "sqlite":
-            raise ValueError("修改密码需要启用 sqlite 存储模式")
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
+            raise ValueError("修改密码需要启用数据库存储模式")
 
         user = self.require_authenticated_user()
         payload = self.parse_json_body()
@@ -405,22 +409,22 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         if current_password == new_password:
             raise ValueError("新密码不能与当前密码相同")
 
-        user_record = get_user_auth_record_by_id(SETTINGS.app_db_path, user["id"])
+        user_record = get_user_auth_record_by_id(DB_TARGET, user["id"])
         if not user_record:
             raise ValueError("当前账号不存在，请重新登录")
         if not verify_password(current_password, user_record["password_hash"], user_record["password_salt"]):
             raise ValueError("当前密码错误")
 
         password_hash, password_salt = hash_password(new_password)
-        update_user_password(SETTINGS.app_db_path, user["id"], password_hash, password_salt)
+        update_user_password(DB_TARGET, user["id"], password_hash, password_salt)
         return json_response(self, HTTPStatus.OK, {"ok": True, "message": "密码修改成功"})
 
     def handle_account_overview(self):
-        if SETTINGS.storage_mode != "sqlite":
-            raise ValueError("个人中心需要启用 sqlite 存储模式")
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
+            raise ValueError("个人中心需要启用数据库存储模式")
 
         user = self.require_authenticated_user()
-        overview = get_account_overview(SETTINGS.app_db_path, user["id"])
+        overview = get_account_overview(DB_TARGET, user["id"])
         overview["user"] = user
         overview["storageMode"] = SETTINGS.storage_mode
         return json_response(self, HTTPStatus.OK, overview)
@@ -533,12 +537,12 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
     def handle_get_user_progress(self):
         user, _session_id = self.resolve_current_user()
         visitor_id, created = self.resolve_visitor_id()
-        if SETTINGS.storage_mode != "sqlite":
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
             payload = {"ok": True, "favorites": [], "mastered": [], "practice": {}, "storageMode": "local"}
         elif user:
-            payload = get_user_progress_payload(SETTINGS.app_db_path, user_id=user["id"])
+            payload = get_user_progress_payload(DB_TARGET, user_id=user["id"])
         else:
-            payload = get_user_progress_payload(SETTINGS.app_db_path, visitor_id)
+            payload = get_user_progress_payload(DB_TARGET, visitor_id)
 
         payload["authenticated"] = bool(user)
         payload["user"] = user
@@ -559,14 +563,14 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
 
         user, _session_id = self.resolve_current_user()
         visitor_id, created = self.resolve_visitor_id()
-        if SETTINGS.storage_mode != "sqlite":
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
             response = {"ok": True, "storageMode": "local"}
         else:
             favorite = payload["favorite"] if "favorite" in payload else None
             mastered = payload["mastered"] if "mastered" in payload else None
             practiced_at = current_timestamp() if payload.get("practiced") else None
             response = upsert_question_progress(
-                SETTINGS.app_db_path,
+                DB_TARGET,
                 visitor_id,
                 question_id,
                 user_id=user["id"] if user else "",
@@ -591,11 +595,11 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         favorites = payload.get("favorites", [])
         mastered = payload.get("mastered", [])
 
-        if SETTINGS.storage_mode != "sqlite":
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
             response = {"ok": True, "favorites": favorites, "mastered": mastered, "practice": {}, "storageMode": "local"}
         else:
             response = sync_user_progress(
-                SETTINGS.app_db_path,
+                DB_TARGET,
                 visitor_id,
                 [str(item) for item in favorites],
                 [str(item) for item in mastered],
@@ -718,12 +722,12 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         return morsel.value if morsel and morsel.value else ""
 
     def resolve_current_user(self):
-        if SETTINGS.storage_mode != "sqlite":
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
             return None, ""
         session_id = self.get_auth_session_id()
         if not session_id:
             return None, ""
-        return get_auth_session_user(SETTINGS.app_db_path, session_id, now_iso()), session_id
+        return get_auth_session_user(DB_TARGET, session_id, now_iso()), session_id
 
     def require_authenticated_user(self):
         user, _session_id = self.resolve_current_user()
@@ -1361,9 +1365,9 @@ def normalize_interview_pack(payload):
     }
 
 def main():
-    if SETTINGS.storage_mode == "sqlite":
-        initialize_database(SETTINGS.app_db_path)
-        ensure_questions_seeded(SETTINGS.app_db_path, WEB_DIR / "data" / "questions.json")
+    if SETTINGS.storage_mode in DB_STORAGE_MODES:
+        initialize_database(DB_TARGET)
+        ensure_questions_seeded(DB_TARGET, WEB_DIR / "data" / "questions.json")
     server = ThreadingHTTPServer((SETTINGS.host, SETTINGS.port), ResumeReviewHandler)
     print(f"Resume review server running at http://{SETTINGS.host}:{SETTINGS.port}/web_mvp/")
     print(f"API health: http://{SETTINGS.host}:{SETTINGS.port}/api/health")
