@@ -36,6 +36,8 @@ from offergo_backend.database import (
     create_auth_session,
     create_user,
     delete_auth_session,
+    get_interview_answers_payload,
+    get_resume_session,
     get_account_overview,
     get_user_progress_payload,
     get_auth_session_user,
@@ -45,8 +47,11 @@ from offergo_backend.database import (
     ensure_questions_seeded,
     load_questions_payload,
     merge_progress_into_user,
+    merge_interview_answers_into_user,
     sync_user_progress,
+    save_resume_session,
     update_user_password,
+    upsert_interview_answer,
     upsert_question_progress,
 )
 from offergo_backend.storage import FileVisitorTracker, InMemoryResumeSessionStore, SqliteVisitorTracker
@@ -228,6 +233,8 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             return self.handle_account_overview()
         if self.path == "/api/user-progress":
             return self.handle_get_user_progress()
+        if self.path == "/api/interview-answers":
+            return self.handle_get_interview_answers()
         if self.path in {"/web_mvp/", "/web_mvp/index.html"}:
             return self.serve_tracked_index()
         return super().do_GET()
@@ -252,6 +259,8 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
                 return self.handle_update_user_progress()
             if self.path == "/api/user-progress/sync":
                 return self.handle_sync_user_progress()
+            if self.path == "/api/interview-answers":
+                return self.handle_update_interview_answer()
             return json_response(self, HTTPStatus.NOT_FOUND, {"ok": False, "error": "未找到对应接口"})
         except ValueError as exc:
             return json_response(self, HTTPStatus.BAD_REQUEST, {"ok": False, "error": str(exc)})
@@ -311,6 +320,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             now_iso=now_iso(),
         )
         progress = merge_progress_into_user(DB_TARGET, visitor_id, user["id"])
+        merge_interview_answers_into_user(DB_TARGET, visitor_id, user["id"])
 
         body = json.dumps(
             {
@@ -361,6 +371,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
             now_iso=now_iso(),
         )
         progress = merge_progress_into_user(DB_TARGET, visitor_id, user["id"])
+        merge_interview_answers_into_user(DB_TARGET, visitor_id, user["id"])
 
         body = json.dumps(
             {
@@ -478,7 +489,7 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         review["keywordExtraction"] = extracted
         if ai_error:
             review["aiFallbackReason"] = ai_error
-        RESUME_SESSIONS.save(
+        save_cached_resume(
             resume_id,
             {
                 "resume_text": resume_text,
@@ -555,6 +566,27 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def handle_get_interview_answers(self):
+        user, _session_id = self.resolve_current_user()
+        visitor_id, created = self.resolve_visitor_id()
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
+            payload = {"ok": True, "interviewAnswers": {}, "storageMode": "local"}
+        elif user:
+            payload = get_interview_answers_payload(DB_TARGET, user_id=user["id"])
+        else:
+            payload = get_interview_answers_payload(DB_TARGET, visitor_id)
+
+        payload["authenticated"] = bool(user)
+        payload["user"] = user
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        if created and not user:
+            self.send_header("Set-Cookie", self.build_visitor_cookie(visitor_id))
+        self.end_headers()
+        self.wfile.write(body)
+
     def handle_update_user_progress(self):
         payload = self.parse_json_body()
         question_id = str(payload.get("questionId", "")).strip()
@@ -577,6 +609,44 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
                 favorite=favorite,
                 mastered=mastered,
                 practiced_at=practiced_at,
+            )
+
+        body = json.dumps(response, ensure_ascii=False).encode("utf-8")
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        if created and not user:
+            self.send_header("Set-Cookie", self.build_visitor_cookie(visitor_id))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def handle_update_interview_answer(self):
+        payload = self.parse_json_body()
+        question_id = str(payload.get("questionId", "")).strip()
+        if not question_id:
+            raise ValueError("questionId is required")
+
+        answer = str(payload.get("answer") or "")
+        updated_at = str(payload.get("updatedAt") or "").strip()
+        user, _session_id = self.resolve_current_user()
+        visitor_id, created = self.resolve_visitor_id()
+
+        if SETTINGS.storage_mode not in DB_STORAGE_MODES:
+            response = {
+                "ok": True,
+                "questionId": question_id,
+                "answer": answer,
+                "updatedAt": updated_at or current_timestamp(),
+                "storageMode": "local",
+            }
+        else:
+            response = upsert_interview_answer(
+                DB_TARGET,
+                visitor_id,
+                question_id,
+                answer,
+                user_id=user["id"] if user else "",
+                updated_at=updated_at,
             )
 
         body = json.dumps(response, ensure_ascii=False).encode("utf-8")
@@ -743,10 +813,24 @@ class ResumeReviewHandler(SimpleHTTPRequestHandler):
 
 
 def get_cached_resume(resume_id):
-    record = RESUME_SESSIONS.get(resume_id)
-    if not resume_id or record is None:
+    if not resume_id:
+        raise ValueError("当前简历会话已失效，请重新上传并评审")
+
+    if SETTINGS.storage_mode in DB_STORAGE_MODES:
+        record = get_resume_session(DB_TARGET, resume_id)
+    else:
+        record = RESUME_SESSIONS.get(resume_id)
+
+    if record is None:
         raise ValueError("当前简历会话已失效，请重新上传并评审")
     return record
+
+
+def save_cached_resume(resume_id, record):
+    if SETTINGS.storage_mode in DB_STORAGE_MODES:
+        save_resume_session(DB_TARGET, resume_id, record)
+    else:
+        RESUME_SESSIONS.save(resume_id, record)
 
 
 def extract_resume_text(filename, data):

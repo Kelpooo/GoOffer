@@ -36,7 +36,9 @@ const state = {
   currentView: "home",
   interviewQuestionId: null,
   interviewReveal: false,
-  interviewAnswers: loadJsonMap("mvp_interview_answers"),
+  interviewAnswers: {},
+  interviewAnswerSyncTimers: new Map(),
+  interviewApiAvailable: false,
   jobsData: { companies: [], jobs: [] },
   jobSearch: "",
   selectedJobCompany: "all",
@@ -152,7 +154,7 @@ const elements = {
 bootstrap();
 
 async function bootstrap() {
-  const [questionsPayload, jobsResponse, visitorStats, userProgress, authState] = await Promise.all([
+  const [questionsPayload, jobsResponse, visitorStats, userProgress, authState, interviewAnswers] = await Promise.all([
     loadQuestionsPayload(),
     fetch("./data/jobs.json"),
     fetch("/api/site-stats")
@@ -160,6 +162,7 @@ async function bootstrap() {
       .catch(() => ({ ok: false })),
     loadUserProgress(),
     loadAuthState(),
+    loadInterviewAnswers(),
   ]);
 
   const jobsPayload = await jobsResponse.json();
@@ -169,6 +172,7 @@ async function bootstrap() {
   state.visitorStats = visitorStats?.ok ? visitorStats : null;
   applyAuthState(authState);
   applyUserProgress(userProgress);
+  applyInterviewAnswers(interviewAnswers);
   if (state.currentUser) {
     await loadAccountOverview().catch(() => null);
   }
@@ -213,6 +217,17 @@ async function loadAuthState() {
   }
 }
 
+async function loadInterviewAnswers() {
+  try {
+    const response = await fetch("/api/interview-answers");
+    if (!response.ok) throw new Error("interview answers api unavailable");
+    return await response.json();
+  } catch (error) {
+    console.warn("Failed to load interview answers from API, falling back to localStorage only.", error);
+    return null;
+  }
+}
+
 function applyAuthState(payload) {
   const nextUserId = payload?.authenticated ? payload.user?.id || payload.user?.username || "" : "";
   const currentUserId = state.currentUser?.id || state.currentUser?.username || "";
@@ -220,6 +235,8 @@ function applyAuthState(payload) {
   state.authPolicy = payload?.policy || null;
   if (nextUserId !== currentUserId) {
     state.practicedThisSession.clear();
+    clearInterviewAnswerTimers();
+    state.interviewAnswers = {};
   }
 }
 
@@ -261,6 +278,27 @@ function applyUserProgress(payload) {
     syncPracticeToServer(mergedPractice, serverPractice)
       .then(() => loadAccountOverview().catch((error) => console.warn("Failed to refresh account overview after practice sync.", error)))
       .catch((error) => console.warn("Failed to sync local practice records.", error));
+  }
+}
+
+function applyInterviewAnswers(payload) {
+  const localAnswers = loadInterviewAnswersLocalMap();
+  if (!payload?.ok) {
+    state.interviewApiAvailable = false;
+    state.interviewAnswers = localAnswers;
+    persistInterviewAnswersLocalMap(state.interviewAnswers);
+    return;
+  }
+
+  state.interviewApiAvailable = true;
+  const serverAnswers = normalizeInterviewAnswerMap(payload.interviewAnswers || {});
+  const mergedAnswers = mergeInterviewAnswerMaps(serverAnswers, localAnswers);
+
+  state.interviewAnswers = mergedAnswers;
+  persistInterviewAnswersLocalMap(state.interviewAnswers);
+
+  if (hasInterviewAnswerDeficit(mergedAnswers, serverAnswers)) {
+    syncInterviewAnswersToServer(mergedAnswers).catch((error) => console.warn("Failed to sync interview answers.", error));
   }
 }
 
@@ -325,14 +363,11 @@ function bindEvents() {
   elements.interviewDraft.addEventListener("input", () => {
     const question = findInterviewQuestion();
     if (!question) return;
-    state.interviewAnswers[question.id] = {
-      answer: elements.interviewDraft.value,
-      updatedAt: new Date().toISOString(),
-    };
-    persistJsonMap("mvp_interview_answers", state.interviewAnswers);
+    const record = updateInterviewAnswerCache(question.id, elements.interviewDraft.value);
+    scheduleInterviewAnswerSync(question.id, record);
   });
 
-  elements.interviewSubmitBtn.addEventListener("click", () => {
+  elements.interviewSubmitBtn.addEventListener("click", async () => {
     const question = findInterviewQuestion();
     if (!question) return;
     const answer = elements.interviewDraft.value.trim();
@@ -342,11 +377,13 @@ function bindEvents() {
       }
       return;
     }
-    state.interviewAnswers[question.id] = {
-      answer,
-      updatedAt: new Date().toISOString(),
-    };
-    persistJsonMap("mvp_interview_answers", state.interviewAnswers);
+    const record = updateInterviewAnswerCache(question.id, answer);
+    clearInterviewAnswerSyncTimer(question.id);
+    try {
+      await persistInterviewAnswerToServer(question.id, record.answer, record.updatedAt);
+    } catch (error) {
+      console.warn("Failed to persist interview answer.", error);
+    }
     markQuestionPracticed(question.id);
     if (elements.interviewAnswerStatus) {
       elements.interviewAnswerStatus.textContent = "已提交你的回答。可以展开参考答案继续对照。";
@@ -747,7 +784,7 @@ function renderInterview() {
     <span class="pill">${escapeHtml(question.difficulty)}</span>
   `;
   elements.interviewQuestion.textContent = question.question;
-  if (elements.interviewDraft.dataset.questionId !== question.id) {
+  if (elements.interviewDraft.dataset.questionId !== question.id || elements.interviewDraft.value !== savedAnswer) {
     elements.interviewDraft.dataset.questionId = question.id;
     elements.interviewDraft.value = savedAnswer;
   }
@@ -1454,6 +1491,7 @@ async function handleLoginSubmit(event) {
 
     applyAuthState(payload);
     applyUserProgress(payload.progress || null);
+    applyInterviewAnswers(await loadInterviewAnswers());
     state.accountOverview = null;
     await loadAccountOverview().catch(() => null);
     elements.loginForm.reset();
@@ -1489,6 +1527,7 @@ async function handleRegisterSubmit(event) {
 
     applyAuthState(payload);
     applyUserProgress(payload.progress || null);
+    applyInterviewAnswers(await loadInterviewAnswers());
     state.accountOverview = null;
     await loadAccountOverview().catch(() => null);
     elements.registerForm.reset();
@@ -1515,6 +1554,7 @@ async function handleLogout() {
     const [authState, userProgress] = await Promise.all([loadAuthState(), loadUserProgress()]);
     applyAuthState(authState);
     applyUserProgress(userProgress);
+    applyInterviewAnswers(await loadInterviewAnswers());
     state.accountOverview = null;
     render();
     elements.authStatus.textContent = payload.message || "已退出登录";
@@ -1610,6 +1650,136 @@ function loadJsonMap(key) {
 
 function persistJsonMap(key, value) {
   localStorage.setItem(key, JSON.stringify(value || {}));
+}
+
+function getInterviewAnswersStorageKey() {
+  if (state.currentUser?.id) {
+    return `mvp_interview_answers_user_${state.currentUser.id}`;
+  }
+  return "mvp_interview_answers_visitor";
+}
+
+function loadInterviewAnswersLocalMap() {
+  const scopedKey = getInterviewAnswersStorageKey();
+  const scopedPayload = normalizeInterviewAnswerMap(loadJsonMap(scopedKey));
+  if (Object.keys(scopedPayload).length) {
+    return scopedPayload;
+  }
+
+  if (state.currentUser?.id) {
+    return {};
+  }
+
+  const legacyPayload = normalizeInterviewAnswerMap(loadJsonMap("mvp_interview_answers"));
+  if (Object.keys(legacyPayload).length) {
+    persistInterviewAnswersLocalMap(legacyPayload);
+  }
+  return legacyPayload;
+}
+
+function persistInterviewAnswersLocalMap(interviewAnswers) {
+  localStorage.setItem(getInterviewAnswersStorageKey(), JSON.stringify(interviewAnswers || {}));
+}
+
+function normalizeInterviewAnswerMap(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) return {};
+  return Object.entries(payload).reduce((result, [questionId, item]) => {
+    if (typeof item === "string") {
+      result[questionId] = { answer: item, updatedAt: "" };
+      return result;
+    }
+    result[questionId] = {
+      answer: String(item?.answer || ""),
+      updatedAt: String(item?.updatedAt || ""),
+    };
+    return result;
+  }, {});
+}
+
+function mergeInterviewAnswerMaps(serverAnswers, localAnswers) {
+  const merged = normalizeInterviewAnswerMap(serverAnswers);
+  for (const [questionId, item] of Object.entries(normalizeInterviewAnswerMap(localAnswers))) {
+    const current = merged[questionId];
+    if (!current) {
+      merged[questionId] = item;
+      continue;
+    }
+    if (String(item.updatedAt || "") > String(current.updatedAt || "")) {
+      merged[questionId] = item;
+    }
+  }
+  return merged;
+}
+
+function hasInterviewAnswerDeficit(mergedAnswers, serverAnswers) {
+  const normalizedServer = normalizeInterviewAnswerMap(serverAnswers);
+  return Object.entries(normalizeInterviewAnswerMap(mergedAnswers)).some(([questionId, item]) => {
+    const serverItem = normalizedServer[questionId];
+    if (!serverItem) {
+      return Boolean(item.answer);
+    }
+    return String(item.updatedAt || "") > String(serverItem.updatedAt || "");
+  });
+}
+
+function clearInterviewAnswerTimers() {
+  for (const timer of state.interviewAnswerSyncTimers.values()) {
+    clearTimeout(timer);
+  }
+  state.interviewAnswerSyncTimers.clear();
+}
+
+function clearInterviewAnswerSyncTimer(questionId) {
+  const timer = state.interviewAnswerSyncTimers.get(questionId);
+  if (timer) {
+    clearTimeout(timer);
+    state.interviewAnswerSyncTimers.delete(questionId);
+  }
+}
+
+function updateInterviewAnswerCache(questionId, answer, updatedAt = new Date().toISOString()) {
+  state.interviewAnswers[questionId] = {
+    answer: String(answer || ""),
+    updatedAt,
+  };
+  persistInterviewAnswersLocalMap(state.interviewAnswers);
+  return state.interviewAnswers[questionId];
+}
+
+function scheduleInterviewAnswerSync(questionId, record) {
+  if (!state.interviewApiAvailable) return;
+  clearInterviewAnswerSyncTimer(questionId);
+  const timer = setTimeout(() => {
+    state.interviewAnswerSyncTimers.delete(questionId);
+    persistInterviewAnswerToServer(questionId, record.answer, record.updatedAt).catch((error) => {
+      console.warn("Failed to sync interview answer draft.", error);
+    });
+  }, 500);
+  state.interviewAnswerSyncTimers.set(questionId, timer);
+}
+
+async function persistInterviewAnswerToServer(questionId, answer, updatedAt = new Date().toISOString()) {
+  if (!state.interviewApiAvailable) return;
+  const response = await fetch("/api/interview-answers", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      questionId,
+      answer,
+      updatedAt,
+    }),
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok || !payload.ok) {
+    throw new Error(payload.error || "Failed to persist interview answer");
+  }
+}
+
+async function syncInterviewAnswersToServer(interviewAnswers) {
+  if (!state.interviewApiAvailable) return;
+  for (const [questionId, item] of Object.entries(normalizeInterviewAnswerMap(interviewAnswers))) {
+    await persistInterviewAnswerToServer(questionId, item.answer, item.updatedAt);
+  }
 }
 
 function persistPracticeMap(key, practiceMap) {
