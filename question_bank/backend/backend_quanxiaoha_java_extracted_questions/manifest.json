@@ -1,7 +1,32 @@
 {
-  "group_count": 0,
-  "processed_count": 0,
-  "success_count": 0,
+  "group_count": 4,
+  "processed_count": 40,
+  "success_count": 40,
   "failure_count": 0,
-  "groups": []
+  "groups": [
+    {
+      "bucket": "java_base",
+      "count": 3,
+      "failures": 0,
+      "file": "java_base.json"
+    },
+    {
+      "bucket": "java_collection",
+      "count": 14,
+      "failures": 0,
+      "file": "java_collection.json"
+    },
+    {
+      "bucket": "mysql",
+      "count": 5,
+      "failures": 0,
+      "file": "mysql.json"
+    },
+    {
+      "bucket": "network",
+      "count": 18,
+      "failures": 0,
+      "file": "network.json"
+    }
+  ]
 }

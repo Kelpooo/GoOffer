@@ -1,0 +1,13 @@
+{
+  "source_url": "https://redis.io/docs/latest/",
+  "group_count": 1,
+  "groups": [
+    {
+      "bucket": "redis",
+      "count": 10,
+      "file": "redis.json"
+    }
+  ],
+  "failure_count": 0,
+  "failures_file": "failures.json"
+}

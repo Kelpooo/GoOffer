@@ -1,0 +1,20 @@
+{
+  "group_count": 2,
+  "processed_count": 40,
+  "success_count": 40,
+  "failure_count": 0,
+  "groups": [
+    {
+      "bucket": "java_collection",
+      "count": 1,
+      "failures": 0,
+      "file": "java_collection.json"
+    },
+    {
+      "bucket": "network",
+      "count": 39,
+      "failures": 0,
+      "file": "network.json"
+    }
+  ]
+}

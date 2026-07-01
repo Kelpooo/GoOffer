@@ -1,0 +1,18 @@
+{
+  "source_url": "https://docs.docker.com/",
+  "group_count": 2,
+  "groups": [
+    {
+      "bucket": "java_collection",
+      "count": 1,
+      "file": "java_collection.json"
+    },
+    {
+      "bucket": "network",
+      "count": 9,
+      "file": "network.json"
+    }
+  ],
+  "failure_count": 0,
+  "failures_file": "failures.json"
+}

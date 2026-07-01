@@ -1,0 +1,22 @@
+{
+  "bucket": "java_collection",
+  "count": 2,
+  "items": [
+    {
+      "section_title": "In this article",
+      "question_title": "Indexed collections",
+      "bucket": "java_collection",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#indexed_collections",
+      "page_title": "JavaScript Guide - JavaScript | MDN",
+      "content_text": "Indexed collections\nOverview:\nKeyed collections\nOverview:\nKeyed collections\nMap\nWeakMap\nSet\nWeakSet\nWorking with objects\nOverview:\nWorking with objects\nObjects and properties\nCreating objects\nDefining methods\nGetter and setter\nUsing classes\nOverview:\nUsing classes\nDeclaring a class\nVarious class features\nExtends and inheritance\nWhy classes?\nPromises\nOverview:\nPromises\nGuarantees\nChaining\nError handling\nComposition\nTiming\nTyped arrays\nOverview:\nTyped arrays\nIterators and generators\nOverview:\nIterators and generators\nIterators\nIterables\nGenerators\nResource management\nOverview:\nJavaScript resource management\nThe\nusing\nand\nawait using\ndeclarations\nThe\nDisposableStack\nand\nAsyncDisposableStack\nobjects\nError handling\nInternationalization\nOverview:\nInternationalization\nDate and time formatting\nNumber formatting\nCollation\nJavaScript modules\nOverview:\nJavaScript modules\nExporting\nImporting\nDefault exports\nRenaming features\nAggregating modules\nDynamic module loading\nAdvanced topics\nAfter you have learned all fundamental features of JavaScript, you can explore some more niche features, or dive deeper into the language's mechanisms and concepts.\nLanguage overview\nData structures\nEnumerability and ownership of properties\nInheritance and the prototype chain\nEquality comparisons and sameness\nClosures\nMeta programming\nMemory management\nNext\nHelp improve MDN\nLearn how to contribute\nThis page was last modified on\nNov 7, 2025\nby\nMDN contributors\nView this page on GitHub\n•\nReport a problem with this content"
+    },
+    {
+      "section_title": "In this article",
+      "question_title": "Keyed collections",
+      "bucket": "java_collection",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#keyed_collections",
+      "page_title": "JavaScript Guide - JavaScript | MDN",
+      "content_text": "Keyed collections\nOverview:\nMap\nWeakMap\nSet\nWeakSet\nWorking with objects\nOverview:\nWorking with objects\nObjects and properties\nCreating objects\nDefining methods\nGetter and setter\nUsing classes\nOverview:\nUsing classes\nDeclaring a class\nVarious class features\nExtends and inheritance\nWhy classes?\nPromises\nOverview:\nPromises\nGuarantees\nChaining\nError handling\nComposition\nTiming\nTyped arrays\nOverview:\nTyped arrays\nIterators and generators\nOverview:\nIterators and generators\nIterators\nIterables\nGenerators\nResource management\nOverview:\nJavaScript resource management\nThe\nusing\nand\nawait using\ndeclarations\nThe\nDisposableStack\nand\nAsyncDisposableStack\nobjects\nError handling\nInternationalization\nOverview:\nInternationalization\nDate and time formatting\nNumber formatting\nCollation\nJavaScript modules\nOverview:\nJavaScript modules\nExporting\nImporting\nDefault exports\nRenaming features\nAggregating modules\nDynamic module loading\nAdvanced topics\nAfter you have learned all fundamental features of JavaScript, you can explore some more niche features, or dive deeper into the language's mechanisms and concepts.\nLanguage overview\nData structures\nEnumerability and ownership of properties\nInheritance and the prototype chain\nEquality comparisons and sameness\nClosures\nMeta programming\nMemory management\nNext\nHelp improve MDN\nLearn how to contribute\nThis page was last modified on\nNov 7, 2025\nby\nMDN contributors\nView this page on GitHub\n•\nReport a problem with this content"
+    }
+  ]
+}

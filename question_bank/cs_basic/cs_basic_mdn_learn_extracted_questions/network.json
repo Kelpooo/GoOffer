@@ -1,0 +1,653 @@
+{
+  "bucket": "network",
+  "count": 23,
+  "items": [
+    {
+      "question": "Describe the MDN Learn web development curriculum and its structure.",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "web development",
+        "curriculum"
+      ],
+      "answer_points": [
+        "Teaches essential front-end skills for career success.",
+        "Designed for beginners to reach a comfortable level.",
+        "Includes 'Test your skills' articles and 'Challenges' for self-assessment.",
+        "Code examples are available on GitHub.",
+        "Partner video courses from Scrimba supplement the curriculum."
+      ],
+      "follow_ups": [
+        "What are the core modules covered in the curriculum?",
+        "How can I test my skills while learning?",
+        "Where can I find additional resources beyond MDN?"
+      ],
+      "summary": "MDN Learn web development provides a structured curriculum for front-end beginners.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#about_learn_web_development",
+      "source_title": "Learn web development | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "About Learn web development"
+    },
+    {
+      "question": "Explain the structure of MDN's learning modules (Getting started, Core, Extension).",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "web development",
+        "learning modules"
+      ],
+      "answer_points": [
+        "Getting started modules are for complete beginners, providing setup and basic concepts.",
+        "Core modules teach essential skills and practices for front-end developers.",
+        "Extension modules cover advanced topics for deeper knowledge.",
+        "Self-assessment includes 'Test your skills' for single features and 'Challenges' for combined skills.",
+        "Code examples from the modules are available on GitHub."
+      ],
+      "follow_ups": [
+        "What is the difference between Core and Extension modules?",
+        "How do I assess my understanding of a module?",
+        "Are there any prerequisites for each module level?"
+      ],
+      "summary": "MDN curriculum offers three levels: Getting started, Core, and Extension modules.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#dont_know_where_to_get_started",
+      "source_title": "Learn web development | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Don't know where to get started?"
+    },
+    {
+      "question": "Explain the 'Test your skills' and 'Challenges' features in MDN curriculum.",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "web development",
+        "assessment"
+      ],
+      "answer_points": [
+        "Two types: frequent 'Test your skills' for single features, and less frequent 'Challenges' for combined features.",
+        "Questions come with HTML/CSS/JS code blocks that can be edited in MDN Playground.",
+        "Reset button allows clearing work, and solutions are usually available.",
+        "Users can copy code to their own editor if preferred.",
+        "Some tasks require downloading starter files for local work."
+      ],
+      "follow_ups": [
+        "How do I use the MDN Playground for these tasks?",
+        "What should I do if I get stuck on a challenge?",
+        "Can I use external editors like CodePen?"
+      ],
+      "summary": "MDN offers interactive code challenges to test and reinforce learning.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#test_your_skills",
+      "source_title": "Learn web development | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Test your skills"
+    },
+    {
+      "question": "How to obtain and use code examples from the MDN Learning Area?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "code examples",
+        "GitHub"
+      ],
+      "answer_points": [
+        "All code examples are available on GitHub.",
+        "Easiest method: download a ZIP of the latest main code branch.",
+        "If familiar with Git, clone the repository directly.",
+        "For help, use the communication channels on MDN."
+      ],
+      "follow_ups": [
+        "How can I contribute to the code examples?",
+        "What if I find an error in a code example?",
+        "Are there alternative ways to access the examples?"
+      ],
+      "summary": "MDN code examples are hosted on GitHub, available via ZIP download or Git clone.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#getting_our_code_examples",
+      "source_title": "Learn web development | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Getting our code examples"
+    },
+    {
+      "question": "Contact us",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "contact",
+        "feedback"
+      ],
+      "answer_points": [
+        "MDN提供多种沟通渠道，包括报告问题、建议新内容等。",
+        "欢迎学习者、教师、开发者等任何人参与内容改进。",
+        "可通过GitHub提交问题或贡献代码。",
+        "合作伙伴如Scrimba提供付费课程。"
+      ],
+      "follow_ups": [
+        "如何向MDN贡献代码？",
+        "MDN有哪些官方沟通渠道？"
+      ],
+      "summary": "涉及MDN的联系方式和反馈途径。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#contact_us",
+      "source_title": "Learn web development | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Contact us"
+    },
+    {
+      "question": "See also",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "learning resources",
+        "recommendations"
+      ],
+      "answer_points": [
+        "Scrimba的Frontend Developer Career Path提供互动课程。",
+        "Codecademy是学习编程的交互式网站。",
+        "freeCodeCamp提供教程和项目。",
+        "Learn JavaScript有免费的互动测试。"
+      ],
+      "follow_ups": [
+        "哪些资源适合初学者？",
+        "这些资源是否完全免费？"
+      ],
+      "summary": "MDN推荐的学习前端开发资源列表。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#see_also",
+      "source_title": "Learn web development | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "See also"
+    },
+    {
+      "question": "MDN Curriculum",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "curriculum",
+        "front-end"
+      ],
+      "answer_points": [
+        "MDN Curriculum定义了前端开发者所需的核心技能和实践。",
+        "包括入门模块、核心模块和扩展模块。",
+        "核心模块涵盖Web标准、HTML、CSS、JavaScript、可访问性等。",
+        "扩展模块涉及动画、Web API、性能、安全等。",
+        "学习资源包括Scrimba的合作课程。"
+      ],
+      "follow_ups": [
+        "MDN Curriculum适合什么水平的学习者？",
+        "如何利用MDN Curriculum求职？"
+      ],
+      "summary": "概述MDN Curriculum的结构和目标。",
+      "source_url": "https://developer.mozilla.org/en-US/curriculum/",
+      "source_title": "MDN Curriculum",
+      "section_title": "About Learn web development",
+      "bucket": "network",
+      "raw_question_title": "MDN Curriculum"
+    },
+    {
+      "question": "the rest of MDN",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "20th anniversary",
+        "history"
+      ],
+      "answer_points": [
+        "MDN在庆祝其成立20周年。",
+        "回顾了MDN的起源和对开放网络的影响。",
+        "MDN成为Web开发者最信赖的资源。",
+        "博客文章提到了庆祝活动和蛋糕。"
+      ],
+      "follow_ups": [
+        "MDN有哪些历史里程碑？",
+        "MDN对Web开发者社区有何贡献？"
+      ],
+      "summary": "庆祝MDN成立20周年的博客摘要。",
+      "source_url": "https://developer.mozilla.org/en-US/",
+      "source_title": "MDN Web Docs",
+      "section_title": "About Learn web development",
+      "bucket": "network",
+      "raw_question_title": "the rest of MDN"
+    },
+    {
+      "question": "What is included in the changelog for Learn web development?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "Learn web development",
+        "changelog"
+      ],
+      "answer_points": [
+        "August 2025: Updated 'Test your skills' articles for consistency, replaced old editors with MDN Playground exercises, and consolidated boilerplate into a help section.",
+        "December 2024: Merged MDN Curriculum into Learn web development, rearranged content to follow curriculum structure, and added learning outcomes to articles.",
+        "April 2025: MDN learning partner labels and 'See also' link order guidelines were introduced."
+      ],
+      "follow_ups": [
+        "How does the 'Test your skills' help section benefit learners?",
+        "What changes were made to the navigation of 'Test your skills' articles?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Changelog",
+      "source_title": "Changelog - Learn web development | MDN",
+      "section_title": "About Learn web development",
+      "bucket": "network",
+      "raw_question_title": "see changelog"
+    },
+    {
+      "question": "What are MDN learning partners and how are they displayed?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "learning partner",
+        "link order"
+      ],
+      "answer_points": [
+        "MDN learning partners are external educational platforms like Scrimba, Codecademy, and freeCodeCamp that are clearly labeled with an 'MDN learning partner' badge.",
+        "In 'See also' sections, links are ordered: internal links first, then free content, then mixed free/paywalled content.",
+        "Current partners include Scrimba, which offers a Frontend Developer Career Path."
+      ],
+      "follow_ups": [
+        "Why does MDN prioritize internal links over external ones?",
+        "What other resources are recommended for learning web development?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds",
+      "source_title": "Learn web development writing guidelines - MDN Web Docs | MDN",
+      "section_title": "Try our partner video courses",
+      "bucket": "network",
+      "raw_question_title": "MDN learning partner"
+    },
+    {
+      "question": "How should a complete beginner start learning web development according to MDN?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "beginner",
+        "learning path"
+      ],
+      "answer_points": [
+        "Complete beginners should start with the Getting started modules which cover environment setup, first website creation, web standards, and soft skills.",
+        "The Core modules follow, teaching essentials for front-end development.",
+        "Extension modules cover advanced topics and specializations.",
+        "The learning path includes 'Test your skills' articles and challenges to assess understanding."
+      ],
+      "follow_ups": [
+        "What are the prerequisites for the Core modules?",
+        "How can beginners practice their skills?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#never_coded_before",
+      "source_title": "Learn web development | MDN",
+      "section_title": "Don't know where to get started?",
+      "bucket": "network",
+      "raw_question_title": "Never coded before?"
+    },
+    {
+      "question": "What do the Getting started modules cover in MDN's Learn web development?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "getting started",
+        "web development"
+      ],
+      "answer_points": [
+        "The modules include Environment setup (tools installation, file systems, command line), Your first website (building and publishing a simple site), Web standards (high-level web communication model, core technologies), and Soft skills (research, collaboration, hiring traits).",
+        "No prerequisites are required; these modules are optional but recommended before Core modules.",
+        "They are designed for complete beginners with no prior coding experience."
+      ],
+      "follow_ups": [
+        "What is taught in the Environment setup module?",
+        "How does the Web standards module help beginners?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started",
+      "source_title": "Getting started modules - Learn web development | MDN",
+      "section_title": "Don't know where to get started?",
+      "bucket": "network",
+      "raw_question_title": "Getting started modules"
+    },
+    {
+      "question": "如何系统学习Web开发基础？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Web开发",
+        "学习路径",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "answer_points": [
+        "学习HTML结构化内容，包括语义化标签、链接、列表、图片、表单等",
+        "掌握CSS基础，包括样式、布局、动画和响应式设计",
+        "学习JavaScript核心语言特性及其动态脚本功能",
+        "了解JavaScript框架和库，如React、Vue等",
+        "掌握无障碍访问（Accessibility）的设计和开发实践",
+        "学习版本控制工具（如Git）的使用"
+      ],
+      "follow_ups": [
+        "推荐哪些学习资源来系统学习Web开发？",
+        "Web开发中前端和后端的区别是什么？",
+        "如何评估自己是否掌握了基础技能？"
+      ],
+      "summary": "通过核心模块系统学习HTML、CSS、JavaScript等基础技能，并逐步掌握框架和工具。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#want_to_master_the_essentials",
+      "source_title": "Learn web development | MDN",
+      "section_title": "Don't know where to get started?",
+      "bucket": "network",
+      "raw_question_title": "Want to master the essentials?"
+    },
+    {
+      "question": "Web开发核心模块有哪些？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Web开发",
+        "学习路径",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "answer_points": [
+        "HTML结构化内容：定义内容结构和使用语义化标签",
+        "CSS样式基础：字体、颜色、间距、布局等",
+        "CSS文本样式：字体设置、行间距、阴影等",
+        "CSS布局：浮动、定位、弹性盒子、网格等响应式设计",
+        "JavaScript动态脚本：核心语言语法和关键API",
+        "JavaScript框架和库：现代前端开发必备工具"
+      ],
+      "follow_ups": [
+        "哪些模块适合初学者先学习？",
+        "如何结合实践巩固核心模块知识？",
+        "核心模块和扩展模块的学习顺序如何安排？"
+      ],
+      "summary": "核心模块涵盖HTML、CSS、JavaScript及其框架，是Web开发的基础。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core",
+      "source_title": "Core learning modules - Learn web development | MDN",
+      "section_title": "Don't know where to get started?",
+      "bucket": "network",
+      "raw_question_title": "Core modules"
+    },
+    {
+      "question": "掌握Web开发基础后如何进阶？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "Web开发",
+        "进阶",
+        "扩展模块",
+        "性能",
+        "测试"
+      ],
+      "answer_points": [
+        "学习高级JavaScript对象和面向对象编程",
+        "掌握客户端Web API的使用，如操作浏览器和操作系统功能",
+        "理解异步JavaScript，有效处理阻塞操作如资源获取",
+        "精通Web表单的设计、验证和数据提交",
+        "学习客户端开发工具如包管理器、命令行工具和构建工具",
+        "了解服务器端编程基础，如使用Django或Express"
+      ],
+      "follow_ups": [
+        "进阶学习中最常遇到的难点是什么？",
+        "如何平衡基础巩固和新技术学习？",
+        "哪些扩展模块对职业发展最重要？"
+      ],
+      "summary": "通过扩展模块深入学习高级对象、API、异步编程、服务器端开发等技能。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#beyond_the_basics",
+      "source_title": "Learn web development | MDN",
+      "section_title": "Don't know where to get started?",
+      "bucket": "network",
+      "raw_question_title": "Beyond the basics?"
+    },
+    {
+      "question": "Web开发扩展模块有哪些？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "Web开发",
+        "扩展模块",
+        "API",
+        "异步编程",
+        "性能"
+      ],
+      "answer_points": [
+        "高级JavaScript对象：深入理解对象理论和OOP实践",
+        "客户端Web API：操作浏览器和操作系统功能，获取外部数据",
+        "异步JavaScript：处理回调、Promise、async/await等",
+        "Web表单：从HTML结构到样式、验证和提交的完整掌握",
+        "客户端开发工具：包管理器、命令行工具、构建链等",
+        "服务器端网站编程：使用Django或Express框架构建应用"
+      ],
+      "follow_ups": [
+        "学习扩展模块前需要具备哪些基础？",
+        "扩展模块中哪个部分最难掌握？",
+        "如何选择适合自己的扩展模块？"
+      ],
+      "summary": "扩展模块覆盖高级JS、API、异步编程、表单、工具和服务器端开发。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions",
+      "source_title": "Extension modules - Learn web development | MDN",
+      "section_title": "Don't know where to get started?",
+      "bucket": "network",
+      "raw_question_title": "Extension modules"
+    },
+    {
+      "question": "Working at a school?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "learning",
+        "assessment"
+      ],
+      "answer_points": [
+        "MDN提供两种评估方式：Test your skills（针对单一特性）和Challenges（综合多个特性）",
+        "推荐使用MDN Playground在线编辑代码来完成任务",
+        "遇到困难可查看答案或通过通信渠道寻求帮助",
+        "代码示例可在GitHub上获取，支持下载ZIP或克隆仓库"
+      ],
+      "follow_ups": [
+        "你如何利用MDN的测试题来检验自己的学习效果？",
+        "除了MDN，你还使用哪些资源来实践web开发技能？"
+      ],
+      "summary": "MDN学习指南包含丰富的评估和练习资源，帮助学习者巩固技能。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development#working_at_a_school",
+      "source_title": "Learn web development | MDN",
+      "section_title": "Don't know where to get started?",
+      "bucket": "network",
+      "raw_question_title": "Working at a school?"
+    },
+    {
+      "question": "Educators page",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "MDN",
+        "teaching",
+        "curriculum"
+      ],
+      "answer_points": [
+        "MDN的Learn web development可作课程材料，包含学习成果部分",
+        "另有独立的MDN Curriculum资源，总结所有学习主题",
+        "核心模块涵盖HTML、CSS、JavaScript、可访问性、设计理论和版本控制",
+        "可扩展学习内容，如软技能和工作工具集",
+        "提供技能测试和挑战文章用于评估学生",
+        "建议结合考试和实际项目进行评估"
+      ],
+      "follow_ups": [
+        "你如何根据MDN内容设计课程路径？",
+        "MDN Curriculum与独立学习模块有什么区别？"
+      ],
+      "summary": "MDN为教育者提供完整的教学资源，包括课程结构和评估工具。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Educators",
+      "source_title": "Resources for educators - Learn web development | MDN",
+      "section_title": "Don't know where to get started?",
+      "bucket": "network",
+      "raw_question_title": "Educators page"
+    },
+    {
+      "question": "MDN Playground",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "playground"
+      ],
+      "answer_points": [
+        "MDN Playground是一个在线代码编辑环境",
+        "可用于测试和运行HTML、CSS、JavaScript代码示例",
+        "支持重置和查看解决方案功能"
+      ],
+      "follow_ups": [],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/play",
+      "source_title": "Playground | MDN",
+      "section_title": "Test your skills",
+      "bucket": "network",
+      "raw_question_title": "MDN Playground"
+    },
+    {
+      "question": "communication channels",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "communication",
+        "community"
+      ],
+      "answer_points": [
+        "MDN社区可通过Discord服务器进行实时交流",
+        "也可使用Matrix聊天室作为替代",
+        "GitHub Discussions用于项目公告和头脑风暴",
+        "社交媒体（Bluesky、Mastodon、X）可关注最新动态",
+        "论坛（Discourse）用于讨论代码问题",
+        "非公开沟通可发送邮件至mdn-web-docs@mozilla.com"
+      ],
+      "follow_ups": [
+        "你通常通过什么渠道获取技术社区的支持？",
+        "如何有效利用MDN的讨论区解决问题？"
+      ],
+      "summary": "MDN提供多种通信渠道，方便社区成员交流和学习。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/MDN/Community/Communication_channels",
+      "source_title": "Communication channels - MDN Web Docs | MDN",
+      "section_title": "Contact us",
+      "bucket": "network",
+      "raw_question_title": "communication channels"
+    },
+    {
+      "question": "如何为开源项目MDN Web Docs做贡献？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "开源贡献",
+        "MDN Web Docs",
+        "社区参与"
+      ],
+      "answer_points": [
+        "贡献者可以通过编写文档、翻译内容、审查拉取请求、修复bug、帮助新手等多种方式帮助MDN。",
+        "开始贡献前需要拥有GitHub账号，并熟悉Git和GitHub工作流程。",
+        "可以通过贡献者任务面板寻找适合自己技能和兴趣的任务。",
+        "在MDN开源项目中，需要遵守社区参与指南和行为准则。",
+        "对于一般支持问题，MDN无法提供帮助，建议查阅学习资料或Stack Overflow。"
+      ],
+      "follow_ups": [
+        "如何找到适合自己的贡献任务？",
+        "贡献MDN需要哪些前置技能？",
+        "如何确保贡献的内容被接受？"
+      ],
+      "summary": "介绍如何为MDN Web Docs开源项目做出贡献，包括贡献途径和准备工作。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/MDN/Community",
+      "source_title": "Community resources - MDN Web Docs | MDN",
+      "section_title": "Contact us",
+      "bucket": "network",
+      "raw_question_title": "how you can help"
+    },
+    {
+      "question": "如何开始为MDN Web Docs做贡献？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "开源贡献",
+        "MDN Web Docs",
+        "入门指南"
+      ],
+      "answer_points": [
+        "贡献MDN首先需要一个GitHub账号，并建议学习GitHub基础课程。",
+        "可以通过贡献者任务面板选择任务，评论表明意愿并等待团队回应。",
+        "贡献方式包括处理新手友好问题、审查PR、帮助新手、翻译文档、修复后端/前端问题、更新浏览器兼容性数据等。",
+        "贡献时需同意将作品以CC-BY-SA或CC-0许可发布。",
+        "对于英语非母语者，即使语法不完美也可以贡献，团队会帮助润色。"
+      ],
+      "follow_ups": [
+        "贡献MDN对技术能力有什么要求？",
+        "如何检查自己选择的贡献是否已经被他人进行中？",
+        "贡献后如何与团队沟通？"
+      ],
+      "summary": "详细指导如何开始为MDN Web Docs做出贡献，包括准备工作、选择任务和具体方式。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/MDN/Community/Getting_started",
+      "source_title": "Getting started with MDN Web Docs - MDN Web Docs | MDN",
+      "section_title": "Help improve MDN",
+      "bucket": "network",
+      "raw_question_title": "Learn how to contribute"
+    },
+    {
+      "question": "MDN贡献者有哪些？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "MDN",
+        "贡献者",
+        "提交历史"
+      ],
+      "answer_points": [
+        "MDN Web Docs的贡献者可以通过查看项目的提交历史了解。",
+        "提交历史记录了每位贡献者的提交信息。"
+      ],
+      "follow_ups": [
+        "如何查看MDN的提交历史？",
+        "贡献者通常如何被记录？"
+      ],
+      "summary": "通过提交历史可以查看MDN的贡献者。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/contributors.txt",
+      "source_title": "",
+      "section_title": "Help improve MDN",
+      "bucket": "network",
+      "raw_question_title": "MDN contributors"
+    }
+  ]
+}

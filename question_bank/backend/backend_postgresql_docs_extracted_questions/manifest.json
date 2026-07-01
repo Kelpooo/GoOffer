@@ -1,0 +1,14 @@
+{
+  "group_count": 1,
+  "processed_count": 40,
+  "success_count": 40,
+  "failure_count": 0,
+  "groups": [
+    {
+      "bucket": "mysql",
+      "count": 40,
+      "failures": 0,
+      "file": "mysql.json"
+    }
+  ]
+}

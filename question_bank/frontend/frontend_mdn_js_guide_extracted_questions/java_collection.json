@@ -1,0 +1,62 @@
+{
+  "bucket": "java_collection",
+  "count": 2,
+  "items": [
+    {
+      "question": "Indexed collections",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "collections",
+        "indexed"
+      ],
+      "answer_points": [
+        "Indexed collections are data structures that store elements indexed by a numeric key.",
+        "Examples include arrays and typed arrays in JavaScript.",
+        "They provide ordered access to elements via indices.",
+        "Common operations include iteration, push, pop, and slice."
+      ],
+      "follow_ups": [
+        "What is the difference between an array and a typed array?",
+        "How do you iterate over an indexed collection?",
+        "What are the performance characteristics of indexed collections?"
+      ],
+      "summary": "Indexed collections store elements by numeric index, such as arrays and typed arrays.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#indexed_collections",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "java_collection",
+      "raw_question_title": "Indexed collections"
+    },
+    {
+      "question": "Keyed collections",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "collections",
+        "keyed"
+      ],
+      "answer_points": [
+        "Keyed collections store elements by a key, which can be any value.",
+        "Examples include Map, WeakMap, Set, and WeakSet.",
+        "Map allows any type of key and maintains insertion order.",
+        "Set stores unique values of any type."
+      ],
+      "follow_ups": [
+        "What is the difference between Map and WeakMap?",
+        "How does Set ensure uniqueness?",
+        "When would you use a WeakSet over a Set?"
+      ],
+      "summary": "Keyed collections use keys to store and retrieve elements, including Map and Set.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#keyed_collections",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "java_collection",
+      "raw_question_title": "Keyed collections"
+    }
+  ]
+}

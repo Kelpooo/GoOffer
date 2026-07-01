@@ -1,0 +1,32 @@
+{
+  "group_count": 4,
+  "processed_count": 40,
+  "success_count": 40,
+  "failure_count": 0,
+  "groups": [
+    {
+      "bucket": "java_collection",
+      "count": 9,
+      "failures": 0,
+      "file": "java_collection.json"
+    },
+    {
+      "bucket": "mysql",
+      "count": 1,
+      "failures": 0,
+      "file": "mysql.json"
+    },
+    {
+      "bucket": "network",
+      "count": 29,
+      "failures": 0,
+      "file": "network.json"
+    },
+    {
+      "bucket": "redis",
+      "count": 1,
+      "failures": 0,
+      "file": "redis.json"
+    }
+  ]
+}

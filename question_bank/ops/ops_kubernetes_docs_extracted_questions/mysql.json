@@ -1,0 +1,38 @@
+{
+  "bucket": "mysql",
+  "count": 1,
+  "items": [
+    {
+      "question": "如何在 Kubernetes 中部署 Wordpress 和 MySQL 并使用 PersistentVolume？",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "PersistentVolume",
+        "PersistentVolumeClaim",
+        "Stateful Application",
+        "WordPress"
+      ],
+      "answer_points": [
+        "使用 PersistentVolume (PV) 和 PersistentVolumeClaim (PVC) 为有状态应用提供独立于 Pod 生命周期的持久化存储。",
+        "通过 kustomization.yaml 管理资源，利用 Secret 生成器安全地设置数据库密码。",
+        "MySQL 和 WordPress 的 Deployment 各自挂载一个 PVC 到对应的数据目录（如 /var/lib/mysql 和 /var/www/html）。",
+        "MySQL Service 配置为无头服务（ClusterIP: None），用于内部发现；WordPress Service 使用 LoadBalancer 对外暴露。",
+        "使用 kubectl apply -k ./ 一键部署整个应用，Kubernetes 根据 StorageClass 动态创建 PV。",
+        "注意：hostPath 卷仅适用于开发测试，生产环境应配置合适的 StorageClass 以保证数据可靠性和可迁移性。"
+      ],
+      "follow_ups": [
+        "如何动态创建 PersistentVolume？",
+        "Kubernetes 中 StatefulSet 与 Deployment 的适用场景有何区别？",
+        "如何为 MySQL 配置主从复制或读写分离？"
+      ],
+      "summary": "本教程演示了如何在 Kubernetes 中使用 PersistentVolume 和 PersistentVolumeClaim 部署有状态应用 Wordpress 和 MySQL。",
+      "source_url": "https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/",
+      "source_title": "Example: Deploying WordPress and MySQL with Persistent Volumes | Kubernetes",
+      "section_title": "Try Kubernetes",
+      "bucket": "mysql",
+      "raw_question_title": "Stateful Example: Wordpress with Persistent Volumes"
+    }
+  ]
+}

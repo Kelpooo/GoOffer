@@ -2,43 +2,43 @@
   "frontend_articles": [
     {
       "name": "frontend_cnblogs_ypsharing",
-      "title": "2026 前端面试八股文",
+      "title": "Frontend interview article 1",
       "url": "https://www.cnblogs.com/ypSharing/p/19991915",
       "fetch_mode": "http"
     },
     {
       "name": "frontend_cnblogs_twq46",
-      "title": "前端面试八股文汇总",
+      "title": "Frontend interview article 2",
       "url": "https://www.cnblogs.com/twq46/p/17916076.html",
       "fetch_mode": "http"
     },
     {
       "name": "frontend_cnblogs_aoping",
-      "title": "前端最强面经汇总",
+      "title": "Frontend interview article 3",
       "url": "https://www.cnblogs.com/aoping/p/11722700.html",
       "fetch_mode": "http"
     },
     {
       "name": "frontend_cnblogs_allen_xiebro",
-      "title": "前端面试题八股文汇总",
+      "title": "Frontend interview article 4",
       "url": "https://www.cnblogs.com/Allen-Xiebro/p/17999216",
       "fetch_mode": "http"
     },
     {
       "name": "frontend_juejin_2026_bagua",
-      "title": "2026 前端面试八股体系总结",
+      "title": "Frontend interview article 5",
       "url": "https://juejin.cn/post/7613211639155949568",
       "fetch_mode": "browser"
     },
     {
       "name": "frontend_juejin_2026_big_factory",
-      "title": "2026 大厂前端岗必问八股文",
+      "title": "Frontend interview article 6",
       "url": "https://juejin.cn/post/7617857527662673954",
       "fetch_mode": "browser"
     },
     {
       "name": "frontend_juejin_frontend_summary",
-      "title": "前端面试题汇总",
+      "title": "Frontend interview article 7",
       "url": "https://juejin.cn/post/7208349474841100346",
       "fetch_mode": "browser"
     }
@@ -46,61 +46,61 @@
   "backend_articles": [
     {
       "name": "backend_cnblogs_maxzhangxiaotao",
-      "title": "Java 面试题汇总",
+      "title": "Backend interview article 1",
       "url": "https://www.cnblogs.com/maxzhangxiaotao/p/17315047.html",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_jay_huaxiao",
-      "title": "800+ Java 后端经典面试题",
+      "title": "Backend interview article 2",
       "url": "https://www.cnblogs.com/jay-huaxiao/p/12899737.html",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_javastack_3000",
-      "title": "3000+ 道 Java 面试题及答案整理",
+      "title": "Backend interview article 3",
       "url": "https://www.cnblogs.com/javastack/p/14412868.html",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_yescode",
-      "title": "大厂必问 Java 后端面试题",
+      "title": "Backend interview article 4",
       "url": "https://www.cnblogs.com/yescode/p/14419868.html",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_vow007",
-      "title": "Java 后端开发面试题库",
+      "title": "Backend interview article 5",
       "url": "https://www.cnblogs.com/vow007/p/18114655",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_zhuifeng523",
-      "title": "Java 后端面试题基础部分",
+      "title": "Backend interview article 6",
       "url": "https://www.cnblogs.com/zhuifeng523/p/14627735.html",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_tangshengwei",
-      "title": "Java 面试题汇总",
+      "title": "Backend interview article 7",
       "url": "https://www.cnblogs.com/tangshengwei/articles/11610547.html",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_xiaolincoding",
-      "title": "最全 Java 面试题",
+      "title": "Backend interview article 8",
       "url": "https://www.cnblogs.com/xiaolincoding/p/18360698",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_think90",
-      "title": "最全最新 Java 面试题系列全家桶",
+      "title": "Backend interview article 9",
       "url": "https://www.cnblogs.com/think90/p/11455297.html",
       "fetch_mode": "http"
     },
     {
       "name": "backend_cnblogs_knifeblade",
-      "title": "Java 面试题真实高频有答案",
+      "title": "Backend interview article 10",
       "url": "https://www.cnblogs.com/knifeblade/p/17607127.html",
       "fetch_mode": "http"
     }
@@ -110,78 +110,130 @@
       "name": "backend_quanxiaoha_java",
       "url": "https://www.quanxiaoha.com/java-interview",
       "same_domain_only": true
+    },
+    {
+      "name": "backend_postgresql_docs",
+      "url": "https://www.postgresql.org/docs/current/",
+      "same_domain_only": true
+    },
+    {
+      "name": "backend_nodejs_learn",
+      "url": "https://nodejs.org/en/learn",
+      "same_domain_only": true
+    },
+    {
+      "name": "backend_redis_docs",
+      "url": "https://redis.io/docs/latest/",
+      "same_domain_only": true
+    },
+    {
+      "name": "backend_http_mdn",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+      "same_domain_only": true
+    }
+  ],
+  "frontend_directories": [
+    {
+      "name": "frontend_react_learn",
+      "url": "https://react.dev/learn",
+      "same_domain_only": true
+    },
+    {
+      "name": "frontend_react_reference",
+      "url": "https://react.dev/reference/react",
+      "same_domain_only": true
+    },
+    {
+      "name": "frontend_mdn_js_guide",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "same_domain_only": true
+    },
+    {
+      "name": "frontend_mdn_css",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "same_domain_only": true
+    },
+    {
+      "name": "frontend_mdn_html",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "same_domain_only": true
+    },
+    {
+      "name": "frontend_typescript_docs",
+      "url": "https://www.typescriptlang.org/docs/",
+      "same_domain_only": true
     }
   ],
   "ai_articles": [
     {
       "name": "ai_juejin_rag_agent_review",
-      "title": "真实 LLM 应用开发面试复盘",
+      "title": "AI app interview article 1",
       "url": "https://juejin.cn/post/7585214391828840491",
       "fetch_mode": "browser"
     },
     {
       "name": "ai_cnblogs_agent_mianjing",
-      "title": "Agent 开发面经",
+      "title": "AI app interview article 2",
       "url": "https://www.cnblogs.com/cwp0/p/19990412",
       "fetch_mode": "http"
     },
     {
       "name": "ai_cnblogs_bytedance_agent",
-      "title": "字节 AI Agent 二面面试题",
+      "title": "AI app interview article 3",
       "url": "https://www.cnblogs.com/tuaran/p/20164742",
       "fetch_mode": "http"
     },
     {
       "name": "ai_cnblogs_agent_40_questions",
-      "title": "AI Agent 工程师面试题梳理",
+      "title": "AI app interview article 4",
       "url": "https://www.cnblogs.com/itech/p/20111938",
       "fetch_mode": "http"
     },
     {
       "name": "ai_juejin_rag_question_bank",
-      "title": "RAG 面试题库",
+      "title": "AI app interview article 5",
       "url": "https://juejin.cn/post/7634065319066550323",
       "fetch_mode": "browser"
     },
     {
       "name": "ai_cnblogs_agent_guide_index",
-      "title": "AI Agent 工程师面试指南目录",
+      "title": "AI app interview article 6",
       "url": "https://www.cnblogs.com/limingqi/p/20068242",
       "fetch_mode": "http"
     },
     {
       "name": "ai_cnblogs_llm_route",
-      "title": "大模型应用开发技术路线",
+      "title": "AI app interview article 7",
       "url": "https://www.cnblogs.com/dayongchan/p/19188568",
       "fetch_mode": "http"
     },
     {
       "name": "ai_cnblogs_langchain_agent",
-      "title": "AIAgent 开发框架 LangChain",
+      "title": "AI app interview article 8",
       "url": "https://www.cnblogs.com/sss4/p/19737505",
       "fetch_mode": "http"
     },
     {
       "name": "ai_cnblogs_ai_engineer_stack",
-      "title": "AI 应用工程师技术栈升级",
+      "title": "AI app interview article 9",
       "url": "https://www.cnblogs.com/aigent/p/19505616",
       "fetch_mode": "http"
     },
     {
       "name": "ai_cnblogs_llm_rag_workflow_agent",
-      "title": "AI 系统架构的演进 LLM RAG Workflow Agent",
+      "title": "AI app interview article 10",
       "url": "https://www.cnblogs.com/wujianming-110117/p/19019567",
       "fetch_mode": "http"
     },
     {
       "name": "ai_cnblogs_llm_interview_questions",
-      "title": "大模型面试题",
+      "title": "AI app interview article 11",
       "url": "https://www.cnblogs.com/wusier/p/19084900",
       "fetch_mode": "http"
     },
     {
       "name": "ai_juejin_agent_interview_now",
-      "title": "现在的 AI Agent 面试到底都在面什么",
+      "title": "AI app interview article 12",
       "url": "https://juejin.cn/post/7595478717985996809",
       "fetch_mode": "browser"
     }
@@ -189,19 +241,19 @@
   "testing_articles": [
     {
       "name": "testing_juejin_350_questions",
-      "title": "大厂常考的软件测试面试题",
+      "title": "Testing interview article 1",
       "url": "https://juejin.cn/post/7148427704138907655",
       "fetch_mode": "browser"
     },
     {
       "name": "testing_juejin_2023_questions",
-      "title": "软件测试常见面试题 2023",
+      "title": "Testing interview article 2",
       "url": "https://juejin.cn/post/7203637198120779833",
       "fetch_mode": "browser"
     },
     {
       "name": "testing_juejin_55_questions",
-      "title": "软件测试 55 道高频面试题",
+      "title": "Testing interview article 3",
       "url": "https://juejin.cn/post/7044135243246206990",
       "fetch_mode": "browser"
     }
@@ -209,25 +261,25 @@
   "algorithm_articles": [
     {
       "name": "algorithm_cnblogs_huangbaobaoi",
-      "title": "算法工程师面试题",
+      "title": "Algorithm interview article 1",
       "url": "https://www.cnblogs.com/huangbaobaoi/p/8043771.html",
       "fetch_mode": "http"
     },
     {
       "name": "algorithm_cnblogs_andy0212",
-      "title": "算法工程师 机器学习工程师笔试和面试总结",
+      "title": "Algorithm interview article 2",
       "url": "https://www.cnblogs.com/andy-0212/p/10673844.html",
       "fetch_mode": "http"
     },
     {
       "name": "algorithm_cnblogs_liuys635",
-      "title": "AI 算法工程师炼成之路",
+      "title": "Algorithm interview article 3",
       "url": "https://www.cnblogs.com/liuys635/p/11141604.html",
       "fetch_mode": "http"
     },
     {
       "name": "algorithm_cnblogs_hithink",
-      "title": "面试创业公司算法工程师",
+      "title": "Algorithm interview article 4",
       "url": "https://www.cnblogs.com/hithink/p/7347820.html",
       "fetch_mode": "http"
     }
@@ -235,27 +287,66 @@
   "ops_articles": [
     {
       "name": "ops_cnblogs_qinlulu",
-      "title": "史上最全 Linux 面试题",
+      "title": "Ops interview article 1",
       "url": "https://www.cnblogs.com/qinlulu/p/12796900.html",
       "fetch_mode": "http"
     },
     {
       "name": "ops_cnblogs_si137",
-      "title": "常见 Linux 面试题",
+      "title": "Ops interview article 2",
       "url": "https://www.cnblogs.com/si-137/p/13257733.html",
       "fetch_mode": "http"
     },
     {
       "name": "ops_cnblogs_xuxinkun",
-      "title": "设计的一些 Kubernetes 面试题目",
+      "title": "Ops interview article 3",
       "url": "https://www.cnblogs.com/xuxinkun/p/9358296.html",
       "fetch_mode": "http"
     },
     {
       "name": "ops_cnblogs_zhoutuo",
-      "title": "Kubernetes 面试题全解析",
+      "title": "Ops interview article 4",
       "url": "https://www.cnblogs.com/zhoutuo/p/18646996",
       "fetch_mode": "http"
+    }
+  ],
+  "ops_directories": [
+    {
+      "name": "ops_docker_docs",
+      "url": "https://docs.docker.com/",
+      "same_domain_only": true
+    },
+    {
+      "name": "ops_kubernetes_docs",
+      "url": "https://kubernetes.io/docs/home/",
+      "same_domain_only": true
+    },
+    {
+      "name": "ops_linux_man7",
+      "url": "https://man7.org/linux/man-pages/",
+      "same_domain_only": true
+    }
+  ],
+  "cs_basic_directories": [
+    {
+      "name": "cs_basic_mdn_learn",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+      "same_domain_only": true
+    },
+    {
+      "name": "cs_basic_mdn_js",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "same_domain_only": true
+    },
+    {
+      "name": "cs_basic_mdn_api",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "same_domain_only": true
+    },
+    {
+      "name": "cs_basic_mdn_http",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+      "same_domain_only": true
     }
   ]
 }

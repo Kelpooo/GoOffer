@@ -1,0 +1,273 @@
+{
+  "bucket": "java_collection",
+  "count": 9,
+  "items": [
+    {
+      "question": "什么是 Kubernetes 的学习环境？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "学习环境",
+        "集群搭建"
+      ],
+      "answer_points": [
+        "学习 Kubernetes 时，可以使用社区支持的工具在本地机器上搭建集群。",
+        "生产环境需评估是自己管理集群还是交给云提供商。",
+        "kubeadm 是官方推荐的集群部署工具。",
+        "控制平面必须运行在 Linux 上，但节点可以运行 Windows 系统。"
+      ],
+      "follow_ups": [
+        "学习和生产环境在 Kubernetes 集群部署上有哪些主要区别？",
+        "除了 kubeadm，还有哪些常见的 Kubernetes 集群部署工具？"
+      ],
+      "summary": "Kubernetes 学习环境与生产环境的差异以及 kubeadm 的作用。",
+      "source_url": "https://kubernetes.io/docs/setup/#learning-environment",
+      "source_title": "Getting started | Kubernetes",
+      "section_title": "Set up a K8s cluster",
+      "bucket": "java_collection",
+      "raw_question_title": "Learning environment"
+    },
+    {
+      "question": "什么是 Kubernetes 的生产环境？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "生产环境",
+        "集群管理"
+      ],
+      "answer_points": [
+        "生产环境需决定是自己管理集群还是使用托管服务。",
+        "kubeadm 是官方支持的自我管理集群的部署工具。",
+        "集群控制平面必须运行在 Linux 上。",
+        "应用可以在 Linux 或 Windows 节点上运行。",
+        "需要确保节点的唯一性、网络连通性和端口开放。"
+      ],
+      "follow_ups": [
+        "生产环境中如何选择 Kubernetes 集群的部署方案？",
+        "使用托管 Kubernetes 服务（如 EKS、AKS）有哪些优缺点？"
+      ],
+      "summary": "Kubernetes 生产环境的关键考虑因素和官方部署工具 kubeadm。",
+      "source_url": "https://kubernetes.io/docs/setup/#production-environment",
+      "source_title": "Getting started | Kubernetes",
+      "section_title": "Set up a K8s cluster",
+      "bucket": "java_collection",
+      "raw_question_title": "Production environment"
+    },
+    {
+      "question": "如何安装 kubeadm 集群搭建工具？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "kubeadm",
+        "安装",
+        "Kubernetes",
+        "集群搭建"
+      ],
+      "answer_points": [
+        "安装前需确保节点满足要求：2GB+ RAM、2 CPU+、唯一的主机名/MAC/product_uuid、特定端口开放。",
+        "需要安装 kubelet、kubeadm 和 kubectl 三个组件，且版本应与目标 Kubernetes 版本匹配。",
+        "安装步骤包括：添加 Kubernetes 包仓库、导入 GPG 密钥、安装软件包并锁定版本。",
+        "需要安装容器运行时（如 containerd），kubeadm 会自动检测或使用指定端点。",
+        "需禁用 swap 或配置 kubelet 容忍 swap。",
+        "可选：预先启用 kubelet 服务，并安装 CNI 插件。"
+      ],
+      "follow_ups": [
+        "kubelet 和 kubeadm 的版本差如何影响集群？",
+        "如何选择容器运行时？Docker 是否还可以使用？"
+      ],
+      "summary": "Kubernetes 集群搭建工具 kubeadm 的安装前提、步骤和注意事项。",
+      "source_url": "https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/",
+      "source_title": "Installing kubeadm | Kubernetes",
+      "section_title": "Set up a K8s cluster",
+      "bucket": "java_collection",
+      "raw_question_title": "Install the kubeadm setup tool"
+    },
+    {
+      "question": "Kubernetes 中的 Metrics（指标）是什么？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "监控",
+        "指标",
+        "Prometheus"
+      ],
+      "answer_points": [
+        "Kubernetes 组件（如 kube-controller-manager、kube-apiserver 等）通过 /metrics 端点暴露 Prometheus 格式的指标。",
+        "kubelet 还暴露了 /metrics/cadvisor、/metrics/resource 和 /metrics/probes 等额外指标。",
+        "典型的指标管道：定期抓取指标→存储到时间序列数据库（如 Prometheus）→用于仪表盘和告警。",
+        "常用工具包括 Prometheus（抓取和存储）、Thanos（长期存储和全局查询）、Grafana（可视化）。",
+        "kube-state-metrics 可以添加 Kubernetes 对象状态指标。"
+      ],
+      "follow_ups": [
+        "如何部署 Prometheus 并配置抓取 Kubernetes 指标？",
+        "metrics-server 和 kube-state-metrics 的区别是什么？"
+      ],
+      "summary": "Kubernetes 组件通过 Prometheus 格式暴露指标，可构建监控管道实现集群可观测性。",
+      "source_url": "https://kubernetes.io/docs/concepts/cluster-administration/observability/#metrics",
+      "source_title": "Observability | Kubernetes",
+      "section_title": "Set up a K8s cluster",
+      "bucket": "java_collection",
+      "raw_question_title": "Metrics"
+    },
+    {
+      "question": "Kubernetes Logs: types and sources",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "Logging",
+        "Observability"
+      ],
+      "answer_points": [
+        "Logs in Kubernetes come from three main sources: application stdout/stderr, system component logs (e.g., kube-scheduler, kubelet), and audit logs.",
+        "Container runtimes capture stdout/stderr, and kubelet provides access via kubectl logs.",
+        "System components running on the host (kubelet, container runtime) write logs to journald or /var/log, while those in containers write to /var/log.",
+        "Log rotation must be configured to prevent uncontrolled growth of log files.",
+        "Node-level logging agents (e.g., Fluent Bit, Fluentd) tail logs and forward to central stores like Elasticsearch, Loki, etc."
+      ],
+      "follow_ups": [
+        "How to view logs of a specific Pod?",
+        "How do you set up log rotation in Kubernetes?",
+        "What is the role of a node-level logging agent?",
+        "How to enable audit logging in Kubernetes?"
+      ],
+      "summary": "Kubernetes logs include application, system, and audit logs, aggregated via agents to central stores.",
+      "source_url": "https://kubernetes.io/docs/concepts/cluster-administration/observability/#logs",
+      "source_title": "Observability | Kubernetes",
+      "section_title": "Set up a K8s cluster",
+      "bucket": "java_collection",
+      "raw_question_title": "Logs"
+    },
+    {
+      "question": "Kubernetes Traces: distributed tracing",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "Distributed Tracing",
+        "OpenTelemetry",
+        "Observability"
+      ],
+      "answer_points": [
+        "Traces in Kubernetes capture request flow across components and applications, linking latency and relationships.",
+        "Kubernetes 1.36 can export spans over OpenTelemetry Protocol (OTLP) via built-in gRPC exporters or OpenTelemetry Collector.",
+        "The OpenTelemetry Collector receives spans, processes them (sampling, redaction), and forwards to tracing backends.",
+        "Common tracing backends include Jaeger, Grafana Tempo, and Zipkin."
+      ],
+      "follow_ups": [
+        "How to enable tracing for a Kubernetes application?",
+        "What is the purpose of the OpenTelemetry Collector?",
+        "What are the benefits of distributed tracing in Kubernetes?"
+      ],
+      "summary": "Kubernetes supports distributed tracing via OTLP, enabling end-to-end request visualization and performance diagnosis.",
+      "source_url": "https://kubernetes.io/docs/concepts/cluster-administration/observability/#traces",
+      "source_title": "Observability | Kubernetes",
+      "section_title": "Set up a K8s cluster",
+      "bucket": "java_collection",
+      "raw_question_title": "Traces"
+    },
+    {
+      "question": "Key aspects of securing a Kubernetes cluster",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "Security",
+        "Cluster Administration",
+        "RBAC"
+      ],
+      "answer_points": [
+        "Generate certificates for secure communication between components.",
+        "Control access to the Kubernetes API via authentication, authorization, and admission controllers.",
+        "Use Role-Based Access Control (RBAC) for fine-grained authorization.",
+        "Enable audit logging to record all API requests for security analysis.",
+        "Secure the kubelet with TLS bootstrapping and authentication/authorization.",
+        "Use admission webhooks to enforce custom policies."
+      ],
+      "follow_ups": [
+        "How do you configure RBAC in Kubernetes?",
+        "What is the difference between authenticating and authorizing a request?",
+        "How do admission controllers enhance security?",
+        "What is TLS bootstrapping for kubelet?"
+      ],
+      "summary": "Securing a Kubernetes cluster involves certificate generation, API access control, RBAC, audit logging, and kubelet security.",
+      "source_url": "https://kubernetes.io/docs/concepts/cluster-administration/#securing-a-cluster",
+      "source_title": "Cluster Administration | Kubernetes",
+      "section_title": "Set up a K8s cluster",
+      "bucket": "java_collection",
+      "raw_question_title": "Securing a cluster"
+    },
+    {
+      "question": "kubeadm command reference and common operations",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "Kubeadm",
+        "Cluster Setup",
+        "Bootstrap"
+      ],
+      "answer_points": [
+        "kubeadm init: bootstraps a control-plane node by initializing the cluster.",
+        "kubeadm join: attaches a worker node to the cluster.",
+        "kubeadm upgrade: upgrades the cluster to a newer Kubernetes version.",
+        "kubeadm config: manages configuration for the cluster.",
+        "kubeadm token: creates or manages tokens for joining nodes.",
+        "kubeadm reset: reverts changes made by init or join."
+      ],
+      "follow_ups": [
+        "What is the difference between kubeadm init and kubeadm join?",
+        "How do you upgrade a kubeadm-created cluster?",
+        "What happens during kubeadm reset?"
+      ],
+      "summary": "kubeadm provides commands for bootstrapping, joining, upgrading, and resetting Kubernetes clusters.",
+      "source_url": "https://kubernetes.io/docs/reference/setup-tools/kubeadm/",
+      "source_title": "Kubeadm | Kubernetes",
+      "section_title": "Set up a K8s cluster",
+      "bucket": "java_collection",
+      "raw_question_title": "kubeadm command reference"
+    },
+    {
+      "question": "Configure a Pod to Use a ConfigMap",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "ConfigMap",
+        "Pod",
+        "Configuration"
+      ],
+      "answer_points": [
+        "ConfigMap是Kubernetes的一种资源，用于将配置数据注入Pod，实现配置与镜像解耦。",
+        "可以通过kubectl create configmap从目录、文件或literal值创建ConfigMap。",
+        "支持使用--from-env-file参数从环境变量文件创建ConfigMap。",
+        "可以使用kustomization.yaml中的ConfigMapGenerator声明式创建ConfigMap。",
+        "ConfigMap中的数据可通过环境变量或卷挂载的方式在Pod中使用。"
+      ],
+      "follow_ups": [
+        "ConfigMap与Secret有什么区别？",
+        "如何更新ConfigMap后让Pod中的配置自动生效？",
+        "ConfigMap的大小限制是多少？",
+        "如何从ConfigMap中引用特定key作为环境变量？"
+      ],
+      "summary": "ConfigMap是Kubernetes中用于配置注入的机制，支持多种创建方式，可在Pod中作为环境变量或卷使用。",
+      "source_url": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/",
+      "source_title": "Configure a Pod to Use a ConfigMap | Kubernetes",
+      "section_title": "Learn how to use Kubernetes",
+      "bucket": "java_collection",
+      "raw_question_title": "Configure a Pod to Use a ConfigMap"
+    }
+  ]
+}

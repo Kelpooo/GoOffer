@@ -1,0 +1,14 @@
+{
+  "bucket": "java_collection",
+  "count": 1,
+  "items": [
+    {
+      "section_title": "JavaScript",
+      "question_title": "garbage-collected",
+      "bucket": "java_collection",
+      "url": "https://developer.mozilla.org/en-US/docs/Glossary/Garbage_collection",
+      "page_title": "Garbage collection - Glossary | MDN",
+      "content_text": "Garbage collection\nis a term used in\ncomputer programming\nto describe the process of finding and deleting\nobjects\nwhich are no longer being\nreferenced\nby other objects.\nIn other words, garbage collection is the process of removing any objects which are not being used by any other objects. Often abbreviated \"GC,\" garbage collection is a fundamental component of the\nmemory management\nsystem used by\nJavaScript\nSee also\nMemory management\non Wikipedia\nGarbage collection (computer science)\non Wikipedia\nGarbage collection\nin the MDN JavaScript guide.\nMemory management in JavaScript\nHelp improve MDN\nLearn how to contribute\nThis page was last modified on\nJul 11, 2025\nby\nMDN contributors\nView this page on GitHub\n•\nReport a problem with this content"
+    }
+  ]
+}

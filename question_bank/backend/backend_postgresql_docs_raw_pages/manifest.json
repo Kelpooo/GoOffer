@@ -1,0 +1,13 @@
+{
+  "source_url": "https://www.postgresql.org/docs/current/",
+  "group_count": 1,
+  "groups": [
+    {
+      "bucket": "mysql",
+      "count": 40,
+      "file": "mysql.json"
+    }
+  ],
+  "failure_count": 0,
+  "failures_file": "failures.json"
+}

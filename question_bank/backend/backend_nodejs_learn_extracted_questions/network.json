@@ -1,0 +1,316 @@
+{
+  "bucket": "network",
+  "count": 11,
+  "items": [
+    {
+      "question": "Learn Node.js",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Node.js",
+        "learning",
+        "overview"
+      ],
+      "answer_points": [
+        "Node.js is a JavaScript runtime built on Chrome's V8 engine.",
+        "It provides modules for HTTP, file system, and asynchronous I/O.",
+        "Key topics include command line usage, HTTP servers, file system operations, async patterns, TypeScript, package management, diagnostics, testing, and security.",
+        "Node.js uses an event-driven, non-blocking model."
+      ],
+      "follow_ups": [
+        "What are the main use cases for Node.js?",
+        "How does Node.js handle asynchronous operations?"
+      ],
+      "summary": "Overview of Node.js learning resources covering core modules and best practices.",
+      "source_url": "https://nodejs.org/en/learn#learn-nodejs",
+      "source_title": "Learn Node.js | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "Learn Node.js"
+    },
+    {
+      "question": "Getting Started with Node.js",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Node.js",
+        "introduction",
+        "hello world"
+      ],
+      "answer_points": [
+        "Node.js is an open-source, cross-platform JavaScript runtime environment.",
+        "It runs the V8 JavaScript engine outside the browser, providing high performance.",
+        "Node.js uses a single-threaded, event-driven architecture with non-blocking I/O.",
+        "A simple HTTP server example uses the 'http' module's createServer method.",
+        "The server listens on a port and handles requests with request and response objects."
+      ],
+      "follow_ups": [
+        "Explain the event loop in Node.js.",
+        "What is the difference between CommonJS and ES modules in Node.js?"
+      ],
+      "summary": "Introduction to Node.js, its architecture, and a basic HTTP server example.",
+      "source_url": "https://nodejs.org/learn/getting-started/introduction-to-nodejs",
+      "source_title": "Introduction to Node.js | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "Getting Started"
+    },
+    {
+      "question": "Running Node.js scripts from the command line",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Node.js",
+        "command line",
+        "scripts"
+      ],
+      "answer_points": [
+        "Run a Node.js script using 'node app.js'.",
+        "Use a shebang line (#!/usr/bin/env node) to make scripts executable directly.",
+        "Execute JavaScript code inline with 'node -e \"code\"'.",
+        "Use 'node --watch app.js' to automatically restart on file changes (Node.js v16+).",
+        "Use 'node --run <script>' to run scripts defined in package.json."
+      ],
+      "follow_ups": [
+        "How do you pass arguments to a Node.js script?",
+        "What is the purpose of the --watch flag?"
+      ],
+      "summary": "Methods to run Node.js scripts, including shebang, inline execution, watch mode, and task runner.",
+      "source_url": "https://nodejs.org/learn/command-line/run-nodejs-scripts-from-the-command-line",
+      "source_title": "Run Node.js scripts from the command line | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "Command Line"
+    },
+    {
+      "question": "Anatomy of an HTTP Transaction in Node.js",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "Node.js",
+        "HTTP",
+        "server",
+        "request",
+        "response"
+      ],
+      "answer_points": [
+        "Create an HTTP server using http.createServer() with a request handler.",
+        "Access method, URL, and headers from the request object (IncomingMessage).",
+        "Collect request body by listening to 'data' and 'end' events on the request stream.",
+        "Set response status code via response.statusCode and headers via response.setHeader().",
+        "Send response body using response.write() and response.end(), or pipe the request stream.",
+        "Handle errors on both request and response streams to avoid crashes."
+      ],
+      "follow_ups": [
+        "How do you handle different HTTP methods and routes?",
+        "What is the difference between implicit and explicit headers?"
+      ],
+      "summary": "Detailed guide on handling HTTP requests and responses in Node.js, including body parsing and error handling.",
+      "source_url": "https://nodejs.org/learn/http/anatomy-of-an-http-transaction",
+      "source_title": "Anatomy of an HTTP Transaction | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "HTTP"
+    },
+    {
+      "question": "Getting file stats in Node.js",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Node.js",
+        "file system",
+        "fs",
+        "stats"
+      ],
+      "answer_points": [
+        "Use fs.stat() (async) or fs.statSync() (sync) to get file details.",
+        "The stats object provides methods like isFile(), isDirectory(), isSymbolicLink().",
+        "Access file size in bytes via stats.size.",
+        "Promise-based alternative: fs.promises.stat() with async/await."
+      ],
+      "follow_ups": [
+        "How do you check if a file exists before reading it?",
+        "What is the difference between fs.stat and fs.access?"
+      ],
+      "summary": "How to retrieve file statistics (type, size) using Node.js fs module.",
+      "source_url": "https://nodejs.org/learn/manipulating-files/nodejs-file-stats",
+      "source_title": "Node.js file stats | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "File System"
+    },
+    {
+      "question": "JavaScript Asynchronous Programming and Callbacks",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "asynchronous",
+        "callbacks",
+        "Node.js"
+      ],
+      "answer_points": [
+        "JavaScript is synchronous and single-threaded by default.",
+        "Asynchronicity is achieved via callbacks, Promises, and async/await.",
+        "Callbacks are functions passed as arguments to be executed later (e.g., event handlers, timers).",
+        "Node.js uses error-first callbacks where the first parameter is an error object.",
+        "Callback nesting can lead to 'callback hell'; Promises and async/await are alternatives."
+      ],
+      "follow_ups": [
+        "What is callback hell and how do you avoid it?",
+        "Explain the difference between callbacks and Promises."
+      ],
+      "summary": "Overview of asynchronous programming in JavaScript, focusing on callbacks and their pitfalls.",
+      "source_url": "https://nodejs.org/learn/asynchronous-work/javascript-asynchronous-programming-and-callbacks",
+      "source_title": "JavaScript Asynchronous Programming and Callbacks | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "Asynchronous Work"
+    },
+    {
+      "question": "Introduction to TypeScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "JavaScript",
+        "type system"
+      ],
+      "answer_points": [
+        "TypeScript is a superset of JavaScript that adds static typing.",
+        "It helps catch errors early and improves code maintainability.",
+        "TypeScript consists of code (with type annotations) and type definitions (.d.ts files).",
+        "Type definitions for Node.js are available via @types/node.",
+        "TypeScript can transform JSX and modern JavaScript to compatible versions."
+      ],
+      "follow_ups": [
+        "How do you set up a TypeScript project with Node.js?",
+        "What are the benefits of using TypeScript over JavaScript?"
+      ],
+      "summary": "Introduction to TypeScript, its components, and how it integrates with Node.js.",
+      "source_url": "https://nodejs.org/learn/typescript/introduction",
+      "source_title": "Introduction to TypeScript | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "TypeScript"
+    },
+    {
+      "question": "An introduction to the npm package manager",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "npm",
+        "package manager",
+        "Node.js"
+      ],
+      "answer_points": [
+        "npm is the default package manager for Node.js, with over 2.1 million packages.",
+        "Use 'npm install' to install all dependencies from package.json.",
+        "Install a specific package with 'npm install <package-name>'.",
+        "Flags: --save-dev for devDependencies, --save-optional for optionalDependencies.",
+        "Update packages with 'npm update'.",
+        "npm follows semantic versioning (semver) and supports version constraints."
+      ],
+      "follow_ups": [
+        "What is the difference between dependencies and devDependencies?",
+        "How do you publish a package to npm?"
+      ],
+      "summary": "Overview of npm, including installing, updating, and managing packages and scripts.",
+      "source_url": "https://nodejs.org/learn/getting-started/an-introduction-to-the-npm-package-manager",
+      "source_title": "An introduction to the npm package manager | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "Package Management"
+    },
+    {
+      "question": "What is the Diagnostics Working Group and its purpose?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Node.js",
+        "Diagnostics",
+        "Working Group"
+      ],
+      "answer_points": [
+        "The Diagnostics Working Group collaborates with the Node.js Website Team to provide guidance for diagnosing issues in user applications.",
+        "The documentation is organized based on user journeys, which are step-by-step procedures to help users root-cause their issues."
+      ],
+      "follow_ups": [
+        "How does the user journey approach help in diagnosing issues?",
+        "What are some common diagnostic tools provided by Node.js?"
+      ],
+      "summary": "The Diagnostics Working Group provides guidance for diagnosing application issues through user journey-based documentation.",
+      "source_url": "https://nodejs.org/learn/diagnostics/user-journey",
+      "source_title": "User Journey | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "Diagnostics"
+    },
+    {
+      "question": "Why is testing important in Node.js?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Node.js",
+        "Testing",
+        "Best Practices"
+      ],
+      "answer_points": [
+        "Testing verifies that code works as expected and helps catch bugs early in development.",
+        "It ensures code reliability and maintainability.",
+        "Node.js provides a built-in test runner; refer to the test runner documentation for details."
+      ],
+      "follow_ups": [
+        "How do you run tests using Node.js's test runner?",
+        "What are the differences between unit tests and integration tests in Node.js?"
+      ],
+      "summary": "Testing is crucial for code reliability and bug detection; Node.js offers a built-in test runner.",
+      "source_url": "https://nodejs.org/learn/test-runner/introduction",
+      "source_title": "Discovering Node.js's test runner | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "Testing"
+    },
+    {
+      "question": "What are the security best practices for Node.js applications?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "Node.js",
+        "Security",
+        "Best Practices",
+        "Threat Model"
+      ],
+      "answer_points": [
+        "Use a reverse proxy to handle caching, load balancing, and IP blacklisting to mitigate DoS attacks.",
+        "Configure server timeouts (headersTimeout, requestTimeout, timeout, keepAliveTimeout) to drop idle or slow connections.",
+        "Limit open sockets per host and total using agent.maxSockets, agent.maxTotalSockets, etc.",
+        "Disable the inspector in production and avoid using --inspect in production environments.",
+        "Use .npmignore and .gitignore to control which files are published to npm; use npm publish --dry-run to review.",
+        "Use constant-time comparison (crypto.timingSafeEqual) for sensitive data to prevent timing attacks."
+      ],
+      "follow_ups": [
+        "How does DNS rebinding attack work and how can it be mitigated?",
+        "What is HTTP request smuggling and how can it be prevented?",
+        "How can you protect against supply chain attacks in Node.js?"
+      ],
+      "summary": "Security best practices include using reverse proxies, configuring timeouts, limiting sockets, disabling inspector in production, controlling npm publish, and using constant-time comparisons.",
+      "source_url": "https://nodejs.org/learn/getting-started/security-best-practices",
+      "source_title": "Security Best Practices | Node.js Learn",
+      "section_title": "Learn Node.js",
+      "bucket": "network",
+      "raw_question_title": "Security"
+    }
+  ]
+}

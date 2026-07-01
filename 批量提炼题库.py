@@ -4,6 +4,7 @@ import os
 import re
 import time
 from typing import Any, Dict, List
+from http.client import RemoteDisconnected
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
@@ -178,10 +179,23 @@ def call_model(api_key: str, base_url: str, model: str, prompt: str) -> str:
         method="POST",
     )
 
-    with urlopen(request, timeout=120) as response:
-        body = response.read().decode("utf-8", errors="replace")
-        data = json.loads(body)
-        return data["choices"][0]["message"]["content"]
+    last_error = None
+    for attempt in range(3):
+        try:
+            with urlopen(request, timeout=120) as response:
+                body = response.read().decode("utf-8", errors="replace")
+                data = json.loads(body)
+                return data["choices"][0]["message"]["content"]
+        except (HTTPError, URLError, TimeoutError, RemoteDisconnected) as exc:
+            last_error = exc
+            if attempt < 2:
+                time.sleep(2 * (attempt + 1))
+                continue
+            raise
+
+    if last_error:
+        raise last_error
+    raise RuntimeError("Model call failed without a captured error.")
 
 
 def normalize_list(value: Any) -> List[str]:

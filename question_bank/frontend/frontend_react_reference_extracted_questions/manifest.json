@@ -1,0 +1,14 @@
+{
+  "group_count": 1,
+  "processed_count": 30,
+  "success_count": 30,
+  "failure_count": 0,
+  "groups": [
+    {
+      "bucket": "network",
+      "count": 30,
+      "failures": 0,
+      "file": "network.json"
+    }
+  ]
+}

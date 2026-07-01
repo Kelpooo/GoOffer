@@ -1,0 +1,1144 @@
+{
+  "bucket": "network",
+  "count": 39,
+  "items": [
+    {
+      "question": "什么是即时编译（JIT）？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "JIT",
+        "JavaScript",
+        "编译",
+        "性能优化"
+      ],
+      "answer_points": [
+        "JIT是运行时将中间表示或高级语言编译成机器码的技术。",
+        "它结合了解释执行和预编译（AOT）的优点。",
+        "JIT编译器通过分析识别频繁执行的“热区”代码，将其编译为机器码。",
+        "现代浏览器使用JIT来优化JavaScript性能，例如V8引擎。"
+      ],
+      "follow_ups": [
+        "JIT编译与AOT编译的主要区别是什么？",
+        "JIT如何提升代码执行性能？",
+        "哪些浏览器引擎使用了JIT技术？",
+        "什么是热点检测？"
+      ],
+      "summary": "JIT编译是运行时编译技术，结合解释与预编译优点，常用于JavaScript引擎优化。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/Just_In_Time_Compilation",
+      "source_title": "Just-In-Time Compilation (JIT) - Glossary | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "just-in-time compiled"
+    },
+    {
+      "question": "什么是头等函数（First-class Function）？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "First-class Function",
+        "JavaScript",
+        "函数",
+        "编程语言特性"
+      ],
+      "answer_points": [
+        "头等函数指函数在语言中被视为一等公民，可以像其他值一样操作。",
+        "函数可以赋值给变量。",
+        "函数可以作为参数传递给其他函数。",
+        "函数可以作为其他函数的返回值。",
+        "这允许使用回调函数和高阶函数。"
+      ],
+      "follow_ups": [
+        "什么是高阶函数？",
+        "头等函数与回调函数有什么关系？",
+        "如何利用头等函数实现函数式编程？"
+      ],
+      "summary": "头等函数指函数可以像其他值一样被操作，是函数式编程的基础。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function",
+      "source_title": "First-class function - Glossary | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "first-class functions"
+    },
+    {
+      "question": "什么是Node.js？",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Node.js",
+        "JavaScript",
+        "运行时环境",
+        "npm"
+      ],
+      "answer_points": [
+        "Node.js是一个跨平台的JavaScript运行时环境，允许在服务器端运行JavaScript。",
+        "它使用事件驱动、非阻塞I/O模型，使其轻量且高效。",
+        "npm是Node.js的包管理器，用于下载和管理依赖包。",
+        "支持ES模块和CommonJS模块系统。"
+      ],
+      "follow_ups": [
+        "Node.js与浏览器中的JavaScript有何不同？",
+        "Node.js是如何处理并发请求的？",
+        "npm的常用命令有哪些？"
+      ],
+      "summary": "Node.js是JS运行时，用于构建服务器端应用，配合npm管理包。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/Node.js",
+      "source_title": "Node.js - Glossary | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "Node.js"
+    },
+    {
+      "question": "什么是基于原型的编程？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "原型",
+        "JavaScript",
+        "面向对象",
+        "原型链"
+      ],
+      "answer_points": [
+        "基于原型的编程是一种面向对象编程风格，不显式定义类。",
+        "对象通过向现有实例添加属性和方法来创建，或者直接创建空对象。",
+        "复用通过原型链实现，对象可以继承其他对象的属性。"
+      ],
+      "follow_ups": [
+        "原型继承与类继承有什么区别？",
+        "JavaScript中的原型链是如何工作的？",
+        "如何通过原型实现继承？"
+      ],
+      "summary": "原型编程是一种OOP风格，对象直接从其他对象继承，无需类定义。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/Prototype-based_programming",
+      "source_title": "Prototype-based programming - Glossary | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "prototype-based"
+    },
+    {
+      "question": "What is dynamic typing in JavaScript?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Dynamic Typing",
+        "Type System"
+      ],
+      "answer_points": [
+        "Dynamic typing means variables' types are determined at runtime based on their values.",
+        "JavaScript is a dynamically typed language (e.g., let x = 42; x = 'hello' is allowed).",
+        "It offers flexibility but may increase runtime errors."
+      ],
+      "follow_ups": [
+        "What are the differences between dynamic and static typing?",
+        "How does JavaScript handle type coercion?"
+      ],
+      "summary": "JavaScript uses dynamic typing: variable types are determined at runtime.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing",
+      "source_title": "Dynamic typing - Glossary | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "dynamic"
+    },
+    {
+      "question": "What is eval() in JavaScript and why should it be avoided?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "eval",
+        "Security",
+        "Performance"
+      ],
+      "answer_points": [
+        "eval() executes a string as JavaScript code and returns the result.",
+        "Direct eval accesses the local scope; indirect eval runs in global scope.",
+        "It poses security risks like XSS attacks if input is untrusted.",
+        "eval() is slower because JavaScript engines cannot optimize it.",
+        "Alternatives include the Function() constructor or bracket accessors."
+      ],
+      "follow_ups": [
+        "What is the difference between direct and indirect eval?",
+        "How can you safely evaluate dynamic code in JavaScript?"
+      ],
+      "summary": "eval() executes string as code but is dangerous and slow; avoid it.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval",
+      "source_title": "eval() - JavaScript | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "eval"
+    },
+    {
+      "question": "How does for...in work in JavaScript?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "for...in",
+        "Iteration",
+        "Objects"
+      ],
+      "answer_points": [
+        "for...in loops over all enumerable string properties of an object, including inherited ones.",
+        "It iterates integer keys in ascending order first, then other keys in creation order.",
+        "It is not recommended for arrays because it also iterates non-index and inherited properties.",
+        "Use Object.keys() or for...of for arrays or own properties."
+      ],
+      "follow_ups": [
+        "What is the difference between for...in and for...of?",
+        "How do you iterate only over an object's own properties?"
+      ],
+      "summary": "for...in iterates over all enumerable properties, including inherited ones.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in",
+      "source_title": "for...in - JavaScript | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "for...in"
+    },
+    {
+      "question": "What are the key utilities of the Object type in JavaScript?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Object",
+        "Prototype",
+        "Static Methods"
+      ],
+      "answer_points": [
+        "Object provides static methods like Object.keys(), Object.defineProperty(), Object.create(), etc.",
+        "All objects inherit from Object.prototype, but modifying it can cause prototype pollution.",
+        "Null-prototype objects (e.g., Object.create(null)) are safe for pure key-value storage.",
+        "Instance methods are deprecated; use static alternatives instead."
+      ],
+      "follow_ups": [
+        "What is prototype pollution and how can null-prototype objects prevent it?",
+        "What are the most commonly used static methods of Object?"
+      ],
+      "summary": "Object offers static methods for property management; null-prototype objects avoid prototype pollution.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#static_methods",
+      "source_title": "Object - JavaScript | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "Object utilities"
+    },
+    {
+      "question": "JavaScript中Function.prototype.toString()的作用是什么？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Function",
+        "toString",
+        "prototype"
+      ],
+      "answer_points": [
+        "返回表示函数源代码的字符串。",
+        "对于用户自定义函数，返回完整的源代码文本，包括注释和空白。",
+        "对于内置函数，返回类似 'function someName() { [native code] }' 的字符串。",
+        "对于通过Function构造函数创建的函数，返回合成的匿名函数声明。",
+        "当函数被转为字符串时（如拼接），会自动调用toString()。",
+        "如果this不是函数对象，会抛出TypeError。"
+      ],
+      "follow_ups": [
+        "toString()和valueOf()有什么区别？",
+        "如何利用toString()检测函数是否原生？"
+      ],
+      "summary": "Function.prototype.toString()返回函数源代码，不同函数类型有不同表现。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/toString",
+      "source_title": "Function.prototype.toString() - JavaScript | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "toString()"
+    },
+    {
+      "question": "什么是API？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "API",
+        "Web API"
+      ],
+      "answer_points": [
+        "API（Application Programming Interface）允许软件应用之间相互通信。",
+        "例如，Google Maps API可用于在自定义地图上显示用户位置。",
+        "Web Animations API可编程地动画化网页元素。"
+      ],
+      "follow_ups": [
+        "REST API和Web API有什么关系？",
+        "列举几个常用的Web API。"
+      ],
+      "summary": "API是应用程序编程接口，用于服务间交互，Web APIs是浏览器提供的接口。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/API",
+      "source_title": "API - Glossary | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "APIs"
+    },
+    {
+      "question": "什么是Web APIs？列举一些常用的。",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "Web APIs",
+        "Browser APIs"
+      ],
+      "answer_points": [
+        "Web APIs是浏览器为Web开发提供的一系列接口，通常与JavaScript一起使用。",
+        "包括DOM API、Fetch API、Canvas API等。",
+        "其他常用API：Web Storage API、Service Worker API、WebSocket API。",
+        "Web APIs涵盖从图形、网络到硬件访问等多种功能。"
+      ],
+      "follow_ups": [
+        "如何查看某个Web API的浏览器兼容性？",
+        "Web Workers API和Service Worker API有何区别？"
+      ],
+      "summary": "Web APIs是浏览器内置的接口集合，用于扩展Web应用能力。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "source_title": "Web APIs | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "Web APIs"
+    },
+    {
+      "question": "什么是DOM？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "DOM",
+        "Document Object Model"
+      ],
+      "answer_points": [
+        "DOM（文档对象模型）是表示和交互HTML/XML文档的API。",
+        "将文档加载为节点树（DOM树），每个节点代表文档的一部分。",
+        "允许通过JavaScript访问和操作文档的节点、属性和内容。",
+        "可以添加事件监听器以响应用户交互。"
+      ],
+      "follow_ups": [
+        "DOM树和HTML结构有什么关系？",
+        "什么是虚拟DOM？它如何提升性能？"
+      ],
+      "summary": "DOM是浏览器提供的文档编程接口，以树结构表示文档，并允许动态操作。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/DOM",
+      "source_title": "DOM (Document Object Model) - Glossary | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "DOM"
+    },
+    {
+      "question": "什么是ECMAScript？它与JavaScript有什么关系？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "ECMAScript",
+        "JavaScript",
+        "语言标准"
+      ],
+      "answer_points": [
+        "ECMAScript是JavaScript的核心语言标准，由Ecma TC39委员会标准化。",
+        "它定义了语言语法、类型、原型继承、内置对象、严格模式、模块系统等。",
+        "在浏览器上下文中，JavaScript通常包括ECMAScript核心和Web API（如DOM）。",
+        "ECMAScript版本以ES6（ES2015）为转折点，之后每年发布新版本。"
+      ],
+      "follow_ups": [
+        "ES6引入了哪些重要特性？",
+        "ESNext是什么意思？",
+        "JavaScript引擎有哪些常见的实现？"
+      ],
+      "summary": "ECMAScript是JavaScript的语言标准，定义了核心语法和功能。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/JavaScript_technologies_overview",
+      "source_title": "JavaScript technologies overview - JavaScript | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "ECMAScript"
+    },
+    {
+      "question": "JavaScript Guide主要涵盖哪些核心主题？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "学习指南",
+        "语言基础"
+      ],
+      "answer_points": [
+        "包括语法和类型、控制流、循环和迭代、函数、表达式和运算符。",
+        "涵盖数字与字符串、日期、正则表达式、索引和键值集合。",
+        "涉及对象操作、类、Promise、类型化数组、迭代器和生成器。",
+        "还包括模块、资源管理、国际化等进阶主题。"
+      ],
+      "follow_ups": [
+        "JavaScript中的闭包是什么？",
+        "Promise如何处理异步操作？",
+        "JavaScript模块系统有哪些导出导入方式？"
+      ],
+      "summary": "JavaScript Guide 提供了从基础到进阶的完整语言学习路径。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "JavaScript guide"
+    },
+    {
+      "question": "JavaScript Reference 包含哪些主要内容？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "参考文档",
+        "内置对象"
+      ],
+      "answer_points": [
+        "包括所有标准内置对象及其方法和属性，如Object、Array、Promise、JSON等。",
+        "涵盖JavaScript语句和声明，如控制流、变量声明、循环等。",
+        "详细列出表达式和运算符，包括算术、逻辑、赋值等。",
+        "包含函数、类、正则表达式等完整参考。"
+      ],
+      "follow_ups": [
+        "JavaScript中数组有哪些常用方法？",
+        "Map和Object有什么区别？",
+        "如何理解JavaScript的原型链？"
+      ],
+      "summary": "JavaScript Reference 是语言核心语法和内置对象的详细手册。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference",
+      "source_title": "JavaScript reference - JavaScript | MDN",
+      "section_title": "JavaScript",
+      "bucket": "network",
+      "raw_question_title": "JavaScript reference"
+    },
+    {
+      "question": "MDN上的JavaScript初学者教程包括哪些模块？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "教程",
+        "初学者"
+      ],
+      "answer_points": [
+        "包括「你的第一个网站：添加交互性」入门模块。",
+        "提供「动态脚本与JavaScript」核心语言基础模块。",
+        "还有JavaScript框架和库的介绍，帮助理解现代前端开发。",
+        "涵盖进阶指南如异步JavaScript、客户端Web API等。"
+      ],
+      "follow_ups": [
+        "学习JavaScript的最佳路径是什么？",
+        "JavaScript中异步编程有哪些方式？",
+        "什么是DOM？如何操作？"
+      ],
+      "summary": "MDN为初学者提供了从基础到框架的完整学习材料。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript#beginners_tutorials",
+      "source_title": "JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Beginner's tutorials"
+    },
+    {
+      "question": "JavaScript guides",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Guide",
+        "Language Basics"
+      ],
+      "answer_points": [
+        "The JavaScript Guide provides a detailed introduction to the language for those with programming experience.",
+        "Covers intermediate topics like advanced objects, asynchronous JavaScript, and client-side web APIs.",
+        "Includes advanced topics such as closures, inheritance and prototype chain, and memory management.",
+        "Provides reference documentation for standard built-in objects including Array, Boolean, Error, etc.",
+        "Explains expressions, operators, statements, functions, and classes."
+      ],
+      "follow_ups": [
+        "What is a closure?",
+        "How does prototype inheritance work?",
+        "What are the different equality comparison methods in JavaScript?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript#javascript_guides",
+      "source_title": "JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "JavaScript guides"
+    },
+    {
+      "question": "Reference",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Reference",
+        "Standard Objects"
+      ],
+      "answer_points": [
+        "The JavaScript Reference includes documentation for standard built-in objects like Array, Boolean, Error, Function, JSON, Math, Number, Object, RegExp, String, Map, Set, WeakMap, WeakSet.",
+        "Covers expressions and operators such as instanceof, typeof, this, and operator precedence.",
+        "Explains statements and declarations like do-while, for-in, for-of, try-catch, let, var, const, if-else, switch.",
+        "Details functions and classes for object-oriented programming."
+      ],
+      "follow_ups": [
+        "What is the difference between var and let?",
+        "Explain the 'this' keyword."
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript#reference",
+      "source_title": "JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Reference"
+    },
+    {
+      "question": "Learn web development core modules",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Web Development",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Accessibility"
+      ],
+      "answer_points": [
+        "Core modules cover structuring content with HTML, CSS styling basics, text styling, and layout.",
+        "Includes dynamic scripting with JavaScript, JavaScript frameworks and libraries.",
+        "Accessibility module ensures websites are usable by all people.",
+        "Design for developers introduces UX and design theory.",
+        "Version control using Git and GitHub for backing up and collaborating on codebases."
+      ],
+      "follow_ups": [
+        "What is semantic HTML?",
+        "How do CSS frameworks like Bootstrap help in development?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core",
+      "source_title": "Core learning modules - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "learn web development core modules"
+    },
+    {
+      "question": "Your first website: Adding interactivity",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Interactivity",
+        "DOM",
+        "Web Storage"
+      ],
+      "answer_points": [
+        "JavaScript adds interactivity to websites through DOM manipulation and event handling.",
+        "Example: changing image on click by updating src attribute using conditional logic.",
+        "Example: personalized welcome message using Web Storage API (localStorage) to persist user name.",
+        "Key concepts: APIs (e.g., DOM API, Web Storage API), events, functions, conditionals, operators.",
+        "Use prompt() to get user input and localStorage.setItem() to store data."
+      ],
+      "follow_ups": [
+        "What is the DOM?",
+        "How does event delegation work?",
+        "Explain the difference between localStorage and sessionStorage."
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity",
+      "source_title": "JavaScript: Adding interactivity - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "Your first website: Adding interactivity"
+    },
+    {
+      "question": "What are the core concepts of JavaScript as a dynamic scripting language?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Dynamic Scripting",
+        "Web Development"
+      ],
+      "answer_points": [
+        "JavaScript is a lightweight, interpreted scripting language used to create dynamic web content.",
+        "Key concepts include variables, data types (strings, numbers, arrays), and operators.",
+        "Control structures: conditionals (if/else, switch) and loops (for, while).",
+        "Functions: reusable blocks of code, parameters, return values, and function expressions.",
+        "Events: handling user interactions (click, submit) and event bubbling/capture.",
+        "DOM manipulation: modifying HTML and CSS via the Document Object Model."
+      ],
+      "follow_ups": [
+        "What is event bubbling and how can you stop it?",
+        "How do you make network requests using JavaScript?",
+        "What is JSON and how do you parse it in JavaScript?"
+      ],
+      "summary": "JavaScript is a dynamic scripting language used for web development, covering variables, functions, events, DOM, and JSON.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting",
+      "source_title": "Dynamic scripting with JavaScript - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "Dynamic scripting with JavaScript"
+    },
+    {
+      "question": "Why are JavaScript frameworks and libraries used in front-end development?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript Frameworks",
+        "React",
+        "Vue"
+      ],
+      "answer_points": [
+        "Frameworks provide structure and reusable components for building scalable, interactive web applications.",
+        "They abstract common tasks like DOM manipulation, state management, and routing.",
+        "Popular frameworks include React, Vue, Angular, and Svelte, each with unique approaches.",
+        "Frameworks often enforce a specific architecture (e.g., component-based) and improve developer productivity."
+      ],
+      "follow_ups": [
+        "What is the difference between a framework and a library?",
+        "How does React handle state and component updates?",
+        "What are the main features of Vue's reactivity system?"
+      ],
+      "summary": "JavaScript frameworks offer reusable tools and abstractions to build scalable front-end applications efficiently.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries",
+      "source_title": "JavaScript frameworks and libraries - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "JavaScript frameworks and libraries"
+    },
+    {
+      "question": "What key topics are covered in JavaScript fundamental language guides?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Core Concepts",
+        "Closures"
+      ],
+      "answer_points": [
+        "JavaScript objects: object-oriented nature, inheritance via prototype chain.",
+        "Asynchronous JavaScript: callbacks, promises, async/await for non-blocking operations.",
+        "Closures: functions that retain access to their lexical scope.",
+        "Data structures: arrays, objects, Maps, Sets, WeakMaps, WeakSets.",
+        "Equality comparisons: strict equality (===), loose equality (==), and Object.is().",
+        "Memory management: garbage collection and memory life cycle."
+      ],
+      "follow_ups": [
+        "Explain how the prototype chain works in JavaScript.",
+        "What is a closure and when should you use it?",
+        "How does JavaScript handle asynchronous code?"
+      ],
+      "summary": "JavaScript guides cover objects, closures, async programming, prototype chain, and memory management.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript#fundamental_language_guides",
+      "source_title": "JavaScript | MDN",
+      "section_title": "Fundamental language guides",
+      "bucket": "network",
+      "raw_question_title": "Fundamental language guides"
+    },
+    {
+      "question": "What are the intermediate-level topics in JavaScript that developers should master?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Intermediate",
+        "Asynchronous"
+      ],
+      "answer_points": [
+        "Advanced JavaScript objects: understanding prototypes and inheritance.",
+        "Asynchronous programming: callbacks, promises, async/await and avoiding callback hell.",
+        "Client-side Web APIs: using Fetch, DOM APIs, and local storage.",
+        "Closures and lexical scoping for data encapsulation.",
+        "The event loop and concurrency model for non-blocking execution."
+      ],
+      "follow_ups": [
+        "How does the JavaScript event loop work?",
+        "What are the differences between setTimeout and requestAnimationFrame?",
+        "How do you implement a simple observable pattern in JavaScript?"
+      ],
+      "summary": "Intermediate JavaScript includes advanced objects, async programming, closures, and the event loop.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript#intermediate",
+      "source_title": "JavaScript | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "Intermediate"
+    },
+    {
+      "question": "Advanced JavaScript objects",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "原型链",
+        "面向对象"
+      ],
+      "answer_points": [
+        "JavaScript中大部分事物都是对象，包括数组、浏览器API等。",
+        "对象通过原型链（prototype chain）实现继承，与经典面向对象语言不同。",
+        "类（class）语法是原型继承的语法糖，提供更清晰的面向对象编程方式。",
+        "自定义对象可以封装相关函数和变量，作为数据容器。"
+      ],
+      "follow_ups": [
+        "请解释原型链的工作原理。",
+        "JavaScript中的类与原型继承有何关系？",
+        "如何创建自定义对象并实现继承？"
+      ],
+      "summary": "JavaScript对象基于原型链实现继承，类语法是原型继承的语法糖。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects",
+      "source_title": "Advanced JavaScript objects - Learn web development | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "Advanced JavaScript objects"
+    },
+    {
+      "question": "Asynchronous JavaScript",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "异步",
+        "Promise",
+        "async/await"
+      ],
+      "answer_points": [
+        "异步编程用于处理可能阻塞的操作，如从服务器获取资源。",
+        "Promise是异步操作的标准方式，通过.then()和.catch()处理结果和错误。",
+        "async/await是基于Promise的语法糖，使异步代码看起来像同步代码。",
+        "Worker允许在独立线程中运行任务，保持主线程响应。"
+      ],
+      "follow_ups": [
+        "Promise和回调函数相比有哪些优点？",
+        "async/await如何错误处理？",
+        "Web Worker的使用场景是什么？"
+      ],
+      "summary": "异步JavaScript通过Promise、async/await和Worker实现非阻塞操作。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS",
+      "source_title": "Asynchronous JavaScript - Learn web development | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "Asynchronous JavaScript"
+    },
+    {
+      "question": "Asynchronous",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "异步",
+        "概念"
+      ],
+      "answer_points": [
+        "异步指两个或多个对象或事件不同时发生或存在。",
+        "在通信中，异步通信不依赖其他消息的发送、接收或处理时间。",
+        "在软件中，异步操作允许程序在等待结果时继续执行其他任务。",
+        "Promise是JavaScript中处理异步操作的常见机制。"
+      ],
+      "follow_ups": [
+        "同步与异步的区别是什么？",
+        "请举例说明异步通信在现实中的应用。",
+        "JavaScript中如何实现异步编程？"
+      ],
+      "summary": "异步是不同步的概念，广泛应用于通信和软件设计，JavaScript通过Promise等实现。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/Asynchronous",
+      "source_title": "Asynchronous - Glossary | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "asynchronous"
+    },
+    {
+      "question": "Client-side web APIs",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "Web API",
+        "浏览器",
+        "第三方API"
+      ],
+      "answer_points": [
+        "Web API是用于操作浏览器和操作系统功能的编程接口。",
+        "常见类别包括DOM操作、网络请求、图形绘制（Canvas/WebGL）、客户端存储等。",
+        "浏览器内置API如视频控制、绘图、存储等。",
+        "第三方API（如Google Maps、Facebook）允许开发者利用外部服务。"
+      ],
+      "follow_ups": [
+        "浏览器API和第三方API有什么区别？",
+        "如何使用Canvas API绘制图形？",
+        "客户端存储有哪些方式？各有什么特点？"
+      ],
+      "summary": "客户端Web API提供操作浏览器和外部服务的接口，涵盖多种功能。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_APIs",
+      "source_title": "Client-side web APIs - Learn web development | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "Client-side web APIs"
+    },
+    {
+      "question": "JavaScript language overview",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "language basics",
+        "data types",
+        "operators"
+      ],
+      "answer_points": [
+        "JavaScript is a multi-paradigm, dynamic language with 7 primitive types: Number, BigInt, String, Boolean, Symbol, Undefined, Null.",
+        "Number type is IEEE 754 64-bit double-precision; BigInt allows arbitrarily large integers.",
+        "Strings are UTF-16 encoded and immutable; template literals enable embedded expressions.",
+        "Variables can be declared with let, const, or var; const prevents reassignment but not mutation.",
+        "Operators include arithmetic, comparison, logical, bitwise; + performs string concatenation when one operand is a string."
+      ],
+      "follow_ups": [
+        "What is the difference between let, const, and var?",
+        "Explain how JavaScript handles type coercion in arithmetic operations.",
+        "What are template literals and how are they used?",
+        "How does JavaScript treat NaN and Infinity?"
+      ],
+      "summary": "Overview of JavaScript language features including types, variables, and operators.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Language_overview",
+      "source_title": "JavaScript language overview - JavaScript | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "JavaScript language overview"
+    },
+    {
+      "question": "JavaScript data types and data structures",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "data types",
+        "data structures",
+        "objects"
+      ],
+      "answer_points": [
+        "JavaScript is dynamically and weakly typed, allowing implicit type conversion.",
+        "Primitive values are immutable: null, undefined, boolean, number, bigint, string, symbol.",
+        "Number is double-precision 64-bit; BigInt for arbitrary precision integers.",
+        "String is a sequence of UTF-16 code units, immutable.",
+        "Objects are mutable collections of properties with keys as strings or symbols."
+      ],
+      "follow_ups": [
+        "What is the difference between null and undefined?",
+        "How does JavaScript handle floating point precision issues?",
+        "Why is Symbol useful in object property keys?",
+        "Explain the concept of 'boxing' for primitives."
+      ],
+      "summary": "Overview of JavaScript primitive types and object structure.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures",
+      "source_title": "JavaScript data types and data structures - JavaScript | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "JavaScript data structures"
+    },
+    {
+      "question": "Equality comparisons and sameness",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "equality",
+        "comparison",
+        "NaN"
+      ],
+      "answer_points": [
+        "JavaScript has three equality operations: == (loose with type coercion), === (strict), Object.is() (same-value).",
+        "== and === treat -0 and +0 as equal, and NaN as not equal to itself.",
+        "Object.is() treats -0 and +0 as different, and NaN as equal to itself.",
+        "SameValueZero is used by Array.includes() and Map/Set, treating NaN as equal and -0 equal to +0."
+      ],
+      "follow_ups": [
+        "Why does NaN === NaN return false?",
+        "How can you check if a value is NaN reliably?",
+        "When would you use Object.is() over ===?",
+        "Explain the concept of SameValueZero and where it's used."
+      ],
+      "summary": "Comparison of JavaScript equality operators and their nuances.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness",
+      "source_title": "Equality comparisons and sameness - JavaScript | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "Equality comparisons and sameness"
+    },
+    {
+      "question": "Object.is()",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Object.is",
+        "equality",
+        "NaN",
+        "negative zero"
+      ],
+      "answer_points": [
+        "Object.is() is a static method that determines if two values are the same value.",
+        "It behaves like === except for signed zeros and NaN: Object.is(0, -0) returns false, Object.is(NaN, NaN) returns true.",
+        "It does not perform type coercion.",
+        "Useful for special cases like property descriptor mutation detection."
+      ],
+      "follow_ups": [
+        "How does Object.is() differ from ===?",
+        "Why is Object.is(NaN, NaN) true while NaN === NaN is false?",
+        "How would you implement a polyfill for Object.is()?"
+      ],
+      "summary": "Object.is() method for same-value equality with special handling of NaN and -0.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is",
+      "source_title": "Object.is() - JavaScript | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "Object.is()"
+    },
+    {
+      "question": "Enumerability and ownership of properties in JavaScript",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "property enumerability",
+        "property ownership",
+        "prototype",
+        "iteration"
+      ],
+      "answer_points": [
+        "Properties are classified by enumerability, string/symbol type, and own/inherited status.",
+        "Simple assignment creates enumerable properties; Object.defineProperty creates non-enumerable by default.",
+        "Most iteration methods (e.g., for...in, Object.keys) only visit enumerable keys.",
+        "Ownership determines if property belongs to the object directly or from prototype chain.",
+        "Object.hasOwn() and hasOwnProperty() check own properties; propertyIsEnumerable() checks enumerability.",
+        "Object.getOwnPropertyNames() returns all own properties including non-enumerable."
+      ],
+      "follow_ups": [
+        "How can you get all own properties of an object, including non-enumerable ones?",
+        "What is the difference between for...in and Object.keys()?",
+        "How to check if a property is enumerable?",
+        "Are symbol properties enumerable by default?"
+      ],
+      "summary": "JavaScript properties have attributes of enumerability and ownership, affecting how they are visited by built-in methods.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties",
+      "source_title": "Enumerability and ownership of properties - JavaScript | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "Enumerability and ownership of properties"
+    },
+    {
+      "question": "Closures in JavaScript",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "closure",
+        "lexical scope",
+        "IIFE",
+        "module pattern"
+      ],
+      "answer_points": [
+        "A closure is a function bundled with its lexical environment, allowing access to outer scope variables.",
+        "Closures are created every time a function is created, and the inner function retains access to outer variables even after the outer function returns.",
+        "Practical example: makeAdder function returns a closure that remembers the x value.",
+        "Closures can emulate private methods, as shown in the counter example using IIFE.",
+        "Closures are commonly used in event handlers, callbacks, and module patterns."
+      ],
+      "follow_ups": [
+        "What is the difference between a closure and a regular function?",
+        "What are the drawbacks of closures, such as memory leaks?",
+        "How can you use closures to implement the module pattern?",
+        "How does 'this' behave inside a closure?"
+      ],
+      "summary": "Closures give functions access to their outer scope even after the outer function has finished executing.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures",
+      "source_title": "Closures - JavaScript | MDN",
+      "section_title": "Intermediate",
+      "bucket": "network",
+      "raw_question_title": "Closures"
+    },
+    {
+      "question": "Advanced JavaScript topics overview",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "senior",
+      "tags": [
+        "JavaScript",
+        "advanced",
+        "asynchronous",
+        "prototypes",
+        "APIs"
+      ],
+      "answer_points": [
+        "Advanced JavaScript includes asynchronous programming, client-side web APIs, and language overview.",
+        "Key data structures and equality comparisons (==, ===, Object.is()).",
+        "Property enumerability/ownership and closures are fundamental advanced concepts.",
+        "Prototype chain inheritance and memory management are important for efficient code.",
+        "Reference: built-in objects, expressions/operators, statements, functions, and classes."
+      ],
+      "follow_ups": [
+        "What are the main approaches to asynchronous programming in JavaScript?",
+        "How does prototypal inheritance differ from classical inheritance?",
+        "What is garbage collection and how does it work in JavaScript?"
+      ],
+      "summary": "Advanced JavaScript covers asynchronous programming, prototypes, closures, and memory management.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript#advanced",
+      "source_title": "JavaScript | MDN",
+      "section_title": "Advanced",
+      "bucket": "network",
+      "raw_question_title": "Advanced"
+    },
+    {
+      "question": "Inheritance and the prototype chain in JavaScript",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "senior",
+      "tags": [
+        "JavaScript",
+        "prototype",
+        "inheritance",
+        "prototype chain",
+        "constructor"
+      ],
+      "answer_points": [
+        "JavaScript uses prototype chain for inheritance: each object has an internal link to its prototype.",
+        "Property lookup goes up the prototype chain until found or reaching null.",
+        "Methods are inherited as properties; 'this' refers to the calling object.",
+        "Constructor functions set the prototype via .prototype property for instances created with 'new'.",
+        "Prototype can be set explicitly using __proto__ or Object.create() for objects.",
+        "Property shadowing: own properties override prototype properties."
+      ],
+      "follow_ups": [
+        "How does prototype chain compare to class-based inheritance?",
+        "How can you check if an object inherits from another?",
+        "What are the performance implications of a long prototype chain?",
+        "How does the 'class' syntax relate to prototypes?"
+      ],
+      "summary": "JavaScript implements inheritance through prototype chains, allowing property and method sharing.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain",
+      "source_title": "Inheritance and the prototype chain - JavaScript | MDN",
+      "section_title": "Advanced",
+      "bucket": "network",
+      "raw_question_title": "Inheritance and the prototype chain"
+    },
+    {
+      "question": "JavaScript内存管理机制",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "senior",
+      "tags": [
+        "JavaScript",
+        "内存管理",
+        "垃圾回收",
+        "GC"
+      ],
+      "answer_points": [
+        "JavaScript自动管理内存，通过垃圾回收（GC）释放不再使用的内存。",
+        "内存生命周期包括分配、使用、释放三个阶段。",
+        "引用计数算法存在循环引用问题，现代引擎使用标记-清除算法。",
+        "标记-清除算法从根对象（全局对象）开始遍历，标记所有可达对象，然后回收不可达对象。",
+        "WeakMap和WeakSet提供弱引用，不影响垃圾回收，可用于防止内存泄漏。",
+        "无法手动触发垃圾回收，但Node.js可通过--expose-gc标志调试。"
+      ],
+      "follow_ups": [
+        "什么是循环引用？如何避免？",
+        "标记-清除算法有什么缺点？",
+        "WeakMap和WeakSet在实际开发中有哪些应用场景？",
+        "常见的内存泄漏场景有哪些？"
+      ],
+      "summary": "JavaScript通过垃圾回收自动管理内存，主要使用标记-清除算法，并可通过弱引用数据结构辅助管理。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Memory_management",
+      "source_title": "Memory management - JavaScript | MDN",
+      "section_title": "Advanced",
+      "bucket": "network",
+      "raw_question_title": "Memory Management"
+    },
+    {
+      "question": "JavaScript标准内置对象分类",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "内置对象",
+        "标准库"
+      ],
+      "answer_points": [
+        "值属性：globalThis、Infinity、NaN、undefined。",
+        "函数属性：eval、parseInt、parseFloat、encodeURI等。",
+        "基本对象：Object、Function、Boolean、Symbol。",
+        "错误对象：Error、TypeError、SyntaxError等。",
+        "数字和日期：Number、Math、Date。",
+        "集合：Map、Set、WeakMap、WeakSet。"
+      ],
+      "follow_ups": [
+        "Symbol的作用是什么？",
+        "Map和Object有什么区别？",
+        "WeakMap和WeakSet的应用场景？"
+      ],
+      "summary": "JavaScript提供一系列内置对象，分为值属性、函数属性、基本对象、错误对象、数字/日期、文本处理、集合等类别。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects",
+      "source_title": "Standard built-in objects - JavaScript | MDN",
+      "section_title": "Reference",
+      "bucket": "network",
+      "raw_question_title": "Standard objects"
+    },
+    {
+      "question": "JavaScript数组（Array）的特性",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "数组",
+        "Array",
+        "数据结构"
+      ],
+      "answer_points": [
+        "数组是对象，可动态调整大小，可存储不同数据类型。",
+        "数组索引从0开始，length属性动态反映元素数量。",
+        "数组方法分为变异（如push、pop）和非变异（如slice、filter）。",
+        "稀疏数组存在空槽，不同方法对空槽处理方式不同（如forEach跳过空槽，keys返回undefined）。",
+        "数组方法通用，可应用于类数组对象。",
+        "迭代方法（forEach、map等）接受回调函数，可指定thisArg。"
+      ],
+      "follow_ups": [
+        "如何检测一个对象是否为数组？",
+        "稀疏数组和密集数组有什么区别？",
+        "赋值给数组的length属性会有什么影响？",
+        "数组的slice方法和splice方法有什么区别？"
+      ],
+      "summary": "JavaScript数组是动态、零索引的对象，提供丰富的方法，支持稀疏数组和类数组对象使用。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+      "source_title": "Array - JavaScript | MDN",
+      "section_title": "Reference",
+      "bucket": "network",
+      "raw_question_title": "Array"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  "group_count": 2,
+  "groups": [
+    {
+      "bucket": "java_collection",
+      "count": 1,
+      "file": "java_collection.json"
+    },
+    {
+      "bucket": "network",
+      "count": 39,
+      "file": "network.json"
+    }
+  ],
+  "failure_count": 0,
+  "failures_file": "failures.json"
+}

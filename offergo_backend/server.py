@@ -51,6 +51,7 @@ from offergo_backend.database import (
     sync_user_progress,
     save_resume_session,
     update_user_password,
+    upsert_questions_from_payload,
     upsert_interview_answer,
     upsert_question_progress,
 )
@@ -1451,7 +1452,11 @@ def normalize_interview_pack(payload):
 def main():
     if SETTINGS.storage_mode in DB_STORAGE_MODES:
         initialize_database(DB_TARGET)
-        ensure_questions_seeded(DB_TARGET, WEB_DIR / "data" / "questions.json")
+        if SETTINGS.storage_mode == "postgres":
+            with (WEB_DIR / "data" / "questions.json").open("r", encoding="utf-8") as file:
+                upsert_questions_from_payload(DB_TARGET, json.load(file))
+        else:
+            ensure_questions_seeded(DB_TARGET, WEB_DIR / "data" / "questions.json")
     server = ThreadingHTTPServer((SETTINGS.host, SETTINGS.port), ResumeReviewHandler)
     print(f"Resume review server running at http://{SETTINGS.host}:{SETTINGS.port}/web_mvp/")
     print(f"API health: http://{SETTINGS.host}:{SETTINGS.port}/api/health")

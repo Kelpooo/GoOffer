@@ -1,0 +1,36 @@
+{
+  "bucket": "java_collection",
+  "count": 1,
+  "items": [
+    {
+      "question": "请解释HTML <datalist>元素的作用和用法。",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "datalist",
+        "表单"
+      ],
+      "answer_points": [
+        "<datalist>元素包含一组<option>元素，表示其他控件中可用的推荐选项。",
+        "通过给<datalist>设置id属性，并在<input>元素中使用list属性绑定该id，即可关联。",
+        "支持text、search、url、tel、email、number、date、time、range、color等输入类型。",
+        "每个<option>应有value属性，表示建议值；label属性可选，用于显示补充文本。",
+        "<datalist>不是<select>的替代品，它仅提供建议列表，用户仍可输入任意值。",
+        "浏览器兼容性有限，部分屏幕阅读器可能不播报建议内容。"
+      ],
+      "follow_ups": [
+        "<datalist>和<select>有什么区别？",
+        "如何为<datalist>设置样式？",
+        "哪些<input>类型支持<datalist>？"
+      ],
+      "summary": "<datalist>用于为输入控件提供预定义选项列表，增强用户体验。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist",
+      "source_title": "<datalist> HTML data list element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "java_collection",
+      "raw_question_title": "<datalist>"
+    }
+  ]
+}

@@ -1,0 +1,1107 @@
+{
+  "bucket": "network",
+  "count": 39,
+  "items": [
+    {
+      "question": "什么是CSS？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "样式表",
+        "前端基础"
+      ],
+      "answer_points": [
+        "CSS是层叠样式表（Cascading Style Sheets）的缩写，用于描述HTML或XML文档的呈现方式。",
+        "CSS控制元素在屏幕、纸张、语音等媒体上的渲染。",
+        "CSS是开放网络的核心语言之一，由W3C规范标准化。",
+        "CSS不再有版本号（如CSS3），而是每个模块独立版本化。"
+      ],
+      "follow_ups": [
+        "CSS的层叠（cascade）规则是什么？",
+        "CSS选择器有哪些类型？",
+        "CSS盒模型包括哪些部分？"
+      ],
+      "summary": "CSS是用于描述文档呈现的样式表语言。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "source_title": "CSS: Cascading Style Sheets | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "CSS"
+    },
+    {
+      "question": "什么是JavaScript？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "编程语言",
+        "前端基础"
+      ],
+      "answer_points": [
+        "JavaScript是一种轻量级的、解释型（或即时编译）的编程语言，具有一等函数。",
+        "它最著名的是作为Web页面的脚本语言，但也用于Node.js等非浏览器环境。",
+        "JavaScript是基于原型的、垃圾回收的、动态语言，支持命令式、函数式和面向对象编程范式。",
+        "JavaScript的标准是ECMAScript语言规范（ECMA-262）。"
+      ],
+      "follow_ups": [
+        "JavaScript和Java有什么区别？",
+        "什么是闭包？",
+        "JavaScript中的原型链是什么？"
+      ],
+      "summary": "JavaScript是一种动态的、基于原型的编程语言，主要用于Web开发。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "source_title": "JavaScript | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "JavaScript"
+    },
+    {
+      "question": "HTML中的<head>元素的作用是什么？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "head",
+        "元数据"
+      ],
+      "answer_points": [
+        "<head>元素包含机器可读的元数据，如文档标题、脚本和样式表。",
+        "一个HTML文档只能有一个<head>元素。",
+        "<head>主要包含供机器处理的信息，而非人类可读内容。",
+        "常见的子元素包括<title>、<base>、<link>、<style>、<meta>、<script>等。"
+      ],
+      "follow_ups": [
+        "<head>和<header>有什么区别？",
+        "<meta>标签有哪些常见用途？",
+        "如何优化<head>中的资源加载顺序？"
+      ],
+      "summary": "<head>元素包含文档的元数据信息。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/head",
+      "source_title": "<head> HTML document metadata (header) element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<head>"
+    },
+    {
+      "question": "HTML中的<title>元素的作用是什么？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "title",
+        "SEO"
+      ],
+      "answer_points": [
+        "<title>元素定义文档的标题，显示在浏览器的标题栏或标签页上。",
+        "它只包含文本，其中的HTML标签会被视为纯文本。",
+        "页面标题对SEO有重要影响，描述性标题通常效果更好。",
+        "建议标题长度不超过55-60个字符，重要内容前置。"
+      ],
+      "follow_ups": [
+        "如何为SEO优化页面标题？",
+        "动态更新页面标题时如何确保屏幕阅读器通知？",
+        "<title>和<h1>有什么区别？"
+      ],
+      "summary": "<title>元素定义文档标题，对SEO和用户体验重要。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/title",
+      "source_title": "<title> HTML document title element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<title>"
+    },
+    {
+      "question": "HTML中的<body>元素的作用是什么？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "body",
+        "文档结构"
+      ],
+      "answer_points": [
+        "<body>元素表示HTML文档的内容，一个文档只能有一个<body>。",
+        "它包含所有可见的页面内容，如文本、图像、链接等。",
+        "<body>支持多种事件属性，如onload、onunload等。",
+        "一些属性如bgcolor、background已废弃，应使用CSS替代。"
+      ],
+      "follow_ups": [
+        "<body>中的事件属性有哪些常见用途？",
+        "如何通过CSS设置<body>的背景？",
+        "<body>和<html>的关系是什么？"
+      ],
+      "summary": "<body>元素包含文档的可见内容。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/body",
+      "source_title": "<body> HTML document body element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<body>"
+    },
+    {
+      "question": "HTML中的<header>元素的作用是什么？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "header",
+        "语义化"
+      ],
+      "answer_points": [
+        "<header>元素表示介绍性内容或导航辅助，通常包含标题、logo、搜索表单等。",
+        "当不嵌套在<section>等元素内时，它代表全局站点头部，具有banner地标角色。",
+        "当嵌套在<article>等元素内时，它失去地标角色，仅表示该部分的介绍性内容。",
+        "不能包含<header>或<footer>后代。"
+      ],
+      "follow_ups": [
+        "<header>和<head>有什么区别？",
+        "如何正确使用<header>实现语义化？",
+        "<header>的ARIA角色是什么？"
+      ],
+      "summary": "<header>元素用于定义页面或章节的头部内容。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/header",
+      "source_title": "<header> HTML header element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<header>"
+    },
+    {
+      "question": "HTML中的<footer>元素的作用是什么？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "footer",
+        "语义化"
+      ],
+      "answer_points": [
+        "<footer>元素表示最近一个章节内容或章节根元素的页脚。",
+        "通常包含作者信息、版权数据或相关文档链接。",
+        "当最近的祖先章节内容是<body>时，<footer>应用于整个页面。",
+        "不能包含<header>或<footer>后代。"
+      ],
+      "follow_ups": [
+        "<footer>和<header>如何配合使用？",
+        "如何在<footer>中包含作者信息？",
+        "<footer>的ARIA角色是什么？"
+      ],
+      "summary": "<footer>元素用于定义页面或章节的页脚内容。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/footer",
+      "source_title": "<footer> HTML footer element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<footer>"
+    },
+    {
+      "question": "HTML中的<article>元素的作用是什么？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "article",
+        "语义化"
+      ],
+      "answer_points": [
+        "<article>元素表示文档、页面或站点中独立的内容组合，可独立分发或复用。",
+        "常见示例包括论坛帖子、杂志文章、博客条目、产品卡片、用户评论等。",
+        "每个<article>通常应包含标题（<h1>-<h6>）。",
+        "嵌套的<article>表示与外部文章相关的内部文章，如博客评论。"
+      ],
+      "follow_ups": [
+        "<article>和<section>有什么区别？",
+        "如何正确使用<article>实现语义化？",
+        "<article>的ARIA角色是什么？"
+      ],
+      "summary": "<article>元素用于表示独立、可复用的内容块。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/article",
+      "source_title": "<article> HTML article contents element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<article>"
+    },
+    {
+      "question": "What is the HTML <section> element and how should it be used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "section",
+        "semantic elements"
+      ],
+      "answer_points": [
+        "The <section> element represents a generic standalone section of a document that doesn't have a more specific semantic element.",
+        "Sections should always have a heading, with very few exceptions.",
+        "Use <article> for standalone atomic content, <aside> for tangential content, <main> for main content, and <div> for styling wrappers.",
+        "Each <section> should be identified, typically by including a heading (h1-h6) as a child."
+      ],
+      "follow_ups": [
+        "When would you use <section> without a heading?",
+        "What is the difference between <section> and <div>?"
+      ],
+      "summary": "The <section> element is a generic sectioning element used when no more specific semantic element applies.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/section",
+      "source_title": "<section> HTML generic section element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<section>"
+    },
+    {
+      "question": "What is the HTML <p> element and how should it be used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "paragraph",
+        "semantic elements"
+      ],
+      "answer_points": [
+        "The <p> element represents a paragraph, typically displayed as blocks of text separated by blank lines or indentation.",
+        "Paragraphs are block-level elements and automatically close if another block-level element is encountered before the closing tag.",
+        "The end tag may be omitted in certain contexts, such as when followed by another block-level element.",
+        "Use CSS margin properties to add space between paragraphs instead of empty <p> elements for accessibility."
+      ],
+      "follow_ups": [
+        "What happens if you use an empty <p> element?",
+        "How can you style paragraphs with CSS?"
+      ],
+      "summary": "The <p> element defines a paragraph in HTML, with automatic closing behavior and accessibility considerations.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/p",
+      "source_title": "<p> HTML paragraph element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<p>"
+    },
+    {
+      "question": "What is the HTML <div> element and when should it be used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "div",
+        "generic container"
+      ],
+      "answer_points": [
+        "The <div> element is a generic container for flow content with no inherent meaning.",
+        "It has no effect on content or layout until styled with CSS (e.g., Flexbox, Grid).",
+        "Use <div> only when no other semantic element (like <article>, <nav>, <section>) is appropriate.",
+        "It can be used to group content for styling or scripting purposes."
+      ],
+      "follow_ups": [
+        "What is the difference between <div> and <span>?",
+        "Why should you prefer semantic elements over <div>?"
+      ],
+      "summary": "The <div> element is a non-semantic container used for styling and layout when no semantic element fits.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div",
+      "source_title": "<div> HTML content division element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<div>"
+    },
+    {
+      "question": "What is the HTML <span> element and how does it differ from <div>?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "span",
+        "inline container"
+      ],
+      "answer_points": [
+        "The <span> element is a generic inline container for phrasing content, with no inherent meaning.",
+        "It is used to group elements for styling (via class or id) or attribute sharing (e.g., lang).",
+        "Unlike <div> (block-level), <span> is inline-level and does not start on a new line.",
+        "Use <span> only when no other semantic inline element is appropriate."
+      ],
+      "follow_ups": [
+        "Can you nest <span> inside <div>?",
+        "What are some common use cases for <span>?"
+      ],
+      "summary": "The <span> element is an inline container for phrasing content, similar to <div> but inline.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/span",
+      "source_title": "<span> HTML content span element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<span>"
+    },
+    {
+      "question": "What is the HTML <img> element and what are its key attributes?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "img",
+        "image",
+        "attributes"
+      ],
+      "answer_points": [
+        "The <img> element embeds an image into the document.",
+        "The src attribute specifies the image URL; alt provides a textual replacement for accessibility and fallback.",
+        "Use width and height to set intrinsic size and reduce layout shifts.",
+        "Responsive images can be achieved with srcset and sizes attributes.",
+        "Common image formats include JPEG, PNG, GIF, SVG, WebP, and AVIF."
+      ],
+      "follow_ups": [
+        "What is lazy loading and how does it apply to images?",
+        "How does the crossorigin attribute affect image loading?"
+      ],
+      "summary": "The <img> element embeds images with required src and alt attributes, supporting responsive and accessible images.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img",
+      "source_title": "<img> HTML image embed element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<img>"
+    },
+    {
+      "question": "What is the HTML <aside> element and how should it be used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "aside",
+        "semantic elements"
+      ],
+      "answer_points": [
+        "The <aside> element represents content indirectly related to the main content, often displayed as sidebars or call-out boxes.",
+        "It should not be used for parenthesized text, as that is part of the main flow.",
+        "It is a sectioning element with an implicit ARIA role of complementary.",
+        "Common uses include related links, author bios, or tangential information."
+      ],
+      "follow_ups": [
+        "What is the difference between <aside> and <section>?",
+        "Can <aside> be used inside <article>?"
+      ],
+      "summary": "The <aside> element marks content indirectly related to the main content, like sidebars or callouts.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/aside",
+      "source_title": "<aside> HTML aside element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<aside>"
+    },
+    {
+      "question": "What is the HTML <audio> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "audio",
+        "multimedia"
+      ],
+      "answer_points": [
+        "The <audio> element embeds sound content, with src attribute or <source> elements for multiple formats.",
+        "Key attributes include controls, autoplay, loop, muted, and preload.",
+        "Provide fallback content inside the element for unsupported browsers.",
+        "Use the Web Audio API for advanced audio manipulation or live streams via srcObject."
+      ],
+      "follow_ups": [
+        "How do you handle multiple audio source formats?",
+        "What is the difference between preload and autoplay?"
+      ],
+      "summary": "The <audio> element embeds audio with support for multiple sources, controls, and fallback content.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio",
+      "source_title": "<audio> HTML embed audio element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<audio>"
+    },
+    {
+      "question": "What is the HTML <canvas> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "canvas",
+        "graphics"
+      ],
+      "answer_points": [
+        "The <canvas> element provides a bitmap area for drawing graphics via JavaScript (Canvas API or WebGL).",
+        "Set dimensions using width and height attributes; CSS sizing can distort the image.",
+        "Provide fallback content inside the element for unsupported browsers.",
+        "Use OffscreenCanvas for off-screen rendering in workers to avoid blocking the main thread.",
+        "Canvas content is not accessible; avoid using it for critical information without alternatives."
+      ],
+      "follow_ups": [
+        "How do you draw on a canvas?",
+        "What are the limitations of canvas accessibility?"
+      ],
+      "summary": "The <canvas> element is used for dynamic graphics rendering via JavaScript, with accessibility limitations.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas",
+      "source_title": "<canvas> HTML graphics canvas element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<canvas>"
+    },
+    {
+      "question": "What is the HTML <details> element and how does it work?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "details",
+        "disclosure widget"
+      ],
+      "answer_points": [
+        "The <details> element creates a disclosure widget that can be toggled open/closed.",
+        "A <summary> element provides the label; without it, a default string is used.",
+        "The open attribute controls visibility; setting it to false still shows content because it's a Boolean attribute.",
+        "The name attribute groups multiple <details> elements so only one can be open at a time.",
+        "The toggle event fires when the state changes; events are coalesced if multiple changes occur quickly.",
+        "CSS can style the widget, but there is no built-in animation for the open/closed transition."
+      ],
+      "follow_ups": [
+        "How can you programmatically open or close a <details> element?",
+        "What is the purpose of the name attribute on <details>?",
+        "How does the toggle event work and when is it dispatched?"
+      ],
+      "summary": "The <details> element creates a togglable disclosure widget with a <summary> label.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details",
+      "source_title": "<details> HTML details disclosure element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<details>"
+    },
+    {
+      "question": "What is the HTML <embed> element used for?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "embed",
+        "external content"
+      ],
+      "answer_points": [
+        "The <embed> element embeds external content (e.g., from a plug-in) at a point in the document.",
+        "It requires src, type, width, and height attributes; width and height must be absolute CSS pixels.",
+        "Most modern browsers have deprecated plug-in support, so <embed> is generally not recommended.",
+        "Use the title attribute for accessibility to describe the embedded content.",
+        "The object-fit property does not affect <embed>; use object-position for positioning."
+      ],
+      "follow_ups": [
+        "What are the alternatives to <embed> for embedding content?",
+        "Why is <embed> considered less accessible without a title attribute?",
+        "How does the type attribute affect the behavior of <embed>?"
+      ],
+      "summary": "The <embed> element embeds external content via plug-ins, but is deprecated in modern browsers.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/embed",
+      "source_title": "<embed> HTML embed external content element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<embed>"
+    },
+    {
+      "question": "What is the HTML <nav> element and how should it be used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "nav",
+        "navigation"
+      ],
+      "answer_points": [
+        "The <nav> element represents a section of a page with navigation links (within or to other documents).",
+        "It is intended for major navigation blocks; not all links need to be inside <nav>.",
+        "A document can have multiple <nav> elements; use aria-labelledby for accessibility.",
+        "Screen readers may use <nav> to skip navigation content.",
+        "The implicit ARIA role is navigation."
+      ],
+      "follow_ups": [
+        "When should you use <nav> versus a <footer> with links?",
+        "How can you make multiple <nav> elements accessible?",
+        "What is the difference between <nav> and <main>?"
+      ],
+      "summary": "The <nav> element defines a navigation section for major links, aiding accessibility.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/nav",
+      "source_title": "<nav> HTML navigation section element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<nav>"
+    },
+    {
+      "question": "What is the HTML <search> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "search",
+        "landmark"
+      ],
+      "answer_points": [
+        "The <search> element is a container for search or filtering controls and content.",
+        "It defines a search landmark, removing the need for role=\"search\" on a <form>.",
+        "It is not for presenting search results; results should be in main content.",
+        "Quick search suggestions and links can be nested inside <search>.",
+        "Multiple <search> elements can exist; use title attributes to differentiate."
+      ],
+      "follow_ups": [
+        "How does <search> differ from using role=\"search\" on a <form>?",
+        "Can <search> contain non-form elements?",
+        "What is the implicit ARIA role of <search>?"
+      ],
+      "summary": "The <search> element semantically identifies search functionality and creates a search landmark.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/search",
+      "source_title": "<search> HTML generic search element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<search>"
+    },
+    {
+      "question": "What is the HTML <output> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "output",
+        "form"
+      ],
+      "answer_points": [
+        "The <output> element displays the result of a calculation or user action.",
+        "It has a for attribute listing IDs of input elements that contributed to the result.",
+        "The form attribute associates it with a <form> anywhere in the document.",
+        "Its value, name, and contents are not submitted with the form.",
+        "Many browsers treat it as an aria-live region, announcing changes to assistive technology."
+      ],
+      "follow_ups": [
+        "How does the for attribute work with <output>?",
+        "Why is <output> not submitted with the form?",
+        "What is the implicit ARIA role of <output>?"
+      ],
+      "summary": "The <output> element shows calculation results or user action outcomes, with live region behavior.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/output",
+      "source_title": "<output> HTML output element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<output>"
+    },
+    {
+      "question": "What is the HTML <progress> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "progress",
+        "progress bar"
+      ],
+      "answer_points": [
+        "The <progress> element displays a progress bar indicating task completion.",
+        "It has max and value attributes; value must be between 0 and max (default max is 1).",
+        "Without a value attribute, the bar is indeterminate (ongoing activity with unknown duration).",
+        "Use <label> for accessible labeling; text between tags is fallback for old browsers.",
+        "The :indeterminate pseudo-class matches indeterminate progress bars."
+      ],
+      "follow_ups": [
+        "How do you make a progress bar indeterminate after it had a value?",
+        "What is the difference between <progress> and <meter>?",
+        "How can you style the progress bar with CSS?"
+      ],
+      "summary": "The <progress> element shows task progress as a bar, with determinate and indeterminate states.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/progress",
+      "source_title": "<progress> HTML progress indicator element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<progress>"
+    },
+    {
+      "question": "What is the HTML <video> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "video",
+        "media"
+      ],
+      "answer_points": [
+        "The <video> element embeds a media player for video playback; can also be used for audio.",
+        "Use the src attribute or nested <source> elements to specify video sources.",
+        "Key attributes: controls, autoplay, loop, muted, poster, width, height, preload, loading.",
+        "Autoplay is blocked by modern browsers for unmuted audio; autoplay=\"false\" does not work.",
+        "The loading=\"lazy\" attribute defers loading until near viewport, affecting autoplay and preload.",
+        "Provide fallback content between tags for browsers that don't support <video>."
+      ],
+      "follow_ups": [
+        "How do you provide multiple video formats for browser compatibility?",
+        "What is the difference between preload=\"none\", \"metadata\", and \"auto\"?",
+        "How does the loading=\"lazy\" attribute affect video behavior?"
+      ],
+      "summary": "The <video> element embeds video with controls, sources, and attributes for playback control.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video",
+      "source_title": "<video> HTML video embed element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<video>"
+    },
+    {
+      "question": "What is the HTML <ul> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "ul",
+        "unordered list"
+      ],
+      "answer_points": [
+        "The <ul> element represents an unordered list of items, typically displayed with bullets.",
+        "Each list item is wrapped in an <li> element; <ul> can be nested inside <li>.",
+        "The deprecated type attribute (circle, disc, square) should be replaced with CSS list-style-type.",
+        "Use <ul> when the order of items is not meaningful; use <ol> when order matters.",
+        "The implicit ARIA role is list."
+      ],
+      "follow_ups": [
+        "How do you nest lists in HTML?",
+        "What is the difference between <ul> and <ol>?",
+        "How can you change the bullet style using CSS?"
+      ],
+      "summary": "The <ul> element creates a bulleted list for items without a specific order.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ul",
+      "source_title": "<ul> HTML unordered list element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<ul>"
+    },
+    {
+      "question": "What is the HTML <ol> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "ordered list",
+        "ol"
+      ],
+      "answer_points": [
+        "The <ol> element represents an ordered list, typically rendered as a numbered list.",
+        "It can contain <li> elements as list items.",
+        "Attributes include reversed, start, and type (a, A, i, I, 1).",
+        "Use CSS list-style-type instead of type attribute for styling.",
+        "Order matters; changing order changes meaning."
+      ],
+      "follow_ups": [
+        "What is the difference between <ol> and <ul>?",
+        "How do you nest lists in HTML?",
+        "What is the start attribute and how does it work?"
+      ],
+      "summary": "The <ol> element defines an ordered list with numbering options.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ol",
+      "source_title": "<ol> HTML ordered list element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<ol>"
+    },
+    {
+      "question": "What is the HTML <li> element and how is it used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "list item",
+        "li"
+      ],
+      "answer_points": [
+        "The <li> element represents an item in a list.",
+        "It must be contained in <ol>, <ul>, or <menu>.",
+        "In ordered lists, it displays with a counter; in unordered lists, with a bullet.",
+        "Attributes include value (for <ol>) and deprecated type.",
+        "The end tag can be omitted if followed by another <li> or no more content."
+      ],
+      "follow_ups": [
+        "What is the value attribute on <li> used for?",
+        "Can <li> be used outside of <ol> or <ul>?",
+        "How does the implicit ARIA role work for <li>?"
+      ],
+      "summary": "The <li> element defines a list item within ordered or unordered lists.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/li",
+      "source_title": "<li> HTML list item element - HTML | MDN",
+      "section_title": "HTML: HyperText Markup Language",
+      "bucket": "network",
+      "raw_question_title": "<li>"
+    },
+    {
+      "question": "What are the beginner's tutorials for learning HTML?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "tutorials",
+        "beginner"
+      ],
+      "answer_points": [
+        "MDN provides core learning modules for web development beginners.",
+        "Topics include structuring content with HTML, CSS styling, JavaScript, and accessibility.",
+        "The 'Your first website' module introduces web technologies gently.",
+        "Modules cover document structure, links, lists, images, forms, and more."
+      ],
+      "follow_ups": [
+        "What is the recommended order for learning web development?",
+        "What are the prerequisites for these tutorials?",
+        "How do these modules relate to real-world web development?"
+      ],
+      "summary": "MDN's beginner tutorials cover HTML, CSS, JavaScript, and accessibility fundamentals.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML#beginners_tutorials",
+      "source_title": "HTML: HyperText Markup Language | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Beginner's tutorials"
+    },
+    {
+      "question": "What HTML guides are available on MDN?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "guides",
+        "MDN"
+      ],
+      "answer_points": [
+        "MDN HTML guides cover forms, CORS, content preloading, and responsive images.",
+        "Includes cheatsheet, comments, form validation, content categories, and date/time formats.",
+        "Guides on microdata, microformats, quirks mode, and responsive images.",
+        "Also covers media types, data attributes, cross-origin images, and fast-loading pages."
+      ],
+      "follow_ups": [
+        "What is the Constraint Validation API?",
+        "How do you use data attributes in HTML?",
+        "What are content categories in HTML?"
+      ],
+      "summary": "MDN offers comprehensive HTML guides on forms, validation, responsive images, and more.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML#guides",
+      "source_title": "HTML: HyperText Markup Language | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Guides"
+    },
+    {
+      "question": "How do you use HTML for defining terms, data attributes, and other tasks?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "how-to",
+        "data attributes"
+      ],
+      "answer_points": [
+        "Define terms using semantic HTML like <dfn> or structured glossaries.",
+        "Use data-* attributes to store extra information on HTML elements.",
+        "Cross-origin images in canvas require the crossorigin attribute.",
+        "Image maps allow hyperlinks on different parts of an image.",
+        "Optimize pages for fast loading and add JavaScript to HTML files."
+      ],
+      "follow_ups": [
+        "What is the purpose of data-* attributes?",
+        "How do you create an image map?",
+        "What are best practices for fast-loading HTML pages?"
+      ],
+      "summary": "HTML provides ways to define terms, use data attributes, create image maps, and optimize performance.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML#how_to",
+      "source_title": "HTML: HyperText Markup Language | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "How to"
+    },
+    {
+      "question": "What is the HTML reference documentation on MDN?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "reference",
+        "MDN"
+      ],
+      "answer_points": [
+        "HTML reference covers elements, attributes, and links.",
+        "Includes global attributes applicable to all elements.",
+        "Attributes by element, input types, script types, meta names, and rel keywords.",
+        "Provides DOM interfaces and browser compatibility information."
+      ],
+      "follow_ups": [
+        "What are global attributes in HTML?",
+        "How do you find browser compatibility for an HTML element?",
+        "What is the DOM interface for an HTML element?"
+      ],
+      "summary": "MDN HTML reference documents all elements, attributes, and their usage.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML#reference",
+      "source_title": "HTML: HyperText Markup Language | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Reference"
+    },
+    {
+      "question": "What are related topics to HTML on MDN?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "CSS",
+        "related topics"
+      ],
+      "answer_points": [
+        "Related topics include applying color to HTML elements using CSS.",
+        "Covers CSS properties for coloring text, backgrounds, borders, etc.",
+        "Provides guidance on how to use CSS with HTML for styling."
+      ],
+      "follow_ups": [
+        "How do you apply color to HTML elements with CSS?",
+        "What CSS properties are used for text color?",
+        "How do you set background color in CSS?"
+      ],
+      "summary": "Related topics cover using CSS to style HTML elements, especially color.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML#related_topics",
+      "source_title": "HTML: HyperText Markup Language | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Related topics"
+    },
+    {
+      "question": "What are the core learning modules for web development on MDN?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "web development",
+        "learning modules",
+        "MDN"
+      ],
+      "answer_points": [
+        "Core modules cover HTML, CSS, JavaScript, accessibility, design, and version control.",
+        "Prerequisites include basic computer skills and a code editor.",
+        "Modules: Structuring content with HTML, CSS styling basics, CSS text styling, CSS layout.",
+        "Also includes dynamic scripting with JavaScript, frameworks, accessibility, design for developers, and version control."
+      ],
+      "follow_ups": [
+        "What is the recommended learning path for web development?",
+        "What tools are needed to start learning?",
+        "How do these modules prepare for real-world development?"
+      ],
+      "summary": "MDN core modules provide a comprehensive foundation in web development.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core",
+      "source_title": "Core learning modules - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "learn web development core modules"
+    },
+    {
+      "question": "What is HTML and how do you create basic content for a website?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "web development",
+        "beginner"
+      ],
+      "answer_points": [
+        "HTML (HyperText Markup Language) is the code used to structure a web page and its content.",
+        "Basic HTML syntax includes opening and closing tags, elements, attributes, head, and body.",
+        "Common HTML elements include paragraphs (<p>), headings (<h1>-<h6>), images (<img>), lists (<ul>, <ol>, <li>), and links (<a>).",
+        "An HTML document starts with <!doctype html> and includes <html>, <head>, and <body> elements.",
+        "Images are embedded using the <img> tag with src and alt attributes.",
+        "Links are created using the <a> tag with an href attribute."
+      ],
+      "follow_ups": [
+        "What is the purpose of the alt attribute in an image tag?",
+        "Explain the difference between ordered and unordered lists.",
+        "How do you add a link to an HTML page?"
+      ],
+      "summary": "HTML is a markup language for structuring web content using elements like headings, paragraphs, images, and links.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
+      "source_title": "HTML: Creating the content - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "Your first website: Creating the content"
+    },
+    {
+      "question": "What are the key concepts in structuring content with HTML?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "web development",
+        "semantics"
+      ],
+      "answer_points": [
+        "HTML defines the content and structure of a website, and should define semantics for accessibility and SEO.",
+        "Key areas include document structure, links, lists, images, forms, and more.",
+        "Basic HTML syntax covers elements, attributes, and how a typical HTML page is structured.",
+        "The <head> element contains metadata like title, CSS links, and favicons.",
+        "Headings and paragraphs provide fundamental page structure.",
+        "Lists can be unordered (<ul>), ordered (<ol>), or description lists (<dl>)."
+      ],
+      "follow_ups": [
+        "What is the importance of semantic HTML?",
+        "How do you structure a basic HTML document?",
+        "What are the different types of lists in HTML?"
+      ],
+      "summary": "HTML structures web content with semantics, covering document structure, links, lists, images, and forms.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content",
+      "source_title": "Structuring content with HTML - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "Structuring content with HTML"
+    },
+    {
+      "question": "How do you handle HTML forms in legacy browsers?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "forms",
+        "legacy browsers"
+      ],
+      "answer_points": [
+        "Supporting legacy browsers with HTML forms requires tips and tricks to ensure functionality.",
+        "User input methods and controls vary; recommendations include managing user input and using real-world examples.",
+        "Key references include HTML forms element reference, <input> types reference, and HTML attribute reference."
+      ],
+      "follow_ups": [
+        "What are some common challenges when supporting legacy browsers?",
+        "How do you ensure form accessibility in older browsers?"
+      ],
+      "summary": "Handling HTML forms in legacy browsers involves tips for compatibility and user input management.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms",
+      "source_title": "Web forms - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "HTML forms"
+    },
+    {
+      "question": "What are the main HTML guides for using HTML effectively?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "guides",
+        "web development"
+      ],
+      "answer_points": [
+        "HTML guides cover content categories, cheatsheets, quirks and standards modes, date/time formats, comments, form validation, microdata, microformats, and responsive images.",
+        "Content categories group elements with shared characteristics.",
+        "HTML cheatsheet provides quick code snippets for common tasks.",
+        "Understanding quirks and standards modes helps with browser compatibility.",
+        "Form validation can be done using HTML5 attributes and the Constraint Validation API.",
+        "Responsive images improve performance across different devices."
+      ],
+      "follow_ups": [
+        "What is the difference between quirks mode and standards mode?",
+        "How do you use the Constraint Validation API for form validation?"
+      ],
+      "summary": "HTML guides provide essential information on categories, syntax, compatibility, and advanced features like form validation and responsive images.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides",
+      "source_title": "HTML guides - HTML | MDN",
+      "section_title": "Guides",
+      "bucket": "network",
+      "raw_question_title": "HTML guides"
+    },
+    {
+      "question": "What are the common HTML tags and their usage as per the HTML cheatsheet?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "cheatsheet",
+        "tags"
+      ],
+      "answer_points": [
+        "Inline elements appear next to each other and include <a>, <img>, <span>, <em>, <i>, <b>, <strong>, <mark>, <s>, <sub>, <small>, <address>, <cite>, <sup>, <q>, <br>, <wbr>, <time>, <code>, <audio>, <video>.",
+        "Block elements take up full width and stack vertically, including <p>, <blockquote>, <details>, <ul>, <ol>, <dl>, <hr>, <h1>-<h6>.",
+        "HTML tags should be used for semantic value, not appearance; CSS can change the look.",
+        "The <div> element is intentionally omitted as it has no semantic meaning."
+      ],
+      "follow_ups": [
+        "What is the difference between inline and block elements?",
+        "Why is semantic HTML important?"
+      ],
+      "summary": "HTML cheatsheet lists common inline and block elements with examples, emphasizing semantic usage.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Cheatsheet",
+      "source_title": "HTML cheatsheet for syntax and common tasks - HTML | MDN",
+      "section_title": "Guides",
+      "bucket": "network",
+      "raw_question_title": "HTML cheatsheet for syntax and common tasks"
+    },
+    {
+      "question": "How do you use HTML comments?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "comments",
+        "syntax"
+      ],
+      "answer_points": [
+        "HTML comments start with <!-- and end with -->, and are not visible on the page.",
+        "Comments can be single-line or multi-line, and can be placed before/after doctype, <html>, or as content of most elements except <script>, <style>, <title>, <textarea>.",
+        "Comments cannot be nested; the first --> closes the comment.",
+        "Comments are used for explanatory notes or to disable parts of the code."
+      ],
+      "follow_ups": [
+        "Can HTML comments be used inside tags?",
+        "What is the legacy practice of using comments in <script> elements?"
+      ],
+      "summary": "HTML comments are used to add notes or disable code, with syntax <!-- ... --> and restrictions on nesting and placement.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Comments",
+      "source_title": "Using HTML comments <!-- … --> - HTML | MDN",
+      "section_title": "Guides",
+      "bucket": "network",
+      "raw_question_title": "Using HTML comments <!-- … -->"
+    },
+    {
+      "question": "How do you use HTML form validation and the Constraint Validation API?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "HTML",
+        "form validation",
+        "Constraint Validation API"
+      ],
+      "answer_points": [
+        "HTML5 introduced semantic input types and constraint validation attributes for client-side validation without JavaScript.",
+        "Basic constraints are declared via the type attribute (e.g., email, URL) and validation attributes like pattern, min, max, required, step, minlength, maxlength.",
+        "The Constraint Validation API provides methods like checkValidity() and reportValidity() for programmatic validation.",
+        "Complex constraints can be implemented using JavaScript and setCustomValidity() method.",
+        "Server-side validation is still necessary as client-side validation can be bypassed.",
+        "CSS pseudo-classes :valid, :invalid, :required, :optional can style form elements based on validation state."
+      ],
+      "follow_ups": [
+        "What is the difference between checkValidity() and reportValidity()?",
+        "How do you implement a custom constraint combining multiple fields?"
+      ],
+      "summary": "HTML form validation uses semantic types and attributes for basic constraints, and the Constraint Validation API for advanced validation, always complemented by server-side checks.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation",
+      "source_title": "Using HTML form validation and the Constraint Validation API - HTML | MDN",
+      "section_title": "Guides",
+      "bucket": "network",
+      "raw_question_title": "Using HTML form validation and the Constraint Validation API"
+    }
+  ]
+}

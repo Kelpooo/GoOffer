@@ -1,0 +1,832 @@
+{
+  "bucket": "network",
+  "count": 29,
+  "items": [
+    {
+      "question": "Kubernetes是什么？",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "容器编排",
+        "云原生"
+      ],
+      "answer_points": [
+        "Kubernetes是一个开源的容器编排引擎。",
+        "用于自动化部署、扩展和管理容器化应用。",
+        "由云原生计算基金会（CNCF）托管。"
+      ],
+      "follow_ups": [
+        "Kubernetes集群由哪些组件组成？",
+        "如何使用kubectl与Kubernetes集群交互？",
+        "Kubernetes和Docker Swarm有什么区别？"
+      ],
+      "summary": "Kubernetes是一个开源的容器编排平台，用于自动化管理容器化应用。",
+      "source_url": "https://kubernetes.io/docs/",
+      "source_title": "Kubernetes Documentation | Kubernetes",
+      "section_title": "未分类",
+      "bucket": "network",
+      "raw_question_title": "Kubernetes Documentation"
+    },
+    {
+      "question": "为什么需要Kubernetes？",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "容器编排",
+        "微服务"
+      ],
+      "answer_points": [
+        "Kubernetes提供服务发现和负载均衡，确保稳定部署。",
+        "支持存储编排，自动挂载各种存储系统。",
+        "自动化滚动更新和回滚，以受控速率变更集群状态。",
+        "自我修复，重启失败容器，替换不健康容器。",
+        "水平扩缩容，根据CPU使用率自动调整Pod数量。"
+      ],
+      "follow_ups": [
+        "Kubernetes与传统的PaaS有什么不同？",
+        "Kubernetes如何实现服务发现？",
+        "Kubernetes的自我修复机制是如何工作的？"
+      ],
+      "summary": "Kubernetes是一个功能强大的容器编排平台，提供服务发现、负载均衡、自动扩缩容、自我修复等特性，帮助管理容器化应用。",
+      "source_url": "https://kubernetes.io/docs/concepts/overview/#why-you-need-kubernetes-and-what-can-it-do",
+      "source_title": "Overview | Kubernetes",
+      "section_title": "Understand Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Why Kubernetes?"
+    },
+    {
+      "question": "Kubernetes集群由哪些组件组成？",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "集群",
+        "组件"
+      ],
+      "answer_points": [
+        "控制平面组件：kube-apiserver（API服务器）、etcd（键值存储）、kube-scheduler（调度器）、kube-controller-manager（控制器管理器）。",
+        "节点组件：kubelet（节点代理）、kube-proxy（网络代理）、容器运行时（如containerd）。",
+        "可选：cloud-controller-manager（云控制器）。",
+        "插件：DNS、Dashboard等。"
+      ],
+      "follow_ups": [
+        "kube-apiserver的作用是什么？",
+        "etcd在Kubernetes中扮演什么角色？",
+        "kubelet是如何管理Pod的？"
+      ],
+      "summary": "Kubernetes集群由控制平面和节点组成，控制平面包括API服务器、etcd、调度器和控制器管理器，节点包括kubelet、kube-proxy和容器运行时。",
+      "source_url": "https://kubernetes.io/docs/concepts/overview/components/",
+      "source_title": "Kubernetes Components | Kubernetes",
+      "section_title": "Understand Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Components of a cluster"
+    },
+    {
+      "question": "Kubernetes API是什么？",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "API",
+        "REST"
+      ],
+      "answer_points": [
+        "Kubernetes API是集群控制平面的核心，用于查询和操作对象状态。",
+        "支持通过kubectl或直接REST调用。",
+        "提供发现API和OpenAPI规范，便于客户端自动交互。",
+        "支持多种版本（v1, v1beta1等）和API分组。",
+        "可扩展，支持自定义资源和聚合层。"
+      ],
+      "follow_ups": [
+        "如何通过API创建Pod？",
+        "Kubernetes API的版本策略是什么？",
+        "什么是CustomResourceDefinition？"
+      ],
+      "summary": "Kubernetes API是集群控制平面的核心接口，提供RESTful API管理集群资源，支持版本化、扩展性和自动发现。",
+      "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/",
+      "source_title": "The Kubernetes API | Kubernetes",
+      "section_title": "Understand Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "The Kubernetes API"
+    },
+    {
+      "question": "What are Kubernetes objects and how are they represented?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "Objects",
+        "API"
+      ],
+      "answer_points": [
+        "Kubernetes objects are persistent entities that represent the state of your cluster, describing what containerized applications are running, their resources, and policies.",
+        "Each object includes a spec (desired state) and status (current state), with the control plane continuously reconciling the two.",
+        "Objects are defined in manifest files (YAML or JSON) with required fields: apiVersion, kind, metadata, and spec."
+      ],
+      "follow_ups": [
+        "What is the difference between spec and status?",
+        "How do you create a Kubernetes object using a manifest file?",
+        "What happens if the spec and status diverge?"
+      ],
+      "summary": "",
+      "source_url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/",
+      "source_title": "Objects In Kubernetes | Kubernetes",
+      "section_title": "Understand Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Objects In Kubernetes"
+    },
+    {
+      "question": "What is kubectl and how does it work?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Kubectl",
+        "Kubernetes",
+        "CLI"
+      ],
+      "answer_points": [
+        "kubectl is the primary command-line tool for communicating with a Kubernetes cluster through the Kubernetes API.",
+        "It uses a kubeconfig file for authentication and cluster connection, supporting multiple contexts for switching between clusters.",
+        "Actions are translated into HTTP requests to the API server, which validates and applies changes to etcd.",
+        "For production, declarative management with kubectl apply is preferred over imperative commands."
+      ],
+      "follow_ups": [
+        "How do you configure kubectl to use a different kubeconfig file?",
+        "What is the version compatibility policy between kubectl and the cluster?",
+        "Can you extend kubectl with plugins? How?"
+      ],
+      "summary": "",
+      "source_url": "https://kubernetes.io/docs/concepts/overview/kubectl/",
+      "source_title": "The kubectl command-line tool | Kubernetes",
+      "section_title": "Understand Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "kubectl"
+    },
+    {
+      "question": "What are containers and container images in Kubernetes?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Container",
+        "Container Image",
+        "CRI"
+      ],
+      "answer_points": [
+        "A container packages an application with all its runtime dependencies, ensuring repeatable behavior across environments.",
+        "Container images are immutable; changes require building a new image and recreating the container.",
+        "Kubernetes supports container runtimes like containerd and CRI-O through the Container Runtime Interface (CRI)."
+      ],
+      "follow_ups": [
+        "How do containers differ from virtual machines?",
+        "What is the purpose of container image layers?",
+        "Explain how Kubernetes selects a container runtime for a Pod."
+      ],
+      "summary": "",
+      "source_url": "https://kubernetes.io/docs/concepts/containers/",
+      "source_title": "Containers | Kubernetes",
+      "section_title": "Understand Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Containers"
+    },
+    {
+      "question": "What are workloads and Pods in Kubernetes?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Workload",
+        "Pod",
+        "Deployment"
+      ],
+      "answer_points": [
+        "A workload is an application running on Kubernetes, typically managed via Pods and higher-level resources.",
+        "A Pod is the smallest deployable unit, representing one or more containers with shared storage/network.",
+        "Workload resources like Deployments, StatefulSets, and DaemonSets manage sets of Pods to maintain desired state.",
+        "Deployments are ideal for stateless apps, StatefulSets for stateful apps, and DaemonSets for node-level daemons."
+      ],
+      "follow_ups": [
+        "What is the lifecycle of a Pod?",
+        "When should you use a StatefulSet instead of a Deployment?",
+        "How does a DaemonSet ensure a Pod runs on every node?"
+      ],
+      "summary": "",
+      "source_url": "https://kubernetes.io/docs/concepts/workloads/",
+      "source_title": "Workloads | Kubernetes",
+      "section_title": "Understand Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Workloads and Pods"
+    },
+    {
+      "question": "Hello Minikube",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "Minikube",
+        "部署"
+      ],
+      "answer_points": [
+        "使用 minikube start 启动本地 Kubernetes 集群",
+        "使用 kubectl create deployment 创建 Deployment",
+        "使用 kubectl expose 创建 Service 暴露应用",
+        "使用 minikube service 访问应用",
+        "使用 kubectl logs 查看应用日志"
+      ],
+      "follow_ups": [
+        "如何清理部署的资源？",
+        "如何启用 Minikube 插件？",
+        "如何查看集群状态？"
+      ],
+      "summary": "通过 Minikube 学习 Kubernetes 基本部署流程。",
+      "source_url": "https://kubernetes.io/docs/tutorials/hello-minikube/",
+      "source_title": "Hello Minikube | Kubernetes",
+      "section_title": "Try Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Hello Minikube"
+    },
+    {
+      "question": "Kubernetes基础知识概览",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "基础",
+        "学习路径"
+      ],
+      "answer_points": [
+        "Kubernetes 是容器编排平台，支持自动部署、扩展和管理容器化应用",
+        "学习模块包括创建集群、部署应用、暴露服务、扩缩容、更新应用",
+        "Kubernetes 能帮助实现零停机部署和资源管理",
+        "建议通过 Minikube 进行实践学习"
+      ],
+      "follow_ups": [
+        "Kubernetes 的核心组件有哪些？",
+        "如何开始学习 Kubernetes？"
+      ],
+      "summary": "概述 Kubernetes 基础学习内容。",
+      "source_url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+      "source_title": "Learn Kubernetes Basics | Kubernetes",
+      "section_title": "Try Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Walkthrough the basics"
+    },
+    {
+      "question": "kubectl常用命令速查",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "kubectl",
+        "Kubernetes",
+        "命令"
+      ],
+      "answer_points": [
+        "启用自动补全：source <(kubectl completion bash)",
+        "配置 kubectl 上下文和命名空间",
+        "使用 kubectl apply 创建和管理资源",
+        "查看资源：get、describe、logs 等",
+        "更新资源：set image、rollout、patch 等"
+      ],
+      "follow_ups": [
+        "如何查看 Pod 日志？",
+        "如何使用 kubectl diff 比较资源差异？",
+        "如何删除资源？"
+      ],
+      "summary": "kubectl 常用命令整理，包括上下文配置、资源管理、调试等。",
+      "source_url": "https://kubernetes.io/docs/reference/kubectl/quick-reference/",
+      "source_title": "kubectl Quick Reference | Kubernetes",
+      "section_title": "Learn how to use Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "kubectl Quick Reference"
+    },
+    {
+      "question": "如何安装kubectl及本地Kubernetes环境",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "kubectl",
+        "安装",
+        "minikube",
+        "kind"
+      ],
+      "answer_points": [
+        "kubectl 是 Kubernetes 命令行工具，通过官方文档安装",
+        "kind 允许在本地运行 Kubernetes 集群，需要 Docker 或 Podman",
+        "minikube 运行单节点或多节点本地集群，适合学习和开发",
+        "kubeadm 用于创建和管理生产级集群"
+      ],
+      "follow_ups": [
+        "如何验证 kubectl 安装成功？",
+        "minikube 和 kind 的区别是什么？"
+      ],
+      "summary": "介绍安装 kubectl 及本地 Kubernetes 环境的方法。",
+      "source_url": "https://kubernetes.io/docs/tasks/tools/#kubectl",
+      "source_title": "Install Tools | Kubernetes",
+      "section_title": "Learn how to use Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Install kubectl"
+    },
+    {
+      "question": "如何配置Kubernetes多集群访问？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "kubeconfig",
+        "Kubernetes",
+        "集群访问"
+      ],
+      "answer_points": [
+        "kubeconfig文件包含集群、用户和上下文的定义，用于配置集群访问。",
+        "使用kubectl config set-cluster、set-credentials、set-context命令添加配置。",
+        "每个上下文是cluster、user、namespace的三元组，可快速切换。",
+        "通过kubectl config use-context命令切换当前上下文。",
+        "支持通过KUBECONFIG环境变量合并多个kubeconfig文件。",
+        "使用kubectl config view查看或验证配置。"
+      ],
+      "follow_ups": [
+        "如何合并多个kubeconfig文件？",
+        "如何查看当前上下文关联的配置信息？",
+        "如何安全地存储kubeconfig中的凭证？"
+      ],
+      "summary": "通过kubeconfig文件管理多集群访问，包含集群、用户、上下文定义和切换。",
+      "source_url": "https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/",
+      "source_title": "Configure Access to Multiple Clusters | Kubernetes",
+      "section_title": "Learn how to use Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Configure access to clusters"
+    },
+    {
+      "question": "如何部署和访问Kubernetes Dashboard？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes Dashboard",
+        "Web UI",
+        "helm安装"
+      ],
+      "answer_points": [
+        "Kubernetes Dashboard是Web UI，用于管理和监控集群。",
+        "使用Helm安装Dashboard：helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --namespace kubernetes-dashboard。",
+        "通过kubectl port-forward -n kubernetes-dashboard svc/kubernetes-dashboard-kong-proxy 8443:443本地访问。",
+        "Dashboard默认使用Bearer Token登录，支持RBAC。",
+        "可通过Dashboard部署应用、查看资源状态和日志。"
+      ],
+      "follow_ups": [
+        "如何为Dashboard创建具有管理员权限的ServiceAccount？",
+        "Dashboard与Headlamp有什么区别？",
+        "如何通过Dashboard进行故障排查？"
+      ],
+      "summary": "Dashboard是Kubernetes的Web UI，通过Helm部署，使用kubectl port-forward本地访问。",
+      "source_url": "https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/",
+      "source_title": "Deploy and Access the Kubernetes Dashboard | Kubernetes",
+      "section_title": "Learn how to use Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Use the Web UI Dashboard"
+    },
+    {
+      "question": "如何获得Kubernetes问题的帮助？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes社区",
+        "Stack Overflow",
+        "Slack"
+      ],
+      "answer_points": [
+        "可以在Stack Overflow或Server Fault上提问，添加Kubernetes标签。",
+        "加入Kubernetes Slack的#kubernetes-users频道获取社区帮助。",
+        "官方论坛discuss.kubernetes.io也提供支持。",
+        "报告bug或功能请求需要通过GitHub issues，并提供详细复现信息。"
+      ],
+      "follow_ups": [
+        "提问时应该提供哪些信息以提高回复效率？",
+        "如何高效利用Kubernetes文档解决问题？"
+      ],
+      "summary": "Kubernetes社区提供多种渠道获取帮助：Stack Overflow、Slack、论坛和GitHub。",
+      "source_url": "https://kubernetes.io/docs/tasks/debug/",
+      "source_title": "Monitoring, Logging, and Debugging | Kubernetes",
+      "section_title": "Learn how to use Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Getting help"
+    },
+    {
+      "question": "Kubernetes术语表中有哪些核心概念？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes术语",
+        "API资源",
+        "节点"
+      ],
+      "answer_points": [
+        "术语表涵盖Add-ons、Admission Controller、Affinity、API Server等基本概念。",
+        "包括集群、节点、命名空间、部署、服务等核心对象定义。",
+        "每个术语有简要解释和详细展开选项，按标签分类如架构、网络、安全等。",
+        "术语表帮助理解Kubernetes生态系统中的专有名词。"
+      ],
+      "follow_ups": [
+        "什么是Admission Controller？有什么作用？",
+        "如何理解Affinity在Pod调度中的作用？"
+      ],
+      "summary": "Kubernetes官方术语表，汇总核心概念和组件定义。",
+      "source_url": "https://kubernetes.io/docs/reference/glossary/",
+      "source_title": "Glossary | Kubernetes",
+      "section_title": "Look up reference information",
+      "bucket": "network",
+      "raw_question_title": "Glossary"
+    },
+    {
+      "question": "What is kubectl and how to use it?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "kubectl",
+        "Kubernetes",
+        "command line tool"
+      ],
+      "answer_points": [
+        "kubectl is the Kubernetes command-line tool for communicating with the cluster's control plane via the Kubernetes API.",
+        "Configuration is looked for in $HOME/.kube/config file, or can be specified via KUBECONFIG env variable or --kubeconfig flag.",
+        "Basic syntax: kubectl command TYPE NAME flags, where command is operation (e.g., get, create, delete), TYPE is resource type (singular/plural/abbreviated ok), NAME is resource name.",
+        "Operations include get, describe, create, delete, apply, exec, logs, etc. Resource types include pods, services, deployments, etc.",
+        "Kubectl can detect in-cluster authentication via service account token and environment variables.",
+        "ServiceAccount token handling: if running in a pod, kubectl automatically uses the token and the pod's namespace; outside cluster, it uses the current context namespace."
+      ],
+      "follow_ups": [
+        "How does kubectl resolve namespace when running inside a pod?",
+        "What is the difference between kubectl apply and kubectl create?",
+        "How to specify multiple resources in a single kubectl command?"
+      ],
+      "summary": "kubectl is the primary CLI to manage Kubernetes resources; its syntax and behavior are essential for day-to-day operations.",
+      "source_url": "https://kubernetes.io/docs/reference/kubectl/",
+      "source_title": "Command line tool (kubectl) | Kubernetes",
+      "section_title": "Look up reference information",
+      "bucket": "network",
+      "raw_question_title": "kubectl command line tool"
+    },
+    {
+      "question": "What are labels, annotations, and taints in Kubernetes?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "labels",
+        "annotations",
+        "taints"
+      ],
+      "answer_points": [
+        "Labels are key-value pairs attached to objects for identification and selection; used by services and deployments to select pods.",
+        "Annotations are also key-value pairs but used for non-identifying metadata, e.g., tooling information, build info, or any arbitrary metadata.",
+        "Taints are applied to nodes to repel pods unless the pod has a matching toleration; used for node scheduling constraints.",
+        "Kubernetes defines several well-known labels and annotations for consistency, e.g., app.kubernetes.io/name, app.kubernetes.io/version, etc.",
+        "Annotations can include flags like apf.kubernetes.io/autoupdate-spec for FlowSchema control, or cluster-autoscaler.kubernetes.io/safe-to-evict for pod eviction behavior.",
+        "Taints are not directly related to labels/annotations but are part of scheduling; they are often discussed together for resource management."
+      ],
+      "follow_ups": [
+        "How do labels differ from annotations?",
+        "What is the purpose of the app.kubernetes.io/managed-by label?",
+        "Can a taint be applied without a corresponding toleration?",
+        "How to use labels for service discovery?"
+      ],
+      "summary": "Labels identify and select objects; annotations store metadata; taints control pod placement on nodes.",
+      "source_url": "https://kubernetes.io/docs/reference/labels-annotations-taints/#labels-annotations-and-taints-used-on-api-objects",
+      "source_title": "Well-Known Labels, Annotations and Taints | Kubernetes",
+      "section_title": "Look up reference information",
+      "bucket": "network",
+      "raw_question_title": "Labels, annotations and taints"
+    },
+    {
+      "question": "What is the Kubernetes API?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "API",
+        "RESTful"
+      ],
+      "answer_points": [
+        "The Kubernetes API is a RESTful interface that serves Kubernetes functionality and stores the cluster's state.",
+        "All Kubernetes resources and 'records of intent' are stored as API objects; they are modified via RESTful calls to the API.",
+        "Users can interact with the API directly or via tools like kubectl; the API supports declarative configuration.",
+        "The API is organized into API groups (e.g., core, apps, batch, networking) each with different versions (alpha, beta, stable).",
+        "The core API group is at /api/v1; named groups are at /apis/$GROUP/$VERSION."
+      ],
+      "follow_ups": [
+        "What are the differences between alpha, beta, and stable API versions?",
+        "How can you enable or disable an API group?",
+        "What is the role of the API server in Kubernetes?"
+      ],
+      "summary": "The Kubernetes API is the foundation of the platform, allowing declarative management of cluster resources.",
+      "source_url": "https://kubernetes.io/docs/reference/kubernetes-api/",
+      "source_title": "Kubernetes API | Kubernetes",
+      "section_title": "Look up reference information",
+      "bucket": "network",
+      "raw_question_title": "Kubernetes API reference"
+    },
+    {
+      "question": "What is the structure of the Kubernetes API overview?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "API",
+        "versioning"
+      ],
+      "answer_points": [
+        "The Kubernetes API is the central fabric; all operations and communications are REST API calls handled by the API Server.",
+        "Everything in Kubernetes is treated as an API object with a corresponding entry in the API.",
+        "API versioning includes alpha (disabled by default, may change, not for production), beta (enabled optionally, stable beta versions deprecated after 9 months or 3 releases), and stable (vX, remain available).",
+        "API groups extend the core API; the core group is at /api/v1, named groups under /apis/$GROUP/$VERSION.",
+        "API groups can be enabled/disabled via --runtime-config flag on kube-apiserver.",
+        "Cluster state persists in etcd."
+      ],
+      "follow_ups": [
+        "What is the difference between alpha and beta API versions?",
+        "How does the API server handle authentication and authorization?",
+        "Why is etcd used for storing Kubernetes state?"
+      ],
+      "summary": "Kubernetes API overview covers the RESTful foundation, versioning levels, API groups, and persistence model.",
+      "source_url": "https://kubernetes.io/docs/reference/using-api/",
+      "source_title": "API Overview | Kubernetes",
+      "section_title": "Look up reference information",
+      "bucket": "network",
+      "raw_question_title": "Overview of API"
+    },
+    {
+      "question": "Feature Gates",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "Feature Gates",
+        "配置管理"
+      ],
+      "answer_points": [
+        "Feature Gates是Kubernetes组件上用于控制特性开启或关闭的开关，通过--feature-gates命令行标志设置。",
+        "每个特性门控有默认状态（true/false）和阶段（Alpha/Beta/GA/Deprecated），不同组件支持不同的门控。",
+        "启用方法：在组件启动参数中添加--feature-gates=Key1=true,Key2=false。",
+        "可以通过<component> -h命令查看某个组件支持的可用特性门控。",
+        "特性门控的默认值随特性阶段变化：Alpha阶段通常默认false，Beta阶段可能默认true，GA阶段默认true且不可关闭。"
+      ],
+      "follow_ups": [
+        "如何查看某个Kubernetes组件当前启用了哪些feature gates？",
+        "Alpha、Beta、GA阶段的feature gate在功能稳定性和默认值上有什么区别？",
+        "如果一个feature gate从Beta变为GA，其默认值会变化吗？"
+      ],
+      "summary": "Kubernetes Feature Gates是控制特性开启与关闭的机制。",
+      "source_url": "https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/",
+      "source_title": "Feature Gates | Kubernetes",
+      "section_title": "Look up reference information",
+      "bucket": "network",
+      "raw_question_title": "Feature Gates"
+    },
+    {
+      "question": "Contribute to Kubernetes",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "开源贡献"
+      ],
+      "answer_points": [
+        "可以通过多种方式贡献：设计新特性、修复bug、编写文档、写博客、帮助社区成员等。",
+        "有专门的贡献者网站（kubernetes.dev）提供详细指引。",
+        "可以参与各个SIG（特别兴趣小组）进行专项贡献。",
+        "CNCF页面也提供了贡献Kubernetes的相关信息。"
+      ],
+      "follow_ups": [
+        "如何找到适合自己的第一个贡献任务？",
+        "贡献Kubernetes项目前需要签署CLA吗？"
+      ],
+      "summary": "有多种方式为Kubernetes项目做贡献。",
+      "source_url": "https://kubernetes.io/docs/contribute/",
+      "source_title": "Contribute to Kubernetes | Kubernetes",
+      "section_title": "Contribute to Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Contribute to Kubernetes"
+    },
+    {
+      "question": "Contribute to documentation",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "文档贡献"
+      ],
+      "answer_points": [
+        "Kubernetes文档由SIG Docs维护，贡献者可改进现有内容、创建新内容、翻译文档、管理发布周期。",
+        "需要熟悉Git和GitHub，通过PR在kubernetes/website仓库贡献。",
+        "必须签署CNCF的贡献者许可协议（CLA）。",
+        "新手可以关注标记为good first issue的文档任务。"
+      ],
+      "follow_ups": [
+        "如何加入SIG Docs？",
+        "Kubernetes文档的样式指南在哪里可以找到？"
+      ],
+      "summary": "参与Kubernetes文档贡献的指南。",
+      "source_url": "https://kubernetes.io/docs/contribute/docs/",
+      "source_title": "Contribute to Kubernetes Documentation | Kubernetes",
+      "section_title": "Contribute to Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Contribute to documentation"
+    },
+    {
+      "question": "Suggest content improvements",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "文档改进"
+      ],
+      "answer_points": [
+        "在GitHub上打开issue来建议文档改进或报告错误。",
+        "issue应清晰描述问题、影响范围，并提供足够细节。",
+        "提交前搜索已有issue避免重复。",
+        "遵循行为准则，保持礼貌和建设性。"
+      ],
+      "follow_ups": [
+        "如何创建一个优质的文档改进issue？",
+        "提交issue后如何跟进并与社区沟通？"
+      ],
+      "summary": "通过GitHub issue建议Kubernetes文档改进的方法。",
+      "source_url": "https://kubernetes.io/docs/contribute/suggesting-improvements/#opening-an-issue",
+      "source_title": "Suggesting content improvements | Kubernetes",
+      "section_title": "Contribute to Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Suggest content improvements"
+    },
+    {
+      "question": "How to open a pull request in the Kubernetes website repository?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Git",
+        "Pull Request",
+        "GitHub",
+        "Kubernetes"
+      ],
+      "answer_points": [
+        "For small changes, use GitHub UI: click 'Edit this page', make changes, commit, propose changes, and create pull request.",
+        "For larger changes, work from a local fork: fork the repo, clone locally, create a branch, make changes, commit, push to fork, then open PR from fork.",
+        "Write a clear PR title and description, include links to related issues or PRs.",
+        "After opening, address reviewer feedback by making additional commits or amending the existing commit.",
+        "Ensure the Netlify build passes; if not, check details and fix issues."
+      ],
+      "follow_ups": [
+        "How do you resolve merge conflicts in a pull request?",
+        "What is the difference between 'Create Pull Request' and 'Draft Pull Request'?",
+        "How can you amend a commit without creating a new one?"
+      ],
+      "summary": "Steps to open a PR using GitHub UI or local fork, including addressing feedback and resolving conflicts.",
+      "source_url": "https://kubernetes.io/docs/contribute/new-content/open-a-pr/",
+      "source_title": "Opening a pull request | Kubernetes",
+      "section_title": "Contribute to Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Opening a pull request"
+    },
+    {
+      "question": "How to document a feature for a Kubernetes release?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "Documentation",
+        "Release",
+        "Feature Gates"
+      ],
+      "answer_points": [
+        "Participate in weekly SIG Release meetings and monitor the kubernetes/sig-release repository for upcoming features.",
+        "Use the Feature Tracking Sheet to find features needing documentation, prioritizing Beta and Stable features.",
+        "Open a draft PR against the dev branch early with a placeholder commit, then add full documentation when ready.",
+        "For alpha/beta features behind feature gates, create a feature gate file in content/en/docs/reference/command-line-tools-reference/feature-gates/ with front-matter details.",
+        "Work with SIG Docs reviewers to refine content and ensure it meets the release deadline."
+      ],
+      "follow_ups": [
+        "What is the purpose of the 'stages' block in a feature gate description file?",
+        "How do you mark a feature gate as deprecated or removed?",
+        "What happens if documentation is not ready by the release deadline?"
+      ],
+      "summary": "Process for creating release documentation: tracking features, opening PRs, handling feature gates, and collaborating with SIGs.",
+      "source_url": "https://kubernetes.io/docs/contribute/new-content/new-features/",
+      "source_title": "Documenting a feature for a release | Kubernetes",
+      "section_title": "Contribute to Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Documenting a feature for a release"
+    },
+    {
+      "question": "How to localize Kubernetes documentation into a new language?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "Localization",
+        "Documentation",
+        "i18n"
+      ],
+      "answer_points": [
+        "Find the two-letter language code from ISO 639-1 (e.g., 'ko' for Korean, 'pt-br' for Brazilian Portuguese).",
+        "Ensure at least two contributors are involved; the team must be self-sufficient.",
+        "Fork the kubernetes/website repository, clone it, and work in a language-specific content directory (content/<code>/).",
+        "Modify hugo.toml to add a language configuration block with title, weight, and contentDir.",
+        "Create OWNERS files under content/<code>/ with reviewers and approvers teams, and update OWNERS_ALIASES.",
+        "Localize minimum required content (home, setup, tutorials, site strings) and open a PR with all necessary files."
+      ],
+      "follow_ups": [
+        "What is the minimum required content for a new localization?",
+        "How do you add a language label to GitHub issues for a localization?",
+        "What are the guidelines for localizing SVG images?"
+      ],
+      "summary": "Steps to start a new documentation localization: setup, configuration, and minimum content requirements.",
+      "source_url": "https://kubernetes.io/docs/contribute/localization/",
+      "source_title": "Localizing Kubernetes documentation | Kubernetes",
+      "section_title": "Contribute to Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Localizing the docs"
+    },
+    {
+      "question": "How to participate in SIG Docs within the Kubernetes project?",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "SIG Docs",
+        "Open Source",
+        "Community"
+      ],
+      "answer_points": [
+        "Anyone can contribute by opening pull requests, filing issues, or commenting on PRs.",
+        "To become a member, reviewer, or approver, follow the Kubernetes community membership process.",
+        "SIG Docs uses GitHub teams (@sig-docs-{language}-owners and -reviews) and OWNERS files to manage permissions.",
+        "Merging requires both /lgtm (any member) and /approve (SIG Docs approver) labels; use /hold to prevent automatic merge.",
+        "PRs merge automatically after labels are applied and tests pass; approvers can manually merge."
+      ],
+      "follow_ups": [
+        "What is the difference between an OWNERS file and front-matter in Markdown files?",
+        "How does the /hold command work?",
+        "What is a PR Wrangler in SIG Docs?"
+      ],
+      "summary": "How to get involved in SIG Docs: roles, automation, and merging workflow.",
+      "source_url": "https://kubernetes.io/docs/contribute/participate/",
+      "source_title": "Participating in SIG Docs | Kubernetes",
+      "section_title": "Contribute to Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Participating in SIG Docs"
+    },
+    {
+      "question": "Viewing Site Analytics",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "Kubernetes",
+        "Analytics",
+        "Google Looker Studio"
+      ],
+      "answer_points": [
+        "Kubernetes官网使用Google Looker Studio构建分析仪表盘。",
+        "仪表盘展示自2022年8月以来的Google Analytics 4数据。",
+        "默认显示过去30天的数据，可通过日期选择器调整。",
+        "支持按用户位置、设备、文档翻译等维度过滤数据。",
+        "如发现问题或希望改进，可以在GitHub上提交issue。"
+      ],
+      "follow_ups": [
+        "如何访问Kubernetes网站的分析仪表盘？",
+        "仪表盘支持哪些数据过滤选项？"
+      ],
+      "summary": "Kubernetes网站分析仪表盘的使用说明。",
+      "source_url": "https://kubernetes.io/docs/contribute/analytics/",
+      "source_title": "Viewing Site Analytics | Kubernetes",
+      "section_title": "Contribute to Kubernetes",
+      "bucket": "network",
+      "raw_question_title": "Viewing Site Analytics"
+    }
+  ]
+}

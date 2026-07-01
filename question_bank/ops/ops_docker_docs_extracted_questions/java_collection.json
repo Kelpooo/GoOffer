@@ -1,0 +1,38 @@
+{
+  "bucket": "java_collection",
+  "count": 1,
+  "items": [
+    {
+      "question": "Manuals Install, set up, configure, and use Docker products.",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Docker",
+        "容器",
+        "安装配置",
+        "Docker Desktop",
+        "Docker Engine"
+      ],
+      "answer_points": [
+        "Docker产品的安装和配置包括Docker Desktop、Docker Engine、Docker Compose等组件。",
+        "Docker Desktop是用于本地开发的图形化工具，支持Windows和Mac。",
+        "Docker Engine是核心运行时，负责容器的创建和管理。",
+        "Docker Compose用于定义和运行多容器应用。",
+        "Docker Hub用于镜像的分享和集成。",
+        "Docker Scout提供镜像分析和策略评估。"
+      ],
+      "follow_ups": [
+        "Docker与虚拟机的主要区别是什么？",
+        "如何优化Docker镜像的大小？",
+        "Docker Compose与Kubernetes的适用场景有何不同？"
+      ],
+      "summary": "Docker产品的安装、配置和使用涉及多个组件和工具。",
+      "source_url": "https://docs.docker.com/manuals/",
+      "source_title": "Manuals | Docker Docs",
+      "section_title": "Guides",
+      "bucket": "java_collection",
+      "raw_question_title": "Manuals Install, set up, configure, and use Docker products."
+    }
+  ]
+}

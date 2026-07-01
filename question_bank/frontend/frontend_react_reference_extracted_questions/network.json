@@ -1,0 +1,871 @@
+{
+  "bucket": "network",
+  "count": 30,
+  "items": [
+    {
+      "question": "React API Reference Overview",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "API",
+        "Reference"
+      ],
+      "answer_points": [
+        "React reference documentation is divided into subsections: React, React DOM, React Compiler, ESLint Plugin, Rules of React, and Legacy APIs.",
+        "React section includes Hooks, Components, APIs, and Directives.",
+        "React DOM section includes Hooks, Components, Client APIs, Server APIs, and Static APIs.",
+        "React Compiler is a build-time optimization tool that automatically memoizes components.",
+        "Rules of React include purity, calling order, and rules of Hooks."
+      ],
+      "follow_ups": [
+        "What are the main categories in the React API reference?",
+        "What is the purpose of the React Compiler?",
+        "What are the Rules of React?"
+      ],
+      "summary": "Overview of React API reference documentation structure.",
+      "source_url": "https://react.dev/reference/react",
+      "source_title": "React Reference Overview – React",
+      "section_title": "未分类",
+      "bucket": "network",
+      "raw_question_title": "API Reference"
+    },
+    {
+      "question": "React Quick Start: Core Concepts",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "Quick Start",
+        "Components",
+        "JSX",
+        "State"
+      ],
+      "answer_points": [
+        "React apps are built from components, which are JavaScript functions returning markup.",
+        "JSX is a markup syntax used in React; it requires closing tags and a single parent element.",
+        "Use className for CSS classes and curly braces for JavaScript expressions in JSX.",
+        "Conditional rendering uses if statements, ternary operators, or logical &&.",
+        "Lists are rendered using map() with a unique key prop.",
+        "State is managed with useState hook; lifting state up shares data between components."
+      ],
+      "follow_ups": [
+        "How do you conditionally render elements in React?",
+        "What is the purpose of the key prop in lists?",
+        "How does lifting state up work?"
+      ],
+      "summary": "Introduction to React core concepts: components, JSX, state, and event handling.",
+      "source_url": "https://react.dev/learn",
+      "source_title": "Quick Start – React",
+      "section_title": "React Reference Overview",
+      "bucket": "network",
+      "raw_question_title": "Learn"
+    },
+    {
+      "question": "Built-in React Hooks Overview",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "Hooks",
+        "State",
+        "Effect",
+        "Performance"
+      ],
+      "answer_points": [
+        "State Hooks: useState for direct state updates, useReducer for complex logic.",
+        "Context Hooks: useContext to receive data from distant parents without props.",
+        "Ref Hooks: useRef for mutable values not causing re-renders, useImperativeHandle for custom refs.",
+        "Effect Hooks: useEffect for side effects, useLayoutEffect for layout measurements, useInsertionEffect for CSS injection.",
+        "Performance Hooks: useMemo and useCallback to skip unnecessary work, useTransition and useDeferredValue for prioritization.",
+        "Other Hooks: useDebugValue, useId, useSyncExternalStore, useActionState."
+      ],
+      "follow_ups": [
+        "What is the difference between useEffect and useLayoutEffect?",
+        "When would you use useReducer instead of useState?",
+        "How do useMemo and useCallback improve performance?"
+      ],
+      "summary": "Overview of all built-in React Hooks categorized by purpose.",
+      "source_url": "https://react.dev/reference/react/hooks",
+      "source_title": "Built-in React Hooks – React",
+      "section_title": "React",
+      "bucket": "network",
+      "raw_question_title": "Hooks"
+    },
+    {
+      "question": "Built-in React Components",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "Components",
+        "Fragment",
+        "Suspense"
+      ],
+      "answer_points": [
+        "React provides built-in components: Fragment (<>...</>), Profiler, Suspense, StrictMode, and Activity.",
+        "Fragment groups multiple JSX nodes without adding extra DOM elements.",
+        "Profiler measures rendering performance programmatically.",
+        "Suspense displays a fallback while child components are loading.",
+        "StrictMode enables extra development checks to find bugs early.",
+        "Activity hides and restores UI and internal state of children."
+      ],
+      "follow_ups": [
+        "What is the purpose of React.Fragment?",
+        "How does Suspense work with lazy loading?",
+        "What checks does StrictMode perform?"
+      ],
+      "summary": "List of built-in React components and their uses.",
+      "source_url": "https://react.dev/reference/react/components",
+      "source_title": "Built-in React Components – React",
+      "section_title": "React",
+      "bucket": "network",
+      "raw_question_title": "Components"
+    },
+    {
+      "question": "Built-in React APIs",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "API",
+        "createContext",
+        "lazy",
+        "memo"
+      ],
+      "answer_points": [
+        "createContext defines and provides context to child components, used with useContext.",
+        "lazy defers loading a component's code until first render.",
+        "memo lets a component skip re-renders with same props.",
+        "startTransition marks a state update as non-urgent.",
+        "act wraps renders and interactions in tests to ensure updates are processed.",
+        "use reads the value of a resource like a Promise or context."
+      ],
+      "follow_ups": [
+        "How does React.memo differ from useMemo?",
+        "What is the purpose of startTransition?",
+        "How does the use() API work?"
+      ],
+      "summary": "Overview of additional React APIs for defining components.",
+      "source_url": "https://react.dev/reference/react/apis",
+      "source_title": "Built-in React APIs – React",
+      "section_title": "React",
+      "bucket": "network",
+      "raw_question_title": "APIs"
+    },
+    {
+      "question": "React Directives for Server Components",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "React",
+        "Directives",
+        "Server Components",
+        "use client",
+        "use server"
+      ],
+      "answer_points": [
+        "Directives provide instructions to bundlers compatible with React Server Components.",
+        "'use client' marks code that runs on the client.",
+        "'use server' marks server-side functions callable from client-side code."
+      ],
+      "follow_ups": [
+        "What is the difference between 'use client' and 'use server'?",
+        "When would you use 'use client' in a component?",
+        "How do directives interact with bundlers?"
+      ],
+      "summary": "Explanation of React directives for server components.",
+      "source_url": "https://react.dev/reference/rsc/directives",
+      "source_title": "Directives – React",
+      "section_title": "React",
+      "bucket": "network",
+      "raw_question_title": "Directives"
+    },
+    {
+      "question": "React DOM Hooks for Web Applications",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "DOM",
+        "Hooks",
+        "useFormStatus"
+      ],
+      "answer_points": [
+        "react-dom provides Hooks only for web applications (browser DOM environment).",
+        "useFormStatus allows UI updates based on form status.",
+        "useActionState manages state of actions."
+      ],
+      "follow_ups": [
+        "What is useFormStatus used for?",
+        "How does useActionState work?",
+        "Why are these Hooks not available in non-browser environments?"
+      ],
+      "summary": "Overview of React DOM Hooks for form management.",
+      "source_url": "https://react.dev/reference/react-dom/hooks",
+      "source_title": "Built-in React DOM Hooks – React",
+      "section_title": "React DOM",
+      "bucket": "network",
+      "raw_question_title": "Hooks"
+    },
+    {
+      "question": "React DOM Components",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "DOM",
+        "Components",
+        "HTML",
+        "SVG"
+      ],
+      "answer_points": [
+        "React supports all built-in browser HTML and SVG components.",
+        "Common components include <div>, <span>, etc., with React-specific props like ref and dangerouslySetInnerHTML.",
+        "Form components (<input>, <select>, <textarea>) become controlled when value prop is passed.",
+        "Resource components (<link>, <meta>, <script>, <style>, <title>) can be rendered into document head.",
+        "Custom HTML elements (with dash) are supported; properties can be set via class constructor.",
+        "SVG components use camelCase prop names and namespaced attributes without colon."
+      ],
+      "follow_ups": [
+        "How do controlled components work in React?",
+        "What is the difference between attributes and properties for custom elements?",
+        "How do you listen for custom events on custom elements?"
+      ],
+      "summary": "Overview of React DOM components including HTML, SVG, and custom elements.",
+      "source_url": "https://react.dev/reference/react-dom/components",
+      "source_title": "React DOM Components – React",
+      "section_title": "React DOM",
+      "bucket": "network",
+      "raw_question_title": "Components"
+    },
+    {
+      "question": "React DOM APIs 有哪些？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "React DOM",
+        "APIs"
+      ],
+      "answer_points": [
+        "react-dom 包包含仅用于 Web 应用的 API，如 createPortal 和 flushSync。",
+        "资源预加载 API 包括 prefetchDNS、preconnect、preload、preloadModule、preinit、preinitModule。",
+        "react-dom 提供两个额外入口：react-dom/client 和 react-dom/server。",
+        "React 19 中移除了 findDOMNode、hydrate、render、unmountComponentAtNode 等 API。"
+      ],
+      "follow_ups": [
+        "createPortal 和 flushSync 分别有什么作用？",
+        "资源预加载 API 如何提升应用性能？",
+        "React 19 中移除的 API 有哪些替代方案？"
+      ],
+      "summary": "React DOM 提供浏览器环境专用 API，包括渲染、资源预加载和服务器端渲染。",
+      "source_url": "https://react.dev/reference/react-dom",
+      "source_title": "React DOM APIs – React",
+      "section_title": "React DOM",
+      "bucket": "network",
+      "raw_question_title": "APIs"
+    },
+    {
+      "question": "Client React DOM APIs 有哪些？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "React DOM",
+        "Client APIs"
+      ],
+      "answer_points": [
+        "createRoot 用于在浏览器 DOM 节点中创建根节点以显示 React 组件。",
+        "hydrateRoot 用于在之前由 react-dom/server 生成 HTML 内容的浏览器 DOM 节点中显示 React 组件。",
+        "React 支持所有主流浏览器，包括 IE 9 及以上，但旧浏览器需要 polyfills。"
+      ],
+      "follow_ups": [
+        "createRoot 和 hydrateRoot 有什么区别？",
+        "hydrateRoot 在什么场景下使用？",
+        "React 对浏览器兼容性有什么要求？"
+      ],
+      "summary": "Client APIs 包括 createRoot 和 hydrateRoot，用于在浏览器端渲染 React 组件。",
+      "source_url": "https://react.dev/reference/react-dom/client",
+      "source_title": "Client React DOM APIs – React",
+      "section_title": "React DOM",
+      "bucket": "network",
+      "raw_question_title": "Client APIs"
+    },
+    {
+      "question": "Server React DOM APIs 有哪些？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "React DOM",
+        "Server APIs"
+      ],
+      "answer_points": [
+        "Web Streams 环境下的 API：renderToReadableStream 和 resume。",
+        "Node.js Streams 环境下的 API：renderToPipeableStream 和 resumeToPipeableStream。",
+        "非流式环境的遗留 API：renderToString 和 renderToStaticMarkup，功能有限。"
+      ],
+      "follow_ups": [
+        "renderToReadableStream 和 renderToPipeableStream 有什么区别？",
+        "为什么推荐使用流式 API 而非 renderToString？",
+        "resume 方法的作用是什么？"
+      ],
+      "summary": "Server APIs 根据环境提供流式或非流式渲染方法。",
+      "source_url": "https://react.dev/reference/react-dom/server",
+      "source_title": "Server React DOM APIs – React",
+      "section_title": "React DOM",
+      "bucket": "network",
+      "raw_question_title": "Server APIs"
+    },
+    {
+      "question": "Static React DOM APIs 有哪些？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "React DOM",
+        "Static APIs"
+      ],
+      "answer_points": [
+        "Web Streams 环境下的静态 API：prerender（实验性）和 resumeAndPrerender（实验性）。",
+        "Node.js Streams 环境下的静态 API：prerenderToNodeStream（实验性）和 resumeAndPrerenderToNodeStream（实验性）。",
+        "Node.js 也包含 Web Streams 方法，但性能较差，推荐使用专用 Node.js API。"
+      ],
+      "follow_ups": [
+        "prerender 和 renderToReadableStream 有何不同？",
+        "实验性 API 在生产环境中是否可用？",
+        "静态 API 适用于哪些场景？"
+      ],
+      "summary": "Static APIs 用于将 React 树渲染为静态 HTML，支持流式输出。",
+      "source_url": "https://react.dev/reference/react-dom/static",
+      "source_title": "Static React DOM APIs – React",
+      "section_title": "React DOM",
+      "bucket": "network",
+      "raw_question_title": "Static APIs"
+    },
+    {
+      "question": "React Compiler 的配置选项有哪些？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "React Compiler",
+        "Configuration"
+      ],
+      "answer_points": [
+        "compilationMode 控制编译策略，可选 annotation、infer、all。",
+        "target 指定 React 版本（17、18、19），需要配合 react-compiler-runtime 包。",
+        "panicThreshold 决定是否因错误而失败构建，推荐设为 'none' 以跳过问题组件。",
+        "logger 提供自定义日志记录编译事件。",
+        "gating 启用运行时特性标志，用于 A/B 测试或逐步推出。"
+      ],
+      "follow_ups": [
+        "compilationMode 的 annotation 和 infer 模式有什么区别？",
+        "如何为 React 17/18 项目配置编译器？",
+        "gating 配置如何实现逐步采用？"
+      ],
+      "summary": "React Compiler 提供编译控制、版本兼容、错误处理、调试和特性标志等配置。",
+      "source_url": "https://react.dev/reference/react-compiler/configuration",
+      "source_title": "Configuration – React",
+      "section_title": "React Compiler",
+      "bucket": "network",
+      "raw_question_title": "Configuration"
+    },
+    {
+      "question": "React Compiler 的指令有哪些？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "React Compiler",
+        "Directives"
+      ],
+      "answer_points": [
+        "可用指令：\"use memo\" 强制编译，\"use no memo\" 阻止编译。",
+        "指令可放在函数级别或模块级别（文件顶部）。",
+        "不同 compilationMode 下指令行为不同：annotation 模式仅编译带 \"use memo\" 的函数；infer 模式指令覆盖编译器决策；all 模式默认编译所有，\"use no memo\" 排除特定函数。",
+        "最佳实践：谨慎使用指令，记录原因，并计划移除。"
+      ],
+      "follow_ups": [
+        "模块级指令和函数级指令的优先级如何？",
+        "在 infer 模式下，指令如何与编译器决策交互？",
+        "如何逐步采用 React Compiler？"
+      ],
+      "summary": "React Compiler 指令提供细粒度控制，用于强制或阻止特定函数的编译。",
+      "source_url": "https://react.dev/reference/react-compiler/directives",
+      "source_title": "Directives – React",
+      "section_title": "React Compiler",
+      "bucket": "network",
+      "raw_question_title": "Directives"
+    },
+    {
+      "question": "如何编译 React 库以使用 React Compiler？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "React",
+        "React Compiler",
+        "Library"
+      ],
+      "answer_points": [
+        "安装 babel-plugin-react-compiler 并配置构建工具。",
+        "向后兼容：安装 react-compiler-runtime 作为依赖，并设置 target 为最低支持的 React 版本。",
+        "测试策略：同时测试编译后和未编译的代码，确保兼容性。",
+        "常见问题：库不兼容旧版本、Babel 插件冲突、运行时模块未找到。"
+      ],
+      "follow_ups": [
+        "为什么库作者应该编译代码后再发布？",
+        "如何处理编译后的库与旧版 React 的兼容性问题？",
+        "如何解决 Babel 插件冲突？"
+      ],
+      "summary": "库作者可通过编译代码提供优化，同时需处理向后兼容性和测试。",
+      "source_url": "https://react.dev/reference/react-compiler/compiling-libraries",
+      "source_title": "Compiling Libraries – React",
+      "section_title": "React Compiler",
+      "bucket": "network",
+      "raw_question_title": "Compiling Libraries"
+    },
+    {
+      "question": "eslint-plugin-react-hooks 提供了哪些规则？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "ESLint",
+        "Hooks"
+      ],
+      "answer_points": [
+        "推荐规则包括 exhaustive-deps、rules-of-hooks、component-hook-factories 等。",
+        "其他规则涵盖配置验证、错误边界、全局变量、不可变性、纯度、ref 使用等。",
+        "该插件可自动显示 React Compiler 的诊断信息，即使未使用编译器。",
+        "编译器检测到违反规则时会跳过该组件/钩子，无需立即修复所有违规。"
+      ],
+      "follow_ups": [
+        "exhaustive-deps 规则的作用是什么？",
+        "rules-of-hooks 规则检查哪些内容？",
+        "如何逐步修复 ESLint 插件报告的违规？"
+      ],
+      "summary": "eslint-plugin-react-hooks 提供一系列规则，帮助在构建时强制执行 React 规则。",
+      "source_url": "https://react.dev/reference/eslint-plugin-react-hooks",
+      "source_title": "eslint-plugin-react-hooks – React",
+      "section_title": "ESLint Plugin React Hooks",
+      "bucket": "network",
+      "raw_question_title": "ESLint plugin for React Hooks"
+    },
+    {
+      "question": "Components and Hooks must be pure",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "purity",
+        "components",
+        "hooks"
+      ],
+      "answer_points": [
+        "Pure functions only perform a calculation and nothing more, making code easier to understand and debug.",
+        "Components and Hooks must be idempotent: same inputs always produce the same output.",
+        "Side effects must run outside of render, e.g., in event handlers or Effects.",
+        "Do not mutate non-local values; local mutation is acceptable.",
+        "Props and state are immutable snapshots; never mutate them directly.",
+        "Non-idempotent code like new Date() should be moved to Effects or event handlers."
+      ],
+      "follow_ups": [
+        "What is the difference between a side effect and an Effect in React?",
+        "Why is local mutation allowed during render?",
+        "How does purity enable React to optimize rendering?"
+      ],
+      "summary": "React components and Hooks must be pure functions to ensure predictable behavior and enable optimizations.",
+      "source_url": "https://react.dev/reference/rules/components-and-hooks-must-be-pure",
+      "source_title": "Components and Hooks must be pure – React",
+      "section_title": "Rules of React",
+      "bucket": "network",
+      "raw_question_title": "Components and Hooks must be pure"
+    },
+    {
+      "question": "React calls Components and Hooks",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "components",
+        "hooks",
+        "rendering"
+      ],
+      "answer_points": [
+        "Components should only be used in JSX, not called as regular functions.",
+        "Hooks should only be called inside components or custom Hooks, not passed around as values.",
+        "Do not dynamically mutate or use Hooks; they should be static.",
+        "Letting React call components enables features like local state, reconciliation, and better debugging.",
+        "Passing Hooks as props or creating higher-order Hooks is discouraged."
+      ],
+      "follow_ups": [
+        "What happens if you call a component function directly instead of using JSX?",
+        "Why should Hooks not be passed as props?",
+        "How does React decide when to call a component?"
+      ],
+      "summary": "React is responsible for calling components and Hooks; they should not be called directly or passed around as values.",
+      "source_url": "https://react.dev/reference/rules/react-calls-components-and-hooks",
+      "source_title": "React calls Components and Hooks – React",
+      "section_title": "Rules of React",
+      "bucket": "network",
+      "raw_question_title": "React calls Components and Hooks"
+    },
+    {
+      "question": "Rules of Hooks",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "hooks",
+        "rules"
+      ],
+      "answer_points": [
+        "Only call Hooks at the top level of a React function component or custom Hook.",
+        "Do not call Hooks inside loops, conditions, nested functions, or try/catch/finally blocks.",
+        "Only call Hooks from React function components or custom Hooks, not from regular JavaScript functions.",
+        "Custom Hooks may call other Hooks, as they are also called during rendering.",
+        "Use the eslint-plugin-react-hooks plugin to catch violations."
+      ],
+      "follow_ups": [
+        "Why must Hooks be called at the top level?",
+        "What happens if you call a Hook inside a condition?",
+        "Can you call Hooks from class components?"
+      ],
+      "summary": "Hooks must be called at the top level of React functions and only from React function components or custom Hooks.",
+      "source_url": "https://react.dev/reference/rules/rules-of-hooks",
+      "source_title": "Rules of Hooks – React",
+      "section_title": "Rules of React",
+      "bucket": "network",
+      "raw_question_title": "Rules of Hooks"
+    },
+    {
+      "question": "Legacy APIs",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "legacy",
+        "APIs"
+      ],
+      "answer_points": [
+        "Legacy APIs include Children, cloneElement, Component, createElement, createRef, forwardRef, isValidElement, and PureComponent.",
+        "These APIs have alternatives; for example, use JSX instead of createElement.",
+        "Removed APIs in React 19 include createFactory, static contextTypes, static childContextTypes, static getChildContext, static propTypes, and this.refs.",
+        "Class components are considered legacy; function components with Hooks are preferred."
+      ],
+      "follow_ups": [
+        "What is the alternative to using Children API?",
+        "Why were class components deprecated?",
+        "How do you create a ref in modern React?"
+      ],
+      "summary": "React provides legacy APIs that have modern alternatives; class components and certain APIs are deprecated.",
+      "source_url": "https://react.dev/reference/react/legacy",
+      "source_title": "Legacy React APIs – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Legacy APIs"
+    },
+    {
+      "question": "Installation",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "installation",
+        "setup"
+      ],
+      "answer_points": [
+        "React can be tried online via sandboxes like CodeSandbox or locally by downloading an HTML page.",
+        "To start a new React app, use a recommended framework like Next.js or Remix.",
+        "You can also build a React app from scratch or add React to an existing project.",
+        "Create React App is deprecated; use modern frameworks instead."
+      ],
+      "follow_ups": [
+        "What are the recommended frameworks for creating a React app?",
+        "How do you add React to an existing project?",
+        "Why was Create React App deprecated?"
+      ],
+      "summary": "React can be installed via frameworks, from scratch, or added to existing projects; Create React App is deprecated.",
+      "source_url": "https://react.dev/learn/installation",
+      "source_title": "Installation – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Installation"
+    },
+    {
+      "question": "Describing the UI",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "UI",
+        "components",
+        "JSX"
+      ],
+      "answer_points": [
+        "React UI is built from components, which are JavaScript functions that return JSX.",
+        "Components can be imported and exported across files.",
+        "JSX is a syntax extension that looks like HTML but is stricter; it allows embedding JavaScript with curly braces.",
+        "Props are used to pass data from parent to child components.",
+        "Conditional rendering uses JavaScript operators like if, &&, and ? :.",
+        "Lists are rendered using map() with a unique key prop."
+      ],
+      "follow_ups": [
+        "What is the difference between JSX and HTML?",
+        "Why is the key prop important when rendering lists?",
+        "How do you conditionally render a component?"
+      ],
+      "summary": "React components describe UI using JSX, props, conditional rendering, and lists.",
+      "source_url": "https://react.dev/learn/describing-the-ui",
+      "source_title": "Describing the UI – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Describing the UI"
+    },
+    {
+      "question": "Adding Interactivity",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "state",
+        "events",
+        "interactivity"
+      ],
+      "answer_points": [
+        "Event handlers are functions triggered by user interactions like clicks or form submissions.",
+        "State is component-specific memory managed with the useState Hook.",
+        "React updates UI in three phases: trigger, render, and commit.",
+        "State behaves like a snapshot; setting state triggers a re-render but does not change the current variable.",
+        "Multiple state updates can be queued using updater functions.",
+        "Objects and arrays in state should be treated as immutable; create copies when updating."
+      ],
+      "follow_ups": [
+        "Why does state not update immediately after calling setState?",
+        "How do you update a nested object in state?",
+        "What is the purpose of the key prop in lists?"
+      ],
+      "summary": "React components handle user interactions with event handlers and state, which triggers re-renders.",
+      "source_url": "https://react.dev/learn/adding-interactivity",
+      "source_title": "Adding Interactivity – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Adding Interactivity"
+    },
+    {
+      "question": "Managing State",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "state management",
+        "context",
+        "reducer"
+      ],
+      "answer_points": [
+        "Think of UI changes as state changes; describe different visual states and trigger transitions.",
+        "Avoid redundant or duplicated state; compute derived values during rendering.",
+        "Lift state up to share it between components by moving it to a common parent.",
+        "Use key prop to force resetting state when needed.",
+        "Extract complex state logic into a reducer using useReducer.",
+        "Use Context to pass data deeply without prop drilling."
+      ],
+      "follow_ups": [
+        "What is the difference between useState and useReducer?",
+        "How does Context work and when should it be used?",
+        "How do you preserve or reset state when re-rendering?"
+      ],
+      "summary": "Effective state management involves structuring state well, lifting state up, using reducers, and leveraging Context.",
+      "source_url": "https://react.dev/learn/managing-state",
+      "source_title": "Managing State – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Managing State"
+    },
+    {
+      "question": "What are Escape Hatches in React?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "Escape Hatches",
+        "refs",
+        "Effects"
+      ],
+      "answer_points": [
+        "Escape hatches allow components to control and synchronize with systems outside of React, such as browser APIs or non-React code.",
+        "Refs (useRef) let you remember information without triggering re-renders, useful for storing timeout IDs, DOM elements, etc.",
+        "Manipulating the DOM with refs enables focusing nodes, scrolling, or measuring size and position.",
+        "Effects (useEffect) synchronize components with external systems after rendering, and should include cleanup functions to avoid memory leaks.",
+        "Not all situations require Effects; avoid them for transforming data or handling user events when possible.",
+        "Effect dependencies should be correctly specified to avoid unnecessary re-runs; use Effect Events to separate reactive from non-reactive code."
+      ],
+      "follow_ups": [
+        "How do you decide whether to use a ref or state?",
+        "What is the difference between an Effect and an event handler?",
+        "How can you remove unnecessary dependencies from an Effect?"
+      ],
+      "summary": "Escape hatches in React provide ways to step outside React's paradigm using refs and Effects.",
+      "source_url": "https://react.dev/learn/escape-hatches",
+      "source_title": "Escape Hatches – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Escape Hatches"
+    },
+    {
+      "question": "How can developers engage with the React community?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "Community"
+      ],
+      "answer_points": [
+        "Stack Overflow is a popular forum for code-level questions tagged with reactjs.",
+        "Online forums like DEV, Hashnode, Reactiflux, and Reddit are great for discussions on best practices and architecture.",
+        "Follow @reactjs on Twitter and @react.dev on Bluesky for the latest news.",
+        "The official React blog is the source for release notes and deprecation notices."
+      ],
+      "follow_ups": [
+        "What is the React Code of Conduct?",
+        "Where can I find React conferences?"
+      ],
+      "summary": "The React community offers multiple platforms for support, discussion, and news.",
+      "source_url": "https://react.dev/community",
+      "source_title": "React Community – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Community"
+    },
+    {
+      "question": "Who are the current members of the React Core team?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "Team"
+      ],
+      "answer_points": [
+        "The React Core team works full time at Meta on core APIs, React DOM, React Native, DevTools, and documentation.",
+        "Current members include Andrew Clark, Dan Abramov, Eli White, Hendrik Liebau, Jack Pope, Jason Bonta, Joe Savona, Jordan Brown, Josh Story, Lauren Tan, Matt Carroll, Mike Vitousek, Mofei Zhang, Pieter Vanderwerff, Rick Hanlon, Ruslan Lesiutin, Sebastian Markbåge, Sebastian Silbermann, Seth Webster, Sophie Alpert, and Yuzhi Zheng.",
+        "Past contributors are acknowledged on the acknowledgements page."
+      ],
+      "follow_ups": [
+        "What is the role of the React Core team?",
+        "How can I become a contributor to React?"
+      ],
+      "summary": "The React Core team consists of engineers at Meta and Vercel who maintain React.",
+      "source_url": "https://react.dev/community/team",
+      "source_title": "Meet the Team – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Meet the Team"
+    },
+    {
+      "question": "Who contributed to the React documentation?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "Documentation"
+      ],
+      "answer_points": [
+        "Content contributors include Rachel Nabors, Dan Abramov, Sylwia Vargas, Rick Hanlon, David McCabe, Sophie Alpert, Pete Hunt, Andrew Clark, Matt Carroll, Natalia Tepluhina, and Sebastian Markbåge.",
+        "Design contributors include Dan Lebowitz, Razvan Gradinar, Maggie Appleton, and Sophie Alpert.",
+        "Development contributors include Jared Palmer, ThisDotLabs, CodeSandbox team, Dan Abramov, Rick Hanlon, Harish Kumar, and Luna Ruan."
+      ],
+      "follow_ups": [
+        "How can I contribute to React documentation?",
+        "What tools were used to build the documentation site?"
+      ],
+      "summary": "React documentation was created by a mix of core team members and external contributors.",
+      "source_url": "https://react.dev/community/docs-contributors",
+      "source_title": "Docs Contributors – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Docs Contributors"
+    },
+    {
+      "question": "Who are the past contributors and acknowledgements for React?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "Acknowledgements"
+      ],
+      "answer_points": [
+        "React was originally created by Jordan Walke.",
+        "Past contributors include Almero Steyn, Andreas Svensson, Alex Krolick, and many others listed on the acknowledgements page.",
+        "Special thanks to Tom Occhino and Adam Wolff for guidance, and to volunteers who translated React.",
+        "Additional thanks to Jeff Barczewski for the npm package name, Christopher Aue for the domain, and others."
+      ],
+      "follow_ups": [
+        "How can I become a contributor to React?",
+        "What is the React Foundation?"
+      ],
+      "summary": "React acknowledges many past contributors and supporters who helped build the project.",
+      "source_url": "https://react.dev/community/acknowledgements",
+      "source_title": "Acknowledgements – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Acknowledgements"
+    },
+    {
+      "question": "What are the latest updates from the React blog?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "Blog"
+      ],
+      "answer_points": [
+        "The React blog is the official source for updates, release notes, and deprecation notices.",
+        "Recent posts include the React Foundation launch, security vulnerabilities in React Server Components, React Conf recaps, and React Compiler v1.0.",
+        "React 19.2 introduced Activity, Performance Tracks, and useEffectEvent.",
+        "Create React App was deprecated in February 2025, encouraging migration to frameworks or build tools like Vite."
+      ],
+      "follow_ups": [
+        "What is the React Foundation?",
+        "What are the new features in React 19?"
+      ],
+      "summary": "The React blog provides official updates on releases, security, and community events.",
+      "source_url": "https://react.dev/blog",
+      "source_title": "React Blog – React",
+      "section_title": "Legacy APIs",
+      "bucket": "network",
+      "raw_question_title": "Blog"
+    }
+  ]
+}

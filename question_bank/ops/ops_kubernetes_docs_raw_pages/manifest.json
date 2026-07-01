@@ -1,0 +1,28 @@
+{
+  "source_url": "https://kubernetes.io/docs/home/",
+  "group_count": 4,
+  "groups": [
+    {
+      "bucket": "java_collection",
+      "count": 9,
+      "file": "java_collection.json"
+    },
+    {
+      "bucket": "mysql",
+      "count": 1,
+      "file": "mysql.json"
+    },
+    {
+      "bucket": "network",
+      "count": 29,
+      "file": "network.json"
+    },
+    {
+      "bucket": "redis",
+      "count": 1,
+      "file": "redis.json"
+    }
+  ],
+  "failure_count": 0,
+  "failures_file": "failures.json"
+}

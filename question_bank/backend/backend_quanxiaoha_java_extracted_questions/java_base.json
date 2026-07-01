@@ -1,0 +1,98 @@
+{
+  "bucket": "java_base",
+  "count": 3,
+  "items": [
+    {
+      "question": "String 为什么设计成 final 不可变的？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "String",
+        "不可变",
+        "final",
+        "字符串常量池",
+        "线程安全"
+      ],
+      "answer_points": [
+        "String 被设计为 final 不可变类，主要基于五大核心原因：字符串常量池优化、线程安全、哈希值缓存、安全性保障、设计一致性。",
+        "final 关键字从三个维度保证不可变性：类级别（public final class String）、字段级别（private final char[] value）、访问控制（private 修饰且无 setter）。",
+        "字符串常量池通过不可变性实现内存复用，相同字符串只存储一份，多个引用共享同一对象。",
+        "不可变性使 String 天然线程安全，无需同步即可在多线程间自由共享。",
+        "哈希值缓存利用不可变性，hashCode() 只需计算一次，后续直接复用，提升 HashMap 等场景性能。",
+        "安全性方面，不可变性防止类加载、文件路径等被篡改，避免 TOCTOU 等安全漏洞。"
+      ],
+      "follow_ups": [
+        "String 真的完全不可变吗？能否通过反射修改？",
+        "JDK 9 的 Compact Strings 是什么？",
+        "为什么 StringBuilder 和 StringBuffer 是可变的？",
+        "String 的 substring() 在 JDK 6 和 JDK 7+ 有什么区别？"
+      ],
+      "summary": "不可变性是 String 实现高性能、高安全、高并发的基础保障。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/why-string-final-immutable",
+      "source_title": "String 为什么设计成 final 不可变的？ | 犬小哈教程",
+      "section_title": "Java 基础面试题",
+      "bucket": "java_base",
+      "raw_question_title": "1 String 为什么设计成 final 不可变的？"
+    },
+    {
+      "question": "Java 中异常分哪两类，有什么区别？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "junior",
+      "tags": [
+        "异常",
+        "受检异常",
+        "非受检异常",
+        "RuntimeException"
+      ],
+      "answer_points": [
+        "Java 异常分为受检异常（Checked Exception）和非受检异常（Unchecked Exception）两大类。",
+        "受检异常必须显式处理（try-catch 或 throws），否则编译不通过；非受检异常不强制处理，由 JVM 在运行时抛出。",
+        "受检异常的父类是 Exception（除 RuntimeException 外），非受检异常的父类是 RuntimeException 和 Error。",
+        "受检异常代表可恢复的异常（如 IOException、SQLException），非受检异常代表程序 bug 或不可恢复的情况（如 NullPointerException、OutOfMemoryError）。"
+      ],
+      "follow_ups": [
+        "throw 和 throws 有什么区别？",
+        "final、finally、finalize 有什么区别？",
+        "为什么要有受检异常？有人说它是 Java 的设计失误，你怎么看？"
+      ],
+      "summary": "受检异常编译器强制处理，非受检异常运行时可选处理。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/java-checked-unchecked-exception-difference",
+      "source_title": "Java 中异常分哪两类，有什么区别？ | 犬小哈教程",
+      "section_title": "什么是 UUID，能保证唯一性吗？",
+      "bucket": "java_base",
+      "raw_question_title": "20 Java 中异常分哪两类，有什么区别？"
+    },
+    {
+      "question": "为什么不能用 BigDecimal 的 equals 方法做等值比较？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "BigDecimal",
+        "equals",
+        "compareTo",
+        "精度",
+        "scale"
+      ],
+      "answer_points": [
+        "BigDecimal 的 equals() 方法不仅比较数值，还比较精度（scale），导致 1.0 和 1.00 被判定为不相等。",
+        "比较 BigDecimal 的数值应该使用 compareTo() 方法，它只比较数学值，忽略精度差异。",
+        "equals() 要求数值和 scale 都相等，而 compareTo() 通过数学运算统一 scale 后再比较。",
+        "在金额比较等场景中，使用 equals() 会导致严重 bug，必须使用 compareTo() == 0 判断相等。"
+      ],
+      "follow_ups": [
+        "BigDecimal 有哪些构造方式？推荐哪种？",
+        "TreeSet 中放 BigDecimal 会有问题吗？",
+        "如何统一 BigDecimal 的精度？"
+      ],
+      "summary": "equals 比精度，compareTo 比数值，金额比较用 compareTo。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/why-bigdecimal-equals-not-for-comparison",
+      "source_title": "为什么不能用 BigDecimal 的 equals 方法做等值比较？ | 犬小哈教程",
+      "section_title": "Java 中异常分哪两类，有什么区别？",
+      "bucket": "java_base",
+      "raw_question_title": "21 为什么不能用 BigDecimal 的 equals 方法做等值比较？"
+    }
+  ]
+}

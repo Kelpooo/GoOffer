@@ -1,0 +1,133 @@
+{
+  "source_title": "React Learn Curated Interview Pack",
+  "questions": [
+    {
+      "question": "为什么 React 组件应该尽量保持纯函数特性？",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": ["React", "components", "pure function"],
+      "answer_points": [
+        "相同输入应该得到相同输出，便于推理和测试",
+        "避免在渲染阶段产生副作用，减少不可预期行为",
+        "让 React 更容易进行调度、重渲染和优化"
+      ],
+      "follow_ups": [
+        "哪些操作应该放到 useEffect 里而不是组件函数里？",
+        "如果组件里有随机数或时间戳，应该怎么处理？"
+      ],
+      "summary": "考察对 React 组件纯函数和副作用边界的理解。"
+    },
+    {
+      "question": "props 和 state 的区别是什么？什么时候应该把数据放进 state？",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": ["React", "props", "state"],
+      "answer_points": [
+        "props 由父组件传入，通常只读；state 是组件内部可变数据",
+        "需要驱动 UI 更新且会变化的数据适合放进 state",
+        "能通过 props 传递的尽量不要在多个地方重复存储"
+      ],
+      "follow_ups": [
+        "什么情况下需要把 state 提升到父组件？",
+        "如果两个组件都需要同一份数据，应该怎么设计？"
+      ],
+      "summary": "考察 props 和 state 的职责划分。"
+    },
+    {
+      "question": "useEffect 的作用是什么？它最常见的副作用场景有哪些？",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": ["React", "hooks", "useEffect"],
+      "answer_points": [
+        "用来处理渲染之外的副作用逻辑",
+        "常见场景包括数据请求、订阅、定时器、DOM 操作、清理资源",
+        "依赖数组决定副作用何时重新执行"
+      ],
+      "follow_ups": [
+        "为什么 useEffect 里经常要写清理函数？",
+        "空依赖数组和不写依赖数组分别会发生什么？"
+      ],
+      "summary": "考察 useEffect 的使用时机和依赖管理。"
+    },
+    {
+      "question": "React 里为什么不能直接在 render 中发请求或改 DOM？",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": ["React", "render", "side effect"],
+      "answer_points": [
+        "render 阶段应该保持纯净，避免副作用",
+        "直接发请求会导致重复触发，影响性能和可预测性",
+        "改 DOM 会和 React 的虚拟 DOM 机制冲突"
+      ],
+      "follow_ups": [
+        "那发请求应该放在哪个生命周期或 Hook 中？",
+        "如果渲染很重，应该怎么优化？"
+      ],
+      "summary": "考察渲染阶段和副作用的边界。"
+    },
+    {
+      "question": "useMemo 和 React.memo 的区别是什么？分别适合解决什么问题？",
+      "category": "performance",
+      "difficulty": "mid",
+      "tags": ["React", "memoization", "performance"],
+      "answer_points": [
+        "useMemo 记忆的是计算结果，React.memo 记忆的是组件渲染结果",
+        "useMemo 适合缓存昂贵计算；React.memo 适合避免子组件无意义重渲染",
+        "两者都不是默认优化手段，应该先确认性能瓶颈"
+      ],
+      "follow_ups": [
+        "什么时候 useMemo 反而会让性能更差？",
+        "React.memo 对 props 的比较规则是什么？"
+      ],
+      "summary": "考察 React 中常见性能优化手段。"
+    },
+    {
+      "question": "在列表渲染中，为什么 key 不能直接使用数组下标？",
+      "category": "engineering",
+      "difficulty": "junior",
+      "tags": ["React", "list", "key"],
+      "answer_points": [
+        "数组顺序变化时，下标会对应到错误的元素",
+        "可能导致组件状态错位、输入框内容错乱",
+        "稳定唯一的业务 id 更适合作为 key"
+      ],
+      "follow_ups": [
+        "什么情况下可以勉强使用下标作为 key？",
+        "如果列表中没有唯一 id，应该怎么办？"
+      ],
+      "summary": "考察列表渲染和 key 的稳定性。"
+    },
+    {
+      "question": "Context 适合解决什么问题？为什么不建议把所有全局状态都塞进 Context？",
+      "category": "framework",
+      "difficulty": "mid",
+      "tags": ["React", "context", "state management"],
+      "answer_points": [
+        "适合跨层级共享主题、语言、登录态等低频变化数据",
+        "Context 变化会让订阅组件重新渲染，粒度太大时性能会受影响",
+        "复杂业务状态通常更适合拆分或交给专门状态管理方案"
+      ],
+      "follow_ups": [
+        "Context 和 Redux / Zustand 的边界怎么理解？",
+        "如果 Context 更新太频繁，怎么优化？"
+      ],
+      "summary": "考察 Context 的适用场景和性能边界。"
+    },
+    {
+      "question": "什么是受控组件？表单为什么常常建议使用受控组件？",
+      "category": "framework",
+      "difficulty": "junior",
+      "tags": ["React", "form", "controlled component"],
+      "answer_points": [
+        "输入值由 React state 控制，UI 和数据源统一",
+        "便于做校验、联动、默认值和提交处理",
+        "更容易和业务状态保持一致"
+      ],
+      "follow_ups": [
+        "受控组件和非受控组件分别适合什么场景？",
+        "大表单性能差时怎么优化？"
+      ],
+      "summary": "考察表单处理基础。"
+    }
+  ]
+}

@@ -1,0 +1,1067 @@
+{
+  "bucket": "network",
+  "count": 38,
+  "items": [
+    {
+      "question": "What is JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "programming language",
+        "web development"
+      ],
+      "answer_points": [
+        "JavaScript is a lightweight, interpreted or just-in-time compiled programming language with first-class functions.",
+        "It is most well-known as the scripting language for Web pages, but also used in non-browser environments like Node.js, Apache CouchDB, and Adobe Acrobat.",
+        "JavaScript is prototype-based, garbage-collected, and dynamic, supporting imperative, functional, and object-oriented programming paradigms.",
+        "Dynamic capabilities include runtime object construction, variable parameter lists, function variables, dynamic script creation via eval, object introspection, and source-code recovery via toString().",
+        "JavaScript is standardized as ECMAScript (ECMA-262) and the Internationalization API (ECMA-402).",
+        "JavaScript is not related to Java; they have different syntax, semantics, and use."
+      ],
+      "follow_ups": [
+        "What are the differences between JavaScript and Java?",
+        "Explain the concept of first-class functions in JavaScript.",
+        "What is the role of the ECMAScript specification?"
+      ],
+      "summary": "JavaScript is a versatile, dynamic programming language primarily used for web development.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "source_title": "JavaScript | MDN",
+      "section_title": "JavaScript Guide",
+      "bucket": "network",
+      "raw_question_title": "JavaScript"
+    },
+    {
+      "question": "What is the JavaScript reference?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "reference",
+        "documentation"
+      ],
+      "answer_points": [
+        "The JavaScript reference is a repository of facts about the JavaScript language, describing the entire language in detail.",
+        "It is intended to be environment-agnostic, not targeting a specific host environment like web browsers.",
+        "It covers built-in objects, statements, expressions, operators, functions, classes, regular expressions, and more.",
+        "Newcomers should start with the JavaScript guide before using the reference for detailed information."
+      ],
+      "follow_ups": [
+        "How does the JavaScript reference differ from the JavaScript guide?",
+        "What are some of the built-in objects covered in the reference?"
+      ],
+      "summary": "The JavaScript reference provides comprehensive details about the JavaScript language.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference",
+      "source_title": "JavaScript reference - JavaScript | MDN",
+      "section_title": "JavaScript Guide",
+      "bucket": "network",
+      "raw_question_title": "JavaScript reference"
+    },
+    {
+      "question": "What is covered in the JavaScript Guide introduction?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "guide",
+        "introduction"
+      ],
+      "answer_points": [
+        "The introduction provides an overview of JavaScript, including its history, relationship with Java, and ECMAScript.",
+        "It lists topics such as grammar and types, control flow, loops, functions, expressions, numbers, strings, dates, regular expressions, collections, objects, classes, promises, typed arrays, iterators, generators, modules, and advanced topics.",
+        "The guide is structured to help learners progress from basics to advanced concepts."
+      ],
+      "follow_ups": [
+        "What advanced topics are covered in the JavaScript Guide?",
+        "How does the guide help in learning JavaScript?"
+      ],
+      "summary": "The JavaScript Guide introduction outlines the topics covered in the guide.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#introduction",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Introduction"
+    },
+    {
+      "question": "What are the grammar and types in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "grammar",
+        "types"
+      ],
+      "answer_points": [
+        "Grammar and types cover basic syntax, comments, declarations, variable scope, hoisting, data structures, and literals.",
+        "Declarations include var, let, and const with different scoping rules.",
+        "Variable hoisting moves declarations to the top of their scope.",
+        "Data types include primitive types (e.g., Number, String, Boolean) and objects."
+      ],
+      "follow_ups": [
+        "Explain the difference between var, let, and const.",
+        "What is variable hoisting and how does it work?"
+      ],
+      "summary": "JavaScript grammar and types define the basic syntax and data types.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#grammar_and_types",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Grammar and types"
+    },
+    {
+      "question": "How does JavaScript handle control flow and error handling?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "control flow",
+        "error handling"
+      ],
+      "answer_points": [
+        "Control flow structures include if...else, switch, and loops (for, while, do...while).",
+        "Error handling uses try/catch/throw and Error objects.",
+        "The break and continue statements control loop execution.",
+        "Error objects provide information about runtime errors."
+      ],
+      "follow_ups": [
+        "What is the difference between throw and return in error handling?",
+        "How do you create custom error types in JavaScript?"
+      ],
+      "summary": "JavaScript provides standard control flow and error handling mechanisms.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#control_flow_and_error_handling",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Control flow and error handling"
+    },
+    {
+      "question": "What loops and iteration methods are available in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "loops",
+        "iteration"
+      ],
+      "answer_points": [
+        "JavaScript provides for, while, and do...while loops.",
+        "The for...in loop iterates over enumerable properties of an object.",
+        "The for...of loop iterates over iterable objects like arrays, strings, Maps, Sets.",
+        "break and continue statements control loop flow."
+      ],
+      "follow_ups": [
+        "What is the difference between for...in and for...of?",
+        "How do you iterate over a Map or Set?"
+      ],
+      "summary": "JavaScript offers various loop constructs for iteration.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#loops_and_iteration",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Loops and iteration"
+    },
+    {
+      "question": "How are functions defined and used in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "functions",
+        "closures"
+      ],
+      "answer_points": [
+        "Functions can be defined using function declarations, expressions, or arrow functions.",
+        "Functions have their own scope and can create closures.",
+        "Parameters and arguments allow passing data to functions.",
+        "Arrow functions provide a concise syntax and do not have their own this binding."
+      ],
+      "follow_ups": [
+        "What is a closure and how does it work?",
+        "What are the differences between arrow functions and regular functions?"
+      ],
+      "summary": "JavaScript functions are first-class objects with flexible definition and scoping.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#functions",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Functions"
+    },
+    {
+      "question": "What are expressions and operators in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "expressions",
+        "operators"
+      ],
+      "answer_points": [
+        "Expressions produce values and can include operators, function calls, and literals.",
+        "Operators include assignment, comparison, arithmetic, bitwise, logical, and conditional (ternary).",
+        "The conditional (ternary) operator is a shorthand for if...else.",
+        "Assignment operators can be combined with arithmetic or bitwise operators (e.g., +=)."
+      ],
+      "follow_ups": [
+        "Explain the difference between == and ===.",
+        "What is the ternary operator and when would you use it?"
+      ],
+      "summary": "JavaScript expressions and operators allow computation and value manipulation.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#expressions_and_operators",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Expressions and operators"
+    },
+    {
+      "question": "Explain Numbers and strings in JavaScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Numbers",
+        "Strings"
+      ],
+      "answer_points": [
+        "JavaScript has Number object for numeric operations.",
+        "Math object provides mathematical functions.",
+        "String object for text manipulation.",
+        "Template literals allow embedded expressions and multi-line strings."
+      ],
+      "follow_ups": [
+        "What is the difference between Number and Math?",
+        "How do template literals work?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#numbers_and_strings",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Numbers and strings"
+    },
+    {
+      "question": "Explain Representing dates & times in JavaScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Date",
+        "Time"
+      ],
+      "answer_points": [
+        "Date object is used for dates and times.",
+        "It provides methods for getting and setting date components.",
+        "Date objects can be created with various constructors."
+      ],
+      "follow_ups": [
+        "How do you format a date in JavaScript?",
+        "What is the difference between Date.now() and new Date()?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#representing_dates_times",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Representing dates & times"
+    },
+    {
+      "question": "Explain Regular expressions in JavaScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Regular Expressions",
+        "Pattern Matching"
+      ],
+      "answer_points": [
+        "Regular expressions are patterns used to match character combinations.",
+        "Can be created with RegExp constructor or literal syntax.",
+        "Patterns include assertions, character classes, groups, backreferences, and quantifiers."
+      ],
+      "follow_ups": [
+        "What is the difference between exec() and match()?",
+        "How do you use groups in regex?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#regular_expressions",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Regular expressions"
+    },
+    {
+      "question": "Explain Working with objects in JavaScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Objects",
+        "Properties"
+      ],
+      "answer_points": [
+        "Objects are collections of properties.",
+        "Objects can be created using object literals or constructors.",
+        "Methods can be defined as properties.",
+        "Getters and setters allow controlled access to properties."
+      ],
+      "follow_ups": [
+        "What is the difference between dot notation and bracket notation?",
+        "How do you define a getter?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#working_with_objects",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Working with objects"
+    },
+    {
+      "question": "Explain Using classes in JavaScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Classes",
+        "OOP"
+      ],
+      "answer_points": [
+        "Classes are syntactic sugar over prototypes.",
+        "Classes can be declared with class keyword.",
+        "Supports inheritance via extends.",
+        "Classes provide a clearer way to define constructors and methods."
+      ],
+      "follow_ups": [
+        "What is the difference between class and function constructor?",
+        "How does inheritance work in JavaScript classes?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#using_classes",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Using classes"
+    },
+    {
+      "question": "Explain Promises in JavaScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Promises",
+        "Async"
+      ],
+      "answer_points": [
+        "Promises represent eventual completion of an async operation.",
+        "Guarantees: callbacks are called at most once.",
+        "Chaining allows sequential async operations.",
+        "Error handling with .catch() or try/catch with async/await.",
+        "Composition with Promise.all, Promise.race, etc."
+      ],
+      "follow_ups": [
+        "What is the difference between Promise.all and Promise.allSettled?",
+        "How does error propagation work in promise chains?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#promises",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Promises"
+    },
+    {
+      "question": "Explain Typed arrays in JavaScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Typed Arrays",
+        "Binary Data"
+      ],
+      "answer_points": [
+        "Typed arrays provide a way to handle binary data.",
+        "They are array-like objects with a fixed length and type.",
+        "Common types: Int8Array, Uint8Array, Float32Array, etc."
+      ],
+      "follow_ups": [
+        "What is the difference between typed arrays and regular arrays?",
+        "How do you create a typed array from an ArrayBuffer?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#typed_arrays",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Typed arrays"
+    },
+    {
+      "question": "Explain Iterators and generators in JavaScript",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "Iterators",
+        "Generators"
+      ],
+      "answer_points": [
+        "Iterators are objects with a next() method returning {value, done}.",
+        "Iterables have a Symbol.iterator method.",
+        "Generators are functions that can be paused and resumed.",
+        "Generators use function* syntax and yield values."
+      ],
+      "follow_ups": [
+        "What is the difference between an iterator and an iterable?",
+        "How do you use a generator to create an infinite sequence?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#iterators_and_generators",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Iterators and generators"
+    },
+    {
+      "question": "What is resource management in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "resource management",
+        "DisposableStack"
+      ],
+      "answer_points": [
+        "Resource management in JavaScript involves handling resources like memory, file handles, and network connections.",
+        "The `using` and `await using` declarations provide a way to automatically dispose of resources when they go out of scope.",
+        "`DisposableStack` and `AsyncDisposableStack` objects allow for manual management of disposable resources.",
+        "Proper resource management helps prevent memory leaks and ensures efficient use of system resources."
+      ],
+      "follow_ups": [
+        "How does the `using` declaration differ from traditional try-finally blocks?",
+        "Can you give an example of using `DisposableStack` for managing multiple resources?"
+      ],
+      "summary": "JavaScript resource management involves using `using` declarations and `DisposableStack` to handle resources.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#resource_management",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Resource management"
+    },
+    {
+      "question": "What is internationalization in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "internationalization",
+        "i18n"
+      ],
+      "answer_points": [
+        "Internationalization (i18n) in JavaScript refers to designing applications to support multiple languages and regions.",
+        "JavaScript provides the `Intl` object for date and time formatting, number formatting, and collation.",
+        "Date and time formatting can be done using `Intl.DateTimeFormat`.",
+        "Number formatting uses `Intl.NumberFormat` for currency, percentages, etc.",
+        "Collation (string comparison) is handled by `Intl.Collator`."
+      ],
+      "follow_ups": [
+        "How do you handle pluralization in JavaScript internationalization?",
+        "What is the difference between `Intl.DateTimeFormat` and `toLocaleDateString`?"
+      ],
+      "summary": "JavaScript internationalization uses the `Intl` object for locale-sensitive formatting.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#internationalization",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Internationalization"
+    },
+    {
+      "question": "What are JavaScript modules?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "modules",
+        "ES6"
+      ],
+      "answer_points": [
+        "JavaScript modules allow you to split code into separate files for better organization and reusability.",
+        "Modules use `export` to expose functions, objects, or primitives, and `import` to use them.",
+        "Default exports allow a module to export a single value as the default.",
+        "Named exports can be renamed using `as` during import.",
+        "Modules can be aggregated by re-exporting from other modules.",
+        "Dynamic module loading is possible using `import()` which returns a promise."
+      ],
+      "follow_ups": [
+        "What is the difference between default and named exports?",
+        "How does tree-shaking work with ES modules?"
+      ],
+      "summary": "JavaScript modules enable code modularity through `export` and `import` statements.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#javascript_modules",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "JavaScript modules"
+    },
+    {
+      "question": "What are advanced topics in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "JavaScript",
+        "advanced",
+        "closures",
+        "prototypes"
+      ],
+      "answer_points": [
+        "Advanced JavaScript topics include closures, prototypes, inheritance, and memory management.",
+        "Closures allow functions to retain access to their lexical scope even when executed outside that scope.",
+        "Prototype-based inheritance enables objects to inherit properties and methods from other objects.",
+        "Memory management involves understanding garbage collection and avoiding memory leaks.",
+        "Meta programming with `Proxy` and `Reflect` allows intercepting and customizing object behavior."
+      ],
+      "follow_ups": [
+        "How does JavaScript's prototype chain work?",
+        "What are common causes of memory leaks in JavaScript?"
+      ],
+      "summary": "Advanced JavaScript covers closures, prototypes, memory management, and meta programming.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide#advanced_topics",
+      "source_title": "JavaScript Guide - JavaScript | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Advanced topics"
+    },
+    {
+      "question": "What is JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "introduction",
+        "scripting language"
+      ],
+      "answer_points": [
+        "JavaScript is a cross-platform, object-oriented scripting language used to make webpages interactive.",
+        "It can run in browsers (client-side) and on servers (e.g., Node.js).",
+        "JavaScript has a standard library including objects like Array, Map, and Math.",
+        "Client-side JavaScript extends the core language to control the DOM and handle user events.",
+        "Server-side JavaScript allows database communication and file manipulation."
+      ],
+      "follow_ups": [
+        "What is the difference between client-side and server-side JavaScript?",
+        "How does JavaScript interact with the DOM?"
+      ],
+      "summary": "JavaScript is a versatile scripting language for web development, both client and server side.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction",
+      "source_title": "Introduction - JavaScript | MDN",
+      "section_title": "Introduction",
+      "bucket": "network",
+      "raw_question_title": "Introduction"
+    },
+    {
+      "question": "What is the JavaScript Guide?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "guide",
+        "documentation"
+      ],
+      "answer_points": [
+        "The JavaScript Guide on MDN provides an overview of the JavaScript language and its objects.",
+        "It is intended for beginners and covers fundamental concepts.",
+        "The guide assumes basic knowledge of the Internet, HTML, and some programming experience.",
+        "It includes sections on syntax, data structures, and advanced topics."
+      ],
+      "follow_ups": [
+        "How does the JavaScript Guide differ from the JavaScript Reference?",
+        "What prerequisites are needed to follow the JavaScript Guide?"
+      ],
+      "summary": "The JavaScript Guide is an MDN resource for learning JavaScript fundamentals.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#where_to_find_javascript_information",
+      "source_title": "Introduction - JavaScript | MDN",
+      "section_title": "Introduction",
+      "bucket": "network",
+      "raw_question_title": "About this guide"
+    },
+    {
+      "question": "What is JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "introduction",
+        "scripting language"
+      ],
+      "answer_points": [
+        "JavaScript is a cross-platform, object-oriented scripting language used to make webpages interactive.",
+        "It can run in browsers (client-side) and on servers (e.g., Node.js).",
+        "JavaScript has a standard library including objects like Array, Map, and Math.",
+        "Client-side JavaScript extends the core language to control the DOM and handle user events.",
+        "Server-side JavaScript allows database communication and file manipulation."
+      ],
+      "follow_ups": [
+        "What is the difference between client-side and server-side JavaScript?",
+        "How does JavaScript interact with the DOM?"
+      ],
+      "summary": "JavaScript is a versatile scripting language for web development, both client and server side.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#what_is_javascript",
+      "source_title": "Introduction - JavaScript | MDN",
+      "section_title": "Introduction",
+      "bucket": "network",
+      "raw_question_title": "About JavaScript"
+    },
+    {
+      "question": "What are the differences between JavaScript and Java?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "Java",
+        "comparison"
+      ],
+      "answer_points": [
+        "JavaScript is dynamically typed, while Java is statically typed.",
+        "JavaScript uses prototype-based inheritance; Java uses class-based inheritance.",
+        "JavaScript does not require variable, class, or method declarations; Java does.",
+        "JavaScript is more free-form and less complex than Java.",
+        "Java is designed for fast execution and type safety."
+      ],
+      "follow_ups": [
+        "Why was JavaScript named JavaScript if it's different from Java?",
+        "Can you give an example of prototype-based inheritance in JavaScript?"
+      ],
+      "summary": "JavaScript and Java differ in typing, inheritance, and complexity.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#javascript_and_java",
+      "source_title": "Introduction - JavaScript | MDN",
+      "section_title": "Introduction",
+      "bucket": "network",
+      "raw_question_title": "JavaScript and Java"
+    },
+    {
+      "question": "What is ECMAScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "ECMAScript",
+        "standardization"
+      ],
+      "answer_points": [
+        "ECMAScript is the standardized version of JavaScript, defined by the ECMA-262 specification.",
+        "It ensures consistent behavior across all applications that support the standard.",
+        "The specification is maintained by Ecma International and also approved by ISO as ISO-16262.",
+        "ECMAScript does not describe the DOM; DOM is standardized by W3C and WHATWG."
+      ],
+      "follow_ups": [
+        "What is the relationship between JavaScript and ECMAScript?",
+        "What is the difference between ECMAScript and the DOM?",
+        "How does ECMAScript ensure cross-browser compatibility?"
+      ],
+      "summary": "ECMAScript is the standardized specification that JavaScript implements.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#javascript_and_the_ecmascript_specification",
+      "source_title": "Introduction - JavaScript | MDN",
+      "section_title": "Introduction",
+      "bucket": "network",
+      "raw_question_title": "ECMAScript"
+    },
+    {
+      "question": "What tools are available for JavaScript development?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "tools",
+        "browser console"
+      ],
+      "answer_points": [
+        "A modern web browser with a JavaScript console is the primary tool for exploring JavaScript.",
+        "The console allows entering and running JavaScript code, similar to eval.",
+        "Multi-line input can be achieved by using Shift+Enter or incomplete statements.",
+        "Strict mode and IIFE patterns help prevent common beginner mistakes and code interaction."
+      ],
+      "follow_ups": [
+        "How do you open the JavaScript console in different browsers?",
+        "What is the purpose of using strict mode in JavaScript?",
+        "What is an IIFE and why is it used?"
+      ],
+      "summary": "The browser console is the main tool for JavaScript development and testing.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#getting_started_with_javascript",
+      "source_title": "Introduction - JavaScript | MDN",
+      "section_title": "Introduction",
+      "bucket": "network",
+      "raw_question_title": "Tools"
+    },
+    {
+      "question": "What is the purpose of the 'What's next' section in JavaScript documentation?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "documentation",
+        "learning"
+      ],
+      "answer_points": [
+        "It indicates that subsequent pages will introduce JavaScript syntax and language features.",
+        "It recommends using an IIFE with strict mode to prevent common errors and code interference.",
+        "Strict mode prevents problematic JavaScript semantics for beginners.",
+        "IIFE prevents code snippets from interacting with each other in the console."
+      ],
+      "follow_ups": [
+        "Why is strict mode recommended for beginners?",
+        "How does an IIFE prevent code interaction in the console?",
+        "What are the benefits of using an IIFE?"
+      ],
+      "summary": "The section advises using IIFE and strict mode for safe JavaScript experimentation.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#whats_next",
+      "source_title": "Introduction - JavaScript | MDN",
+      "section_title": "Introduction",
+      "bucket": "network",
+      "raw_question_title": "What's next"
+    },
+    {
+      "question": "What are the basic grammar rules and data types in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "grammar",
+        "data types"
+      ],
+      "answer_points": [
+        "JavaScript is case-sensitive and uses Unicode; statements are separated by semicolons (optional with ASI).",
+        "Comments can be single-line (//) or multi-line (/* */), but cannot be nested.",
+        "Variables are declared using var, let, or const, with different scoping rules.",
+        "JavaScript has eight data types: Boolean, null, undefined, Number, BigInt, String, Symbol, and Object.",
+        "JavaScript is dynamically typed, allowing automatic type conversion."
+      ],
+      "follow_ups": [
+        "What is the difference between var, let, and const?",
+        "What is automatic semicolon insertion (ASI)?",
+        "How does JavaScript handle type coercion?"
+      ],
+      "summary": "JavaScript has C-like syntax, dynamic typing, and eight data types.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types",
+      "source_title": "Grammar and types - JavaScript | MDN",
+      "section_title": "Grammar and types",
+      "bucket": "network",
+      "raw_question_title": "Grammar and types"
+    },
+    {
+      "question": "What is the basic syntax and comment syntax in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "syntax",
+        "comments"
+      ],
+      "answer_points": [
+        "JavaScript syntax is similar to Java and C++; it is case-sensitive and uses Unicode.",
+        "Statements are separated by semicolons, but ASI can insert them automatically.",
+        "Single-line comments use //, multi-line comments use /* */, and nesting is not allowed.",
+        "Hashbang comments (#!) are used to specify the JavaScript engine path."
+      ],
+      "follow_ups": [
+        "What is ASI and when can it cause bugs?",
+        "How do you properly escape a multi-line comment to avoid nesting errors?",
+        "What is a hashbang comment and where is it used?"
+      ],
+      "summary": "JavaScript uses C-style comments and semicolons, with ASI and hashbang support.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#basics",
+      "source_title": "Grammar and types - JavaScript | MDN",
+      "section_title": "Grammar and types",
+      "bucket": "network",
+      "raw_question_title": "Basic syntax & comments"
+    },
+    {
+      "question": "What are the different variable declarations in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "variables",
+        "declarations"
+      ],
+      "answer_points": [
+        "var declares a function-scoped or globally-scoped variable, optionally initialized.",
+        "let declares a block-scoped local variable, optionally initialized.",
+        "const declares a block-scoped read-only constant that must be initialized.",
+        "Variables should always be declared before use; undeclared variables create globals in non-strict mode.",
+        "Destructuring allows unpacking values from objects or arrays into variables."
+      ],
+      "follow_ups": [
+        "What is the difference between var and let?",
+        "Can const variables be mutated?",
+        "What is destructuring assignment?"
+      ],
+      "summary": "JavaScript provides var, let, and const for variable declaration with different scopes.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#declarations",
+      "source_title": "Grammar and types - JavaScript | MDN",
+      "section_title": "Grammar and types",
+      "bucket": "network",
+      "raw_question_title": "Declarations"
+    },
+    {
+      "question": "What is variable scope in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "scope",
+        "variables"
+      ],
+      "answer_points": [
+        "Scope determines where a variable is accessible: global, module, function, or block scope.",
+        "Variables declared with var are function-scoped, not block-scoped.",
+        "Variables declared with let and const are block-scoped.",
+        "Global variables are properties of the global object (window in browsers).",
+        "Variables should be declared before use to avoid ReferenceError."
+      ],
+      "follow_ups": [
+        "What is the difference between function scope and block scope?",
+        "How do you access global variables from an iframe?",
+        "What is the temporal dead zone?"
+      ],
+      "summary": "JavaScript has global, module, function, and block scopes, with var being function-scoped.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope",
+      "source_title": "Grammar and types - JavaScript | MDN",
+      "section_title": "Grammar and types",
+      "bucket": "network",
+      "raw_question_title": "Variable scope"
+    },
+    {
+      "question": "What is variable hoisting in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "JavaScript",
+        "hoisting",
+        "variables"
+      ],
+      "answer_points": [
+        "Hoisting moves variable declarations to the top of their scope during compilation.",
+        "var declarations are hoisted with an initial value of undefined.",
+        "let and const are hoisted but not initialized, causing a ReferenceError if accessed before declaration (temporal dead zone).",
+        "Function declarations are hoisted entirely, allowing them to be called before their definition."
+      ],
+      "follow_ups": [
+        "What is the temporal dead zone?",
+        "How does hoisting differ between var, let, and const?",
+        "Why is it best practice to declare variables at the top of their scope?"
+      ],
+      "summary": "Hoisting lifts declarations to the top; var is initialized with undefined, let/const are not.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_hoisting",
+      "source_title": "Grammar and types - JavaScript | MDN",
+      "section_title": "Grammar and types",
+      "bucket": "network",
+      "raw_question_title": "Variable hoisting"
+    },
+    {
+      "question": "What are the data types in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "data types",
+        "primitives"
+      ],
+      "answer_points": [
+        "JavaScript has eight data types: seven primitives (Boolean, null, undefined, Number, BigInt, String, Symbol) and Object.",
+        "JavaScript is dynamically typed, meaning variables can change type.",
+        "The '+' operator converts numbers to strings; other operators convert strings to numbers.",
+        "Use parseInt(), parseFloat(), Number(), or unary '+' to convert strings to numbers."
+      ],
+      "follow_ups": [
+        "What is the difference between null and undefined?",
+        "How does type coercion work in JavaScript?",
+        "Explain the difference between primitive and reference types."
+      ],
+      "summary": "JavaScript has 7 primitive types and Object, with dynamic typing and automatic type conversion.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#data_structures_and_types",
+      "source_title": "Grammar and types - JavaScript | MDN",
+      "section_title": "Grammar and types",
+      "bucket": "network",
+      "raw_question_title": "Data structures and types"
+    },
+    {
+      "question": "What are literals in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "literals",
+        "syntax"
+      ],
+      "answer_points": [
+        "Literals are fixed values that appear directly in code, including array, boolean, numeric, object, RegExp, and string literals.",
+        "Array literals use square brackets; extra commas create empty slots.",
+        "Numeric literals can be decimal, hexadecimal (0x), octal (0o), binary (0b), or BigInt (n suffix).",
+        "Object literals use curly braces; property names can be strings or numbers.",
+        "String literals can use single or double quotes; template literals use backticks and support interpolation.",
+        "RegExp literals are patterns between slashes."
+      ],
+      "follow_ups": [
+        "What is the difference between a literal and a variable?",
+        "How do template literals improve string handling?",
+        "Explain the behavior of extra commas in array literals."
+      ],
+      "summary": "Literals are fixed-value representations in JavaScript code, covering arrays, booleans, numbers, objects, regex, and strings.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#literals",
+      "source_title": "Grammar and types - JavaScript | MDN",
+      "section_title": "Grammar and types",
+      "bucket": "network",
+      "raw_question_title": "Literals"
+    },
+    {
+      "question": "How does control flow work in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "control flow",
+        "statements"
+      ],
+      "answer_points": [
+        "JavaScript uses block statements (curly braces) to group statements.",
+        "Conditional statements include if...else and switch.",
+        "Exception handling uses try...catch...finally and throw.",
+        "Falsy values: false, undefined, null, 0, NaN, empty string; all other values are truthy.",
+        "The switch statement matches expression to case labels; break prevents fall-through.",
+        "The finally block always executes, even if an exception is thrown or caught."
+      ],
+      "follow_ups": [
+        "What is the difference between var, let, and const in block scoping?",
+        "How does the switch statement handle fall-through?",
+        "What happens if a finally block returns a value?"
+      ],
+      "summary": "JavaScript control flow includes blocks, conditionals, and exception handling with try/catch/finally.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling",
+      "source_title": "Control flow and error handling - JavaScript | MDN",
+      "section_title": "Control flow and error handling",
+      "bucket": "network",
+      "raw_question_title": "Control flow and error handling"
+    },
+    {
+      "question": "How does the if...else statement work in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "if...else",
+        "conditional"
+      ],
+      "answer_points": [
+        "if executes a statement if condition is true; else executes if false.",
+        "Use else if for multiple conditions; only the first true condition executes.",
+        "Always use block statements {} for clarity, especially when nesting.",
+        "Avoid assignments in conditions (e.g., if (x = y)).",
+        "Falsy values: false, undefined, null, 0, NaN, ''; all objects are truthy.",
+        "Do not confuse primitive booleans with Boolean objects."
+      ],
+      "follow_ups": [
+        "What are falsy values in JavaScript?",
+        "How does the Boolean object behave differently from primitive booleans?",
+        "Can you give an example of nested if statements?"
+      ],
+      "summary": "if...else executes code based on truthy/falsy conditions; use blocks and avoid assignment in conditions.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#if...else_statement",
+      "source_title": "Control flow and error handling - JavaScript | MDN",
+      "section_title": "Control flow and error handling",
+      "bucket": "network",
+      "raw_question_title": "if...else"
+    },
+    {
+      "question": "How does the switch statement work in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "switch",
+        "conditional"
+      ],
+      "answer_points": [
+        "switch evaluates an expression and matches it to case labels.",
+        "If a match is found, the associated statements execute until a break or end of switch.",
+        "If no match, the default clause executes (if present).",
+        "Omitting break causes fall-through to the next case.",
+        "The default clause is conventionally last but can be anywhere.",
+        "Use switch for multiple discrete value comparisons."
+      ],
+      "follow_ups": [
+        "What is fall-through in switch and how can it be useful?",
+        "How does switch compare to if...else chains?",
+        "Can you use switch with non-integer values?"
+      ],
+      "summary": "switch matches an expression to case labels, with optional default and break to prevent fall-through.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#switch_statement",
+      "source_title": "Control flow and error handling - JavaScript | MDN",
+      "section_title": "Control flow and error handling",
+      "bucket": "network",
+      "raw_question_title": "switch"
+    },
+    {
+      "question": "How does try/catch/throw work in JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "JavaScript",
+        "error handling",
+        "try/catch"
+      ],
+      "answer_points": [
+        "throw statement throws an exception; any expression can be thrown.",
+        "try block contains code that may throw; catch block handles exceptions.",
+        "finally block always executes after try/catch, regardless of exception.",
+        "If finally returns a value, it overrides any return in try/catch.",
+        "Nested try/catch: inner try without catch must have finally; outer catch handles uncaught exceptions.",
+        "Use Error constructor for meaningful error objects with name and message properties."
+      ],
+      "follow_ups": [
+        "What is the difference between throwing a string and an Error object?",
+        "How does the finally block interact with return statements?",
+        "Can you nest try/catch blocks? Give an example."
+      ],
+      "summary": "try/catch/finally handles exceptions; throw raises errors; finally always executes and can override returns.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#exception_handling_statements",
+      "source_title": "Control flow and error handling - JavaScript | MDN",
+      "section_title": "Control flow and error handling",
+      "bucket": "network",
+      "raw_question_title": "try / catch / throw"
+    }
+  ]
+}

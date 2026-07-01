@@ -1,0 +1,263 @@
+{
+  "bucket": "network",
+  "count": 9,
+  "items": [
+    {
+      "question": "Docker入门基础",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Docker",
+        "容器化",
+        "入门"
+      ],
+      "answer_points": [
+        "Docker是一个容器平台，用于快速构建、测试和部署应用。",
+        "入门需安装Docker Desktop或Docker Engine。",
+        "核心概念包括镜像、容器、仓库和Dockerfile。",
+        "基本工作流：编写Dockerfile、构建镜像、运行容器。"
+      ],
+      "follow_ups": [
+        "Docker镜像与容器的区别是什么？",
+        "如何优化Docker镜像大小？"
+      ],
+      "summary": "Docker入门基础知识介绍。",
+      "source_url": "https://docs.docker.com/get-started/",
+      "source_title": "Get started | Docker Docs",
+      "section_title": "How can we help?",
+      "bucket": "network",
+      "raw_question_title": "Get started Learn Docker basics."
+    },
+    {
+      "question": "如何利用Docker优化开发工作流",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Docker",
+        "开发工作流",
+        "指南"
+      ],
+      "answer_points": [
+        "Docker提供多语言和框架的指南，涵盖迁移、测试、部署等场景。",
+        "可使用Docker Compose定义多容器应用。",
+        "集成CI/CD工具（如GitHub Actions）实现自动化。",
+        "利用Testcontainers进行集成测试。"
+      ],
+      "follow_ups": [
+        "Docker Compose与Kubernetes的区别？",
+        "如何为现有应用添加Docker支持？"
+      ],
+      "summary": "Docker优化开发工作流的指南概览。",
+      "source_url": "https://docs.docker.com/guides/",
+      "source_title": "Docker guides | Docker Docs",
+      "section_title": "Get started",
+      "bucket": "network",
+      "raw_question_title": "Guides Optimize your development workflows with Docker."
+    },
+    {
+      "question": "Docker CLI和API参考文档概览",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Docker",
+        "CLI",
+        "API",
+        "参考文档"
+      ],
+      "answer_points": [
+        "Docker提供Dockerfile和Compose文件格式规范。",
+        "CLI包括docker、docker compose、dockerd等命令。",
+        "API包括Engine API、Docker Hub API、Registry API等。",
+        "参考文档帮助开发者进行自动化和管理。"
+      ],
+      "follow_ups": [
+        "Dockerfile与Compose文件的主要区别？",
+        "如何通过API管理Docker容器？"
+      ],
+      "summary": "Docker CLI和API参考文档介绍。",
+      "source_url": "https://docs.docker.com/reference/",
+      "source_title": "Reference documentation | Docker Docs",
+      "section_title": "Manuals",
+      "bucket": "network",
+      "raw_question_title": "Reference Browse the CLI and API documentation."
+    },
+    {
+      "question": "Docker Hardened Images安全加固镜像",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "senior",
+      "tags": [
+        "Docker",
+        "安全加固",
+        "镜像",
+        "企业级"
+      ],
+      "answer_points": [
+        "提供最小化、安全的容器镜像，减少漏洞。",
+        "支持SBOM和SLSA Build L3验证，简化合规。",
+        "提供FIPS/STIG变体和企业级SLA补丁。",
+        "可通过订阅获取不同级别的功能。"
+      ],
+      "follow_ups": [
+        "如何从普通镜像迁移到Docker Hardened Images？",
+        "DHI如何保证镜像安全？"
+      ],
+      "summary": "Docker Hardened Images提供企业级安全容器镜像。",
+      "source_url": "https://docs.docker.com/dhi/",
+      "source_title": "Docker Hardened Images | Docker Docs",
+      "section_title": "Featured topics",
+      "bucket": "network",
+      "raw_question_title": "Docker Hardened Images"
+    },
+    {
+      "question": "What is Docker Sandbox and how do you get started?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Docker",
+        "Sandbox",
+        "Container",
+        "MicroVM"
+      ],
+      "answer_points": [
+        "Docker Sandboxes run AI coding agents in isolated microVM sandboxes with their own Docker daemon, filesystem, and network.",
+        "Prerequisites include macOS Sonoma+, Windows 11 with Hyper-V, or Ubuntu 24.04 with KVM; an API key for the agent model provider.",
+        "Install the CLI via brew (macOS) or apt (Linux), then run 'sbx login' to authenticate and set a network policy.",
+        "Use 'sbx run' to start a sandbox; optionally use '--clone' for an isolated Git clone to protect your host working tree.",
+        "Manage network access with 'sbx policy allow' and clean up with 'sbx stop' and 'sbx rm'."
+      ],
+      "follow_ups": [
+        "How does clone mode differ from default mode?",
+        "What network policies are available and how do you configure them?",
+        "How are credentials managed securely in Docker Sandboxes?"
+      ],
+      "summary": "Docker Sandboxes provide isolated microVM environments for AI agents to operate without affecting the host system.",
+      "source_url": "https://docs.docker.com/ai/sandboxes/get-started/",
+      "source_title": "Get started with Docker Sandboxes | Docker Docs",
+      "section_title": "Featured topics",
+      "bucket": "network",
+      "raw_question_title": "Get started with Docker Sandboxes"
+    },
+    {
+      "question": "What is Docker Desktop and what are its key features?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Docker",
+        "Desktop",
+        "Container",
+        "Kubernetes"
+      ],
+      "answer_points": [
+        "Docker Desktop is a one-click-install application for Mac, Linux, and Windows that simplifies building, sharing, and running containerized applications.",
+        "It provides a GUI for managing containers, applications, and images, handling port mappings and file system concerns automatically.",
+        "Key features include easy installation of a complete Docker environment, inclusion of latest Kubernetes, support for Linux/Windows containers on Windows, and integration with Docker Hub.",
+        "Products within Docker Desktop include Docker Engine, CLI, Compose, Build, Scout, Kubernetes, and Model Runner."
+      ],
+      "follow_ups": [
+        "How does Docker Desktop differ from Docker Engine?",
+        "Can you run Docker Desktop without Docker Hub?",
+        "What are the system requirements for Docker Desktop on Windows?"
+      ],
+      "summary": "Docker Desktop is an all-in-one GUI application for container development with built-in Kubernetes and easy setup.",
+      "source_url": "https://docs.docker.com/desktop/",
+      "source_title": "Docker Desktop | Docker Docs",
+      "section_title": "Featured topics",
+      "bucket": "network",
+      "raw_question_title": "Docker Desktop overview"
+    },
+    {
+      "question": "How do you install Docker Engine on Linux?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Docker",
+        "Installation",
+        "Linux"
+      ],
+      "answer_points": [
+        "Docker Engine (Docker CE) can be installed on various Linux distributions including CentOS, Debian, Fedora, RHEL, and Ubuntu.",
+        "Installation methods vary by platform; official packages are available via package managers or by downloading binaries.",
+        "For Debian/Ubuntu derivatives, follow the instructions for the corresponding main distribution (e.g., use Debian instructions for Kali Linux).",
+        "Release channels include 'stable' for general availability and 'test' for pre-release versions; use test with caution.",
+        "Commercial use for enterprises with >250 employees or >$10M revenue requires a paid subscription; otherwise it's open source under Apache 2.0."
+      ],
+      "follow_ups": [
+        "How do you verify that Docker Engine is installed correctly?",
+        "What is the difference between Docker Desktop and Docker Engine?",
+        "How do you upgrade Docker Engine to a newer version?"
+      ],
+      "summary": "Docker Engine is installed on Linux via package managers or binaries, with different procedures per distribution.",
+      "source_url": "https://docs.docker.com/engine/install/",
+      "source_title": "Install Docker Engine | Docker Docs",
+      "section_title": "Featured topics",
+      "bucket": "network",
+      "raw_question_title": "Install Docker Engine"
+    },
+    {
+      "question": "What is a Dockerfile and what instructions does it support?",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "mid",
+      "tags": [
+        "Docker",
+        "Dockerfile",
+        "Container",
+        "Build"
+      ],
+      "answer_points": [
+        "A Dockerfile is a text document containing commands to build a Docker image automatically; it supports instructions like FROM, RUN, CMD, COPY, ENV, and more.",
+        "Format: instructions are usually UPPERCASE and run sequentially; a Dockerfile must start with a FROM instruction specifying the base image.",
+        "Parser directives like # syntax=, # escape=, and # check= can be used to configure the build behavior; they must appear before any comments or instructions.",
+        "Environment variables ($var or ${var}) can be used in instructions; supported modifiers include :- :+ :? and pattern matching (since master version).",
+        "Common best practices include using specific base image tags, minimizing layers, and using multi-stage builds to reduce image size."
+      ],
+      "follow_ups": [
+        "How do you optimize a Dockerfile for smaller image size?",
+        "What is the purpose of the .dockerignore file?",
+        "Explain multi-stage builds and their benefits."
+      ],
+      "summary": "Dockerfile defines image build steps with instructions like FROM, RUN, COPY, and supports environment variables and parser directives.",
+      "source_url": "https://docs.docker.com/reference/dockerfile/",
+      "source_title": "Dockerfile reference | Docker Docs",
+      "section_title": "Featured topics",
+      "bucket": "network",
+      "raw_question_title": "Dockerfile reference"
+    },
+    {
+      "question": "Docker Build 概述",
+      "domain": "backend",
+      "category": "microservice",
+      "difficulty": "junior",
+      "tags": [
+        "Docker",
+        "容器化",
+        "构建工具"
+      ],
+      "answer_points": [
+        "Docker Build 是 Docker Engine 最常用的功能，用于创建镜像，实现代码打包和随处部署。",
+        "支持多阶段构建，保持镜像体积小且安全。",
+        "支持多平台镜像，可在不同计算机架构上无缝构建、推送、拉取和运行。",
+        "基于 BuildKit 开源构建引擎，提供高效构建。",
+        "提供构建驱动、导出器、构建缓存、Bake 等高级功能。"
+      ],
+      "follow_ups": [
+        "多阶段构建如何减小镜像体积？",
+        "Docker Build 缓存是如何工作的？如何优化缓存命中？",
+        "BuildKit 相比旧版构建引擎有哪些优势？"
+      ],
+      "summary": "Docker Build 是 Docker 生态中用于构建镜像的核心工具，涵盖多阶段构建、多平台支持、BuildKit 等特性。",
+      "source_url": "https://docs.docker.com/build/",
+      "source_title": "Docker Build | Docker Docs",
+      "section_title": "Featured topics",
+      "bucket": "network",
+      "raw_question_title": "Docker Build overview"
+    }
+  ]
+}

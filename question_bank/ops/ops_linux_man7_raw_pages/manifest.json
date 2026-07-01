@@ -1,0 +1,13 @@
+{
+  "source_url": "https://man7.org/linux/man-pages/",
+  "group_count": 1,
+  "groups": [
+    {
+      "bucket": "network",
+      "count": 10,
+      "file": "network.json"
+    }
+  ],
+  "failure_count": 0,
+  "failures_file": "failures.json"
+}

@@ -1,0 +1,13 @@
+{
+  "source_url": "https://react.dev/reference/react",
+  "group_count": 1,
+  "groups": [
+    {
+      "bucket": "network",
+      "count": 30,
+      "file": "network.json"
+    }
+  ],
+  "failure_count": 0,
+  "failures_file": "failures.json"
+}

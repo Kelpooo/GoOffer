@@ -1,0 +1,530 @@
+{
+  "bucket": "network",
+  "count": 18,
+  "items": [
+    {
+      "question": "String、StringBuilder 和 StringBuffer 的区别？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "junior",
+      "tags": [
+        "String",
+        "StringBuilder",
+        "StringBuffer",
+        "线程安全"
+      ],
+      "answer_points": [
+        "String 不可变，线程安全，拼接性能差；StringBuilder 可变，线程不安全，性能最优；StringBuffer 可变，线程安全，性能略低于 StringBuilder。",
+        "String 底层使用 final char[]（JDK 9 后为 byte[]），任何修改操作都会创建新对象。",
+        "StringBuilder 和 StringBuffer 继承自 AbstractStringBuilder，直接修改内部数组，支持自动扩容（2倍+2）。",
+        "单线程场景优先使用 StringBuilder，多线程场景使用 StringBuffer，常量或少量拼接使用 String。"
+      ],
+      "follow_ups": [
+        "String s = new String(\"abc\") 创建了几个对象？",
+        "为什么 String 设计为不可变？",
+        "String 的 + 拼接和 StringBuilder 的 append() 有什么区别？"
+      ],
+      "summary": "单线程用 StringBuilder，多线程用 StringBuffer，常量用 String。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/string-stringbuilder-stringbuffer-difference",
+      "source_title": "String、StringBuilder 和 StringBuffer 的区别？ | 犬小哈教程",
+      "section_title": "String 为什么设计成 final 不可变的？",
+      "bucket": "network",
+      "raw_question_title": "2 String、StringBuilder 和 StringBuffer 的区别？"
+    },
+    {
+      "question": "String str = new String(\"abc\") 创建了几个对象？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "String",
+        "常量池",
+        "对象创建"
+      ],
+      "answer_points": [
+        "取决于字符串常量池中是否已存在 \"abc\"：首次执行创建 2 个对象（常量池1个+堆1个），非首次执行创建 1 个对象（仅堆中）。",
+        "字面量 \"abc\" 在类加载时检查常量池，若不存在则创建并放入池中；new 关键字在堆中创建新对象。",
+        "JDK 7 之后常量池移至堆中，但对象创建规则不变。",
+        "生产环境应优先使用字面量方式，避免不必要的 new String()。"
+      ],
+      "follow_ups": [
+        "String s = \"a\" + \"b\" + \"c\" 创建了几个对象？",
+        "String.intern() 方法有什么用？",
+        "JDK 7 之后 intern() 有什么变化？"
+      ],
+      "summary": "首次2个，非首次1个，取决于常量池状态。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/string-new-abc-create-objects",
+      "source_title": "String str = new String(“abc”) 创建了几个对象？ | 犬小哈教程",
+      "section_title": "String、StringBuilder 和 StringBuffer 的区别？",
+      "bucket": "network",
+      "raw_question_title": "3 String str = new String(\"abc\") 创建了几个对象？"
+    },
+    {
+      "question": "接口和抽象类的区别是什么？怎么选择？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "接口",
+        "抽象类",
+        "面向对象"
+      ],
+      "answer_points": [
+        "接口定义行为契约（能做什么），抽象类定义本质模板（是什么）。",
+        "接口支持多实现，只能有常量（public static final）；抽象类单继承，可以有成员变量、构造方法和任意访问修饰符。",
+        "JDK 8 后接口可以有 default 和 static 方法，JDK 9+ 可以有 private 方法，但接口仍不能有状态。",
+        "选择时：需要成员变量或构造方法用抽象类；需要多实现用接口；优先使用接口，必要时用抽象类。"
+      ],
+      "follow_ups": [
+        "JDK 8 之后接口可以有默认实现，那接口和抽象类还有什么区别？",
+        "一个类可以同时继承抽象类和实现接口吗？",
+        "什么时候用 default 方法，什么时候用抽象类？"
+      ],
+      "summary": "接口定义能力，抽象类定义本质；多实现用接口，单继承用抽象类。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/java-interface-vs-abstract-class",
+      "source_title": "Java 中接口和抽象类的区别是什么？怎么选择？ | 犬小哈教程",
+      "section_title": "String str = new String(\"abc\") 创建了几个对象？",
+      "bucket": "network",
+      "raw_question_title": "4 接口和抽象类的区别是什么？怎么选择？"
+    },
+    {
+      "question": "while(true) 和 for(;;) 哪个性能更好？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "junior",
+      "tags": [
+        "循环",
+        "性能",
+        "字节码"
+      ],
+      "answer_points": [
+        "性能完全相同，编译后字节码一致，都是单条 goto 指令。",
+        "选择取决于编码风格，推荐 while(true) 提高可读性。",
+        "真正需要关注的是无限循环中是否有阻塞操作，避免 CPU 空转。"
+      ],
+      "follow_ups": [
+        "无限循环会不会导致 CPU 100%？",
+        "为什么 JDK 源码中很多地方用 for(;;)？",
+        "有没有其他写无限循环的方式？"
+      ],
+      "summary": "性能相同，推荐 while(true) 提高可读性。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/while-true-vs-for-loop-performance",
+      "source_title": "while(true) 和 for(;;) 哪个性能更好？ | 犬小哈教程",
+      "section_title": "接口和抽象类的区别是什么？怎么选择？",
+      "bucket": "network",
+      "raw_question_title": "5 while(true) 和 for(;;) 哪个性能更好？"
+    },
+    {
+      "question": "什么是反射机制？为什么反射慢？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "反射",
+        "性能",
+        "JVM"
+      ],
+      "answer_points": [
+        "反射允许程序在运行时获取类的完整信息并动态调用方法，是框架开发的基石。",
+        "反射慢的原因：运行时方法查找（O(n)）、参数装箱拆箱、安全检查、JIT 无法内联优化、生成额外对象。",
+        "性能优化策略：缓存 Method/Field 对象、调用 setAccessible(true)、使用 MethodHandle 或字节码生成技术。"
+      ],
+      "follow_ups": [
+        "反射可以访问私有构造器，那单例模式还有意义吗？",
+        "Class.forName() 和 ClassLoader.loadClass() 有什么区别？",
+        "如何避免反射的性能损耗？"
+      ],
+      "summary": "反射慢因运行时查找、装箱、安全检查及JIT限制，优化需缓存和关闭检查。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/what-is-java-reflection-why-slow",
+      "source_title": "什么是 Java 反射机制？为什么反射慢？ | 犬小哈教程",
+      "section_title": "while(true) 和 for(;;) 哪个性能更好？",
+      "bucket": "network",
+      "raw_question_title": "6 什么是反射机制？为什么反射慢？"
+    },
+    {
+      "question": "什么是泛型？为什么要使用它？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "泛型",
+        "类型安全",
+        "类型擦除"
+      ],
+      "answer_points": [
+        "泛型是 JDK 5 引入的参数化类型，在编译期进行类型检查，消除强制类型转换。",
+        "核心原理是类型擦除：编译时将泛型类型替换为原始类型或上界，运行时无泛型信息。",
+        "使用泛型提高类型安全、代码复用和可读性，遵循 PECS 原则（Producer Extends, Consumer Super）。",
+        "限制：不能用基本类型、不能创建泛型数组、不能实例化类型参数等。"
+      ],
+      "follow_ups": [
+        "什么是类型擦除？为什么 Java 要这样设计？",
+        "List<?>、List<Object> 和 List 有什么区别？",
+        "泛型数组为什么不能创建？"
+      ],
+      "summary": "泛型通过编译期类型检查保证安全，原理是类型擦除。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/what-is-java-generics",
+      "source_title": "什么是 Java 泛型？为什么要使用它？ | 犬小哈教程",
+      "section_title": "什么是反射机制？为什么反射慢？",
+      "bucket": "network",
+      "raw_question_title": "7 什么是泛型？为什么要使用它？"
+    },
+    {
+      "question": "如何理解 Java 中的多态？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "多态",
+        "面向对象",
+        "虚方法表"
+      ],
+      "answer_points": [
+        "多态指同一操作作用于不同对象产生不同行为，通过继承/实现、重写、父类引用指向子类对象实现。",
+        "JVM 通过虚方法表在运行时动态绑定方法，字段和静态方法没有多态性。",
+        "多态分为编译时多态（方法重载）和运行时多态（方法重写）。",
+        "多态是实现开闭原则和设计模式的基础。"
+      ],
+      "follow_ups": [
+        "多态的三个必要条件是什么？",
+        "字段和静态方法有多态性吗？",
+        "JVM 如何实现多态？"
+      ],
+      "summary": "多态是同一接口不同实现，通过虚方法表实现运行时绑定。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/understand-java-polymorphism",
+      "source_title": "如何理解 Java 中的多态？ | 犬小哈教程",
+      "section_title": "什么是泛型？为什么要使用它？",
+      "bucket": "network",
+      "raw_question_title": "8 如何理解 Java 中的多态？"
+    },
+    {
+      "question": "为什么 Java 不支持多继承？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "多继承",
+        "菱形继承",
+        "接口"
+      ],
+      "answer_points": [
+        "避免菱形继承问题带来的方法调用二义性和状态管理复杂性。",
+        "Java 选择单继承+多接口实现，接口只定义契约，实现由类自己完成，无歧义。",
+        "JDK 8 接口默认方法可能产生冲突，但强制要求类重写冲突方法。",
+        "其他原因：简化语言设计、降低学习成本、提高类型安全性。"
+      ],
+      "follow_ups": [
+        "Java 不支持多继承，那如何实现类似功能？",
+        "JDK 8 的接口默认方法会带来菱形问题吗？",
+        "组合和继承有什么区别？为什么推荐组合优于继承？"
+      ],
+      "summary": "避免菱形继承问题，Java 采用单继承+多接口实现。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/why-java-no-multiple-inheritance",
+      "source_title": "为什么 Java 不支持多继承？ | 犬小哈教程",
+      "section_title": "如何理解 Java 中的多态？",
+      "bucket": "network",
+      "raw_question_title": "9 为什么 Java 不支持多继承？"
+    },
+    {
+      "question": "final、finally、finalize 的区别？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "junior",
+      "tags": [
+        "final",
+        "finally",
+        "finalize",
+        "Java基础"
+      ],
+      "answer_points": [
+        "final是修饰符，用于修饰类、方法、变量，表示不可变。",
+        "finally是异常处理块，与try-catch配合，确保代码一定执行。",
+        "finalize()是Object类的方法，在对象回收前调用，已废弃。",
+        "finally在return之前执行，但返回值已确定。",
+        "finalize()从JDK 9开始标记为@Deprecated，不推荐使用。"
+      ],
+      "follow_ups": [
+        "final修饰的引用类型变量，其内部属性可以修改吗？",
+        "finally块一定会执行吗？",
+        "为什么finalize()被废弃了？",
+        "try-with-resources和try-finally有什么区别？"
+      ],
+      "summary": "final修饰不可变，finally确保必执行，finalize()回收前调用（已废弃）。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/final-finally-finalize-difference",
+      "source_title": "final、finally、finalize 的区别是什么？ | 犬小哈教程",
+      "section_title": "为什么 Java 不支持多继承？",
+      "bucket": "network",
+      "raw_question_title": "10 final、finally、finalize 的区别？"
+    },
+    {
+      "question": "finally中代码一定会被执行吗？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "finally",
+        "异常处理",
+        "Java基础"
+      ],
+      "answer_points": [
+        "finally中的代码在绝大多数情况下会执行，但存在特殊情况不会执行。",
+        "不执行的情况包括：调用System.exit()、线程死亡、系统崩溃等。",
+        "finally在return之前执行，但返回值已确定。",
+        "finally中修改基本类型返回值无效，但可修改引用类型对象内容。",
+        "强烈不建议在finally中使用return，会覆盖返回值并吞掉异常。"
+      ],
+      "follow_ups": [
+        "try块中有return，finally还会执行吗？",
+        "finally中修改返回值有效吗？",
+        "System.exit()和return有什么区别？",
+        "为什么不要在finally中写return？"
+      ],
+      "summary": "只要JVM正常运行且线程存活，finally就一定会执行。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/does-finally-always-execute",
+      "source_title": "finally 中代码一定会被执行吗？ | 犬小哈教程",
+      "section_title": "final、finally、finalize 的区别？",
+      "bucket": "network",
+      "raw_question_title": "11 finally 中代码一定会被执行吗？"
+    },
+    {
+      "question": "BigDecimal和Long哪个表示金额更合适，怎么选择？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "BigDecimal",
+        "Long",
+        "金额",
+        "精度"
+      ],
+      "answer_points": [
+        "float/double不能用于金额，因为二进制浮点数无法精确表示十进制小数。",
+        "BigDecimal适合复杂金融计算，精度无损失，但性能较差。",
+        "Long（分存储）适合高并发场景，性能高，但需手动转换单位。",
+        "BigDecimal构造必须用字符串，比较用compareTo，除法需指定精度和舍入模式。",
+        "数据库金额字段用DECIMAL或BIGINT，禁止使用FLOAT/DOUBLE。"
+      ],
+      "follow_ups": [
+        "为什么new BigDecimal(0.1)得到的不是精确的0.1？",
+        "BigDecimal的equals()和compareTo()有什么区别？",
+        "如果金额需要支持3位小数，Long方案怎么处理？",
+        "高并发场景下，两种方案哪个更好？"
+      ],
+      "summary": "金融系统推荐BigDecimal，互联网高并发场景可用Long分存储，永远不要用浮点数。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/bigdecimal-vs-long-amount-representation",
+      "source_title": "BigDecimal 和 Long 哪个表示金额更合适，怎么选择？ | 犬小哈教程",
+      "section_title": "finally 中代码一定会被执行吗？",
+      "bucket": "network",
+      "raw_question_title": "12 BigDecimal 和 Long 哪个表示金额更合适，怎么选择？"
+    },
+    {
+      "question": "AIO、BIO和NIO的区别？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "BIO",
+        "NIO",
+        "AIO",
+        "IO模型"
+      ],
+      "answer_points": [
+        "BIO是同步阻塞IO，一连接一线程，适合连接数少且固定的场景。",
+        "NIO是同步非阻塞IO，使用Selector多路复用，一个线程管理多个连接。",
+        "AIO是异步非阻塞IO，操作系统完成IO后回调通知，Linux支持不完善。",
+        "NIO是主流选择，如Netty、Tomcat NIO；AIO在Windows环境下可考虑。",
+        "Netty早期支持AIO但后来移除，因为Linux下AIO性能没有优势。"
+      ],
+      "follow_ups": [
+        "NIO的Selector是怎么实现的？",
+        "为什么Netty使用NIO而不是AIO？",
+        "NIO的Buffer有什么作用？",
+        "什么是Reactor模式？"
+      ],
+      "summary": "BIO一连接一线程，NIO多路复用，AIO异步回调，生产推荐NIO。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/aio-bio-nio-difference",
+      "source_title": "AIO、BIO 和 NIO 的区别是什么？ | 犬小哈教程",
+      "section_title": "BigDecimal 和 Long 哪个表示金额更合适，怎么选择？",
+      "bucket": "network",
+      "raw_question_title": "13 AIO、BIO 和 NIO 的区别？"
+    },
+    {
+      "question": "什么是SPI，和API有啥区别？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "SPI",
+        "API",
+        "服务发现",
+        "解耦"
+      ],
+      "answer_points": [
+        "SPI是Java的服务发现机制，允许运行时动态加载接口实现类。",
+        "API是开发者调用框架，SPI是框架调用开发者提供的实现。",
+        "SPI通过META-INF/services/配置文件和ServiceLoader实现。",
+        "SPI广泛应用于JDBC、SLF4J、Dubbo、Spring Boot等框架。",
+        "Dubbo的SPI比Java原生SPI更强大，支持按名称获取、依赖注入等。"
+      ],
+      "follow_ups": [
+        "Dubbo的SPI和Java的SPI有什么区别？",
+        "Spring的@Autowired和SPI有什么关系？",
+        "SPI配置文件为什么要放在META-INF/services/目录下？",
+        "如何实现一个类似SPI的机制？"
+      ],
+      "summary": "API是'我调你'，SPI是'你实现，我调你'。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/spi-vs-api-difference",
+      "source_title": "什么是 SPI，和 API 有啥区别？ | 犬小哈教程",
+      "section_title": "AIO、BIO 和 NIO 的区别？",
+      "bucket": "network",
+      "raw_question_title": "14 什么是 SPI，和 API 有啥区别？"
+    },
+    {
+      "question": "为什么不能用浮点数表示金额？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "junior",
+      "tags": [
+        "浮点数",
+        "精度",
+        "金额",
+        "BigDecimal"
+      ],
+      "answer_points": [
+        "浮点数采用IEEE 754二进制存储，无法精确表示某些十进制小数。",
+        "0.1+0.2不等于0.3，累加误差会放大。",
+        "金额计算必须使用BigDecimal（字符串构造）或将金额转为整数（分）存储。",
+        "BigDecimal比较用compareTo，除法需指定精度和舍入模式。",
+        "数据库中金额字段使用DECIMAL或BIGINT，禁止使用FLOAT/DOUBLE。"
+      ],
+      "follow_ups": [
+        "BigDecimal的equals()和compareTo()有什么区别？",
+        "数据库中金额字段应该用什么类型？",
+        "分布式场景下金额计算有什么注意事项？"
+      ],
+      "summary": "浮点数精度丢失，金额计算必须用BigDecimal或整数存储。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/why-float-cannot-represent-money",
+      "source_title": "为什么不能用浮点数表示金额？ | 犬小哈教程",
+      "section_title": "什么是 SPI，和 API 有啥区别？",
+      "bucket": "network",
+      "raw_question_title": "15 为什么不能用浮点数表示金额？"
+    },
+    {
+      "question": "深拷贝和浅拷贝的区别？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "junior",
+      "tags": [
+        "深拷贝",
+        "浅拷贝",
+        "克隆",
+        "Java基础"
+      ],
+      "answer_points": [
+        "浅拷贝只复制对象本身，引用类型成员仍指向原对象。",
+        "深拷贝递归复制所有层级对象，创建完全独立的新对象。",
+        "Object.clone()默认是浅拷贝，需重写实现深拷贝。",
+        "深拷贝实现方式：递归clone()、序列化、JSON工具。",
+        "生产推荐使用JSON工具（Jackson/Gson）或序列化方式实现深拷贝。"
+      ],
+      "follow_ups": [
+        "Java的Object.clone()是浅拷贝还是深拷贝？",
+        "为什么Java设计成默认浅拷贝？",
+        "数组的clone()是深拷贝还是浅拷贝？"
+      ],
+      "summary": "浅拷贝壳子新芯子旧，深拷贝里外新彻底分。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/java-deep-vs-shallow-copy",
+      "source_title": "Java 深拷贝和浅拷贝的区别是什么？ | 犬小哈教程",
+      "section_title": "为什么不能用浮点数表示金额？",
+      "bucket": "network",
+      "raw_question_title": "16 深拷贝和浅拷贝的区别？"
+    },
+    {
+      "question": "什么是序列化与反序列化？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "junior",
+      "tags": [
+        "序列化",
+        "反序列化",
+        "Serializable",
+        "transient"
+      ],
+      "answer_points": [
+        "序列化将Java对象转换为字节序列，反序列化将字节序列恢复为对象。",
+        "Java通过Serializable接口实现，transient关键字排除字段。",
+        "必须显式定义serialVersionUID以保证版本一致性。",
+        "Java原生序列化性能差、体积大、有安全风险，生产不推荐。",
+        "常用序列化方案：JSON、Protobuf、Hessian、Kryo等。"
+      ],
+      "follow_ups": [
+        "Serializable和Externalizable有什么区别？",
+        "为什么static字段不参与序列化？",
+        "父类没有实现Serializable，子类可以序列化吗？"
+      ],
+      "summary": "序列化让对象离开JVM，反序列化让对象回到JVM。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/what-is-java-serialization-deserialization",
+      "source_title": "什么是 Java 序列化与反序列化？ | 犬小哈教程",
+      "section_title": "深拷贝和浅拷贝的区别？",
+      "bucket": "network",
+      "raw_question_title": "17 什么是序列化与反序列化？"
+    },
+    {
+      "question": "为什么重写 equals 时一定要重写 hashCode？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "mid",
+      "tags": [
+        "equals",
+        "hashCode",
+        "HashMap",
+        "Java基础"
+      ],
+      "answer_points": [
+        "Java规定：如果两个对象equals()返回true，则它们的hashCode()必须相同。",
+        "只重写equals()不重写hashCode()会违反契约，导致HashMap、HashSet等哈希集合工作异常。",
+        "HashMap查找元素时先通过hashCode()定位桶，再通过equals()确认元素。",
+        "实际开发中应使用IDE自动生成或Lombok的@EqualsAndHashCode注解。"
+      ],
+      "follow_ups": [
+        "为什么选择31作为hashCode的乘数？",
+        "只重写hashCode不重写equals会怎样？",
+        "两个不相等的对象hashCode相同怎么办？"
+      ],
+      "summary": "重写equals时必须重写hashCode以遵守Java契约，确保哈希集合正常工作。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/java-equals-hashcode-zhongxie-why",
+      "source_title": "为什么重写 equals 时一定要重写 hashCode？ | 犬小哈教程",
+      "section_title": "什么是序列化与反序列化？",
+      "bucket": "network",
+      "raw_question_title": "18 为什么重写 equals 时一定要重写 hashCode？"
+    },
+    {
+      "question": "什么是UUID，能保证唯一性吗？",
+      "domain": "backend",
+      "category": "java_base",
+      "difficulty": "junior",
+      "tags": [
+        "UUID",
+        "分布式ID",
+        "唯一性"
+      ],
+      "answer_points": [
+        "UUID是128位的通用唯一标识符，通常表示为36字符的字符串。",
+        "理论上可以保证唯一性，但并非绝对不重复，冲突概率极低（约2^122分之一）。",
+        "Java的UUID.randomUUID()生成v4版本，基于伪随机数。",
+        "UUID不适合作为数据库主键，因为无序导致索引性能差且占用空间大。"
+      ],
+      "follow_ups": [
+        "UUID v1和v4有什么区别？",
+        "为什么不推荐用UUID做数据库主键？",
+        "如何解决分布式系统的ID唯一性问题？"
+      ],
+      "summary": "UUID是通用唯一标识符，实际应用可认为唯一，但不适合做数据库主键。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/what-is-uuid-unique-guaranteed",
+      "source_title": "什么是 UUID，能保证唯一性吗？ | 犬小哈教程",
+      "section_title": "为什么重写 equals 时一定要重写 hashCode？",
+      "bucket": "network",
+      "raw_question_title": "19 什么是 UUID，能保证唯一性吗？"
+    }
+  ]
+}

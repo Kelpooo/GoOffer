@@ -1,0 +1,37 @@
+{
+  "bucket": "redis",
+  "count": 1,
+  "items": [
+    {
+      "question": "如何在Kubernetes上使用Redis部署一个无状态的PHP留言板应用？",
+      "domain": "backend",
+      "category": "redis",
+      "difficulty": "mid",
+      "tags": [
+        "Kubernetes",
+        "Redis",
+        "PHP",
+        "无状态"
+      ],
+      "answer_points": [
+        "部署Redis Leader作为写入实例，使用Deployment保证单副本。",
+        "部署Redis Follower作为只读副本，实现读取扩展和高可用。",
+        "为Redis Leader和Follower分别创建Service，使前端通过DNS发现后端。",
+        "部署PHP前端Deployment，设置环境变量通过DNS连接Redis。",
+        "创建前端Service，默认ClusterIP，可通过kubectl port-forward或LoadBalancer对外暴露。",
+        "使用kubectl scale命令可动态扩展前端副本数。"
+      ],
+      "follow_ups": [
+        "Redis Leader和Follower之间如何同步数据？",
+        "Kubernetes Service的ClusterIP和LoadBalancer类型有何区别？",
+        "如果前端需要读写分离，如何配置？"
+      ],
+      "summary": "通过Kubernetes部署Redis主从和PHP前端，实现无状态留言板应用。",
+      "source_url": "https://kubernetes.io/docs/tutorials/stateless-application/guestbook/",
+      "source_title": "Example: Deploying PHP Guestbook application with Redis | Kubernetes",
+      "section_title": "Try Kubernetes",
+      "bucket": "redis",
+      "raw_question_title": "Stateless Example: PHP Guestbook with Redis"
+    }
+  ]
+}

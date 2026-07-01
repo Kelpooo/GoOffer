@@ -69,12 +69,12 @@ def processed_records(domain):
     return records
 
 
-def backend_directory_records():
+def directory_records(domain):
     records = []
-    meta = DOMAIN_META["backend"]
-    backend_root = BASE_DIR / "question_bank" / "backend"
+    meta = DOMAIN_META[domain]
+    domain_root = BASE_DIR / "question_bank" / domain
 
-    for extracted_dir in sorted(backend_root.glob("*extracted_questions*")):
+    for extracted_dir in sorted(domain_root.glob("*extracted_questions*")):
         if not extracted_dir.is_dir():
             continue
         for path in sorted(extracted_dir.glob("*.json")):
@@ -87,8 +87,8 @@ def backend_directory_records():
                     continue
                 records.append(
                     {
-                        "id": f"backend-{extracted_dir.name}-{path.stem}-{index}",
-                        "domain": "backend",
+                        "id": f"{domain}-{extracted_dir.name}-{path.stem}-{index}",
+                        "domain": domain,
                         "section": meta["section"],
                         "question": question,
                         "category": normalize_text(item.get("category")) or normalize_text(item.get("bucket")) or meta["default_category"],
@@ -131,7 +131,8 @@ def main():
     records = []
     for domain in ["frontend", "backend", "ai_app", "testing", "algorithm", "ops", "cs_basic"]:
         records.extend(processed_records(domain))
-    records.extend(backend_directory_records())
+    for domain in ["frontend", "backend", "ops", "cs_basic"]:
+        records.extend(directory_records(domain))
     records = dedupe_records(records)
 
     payload = {

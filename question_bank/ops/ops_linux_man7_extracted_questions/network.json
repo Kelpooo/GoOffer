@@ -1,0 +1,284 @@
+{
+  "bucket": "network",
+  "count": 10,
+  "items": [
+    {
+      "question": "man7.org",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Linux",
+        "man pages",
+        "online documentation"
+      ],
+      "answer_points": [
+        "man7.org是Linux手册页的权威在线资源",
+        "由Michael Kerrisk维护",
+        "提供培训课程和书籍《The Linux Programming Interface》",
+        "包含在线手册页、文章、博客等"
+      ],
+      "follow_ups": [
+        "man7.org提供哪些主要资源？",
+        "如何在man7.org上查找特定手册页？"
+      ],
+      "summary": "man7.org是Linux手册页的在线门户，由Michael Kerrisk维护。",
+      "source_url": "https://man7.org/index.html",
+      "source_title": "Michael Kerrisk - man7.org",
+      "section_title": "未分类",
+      "bucket": "network",
+      "raw_question_title": "man7.org"
+    },
+    {
+      "question": "Linux手册页的章节分类",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Linux",
+        "man pages",
+        "section"
+      ],
+      "answer_points": [
+        "Section 0: 头文件（如stdio.h, pthread.h）",
+        "Section 1: 用户命令（如ls, cat）",
+        "Section 2: 系统调用（如open, read）",
+        "Section 3: 库函数（如printf, malloc）",
+        "Section 4: 特殊文件（如/dev下的设备）",
+        "Section 5: 文件格式（如passwd, crontab）"
+      ],
+      "follow_ups": [
+        "如何查看特定章节的手册页？",
+        "man命令的section参数如何使用？"
+      ],
+      "summary": "Linux手册页按章节分类，涵盖不同主题。",
+      "source_url": "https://man7.org/linux/man-pages/dir_all_by_section.html",
+      "source_title": "Linux manual pages: all pages, by section",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "by section"
+    },
+    {
+      "question": "Linux手册页的字母顺序索引",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "Linux",
+        "man pages",
+        "index"
+      ],
+      "answer_points": [
+        "man7.org提供按字母顺序排列的全部手册页列表",
+        "便于查找特定命令或函数的手册",
+        "每个条目链接到对应的手册页"
+      ],
+      "follow_ups": [
+        "如何快速搜索手册页？",
+        "apropos命令的作用是什么？"
+      ],
+      "summary": "man7.org上可以按字母顺序浏览所有手册页。",
+      "source_url": "https://man7.org/linux/man-pages/dir_all_alphabetic.html",
+      "source_title": "Linux manual pages: alphabetic list of all pages",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "alphabetically"
+    },
+    {
+      "question": "Linux手册页按项目分类",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "Linux",
+        "man pages",
+        "project management"
+      ],
+      "answer_points": [
+        "每个开源项目会贡献自己的手册页",
+        "例如acl、bash、coreutils、git等",
+        "手册页来源包括Git仓库和tar包",
+        "man7.org汇总各项目的手册页索引"
+      ],
+      "follow_ups": [
+        "如何为项目添加手册页？",
+        "man-pages项目与各项目手册页的关系？"
+      ],
+      "summary": "Linux手册页由各个项目分别维护，man7.org提供统一索引。",
+      "source_url": "https://man7.org/linux/man-pages/dir_by_project.html",
+      "source_title": "Linux manual pages by project",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "by project"
+    },
+    {
+      "question": "Linux 用户命令 (intro(1)) 概述",
+      "domain": "backend",
+      "category": "os",
+      "difficulty": "junior",
+      "tags": [
+        "Linux",
+        "用户命令",
+        "基本操作",
+        "Shell"
+      ],
+      "answer_points": [
+        "用户命令包括文件操作、shell、编译器、浏览器等工具。",
+        "常用命令：date（日期）、cal（日历）、ls（列出文件）、cat（查看文件内容）、cp（复制）、mv（移动/重命名）、diff（比较文件）、rm（删除）、grep（搜索）。",
+        "Shell 是命令解释器，支持提示符定制，如 PS1 环境变量。",
+        "文件路径有绝对路径和相对路径，当前目录概念重要。",
+        "进程管理：ps 查看进程，kill 终止进程，foreground/background。",
+        "获取帮助：man pages（如 man kill）、info、HOWTOs。"
+      ],
+      "follow_ups": [
+        "shell 有哪些常见种类？",
+        "如何查看文件内容？cat 和 less 的区别？",
+        "如何复制目录？cp -r 的作用？"
+      ],
+      "summary": "介绍 Linux 用户命令的基本概念和常用命令。",
+      "source_url": "https://man7.org/linux/man-pages/man1/intro.1.html",
+      "source_title": "intro(1) - Linux manual page",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "intro(1)"
+    },
+    {
+      "question": "Linux 系统调用 (intro(2)) 概述",
+      "domain": "backend",
+      "category": "os",
+      "difficulty": "junior",
+      "tags": [
+        "Linux",
+        "系统调用",
+        "内核"
+      ],
+      "answer_points": [
+        "系统调用是进入 Linux 内核的入口点，通常通过 C 库包装函数调用。",
+        "C 库包装函数负责：复制参数和系统调用号到寄存器、陷入内核、设置 errno。",
+        "系统调用返回负错误号（表示错误），包装函数将错误号绝对值赋给 errno 并返回 -1。",
+        "成功返回的值因调用而异，通常 0 表示成功。",
+        "直接调用系统调用可用 syscall(2) 或旧的 _syscall 宏。"
+      ],
+      "follow_ups": [
+        "系统调用和库函数的区别？",
+        "举例几个常见的系统调用及其用途？",
+        "系统调用如何切换用户态到内核态？"
+      ],
+      "summary": "介绍系统调用的概念、调用方式和错误处理。",
+      "source_url": "https://man7.org/linux/man-pages/man2/intro.2.html",
+      "source_title": "intro(2) - Linux manual page",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "intro(2)"
+    },
+    {
+      "question": "Linux 库函数 (intro(3)) 概述",
+      "domain": "backend",
+      "category": "os",
+      "difficulty": "junior",
+      "tags": [
+        "Linux",
+        "库函数",
+        "C库"
+      ],
+      "answer_points": [
+        "Section 3 描述库函数（包括标准 C 库、数学库 libm、实时库 librt 等），不包括系统调用包装。",
+        "不同库需指定链接选项，如 -lm 链接数学库，-lrt 链接实时库。",
+        "某些函数需要定义特性测试宏才能从头文件获取声明。",
+        "理想情况下，每个头文件对应一个 API 模块，文档应包含头文件、类型、常量。"
+      ],
+      "follow_ups": [
+        "什么是标准 C 库 libc？",
+        "如何链接数学库？",
+        "什么是特性测试宏？为什么需要它们？"
+      ],
+      "summary": "介绍 Linux 库函数的基本概念和组织方式。",
+      "source_url": "https://man7.org/linux/man-pages/man3/intro.3.html",
+      "source_title": "intro(3) - Linux manual page",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "intro(3)"
+    },
+    {
+      "question": "Linux 特殊文件 (intro(4)) 概述",
+      "domain": "backend",
+      "category": "os",
+      "difficulty": "junior",
+      "tags": [
+        "Linux",
+        "设备文件",
+        "特殊文件"
+      ],
+      "answer_points": [
+        "Section 4 描述特殊文件（设备文件），位于 /dev 目录。",
+        "设备文件通过 mknod 命令创建。",
+        "特殊文件用于访问硬件设备或提供内核接口。"
+      ],
+      "follow_ups": [
+        "什么是设备文件？与普通文件有何不同？",
+        "设备文件分为哪几种类型？",
+        "如何查看系统中的设备文件？"
+      ],
+      "summary": "介绍 Linux 特殊文件（设备文件）的基本概念。",
+      "source_url": "https://man7.org/linux/man-pages/man4/intro.4.html",
+      "source_title": "intro(4) - Linux manual page",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "intro(4)"
+    },
+    {
+      "question": "Linux man page中第5节主要介绍什么？",
+      "domain": "backend",
+      "category": "os",
+      "difficulty": "junior",
+      "tags": [
+        "linux",
+        "man page",
+        "file format"
+      ],
+      "answer_points": [
+        "第5节描述各种文件格式（如 /etc/passwd），以及对应的C结构体。",
+        "该节也包含文件系统的文档。",
+        "主要用于帮助开发者理解配置文件和数据文件的格式。"
+      ],
+      "follow_ups": [
+        "第5节与第3节（库函数）有什么区别？",
+        "你如何查看一个文件格式的man page？",
+        "能否举例说明第5节中常见的文件格式？"
+      ],
+      "summary": "",
+      "source_url": "https://man7.org/linux/man-pages/man5/intro.5.html",
+      "source_title": "intro(5) - Linux manual page",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "intro(5)"
+    },
+    {
+      "question": "Linux man page中第6节主要介绍什么？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "linux",
+        "games",
+        "man page"
+      ],
+      "answer_points": [
+        "第6节描述系统上的游戏和有趣的小程序。",
+        "这些程序通常不是核心系统工具，而是娱乐性质的。",
+        "现代Linux发行版中该节内容较少，多为经典文本游戏。"
+      ],
+      "follow_ups": [
+        "为什么Linux man page要为游戏单独设一节？",
+        "你用过哪些第6节中的游戏？",
+        "第6节在实际系统运维中有什么意义？"
+      ],
+      "summary": "",
+      "source_url": "https://man7.org/linux/man-pages/man6/intro.6.html",
+      "source_title": "intro(6) - Linux manual page",
+      "section_title": "Linux man pages online",
+      "bucket": "network",
+      "raw_question_title": "intro(6)"
+    }
+  ]
+}

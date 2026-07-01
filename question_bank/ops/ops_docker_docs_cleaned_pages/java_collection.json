@@ -1,0 +1,14 @@
+{
+  "bucket": "java_collection",
+  "count": 1,
+  "items": [
+    {
+      "section_title": "Guides",
+      "question_title": "Manuals Install, set up, configure, and use Docker products.",
+      "bucket": "java_collection",
+      "url": "https://docs.docker.com/manuals/",
+      "page_title": "Manuals | Docker Docs",
+      "content_text": "Manuals\nAsk Gordon\nCopy Markdown\nView Markdown\nThis section contains user guides on how to install, set up, configure, and use\nDocker products.\nAI and agents\nAll the Docker AI tools in one easy-to-access location.\nDocker Sandboxes\nRun AI coding agents in isolated environments.\nMCP Catalog and Toolkit\nAugment your AI workflow with MCP servers.\nGordon\nStreamline your workflow and get the most out of the Docker ecosystem with your personal AI assistant.\nDocker Model Runner\nView and manage your local models.\nDocker Agent\nThe open-source multi-agent solution to assist you in your tasks.\nApplication development\nEnd-to-end developer solutions for innovative teams.\nDocker Desktop\nYour command center for container development.\nDocker Offload\nBuild and run containers in the cloud.\nDocker Build Cloud\nBuild your images faster in the cloud.\nTestcontainers\nRun containers programmatically in your preferred programming language.\nDocker Build\nBuild and ship any application anywhere.\nDocker Engine\nThe industry-leading container runtime.\nDocker Compose\nDefine and run multi-container applications.\nSupply chain security\nSecurity guardrails and image analysis for your software supply chain.\nDocker Hub\nDiscover, share, and integrate container images.\nDocker Hardened Images\nSecure, minimal images for trusted software delivery.\nDocker Scout\nImage analysis and policy evaluation.\nPlatform\nDocumentation related to the Docker platform, such as administration and\nsubscription management.\nAdministration\nCentralized observability for companies and organizations.\nBilling\nManage billing and payment methods.\nAccounts\nManage your Docker account.\nSecurity\nSecurity guardrails for both administrators and developers.\nSubscription\nCommercial use licenses for Docker products.\nEnterprise\nTargeted at IT administrators with help on deploying Docker Desktop at scale with configuration guidance on security related features.\nDeploy Docker Desktop\nDeploy Docker Desktop at scale within your company"
+    }
+  ]
+}

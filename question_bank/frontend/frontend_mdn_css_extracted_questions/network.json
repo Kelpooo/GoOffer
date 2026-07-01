@@ -1,0 +1,581 @@
+{
+  "bucket": "network",
+  "count": 20,
+  "items": [
+    {
+      "question": "What is the StyleSheet interface?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "StyleSheet",
+        "DOM"
+      ],
+      "answer_points": [
+        "The StyleSheet interface represents a single stylesheet and provides properties to access its metadata.",
+        "The disabled property indicates whether the stylesheet is applied.",
+        "The href property returns the URL of the stylesheet.",
+        "The media property returns the intended destination medium as a MediaList.",
+        "The ownerNode property returns the node associating the stylesheet with the document.",
+        "The parentStyleSheet property returns the parent stylesheet, if any."
+      ],
+      "follow_ups": [
+        "How do you disable a stylesheet using JavaScript?",
+        "What is the difference between StyleSheet and CSSStyleSheet?",
+        "How can you dynamically load a stylesheet?"
+      ],
+      "summary": "StyleSheet interface provides metadata about a stylesheet.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/API/StyleSheet",
+      "source_title": "StyleSheet - Web APIs | MDN",
+      "section_title": "CSS: Cascading Style Sheets",
+      "bucket": "network",
+      "raw_question_title": "stylesheet"
+    },
+    {
+      "question": "What is HTML?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "HTML",
+        "Web",
+        "Markup Language"
+      ],
+      "answer_points": [
+        "HTML (HyperText Markup Language) is the most basic building block of the Web, defining the meaning and structure of web content.",
+        "HTML works with CSS for presentation and JavaScript for functionality.",
+        "HTML uses elements enclosed in tags, such as <head>, <body>, <p>, and <div>.",
+        "Tags are case-insensitive, but the convention is to use lowercase.",
+        "HTML provides various content categories and attributes to configure elements."
+      ],
+      "follow_ups": [
+        "What is the difference between HTML and XHTML?",
+        "What are semantic HTML elements?",
+        "How does HTML5 improve upon previous versions?"
+      ],
+      "summary": "HTML is the standard markup language for creating web pages.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "source_title": "HTML: HyperText Markup Language | MDN",
+      "section_title": "CSS: Cascading Style Sheets",
+      "bucket": "network",
+      "raw_question_title": "HTML"
+    },
+    {
+      "question": "What is XML? Explain its structure.",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "XML",
+        "Markup Language",
+        "Data Storage"
+      ],
+      "answer_points": [
+        "XML (Extensible Markup Language) is a markup language like HTML but without predefined tags; you define your own.",
+        "XML is standardized, allowing data to be stored, searched, and shared across platforms.",
+        "An XML document must be well-formed and valid, conforming to syntax and semantic rules.",
+        "XML declaration is optional and specifies version and encoding.",
+        "XML uses character references for reserved characters like <, >, &, etc.",
+        "XML can be styled with CSS or transformed with XSLT."
+      ],
+      "follow_ups": [
+        "What is a well-formed XML document?",
+        "What is DTD and how is it used in XML?",
+        "What is the difference between XML and JSON?"
+      ],
+      "summary": "XML is a flexible markup language for storing and transporting data.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/XML/Guides/XML_introduction",
+      "source_title": "XML introduction - XML | MDN",
+      "section_title": "CSS: Cascading Style Sheets",
+      "bucket": "network",
+      "raw_question_title": "XML"
+    },
+    {
+      "question": "What is SVG?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "SVG",
+        "Vector Graphics",
+        "XML"
+      ],
+      "answer_points": [
+        "SVG (Scalable Vector Graphics) is an XML-based markup language for describing two-dimensional vector graphics.",
+        "SVG images are text-based, can be created with any text editor, and are resolution-independent.",
+        "SVG works well with CSS, DOM, JavaScript, and SMIL.",
+        "SVG can be used in HTML, CSS, and even as an image source.",
+        "SVG provides features like filters, animation, and scripting."
+      ],
+      "follow_ups": [
+        "What is the difference between SVG and Canvas?",
+        "How do you embed SVG in HTML?",
+        "What are the advantages of SVG over raster images?"
+      ],
+      "summary": "SVG is a web standard for scalable vector graphics.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/SVG",
+      "source_title": "SVG: Scalable Vector Graphics | MDN",
+      "section_title": "CSS: Cascading Style Sheets",
+      "bucket": "network",
+      "raw_question_title": "SVG"
+    },
+    {
+      "question": "什么是MathML？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "MathML",
+        "XML",
+        "数学标记"
+      ],
+      "answer_points": [
+        "MathML是用于描述数学符号的XML标记语言。",
+        "MathML分为语义子集和布局子集，早期浏览器实现不一致。",
+        "MathML Core是浏览器统一实现的子集，基于LaTeX和Open Font Format。",
+        "MathML可与HTML、CSS、DOM、JavaScript结合使用。",
+        "推荐使用MathML Core，并用polyfills过渡旧版内容。"
+      ],
+      "follow_ups": [
+        "为什么推荐使用MathML Core而非旧版MathML？",
+        "如何在HTML中嵌入MathML公式？",
+        "MathML与LaTeX的主要区别是什么？"
+      ],
+      "summary": "MathML是用于数学符号的XML语言，MathML Core是现代浏览器标准。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/MathML",
+      "source_title": "MathML | MDN",
+      "section_title": "CSS: Cascading Style Sheets",
+      "bucket": "network",
+      "raw_question_title": "MathML"
+    },
+    {
+      "question": "什么是XHTML？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "XHTML",
+        "HTML",
+        "XML"
+      ],
+      "answer_points": [
+        "XHTML是符合XML语法规则的HTML文档。",
+        "正确MIME类型为application/xhtml+xml，但实际大多用text/html。",
+        "以text/html提供时，浏览器用HTML解析器而非XML解析器处理。",
+        "XHTML并未广泛普及，因兼容性问题及其与HTML的差异。"
+      ],
+      "follow_ups": [
+        "XHTML与HTML5有哪些关键区别？",
+        "为什么XHTML未能在Web上广泛使用？",
+        "如何正确配置XHTML文档的MIME类型？"
+      ],
+      "summary": "XHTML是按XML语法编写的HTML，但实际常被当作HTML解析。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/XHTML",
+      "source_title": "XHTML - Glossary | MDN",
+      "section_title": "CSS: Cascading Style Sheets",
+      "bucket": "network",
+      "raw_question_title": "XHTML"
+    },
+    {
+      "question": "CSS初学者教程包含哪些核心模块？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "入门教程",
+        "前端"
+      ],
+      "answer_points": [
+        "样式化内容：初识CSS，如何为HTML应用样式。",
+        "CSS基础：语法、特性、技术和常用属性。",
+        "CSS文本样式：字体、粗细、斜体、行高、间距、阴影等。",
+        "CSS布局：浮动、定位、弹性盒、网格、响应式设计等。"
+      ],
+      "follow_ups": [
+        "学习CSS布局需要掌握哪些关键概念？",
+        "CSS的盒模型是如何工作的？",
+        "CSS特异性（Specificity）是什么？如何计算？"
+      ],
+      "summary": "CSS初学者教程涵盖基础样式、文本样式和布局等核心模块。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS#beginners_tutorials",
+      "source_title": "CSS: Cascading Style Sheets | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Beginner's tutorials"
+    },
+    {
+      "question": "CSS指南涵盖哪些核心概念？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "核心概念",
+        "布局",
+        "盒模型"
+      ],
+      "answer_points": [
+        "CSS语法：声明、规则集、简写属性。",
+        "特异性、继承和级联规则。",
+        "盒模型、margin折叠、包含块和层叠上下文。",
+        "布局技术：弹性盒、多列、网格布局。",
+        "动画、过渡和变换。"
+      ],
+      "follow_ups": [
+        "如何计算CSS特异性？",
+        "什么是块格式化上下文（BFC）？如何创建？",
+        "弹性盒（Flexbox）和网格（Grid）布局的主要区别？"
+      ],
+      "summary": "CSS指南讲解语法、选择器、盒模型、布局及动画等核心概念。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS#guides",
+      "source_title": "CSS: Cascading Style Sheets | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Guides"
+    },
+    {
+      "question": "How to implement common CSS layout patterns?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "layout"
+      ],
+      "answer_points": [
+        "Use the CSS layout cookbook as a starting point for common patterns.",
+        "Utilize Flexbox and Grid for modern layouts.",
+        "Border-image, border-radius, box-shadow generators can assist in styling."
+      ],
+      "follow_ups": [
+        "How does Flexbox differ from CSS Grid?",
+        "Can you give an example of a responsive layout using Grid?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS#how_to",
+      "source_title": "CSS: Cascading Style Sheets | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "How to"
+    },
+    {
+      "question": "What CSS tools are available for developers?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "tools"
+      ],
+      "answer_points": [
+        "Border-image generator creates CSS border-image values.",
+        "Border-radius generator creates border-radius effects.",
+        "Box-shadow generator adds box-shadow to objects.",
+        "Color format converter converts colors between formats.",
+        "Color mixer mixes two colors in any color space.",
+        "Shape generator defines coordinates for basic shapes."
+      ],
+      "follow_ups": [
+        "How do you validate CSS using W3C CSS Validation Service?",
+        "What is the benefit of using Firefox Developer Tools for CSS editing?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS#tools",
+      "source_title": "CSS: Cascading Style Sheets | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Tools"
+    },
+    {
+      "question": "Where can I find CSS reference documentation?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "reference"
+      ],
+      "answer_points": [
+        "The complete CSS reference documentation covers all CSS properties.",
+        "CSS selectors reference includes combinators, pseudo-classes, and pseudo-elements.",
+        "CSS at-rules reference covers media queries and other at-rules.",
+        "CSS values reference explains keywords, data types, and functions."
+      ],
+      "follow_ups": [
+        "What are CSS data types and how are they used?",
+        "Explain the different types of CSS selectors."
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS#reference",
+      "source_title": "CSS: Cascading Style Sheets | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "Reference"
+    },
+    {
+      "question": "What web languages are commonly associated with CSS?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "web"
+      ],
+      "answer_points": [
+        "CSS is often applied to HTML, SVG, MathML, XHTML, and XML.",
+        "Stack Overflow is a resource for CSS questions."
+      ],
+      "follow_ups": [
+        "How does CSS interact with HTML elements?",
+        "What is the role of CSS in SVG styling?"
+      ],
+      "summary": "",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS#see_also",
+      "source_title": "CSS: Cascading Style Sheets | MDN",
+      "section_title": "In this article",
+      "bucket": "network",
+      "raw_question_title": "See also"
+    },
+    {
+      "question": "Learn Web Development Core Modules",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "web development",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "accessibility"
+      ],
+      "answer_points": [
+        "Core modules cover essential skills for every web developer: HTML for structure, CSS for styling, JavaScript for interactivity.",
+        "Accessibility and design thinking are fundamental to building inclusive web applications.",
+        "Version control using Git is an essential part of modern workflows.",
+        "JavaScript frameworks and libraries are integral to modern front-end development.",
+        "Practice through challenges and projects reinforces learning."
+      ],
+      "follow_ups": [
+        "What is semantic HTML and why is it important?",
+        "How do CSS and JavaScript complement each other?",
+        "What are some popular JavaScript frameworks and their use cases?",
+        "Why is accessibility crucial in web development?"
+      ],
+      "summary": "Overview of core web development learning modules.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core",
+      "source_title": "Core learning modules - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "learn web development core modules"
+    },
+    {
+      "question": "Your first website: Styling the content",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "styling",
+        "box model",
+        "selectors"
+      ],
+      "answer_points": [
+        "CSS is a style sheet language used to style HTML elements by selecting them and setting property values.",
+        "CSS syntax consists of selectors, declarations (property: value), and rulesets.",
+        "The box model describes how elements are rendered with content, padding, border, and margin.",
+        "CSS can be applied via external stylesheets using the <link> element in HTML.",
+        "Common properties include font-family, color, background-color, width, margin, and padding."
+      ],
+      "follow_ups": [
+        "What is the difference between padding and margin?",
+        "How does the box model affect element sizing?",
+        "What are the different ways to apply CSS (inline, internal, external)?",
+        "Explain the concept of inheritance in CSS."
+      ],
+      "summary": "Introduction to CSS for styling web content.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content",
+      "source_title": "CSS: Styling the content - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "Your first website: Styling the content"
+    },
+    {
+      "question": "CSS styling basics",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "selectors",
+        "box model",
+        "cascade"
+      ],
+      "answer_points": [
+        "CSS is used to style and layout web pages, controlling appearance like fonts, colors, and spacing.",
+        "Key selectors include type, class, ID, attribute, pseudo-classes, pseudo-elements, and combinators.",
+        "The box model is fundamental for layout; understanding it is crucial for element sizing and spacing.",
+        "The cascade, specificity, and inheritance determine how conflicting style rules are applied.",
+        "CSS offers various value types (e.g., pixels, percentages) and properties for sizing, backgrounds, and borders."
+      ],
+      "follow_ups": [
+        "How does specificity work in CSS? Give an example.",
+        "What is the difference between class and ID selectors?",
+        "Explain the CSS cascade and inheritance.",
+        "What are pseudo-classes and pseudo-elements? Provide examples."
+      ],
+      "summary": "Fundamental concepts of CSS styling.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics",
+      "source_title": "CSS styling basics - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "CSS styling basics"
+    },
+    {
+      "question": "CSS text styling",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "text styling",
+        "fonts",
+        "lists"
+      ],
+      "answer_points": [
+        "Text styling includes setting font family, weight, style, size, line height, letter spacing, and text alignment.",
+        "Lists can be styled with list-style-type, list-style-position, and list-style-image.",
+        "Links have states (link, visited, hover, active) that can be styled using pseudo-classes.",
+        "Web fonts can be included via @font-face or services like Google Fonts to use custom typefaces.",
+        "Styling lists and links effectively improves user experience and navigation design."
+      ],
+      "follow_ups": [
+        "How do you use web fonts in CSS? What are the performance considerations?",
+        "What are the different link states and how do you style them?",
+        "How can you customize list markers with CSS?",
+        "Explain the difference between serif and sans-serif fonts and when to use each."
+      ],
+      "summary": "Styling text with CSS including fonts, lists, and links.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Text_styling",
+      "source_title": "CSS text styling - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "CSS text styling"
+    },
+    {
+      "question": "CSS layout",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "Layout",
+        "Flexbox",
+        "Grid",
+        "Responsive Design"
+      ],
+      "answer_points": [
+        "CSS layout involves controlling how elements are positioned and sized on a page, including normal flow, floats, positioning, flexbox, and grid.",
+        "Flexbox is a one-dimensional layout method for arranging items in rows or columns, allowing them to flex and shrink.",
+        "CSS Grid is a two-dimensional layout system for organizing content into rows and columns.",
+        "Responsive design uses techniques like media queries to adapt layouts to different screen sizes and devices.",
+        "Floats were originally for wrapping text around images but are now replaced by modern layout tools for multi-column layouts."
+      ],
+      "follow_ups": [
+        "What is the difference between flexbox and grid?",
+        "How does responsive design work with media queries?",
+        "Explain the concept of normal flow in CSS."
+      ],
+      "summary": "Overview of CSS layout techniques including flexbox, grid, and responsive design.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout",
+      "source_title": "CSS layout - Learn web development | MDN",
+      "section_title": "Beginner's tutorials",
+      "bucket": "network",
+      "raw_question_title": "CSS layout"
+    },
+    {
+      "question": "CSS guides",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "Modules",
+        "Guides"
+      ],
+      "answer_points": [
+        "CSS guides are organized by modules, each covering a specific CSS specification.",
+        "Each module provides an overview, lists features like properties and at-rules, and links to related guides.",
+        "Examples include CSS animations, backgrounds, box model, and grid layout modules.",
+        "Modules help developers navigate CSS specifications and find relevant tutorials."
+      ],
+      "follow_ups": [
+        "How would you find information about a specific CSS property using the guides?",
+        "What is the purpose of the CSS box model module?"
+      ],
+      "summary": "Introduction to CSS modular guides for learning specific CSS specifications.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides",
+      "source_title": "CSS guides - CSS | MDN",
+      "section_title": "Guides",
+      "bucket": "network",
+      "raw_question_title": "CSS guides"
+    },
+    {
+      "question": "CSS syntax",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "CSS",
+        "Syntax",
+        "Declarations",
+        "Rulesets"
+      ],
+      "answer_points": [
+        "CSS syntax consists of declarations (property: value pairs) grouped in declaration blocks.",
+        "A ruleset combines a selector list with a declaration block to apply styles to selected elements.",
+        "CSS statements include rulesets and at-rules (like @media, @import), with at-rules starting with @.",
+        "Declarations are separated by semicolons, and whitespace is generally ignored."
+      ],
+      "follow_ups": [
+        "What happens if a CSS declaration has an invalid value?",
+        "Explain the difference between a ruleset and an at-rule."
+      ],
+      "summary": "Fundamentals of CSS syntax including declarations, rulesets, and statement types.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Introduction",
+      "source_title": "Introduction to CSS syntax: declarations, rulesets, and statements - CSS | MDN",
+      "section_title": "Guides",
+      "bucket": "network",
+      "raw_question_title": "CSS syntax"
+    },
+    {
+      "question": "Specificity",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "CSS",
+        "Specificity",
+        "Cascade",
+        "Selectors"
+      ],
+      "answer_points": [
+        "Specificity is a weight calculated from CSS selectors to determine which declaration applies to an element.",
+        "It is a three-column value: ID, CLASS, and TYPE columns (e.g., 1-0-0 for an ID selector).",
+        "ID selectors have highest specificity, followed by class/attribute/pseudo-class, then type/pseudo-elements.",
+        "!important overrides specificity but is generally avoided; :where() nullifies specificity."
+      ],
+      "follow_ups": [
+        "How do you calculate specificity for a selector like 'div#main .content'?",
+        "What is the role of the :where() pseudo-class in specificity?"
+      ],
+      "summary": "Explanation of CSS specificity and how it determines which styles are applied.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity",
+      "source_title": "Specificity - CSS | MDN",
+      "section_title": "Guides",
+      "bucket": "network",
+      "raw_question_title": "Specificity"
+    }
+  ]
+}

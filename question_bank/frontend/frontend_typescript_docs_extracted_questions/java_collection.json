@@ -1,0 +1,35 @@
+{
+  "bucket": "java_collection",
+  "count": 1,
+  "items": [
+    {
+      "question": "什么是 TypeScript 中的映射类型（Mapped Types）？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "映射类型",
+        "类型系统"
+      ],
+      "answer_points": [
+        "映射类型基于索引签名语法，通过 in 关键字遍历联合类型（通常是 keyof T）来创建新类型。",
+        "可以使用 readonly 和 ? 修饰符，并通过 + 或 - 添加或移除这些修饰符。",
+        "从 TypeScript 4.1 开始，支持使用 as 子句进行键重映射，可以结合模板字面量类型创建新属性名。",
+        "可以通过条件类型产生 never 来过滤键。",
+        "映射类型可以映射任意联合类型，而不仅仅是 string | number | symbol。"
+      ],
+      "follow_ups": [
+        "如何使用映射类型将对象的所有属性变为可选？",
+        "映射类型中的 as 子句有什么作用？请举例说明。",
+        "如何利用映射类型实现一个 Pick 工具类型？"
+      ],
+      "summary": "映射类型是一种通过遍历已有类型的属性来创建新类型的泛型类型。",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/mapped-types.html",
+      "source_title": "TypeScript: Documentation - Mapped Types",
+      "section_title": "TypeScript Documentation",
+      "bucket": "java_collection",
+      "raw_question_title": "Mapped Types"
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "bucket": "network",
+  "count": 15,
+  "items": [
+    {
+      "question": "What are the core concepts of React?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "components",
+        "JSX",
+        "state",
+        "props"
+      ],
+      "answer_points": [
+        "React apps are built from components, which are JavaScript functions that return markup.",
+        "Components can be nested and reused; component names must start with a capital letter.",
+        "JSX is a syntax extension that looks like HTML but is stricter; tags must be closed and multiple JSX tags must be wrapped in a parent element.",
+        "Data is displayed using curly braces to embed JavaScript expressions in JSX.",
+        "Conditional rendering uses JavaScript if statements, ternary operators, or logical &&.",
+        "Lists are rendered using map() and each item needs a unique key prop."
+      ],
+      "follow_ups": [
+        "What is the difference between props and state?",
+        "How does React handle events?",
+        "Explain the concept of lifting state up."
+      ],
+      "summary": "React's core concepts include components, JSX, state, props, and event handling.",
+      "source_url": "https://react.dev/learn",
+      "source_title": "Quick Start – React",
+      "section_title": "未分类",
+      "bucket": "network",
+      "raw_question_title": "Learn React"
+    },
+    {
+      "question": "What tools are recommended for local React development?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "development tools",
+        "sandbox"
+      ],
+      "answer_points": [
+        "You can try React online using sandboxes like CodeSandbox, StackBlitz, or CodePen.",
+        "To try locally, download a starter HTML page and open it in your editor and browser.",
+        "For a new React app, use a recommended framework (e.g., Next.js) or build from scratch.",
+        "You can also add React to an existing project incrementally."
+      ],
+      "follow_ups": [
+        "What is Create React App and why is it deprecated?",
+        "How do you set up a React project from scratch?"
+      ],
+      "summary": "React can be tried online or set up locally using frameworks or from scratch.",
+      "source_url": "https://react.dev/learn/installation",
+      "source_title": "Installation – React",
+      "section_title": "Writing markup with JSX",
+      "bucket": "network",
+      "raw_question_title": "tools we recommend for local development"
+    },
+    {
+      "question": "How does the useState hook work in React?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "useState",
+        "hooks",
+        "state management"
+      ],
+      "answer_points": [
+        "useState is a Hook that adds a state variable to a component; it returns an array with the current state and a set function.",
+        "The set function triggers a re-render; it can take a new value or an updater function that receives the previous state.",
+        "State updates are batched and asynchronous; reading state immediately after setting it still gives the old value.",
+        "Objects and arrays in state should be replaced (not mutated) to trigger re-renders correctly.",
+        "Initial state can be a value or a function (initializer) that runs only on the first render."
+      ],
+      "follow_ups": [
+        "What is the difference between passing a value and an updater function to setState?",
+        "How do you update nested objects in state?",
+        "Why does React batch state updates?"
+      ],
+      "summary": "useState manages component state with a getter and setter, supporting updater functions and immutable updates.",
+      "source_url": "https://react.dev/reference/react/useState",
+      "source_title": "useState – React",
+      "section_title": "Updating the screen",
+      "bucket": "network",
+      "raw_question_title": "useState"
+    },
+    {
+      "question": "What is included in the React API reference?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "API",
+        "documentation"
+      ],
+      "answer_points": [
+        "The React reference covers Hooks, built-in components, APIs, and directives.",
+        "React DOM includes web-specific Hooks, components, and APIs for client and server rendering.",
+        "React Compiler is a build-time optimization tool that automatically memoizes components.",
+        "The ESLint plugin for React Hooks enforces the Rules of React.",
+        "Rules of React include purity, correct calling of Hooks, and component lifecycle."
+      ],
+      "follow_ups": [
+        "What are the Rules of Hooks?",
+        "What is the purpose of React Compiler?"
+      ],
+      "summary": "React API reference documents Hooks, components, DOM APIs, compiler, and rules.",
+      "source_url": "https://react.dev/reference/react",
+      "source_title": "React Reference Overview – React",
+      "section_title": "Using Hooks",
+      "bucket": "network",
+      "raw_question_title": "API reference."
+    },
+    {
+      "question": "How do you build a Tic-Tac-Toe game in React?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "tutorial",
+        "game",
+        "state",
+        "lifting state up"
+      ],
+      "answer_points": [
+        "Start with a Square component that renders a button; use props to pass value and click handler.",
+        "Create a Board component that renders 9 squares in rows; manage game state (squares array and xIsNext) in Board or a parent Game component.",
+        "Handle clicks by copying the squares array, updating the clicked square, and calling onPlay.",
+        "Use lifting state up: Game component holds history and currentMove, passes props to Board.",
+        "Implement time travel by storing history of moves and allowing jumps to previous states."
+      ],
+      "follow_ups": [
+        "Why is it important to use a key prop when rendering lists?",
+        "How does the calculateWinner function work?",
+        "What is the benefit of lifting state up in this example?"
+      ],
+      "summary": "Building Tic-Tac-Toe teaches components, props, state, lifting state up, and time travel.",
+      "source_url": "https://react.dev/learn/tutorial-tic-tac-toe",
+      "source_title": "Tutorial: Tic-Tac-Toe – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Tutorial"
+    },
+    {
+      "question": "How do you describe the UI in React?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "components",
+        "JSX",
+        "props",
+        "conditional rendering"
+      ],
+      "answer_points": [
+        "UI is built from components; a component is a JavaScript function that returns JSX.",
+        "Components can be imported and exported across files for reusability.",
+        "JSX allows embedding JavaScript expressions using curly braces.",
+        "Props are used to pass data from parent to child components.",
+        "Conditional rendering uses if, &&, or ternary operators.",
+        "Lists are rendered with map() and each item needs a unique key."
+      ],
+      "follow_ups": [
+        "What is the difference between props and state?",
+        "How do you keep components pure?",
+        "What is a render tree and why is it useful?"
+      ],
+      "summary": "React UI is composed of components that use JSX, props, and conditional rendering.",
+      "source_url": "https://react.dev/learn/describing-the-ui",
+      "source_title": "Describing the UI – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Describing the UI"
+    },
+    {
+      "question": "How do you add interactivity to React components?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "events",
+        "state",
+        "useState",
+        "immutability"
+      ],
+      "answer_points": [
+        "Event handlers are functions triggered by user interactions; they are passed as props like onClick.",
+        "State is added using the useState Hook; it returns the current state and a setter function.",
+        "React renders in two phases: render (calling component) and commit (updating DOM).",
+        "State updates are asynchronous; reading state immediately after setting gives the old value.",
+        "Multiple state updates can be queued using updater functions to ensure correct sequential updates.",
+        "Objects and arrays in state must be replaced (not mutated) to trigger re-renders."
+      ],
+      "follow_ups": [
+        "Why does state behave like a snapshot?",
+        "How do you update arrays in state correctly?",
+        "What is the purpose of the key prop when resetting state?"
+      ],
+      "summary": "Interactivity is achieved through event handlers and state management with useState.",
+      "source_url": "https://react.dev/learn/adding-interactivity",
+      "source_title": "Adding Interactivity – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Adding Interactivity"
+    },
+    {
+      "question": "How do you manage state in React applications?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "state management",
+        "lifting state up",
+        "context",
+        "reducer"
+      ],
+      "answer_points": [
+        "Think of UI as different states (e.g., typing, submitting, success) and trigger transitions via state changes.",
+        "Structure state to avoid redundancy; compute derived values during rendering.",
+        "Lift state up to share it between components by moving it to a common parent and passing down via props.",
+        "Use key prop to force resetting state when component identity changes.",
+        "Extract complex state logic into a reducer function using useReducer.",
+        "Use Context to pass data deeply without prop drilling."
+      ],
+      "follow_ups": [
+        "What is the difference between useState and useReducer?",
+        "When should you use Context vs lifting state up?",
+        "How does React decide whether to preserve or reset state?"
+      ],
+      "summary": "State management involves structuring state, lifting up, using reducers, and context for deep data sharing.",
+      "source_url": "https://react.dev/learn/managing-state",
+      "source_title": "Managing State – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Managing State"
+    },
+    {
+      "question": "What are Escape Hatches in React?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "React",
+        "Escape Hatches",
+        "refs",
+        "Effects"
+      ],
+      "answer_points": [
+        "Escape hatches allow you to step outside React and interact with external systems, such as browser APIs, non-React components, or remote servers.",
+        "Refs (useRef) let you remember information without triggering re-renders, and can be used to access DOM elements directly.",
+        "Effects (useEffect) let you synchronize components with external systems after rendering, and should include cleanup functions to avoid memory leaks.",
+        "Not all logic requires Effects; you can often compute values during rendering or handle user events directly.",
+        "Effect dependencies should be carefully managed to avoid unnecessary re-runs; use Effect Events to separate reactive from non-reactive code."
+      ],
+      "follow_ups": [
+        "How do you decide whether to use a ref or state?",
+        "What is the difference between an Effect and an event handler?",
+        "How can you remove unnecessary dependencies from an Effect?"
+      ],
+      "summary": "Escape hatches in React provide mechanisms to interact with external systems via refs and Effects.",
+      "source_url": "https://react.dev/learn/escape-hatches",
+      "source_title": "Escape Hatches – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Escape Hatches"
+    },
+    {
+      "question": "What are the React DOM APIs?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "React DOM",
+        "APIs"
+      ],
+      "answer_points": [
+        "React DOM APIs are methods in the react-dom package for web applications, not supported in React Native.",
+        "Key APIs include createPortal (render children in a different DOM subtree) and flushSync (force synchronous state update and DOM flush).",
+        "Resource preloading APIs like prefetchDNS, preconnect, preload, preinit help improve performance by loading resources early.",
+        "Entry points: react-dom/client for client-side rendering, react-dom/server for server-side rendering.",
+        "Removed APIs in React 19 include findDOMNode, hydrate, render, unmountComponentAtNode, and renderToNodeStream."
+      ],
+      "follow_ups": [
+        "When would you use createPortal?",
+        "What is the purpose of flushSync?",
+        "How do resource preloading APIs improve performance?"
+      ],
+      "summary": "React DOM APIs provide web-specific methods for rendering, portal creation, and resource preloading.",
+      "source_url": "https://react.dev/reference/react-dom",
+      "source_title": "React DOM APIs – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "React DOM APIs"
+    },
+    {
+      "question": "What is the React community?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "community"
+      ],
+      "answer_points": [
+        "React has a large community of millions of developers with various online forums and resources.",
+        "Popular discussion forums include DEV, Hashnode, Reactiflux chat, and Reddit.",
+        "Stack Overflow is recommended for code-level questions with the reactjs tag.",
+        "Official news is shared on Twitter (@reactjs), Bluesky (@react.dev), and the React blog.",
+        "The community follows a Code of Conduct based on the Contributor Covenant."
+      ],
+      "follow_ups": [
+        "Where can I ask React-related questions?",
+        "How can I stay updated with React news?"
+      ],
+      "summary": "The React community offers forums, news channels, and a code of conduct for developers.",
+      "source_url": "https://react.dev/community",
+      "source_title": "React Community – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Community"
+    },
+    {
+      "question": "Who are the members of the React team?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "team"
+      ],
+      "answer_points": [
+        "React development is led by a dedicated full-time team at Meta, with contributions from open source developers worldwide.",
+        "Current core team members include Andrew Clark, Dan Abramov, Eli White, and others from Meta and Vercel.",
+        "Past contributors include Jordan Walke (original creator), Tom Occhino, and many others.",
+        "The team works on core APIs, React DOM, React Native, DevTools, and documentation."
+      ],
+      "follow_ups": [
+        "Who created React?",
+        "How can I contribute to React?"
+      ],
+      "summary": "The React team consists of full-time engineers at Meta and Vercel, plus many open source contributors.",
+      "source_url": "https://react.dev/community/team",
+      "source_title": "Meet the Team – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Meet the Team"
+    },
+    {
+      "question": "Who are the docs contributors for React?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "documentation",
+        "contributors"
+      ],
+      "answer_points": [
+        "React documentation is written and maintained by the React team and external contributors.",
+        "Key content contributors include Rachel Nabors, Dan Abramov, Sylwia Vargas, and others.",
+        "Design contributors include Dan Lebowitz, Razvan Gradinar, and Maggie Appleton.",
+        "Development contributors include Jared Palmer, ThisDotLabs, CodeSandbox, and others.",
+        "The documentation also thanks countless alpha testers and community members for feedback."
+      ],
+      "follow_ups": [
+        "How can I contribute to React docs?",
+        "Who designed the React documentation site?"
+      ],
+      "summary": "React docs are created by a mix of team members and external contributors in content, design, and development.",
+      "source_url": "https://react.dev/community/docs-contributors",
+      "source_title": "Docs Contributors – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Docs Contributors"
+    },
+    {
+      "question": "Who are the acknowledgements for React?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "acknowledgements"
+      ],
+      "answer_points": [
+        "React was originally created by Jordan Walke.",
+        "Today, React has a dedicated full-time team and over a thousand open source contributors.",
+        "Past contributors include Almero Steyn, Brian Vaughn, Cheng Lou, and many others.",
+        "Special thanks to Tom Occhino and Adam Wolff for guidance, and to volunteers who translated React.",
+        "Additional thanks to individuals and organizations for domain names, package names, and GitHub org."
+      ],
+      "follow_ups": [
+        "Who created React?",
+        "How can I become a React contributor?"
+      ],
+      "summary": "React acknowledges its original creator, past contributors, and supporters who made the project possible.",
+      "source_url": "https://react.dev/community/acknowledgements",
+      "source_title": "Acknowledgements – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Acknowledgements"
+    },
+    {
+      "question": "What is the React Blog?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "React",
+        "blog",
+        "news"
+      ],
+      "answer_points": [
+        "The React Blog is the official source for updates from the React team, including release notes and deprecation notices.",
+        "Important posts include React 19 release, React Compiler, React Foundation, and security vulnerabilities.",
+        "You can also follow @react.dev on Bluesky or @reactjs on Twitter for updates.",
+        "The blog covers major version releases, conference recaps, and research updates.",
+        "Older posts are archived and can be accessed via the blog archive."
+      ],
+      "follow_ups": [
+        "Where can I find React release notes?",
+        "How often does the React team post updates?"
+      ],
+      "summary": "The React Blog is the official source for React team announcements, release notes, and updates.",
+      "source_url": "https://react.dev/blog",
+      "source_title": "React Blog – React",
+      "section_title": "Next Steps",
+      "bucket": "network",
+      "raw_question_title": "Blog"
+    }
+  ]
+}

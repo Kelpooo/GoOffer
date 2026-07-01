@@ -1,0 +1,416 @@
+{
+  "bucket": "java_collection",
+  "count": 14,
+  "items": [
+    {
+      "question": "ArrayList、LinkedList 与 Vector 的区别？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "junior",
+      "tags": [
+        "ArrayList",
+        "LinkedList",
+        "Vector",
+        "List"
+      ],
+      "answer_points": [
+        "ArrayList 基于动态数组，随机访问 O(1)，尾部增删 O(1)，适合查询多、尾部增删的场景。",
+        "LinkedList 基于双向链表，头部增删 O(1)，随机访问 O(n)，适合频繁头部增删。",
+        "Vector 是线程安全的动态数组，使用 synchronized 全表锁，性能差，已基本被淘汰。",
+        "ArrayList 扩容 1.5 倍，Vector 扩容 2 倍，LinkedList 无需扩容。",
+        "日常开发 90% 用 ArrayList，频繁头部增删用 LinkedList，线程安全用 CopyOnWriteArrayList 或 Collections.synchronizedList。"
+      ],
+      "follow_ups": [
+        "ArrayList 的扩容为什么是 1.5 倍？",
+        "LinkedList 既然插入删除快，为什么实际很少用？",
+        "为什么阿里开发手册建议初始化 ArrayList 时指定容量？"
+      ],
+      "summary": "三者都实现 List 接口，但底层结构、线程安全、性能差异显著，需根据场景选择。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/arraylist-vs-linkedlist-vs-vector-difference",
+      "source_title": "ArrayList、LinkedList 与 Vector 的区别？ | 犬小哈教程",
+      "section_title": "Java 集合面试题",
+      "bucket": "java_collection",
+      "raw_question_title": "1 ArrayList、LinkedList 与 Vector 的区别？"
+    },
+    {
+      "question": "HashMap、Hashtable 和 ConcurrentHashMap 的区别？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "Hashtable",
+        "ConcurrentHashMap",
+        "线程安全"
+      ],
+      "answer_points": [
+        "HashMap 非线程安全，允许 null 键值，单线程性能最高。",
+        "Hashtable 使用 synchronized 全表锁，线程安全但性能差，不允许 null，已淘汰。",
+        "ConcurrentHashMap 使用桶级别锁（JDK 8 中 CAS + synchronized），高并发性能优秀，不允许 null。",
+        "ConcurrentHashMap 的迭代器是弱一致性，不会抛出 ConcurrentModificationException。",
+        "单线程用 HashMap，多线程用 ConcurrentHashMap，Hashtable 已被淘汰。"
+      ],
+      "follow_ups": [
+        "ConcurrentHashMap 在 JDK 7 和 JDK 8 中的实现有什么区别？",
+        "为什么 ConcurrentHashMap 不允许 null 键和 null 值？",
+        "ConcurrentHashMap 的扩容是怎样实现的？"
+      ],
+      "summary": "三者都是 Map 实现，线程安全性和性能差异显著，ConcurrentHashMap 是多线程首选。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/hashmap-vs-hashtable-vs-concurrenthashmap",
+      "source_title": "HashMap、Hashtable 和 ConcurrentHashMap 的区别？ | 犬小哈教程",
+      "section_title": "ArrayList、LinkedList 与 Vector 的区别？",
+      "bucket": "java_collection",
+      "raw_question_title": "2 HashMap、Hashtable 和 ConcurrentHashMap 的区别？"
+    },
+    {
+      "question": "Java中的集合类有哪些？如何分类的？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "junior",
+      "tags": [
+        "集合框架",
+        "Collection",
+        "Map"
+      ],
+      "answer_points": [
+        "Java 集合框架分为两大体系：Collection（单列）和 Map（双列）。",
+        "Collection 下分 List（有序可重复）、Set（无序唯一）、Queue（队列）三大接口。",
+        "List 常用实现：ArrayList、LinkedList；Set 常用实现：HashSet、LinkedHashSet、TreeSet；Queue 常用实现：LinkedList、ArrayDeque、PriorityQueue。",
+        "Map 存储键值对，常用实现：HashMap、LinkedHashMap、TreeMap、ConcurrentHashMap。",
+        "选型时根据有序性、唯一性、线程安全、排序需求四个维度判断。"
+      ],
+      "follow_ups": [
+        "ArrayList 和 LinkedList 的区别？",
+        "HashMap 的底层原理？",
+        "ConcurrentHashMap 如何保证线程安全？"
+      ],
+      "summary": "Java 集合框架分为 Collection 和 Map 两大体系，选型需考虑有序、唯一、线程安全、排序等需求。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/java-collection-framework-overview",
+      "source_title": "Java中的集合类有哪些？如何分类的？ | 犬小哈教程",
+      "section_title": "HashMap、Hashtable 和 ConcurrentHashMap 的区别？",
+      "bucket": "java_collection",
+      "raw_question_title": "3 Java中的集合类有哪些？如何分类的？"
+    },
+    {
+      "question": "说说 HashMap 的扩容机制？如何扩容的？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "扩容",
+        "resize"
+      ],
+      "answer_points": [
+        "扩容触发条件：元素数量超过容量×负载因子（默认 16×0.75=12）且当前桶非空。",
+        "扩容方式：容量翻倍（newCap = oldCap << 1），阈值也翻倍。",
+        "元素重分布：根据 hash 的新增最高位判断，为 0 则留在原位置，为 1 则移动到原位置+原容量。",
+        "JDK 1.8 使用高低位链表优化，无需重新计算 hash，且采用尾插法避免死循环。",
+        "负载因子 0.75 是空间和时间的平衡，容量始终为 2 的幂次方。"
+      ],
+      "follow_ups": [
+        "为什么容量必须是 2 的幂次方？",
+        "扩容时每个元素都需要重新计算 hash 吗？",
+        "HashMap 是线程安全的吗？扩容时会有什么问题？"
+      ],
+      "summary": "HashMap 扩容时容量翻倍，元素通过高低位链表重新分布，JDK 1.8 优化了并发安全性。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/how-hashmap-resize-works",
+      "source_title": "说说 HashMap 的扩容机制？如何扩容的？ | 犬小哈教程",
+      "section_title": "Java中的集合类有哪些？如何分类的？",
+      "bucket": "java_collection",
+      "raw_question_title": "4 说说 HashMap 的扩容机制？如何扩容的？"
+    },
+    {
+      "question": "为什么 HashMap 的默认负载因子要设置成 0.75？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "负载因子",
+        "泊松分布"
+      ],
+      "answer_points": [
+        "0.75 是空间利用率和查询效率的最佳平衡点，来自时间和空间的权衡。",
+        "基于泊松分布，负载因子 0.75 时，链表长度 ≥ 8 的概率约为千万分之一，与红黑树阈值 8 匹配。",
+        "负载因子过小（如 0.5）浪费空间，过大（如 1.0）增加冲突，0.75 在大多数场景下表现良好。",
+        "内存紧张时可调高负载因子（如 0.85），查询频繁时可调低（如 0.6）。"
+      ],
+      "follow_ups": [
+        "负载因子可以大于 1 吗？",
+        "为什么链表转红黑树的阈值是 8，而红黑树转链表的阈值是 6？",
+        "如果负载因子改成 0.5，对性能有什么影响？"
+      ],
+      "summary": "0.75 是空间与时间的平衡点，与泊松分布和红黑树阈值 8 相匹配。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/why-hashmap-default-load-factor-075",
+      "source_title": "为什么 HashMap 的默认负载因子要设置成 0.75？ | 犬小哈教程",
+      "section_title": "说说 HashMap 的扩容机制？如何扩容的？",
+      "bucket": "java_collection",
+      "raw_question_title": "5 为什么 HashMap 的默认负载因子要设置成 0.75？"
+    },
+    {
+      "question": "为什么在 Jdk 8 中 HashMap 要转成红黑树？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "红黑树",
+        "性能优化"
+      ],
+      "answer_points": [
+        "解决极端哈希冲突下链表查询性能退化问题，将查询复杂度从 O(n) 优化到 O(log n)。",
+        "树化条件：链表长度 ≥ 8 且数组容量 ≥ 64，容量小于 64 时优先扩容。",
+        "选择红黑树而非 AVL 树是因为红黑树维护成本更低，近似平衡已足够。",
+        "红黑树还能防御 HashDoS 攻击，将攻击影响从 O(n) 降到 O(log n)。",
+        "退树化阈值设为 6，与树化阈值差 2 以避免频繁转换。"
+      ],
+      "follow_ups": [
+        "为什么树化阈值是 8，退树阈值是 6？",
+        "为什么不用 AVL 树？",
+        "容量小于 64 时为什么优先扩容而不是树化？"
+      ],
+      "summary": "JDK 8 引入红黑树解决极端冲突下链表性能退化问题，并防御 HashDoS 攻击。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/why-hashmap-treeify-red-black-tree-jdk8",
+      "source_title": "为什么在 Jdk 8 中 HashMap 要转成红黑树？ | 犬小哈教程",
+      "section_title": "为什么 HashMap 的默认负载因子要设置成 0.75？",
+      "bucket": "java_collection",
+      "raw_question_title": "6 为什么在 Jdk 8 中 HashMap 要转成红黑树？"
+    },
+    {
+      "question": "HashMap 用在并发场景中会出现什么问题？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "并发",
+        "线程安全"
+      ],
+      "answer_points": [
+        "JDK 1.7 中头插法导致并发扩容时可能形成环形链表，引发死循环（CPU 100%）。",
+        "JDK 1.8 改用尾插法避免了死循环，但仍存在数据覆盖和丢失问题。",
+        "并发场景下应使用 ConcurrentHashMap，它通过 CAS + 桶级 synchronized 保证线程安全。",
+        "Collections.synchronizedMap() 也可用，但性能较差，适合低并发场景。",
+        "任何版本的 HashMap 都不是线程安全的，并发场景必须使用并发集合。"
+      ],
+      "follow_ups": [
+        "为什么 JDK 1.8 改用尾插法？",
+        "ConcurrentHashMap 和 Hashtable 的区别？",
+        "Collections.synchronizedMap 和 ConcurrentHashMap 怎么选？"
+      ],
+      "summary": "HashMap 并发场景下 JDK 1.7 会死循环，JDK 1.8 会数据丢失，应使用 ConcurrentHashMap。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/hashmap-concurrency-issues-problems",
+      "source_title": "HashMap 用在并发场景中会出现什么问题？ | 犬小哈教程",
+      "section_title": "为什么在 Jdk 8 中 HashMap 要转成红黑树？",
+      "bucket": "java_collection",
+      "raw_question_title": "7 HashMap 用在并发场景中会出现什么问题？"
+    },
+    {
+      "question": "HashMap 的 remove 方法是如何实现的？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "remove",
+        "源码"
+      ],
+      "answer_points": [
+        "remove 方法流程：计算 hash → 定位桶 → 遍历查找 → 删除节点 → 返回旧值。",
+        "链表删除：修改前驱节点的 next 指针，头节点则直接让桶指向下一个节点。",
+        "红黑树删除：删除节点后可能需要旋转和变色修复平衡，复杂度 O(log n)。",
+        "删除后若红黑树节点数 ≤ 6，会退化为链表（退树化）。",
+        "HashMap 只有扩容没有缩容，删除元素不会减小容量。"
+      ],
+      "follow_ups": [
+        "删除节点后，HashMap 的容量会减小吗？",
+        "为什么红黑树删除比链表复杂？",
+        "remove 和 get 的查找逻辑一样吗？"
+      ],
+      "summary": "remove 方法根据节点类型执行不同删除逻辑，链表修改指针，红黑树需平衡修复，删除后可能退树化。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/how-hashmap-remove-method-works",
+      "source_title": "HashMap 的 remove 方法是如何实现的？ | 犬小哈教程",
+      "section_title": "HashMap 用在并发场景中会出现什么问题？",
+      "bucket": "java_collection",
+      "raw_question_title": "8 HashMap 的 remove 方法是如何实现的？"
+    },
+    {
+      "question": "HashMap 在 get 和 put 时，底层流程是怎样的？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "put",
+        "get",
+        "哈希冲突"
+      ],
+      "answer_points": [
+        "put 流程：计算 hash（扰动函数）→ 定位桶（(n-1)&hash）→ 空桶直接插入 → 非空桶遍历链表或红黑树，找到相同 key 则覆盖，否则插入尾部 → 检查扩容和树化。",
+        "get 流程：计算 hash → 定位桶 → 空桶返回 null → 非空桶遍历链表或红黑树查找，找到返回 value，否则返回 null。",
+        "两者共享 hash 计算和桶定位逻辑，put 多了插入、更新、扩容检查，get 只读不修改。",
+        "时间复杂度理想 O(1)，最坏 O(log n)（红黑树）。"
+      ],
+      "follow_ups": [
+        "为什么用 (n-1)&hash 而不是 hash%n？",
+        "put 返回 null 说明什么？",
+        "HashMap 如何解决哈希冲突？"
+      ],
+      "summary": "HashMap 的 put 和 get 都遵循 hash→定位桶→遍历处理的核心逻辑，put 更复杂，get 更轻量。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/hashmap-get-put-workflow-implementation",
+      "source_title": "HashMap 在 get 和 put 时，底层流程是怎样的？ | 犬小哈教程",
+      "section_title": "HashMap 的 remove 方法是如何实现的？",
+      "bucket": "java_collection",
+      "raw_question_title": "9 HashMap 在 get 和 put 时，底层流程是怎样的？"
+    },
+    {
+      "question": "HashMap 的 hash 方法是如何实现的？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "HashMap",
+        "hash",
+        "扰动函数",
+        "位运算"
+      ],
+      "answer_points": [
+        "hash 方法实现：key 为 null 返回 0，否则计算 hashCode ^ (hashCode >>> 16)。",
+        "扰动目的：让高位信息参与散列，减少哈希冲突，因为桶定位只用到低位。",
+        "选择异或：与和或运算偏向 0 或 1，异或产生 0 和 1 概率相等，散列更均匀。",
+        "JDK 1.8 只扰动一次，性能更好，效果与 JDK 1.7 多次扰动相当。"
+      ],
+      "follow_ups": [
+        "为什么只右移 16 位？",
+        "扰动函数能完全避免冲突吗？",
+        "为什么用无符号右移 >>> 而不是有符号右移 >>？"
+      ],
+      "summary": "HashMap 的 hash 方法通过 hashCode 高 16 位与低 16 位异或，让高位参与散列，减少冲突。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/how-hashmap-hash-method-works",
+      "source_title": "HashMap 的 hash 方法是如何实现的？ | 犬小哈教程",
+      "section_title": "HashMap 在 get 和 put 时，底层流程是怎样的？",
+      "bucket": "java_collection",
+      "raw_question_title": "10 HashMap 的 hash 方法是如何实现的？"
+    },
+    {
+      "question": "Set 如何保证元素不重复的？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "junior",
+      "tags": [
+        "HashSet",
+        "HashMap",
+        "判重",
+        "hashCode",
+        "equals"
+      ],
+      "answer_points": [
+        "HashSet 底层基于 HashMap 实现，元素作为 key 存储，value 为共享的 PRESENT 对象。",
+        "判重逻辑：先比较 hashCode()，相同再调用 equals()，都返回 true 则视为重复，不插入。",
+        "TreeSet 使用 compareTo() 或 Comparator 判重，LinkedHashSet 基于 LinkedHashMap 保持插入顺序。",
+        "必须同时重写 hashCode() 和 equals() 才能正确判重。"
+      ],
+      "follow_ups": [
+        "HashSet 允许添加 null 吗？",
+        "如果只重写 equals() 不重写 hashCode() 会怎样？",
+        "HashSet 和 ArrayList 的 contains() 性能差异？"
+      ],
+      "summary": "HashSet 利用 HashMap 的 key 唯一性，通过 hashCode 和 equals 双重判断保证元素不重复。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/how-set-ensures-unique-elements",
+      "source_title": "Set 如何保证元素不重复的？ | 犬小哈教程",
+      "section_title": "HashMap 的 hash 方法是如何实现的？",
+      "bucket": "java_collection",
+      "raw_question_title": "11 Set 如何保证元素不重复的？"
+    },
+    {
+      "question": "什么是 fail-fast？什么是 fail-safe？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "mid",
+      "tags": [
+        "fail-fast",
+        "fail-safe",
+        "ConcurrentModificationException",
+        "迭代器"
+      ],
+      "answer_points": [
+        "fail-fast：迭代时检测到集合被修改（modCount 变化），立即抛出 ConcurrentModificationException，代表有 ArrayList、HashMap 等。",
+        "fail-safe：迭代时操作集合副本，不抛异常，但可能读到旧数据，代表有 CopyOnWriteArrayList、ConcurrentHashMap 等。",
+        "fail-fast 通过 modCount 和 expectedModCount 比较实现，迭代器的 remove() 会同步 expectedModCount 避免异常。",
+        "fail-safe 内存开销大，适合并发场景；fail-fast 性能好，适合单线程。"
+      ],
+      "follow_ups": [
+        "如何在迭代时安全删除元素？",
+        "fail-fast 一定会在并发修改时抛异常吗？",
+        "CopyOnWriteArrayList 的原理是什么？"
+      ],
+      "summary": "fail-fast 立即抛异常保护一致性，fail-safe 迭代副本保证不抛异常但可能读到旧数据。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/fail-fast-vs-fail-safe-java",
+      "source_title": "什么是 fail-fast？什么是 fail-safe？ | 犬小哈教程",
+      "section_title": "Set 如何保证元素不重复的？",
+      "bucket": "java_collection",
+      "raw_question_title": "12 什么是 fail-fast？什么是 fail-safe？"
+    },
+    {
+      "question": "ConcurrentHashMap 是如何保证线程安全的？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "senior",
+      "tags": [
+        "ConcurrentHashMap",
+        "线程安全",
+        "CAS",
+        "synchronized",
+        "volatile"
+      ],
+      "answer_points": [
+        "JDK 1.8 通过 CAS + synchronized + volatile 协同保证线程安全。",
+        "CAS 用于空桶无锁插入，synchronized 锁桶头节点处理哈希冲突，volatile 保证 Node 的 val 和 next 可见性。",
+        "读操作完全无锁，利用 volatile 可见性；写操作只锁单个桶，并发度极高。",
+        "与 Hashtable 的全表锁相比，ConcurrentHashMap 的桶级锁实现了更高的并发性能。"
+      ],
+      "follow_ups": [
+        "ConcurrentHashMap 的 get() 需要加锁吗？为什么？",
+        "ConcurrentHashMap 能完全替代 Hashtable 吗？",
+        "size() 方法如何保证准确性？"
+      ],
+      "summary": "ConcurrentHashMap 通过 CAS 无锁插入、synchronized 锁桶头、volatile 保证可见性，实现高并发线程安全。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/how-concurrenthashmap-thread-safe",
+      "source_title": "ConcurrentHashMap 是如何保证线程安全的？ | 犬小哈教程",
+      "section_title": "什么是 fail-fast？什么是 fail-safe？",
+      "bucket": "java_collection",
+      "raw_question_title": "13 ConcurrentHashMap 是如何保证线程安全的？"
+    },
+    {
+      "question": "ConcurrentHashMap 为什么在 JDK 1.8 中废弃分段锁？",
+      "domain": "backend",
+      "category": "java_collection",
+      "difficulty": "senior",
+      "tags": [
+        "ConcurrentHashMap",
+        "分段锁",
+        "CAS",
+        "synchronized",
+        "锁优化"
+      ],
+      "answer_points": [
+        "分段锁并发度固定（默认 16），无法随扩容增长，导致竞争加剧。",
+        "每个 Segment 是独立对象，内存开销大，且需要两次哈希定位，效率低。",
+        "JDK 1.8 的 CAS + synchronized 方案并发度随桶数量动态增长，锁粒度更细（单桶），内存更省。",
+        "选择 synchronized 而非 ReentrantLock 是因为 JDK 1.6 后锁升级优化，且无额外内存开销。"
+      ],
+      "follow_ups": [
+        "分段锁在 JDK 1.8 中完全消失了吗？",
+        "synchronized 不会造成性能问题吗？",
+        "CAS 失败后会怎样？"
+      ],
+      "summary": "JDK 1.8 废弃分段锁因其并发度固定、内存浪费、实现复杂，改用 CAS + synchronized 实现更细粒度、更高性能的并发控制。",
+      "source_url": "https://www.quanxiaoha.com/java-interview/why-concurrenthashmap-removed-segment-lock-jdk8",
+      "source_title": "ConcurrentHashMap 为什么在 JDK 1.8 中废弃分段锁？ | 犬小哈教程",
+      "section_title": "ConcurrentHashMap 是如何保证线程安全的？",
+      "bucket": "java_collection",
+      "raw_question_title": "14 ConcurrentHashMap 为什么在 JDK 1.8 中废弃分段锁？"
+    }
+  ]
+}

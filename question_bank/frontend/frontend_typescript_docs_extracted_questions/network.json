@@ -1,0 +1,1160 @@
+{
+  "bucket": "network",
+  "count": 39,
+  "items": [
+    {
+      "question": "What is TypeScript and how does it relate to JavaScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "JavaScript",
+        "static type checking"
+      ],
+      "answer_points": [
+        "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.",
+        "It adds static type checking to catch errors before runtime.",
+        "TypeScript preserves JavaScript's runtime behavior and does not change it.",
+        "Types are erased during compilation, so no runtime type information remains."
+      ],
+      "follow_ups": [
+        "What are the benefits of using TypeScript over JavaScript?",
+        "How does TypeScript's type system help catch bugs?"
+      ],
+      "summary": "TypeScript is a typed superset of JavaScript that provides static type checking while preserving runtime behavior.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html",
+      "source_title": "TypeScript: Documentation - TypeScript for the New Programmer",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "TS for the New Programmer"
+    },
+    {
+      "question": "How does TypeScript provide types for JavaScript programmers?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "type inference",
+        "interfaces",
+        "structural typing"
+      ],
+      "answer_points": [
+        "TypeScript can infer types from JavaScript code without explicit annotations.",
+        "Interfaces define the shape of objects and can be used for type annotations.",
+        "TypeScript supports union types, generics, and structural typing.",
+        "Structural typing means types are compatible if they have the same shape."
+      ],
+      "follow_ups": [
+        "What is the difference between interface and type in TypeScript?",
+        "How do union types work in TypeScript?"
+      ],
+      "summary": "TypeScript offers type inference, interfaces, union types, generics, and structural typing to enhance JavaScript.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html",
+      "source_title": "TypeScript: Documentation - TypeScript for JavaScript Programmers",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "TypeScript for JS Programmers"
+    },
+    {
+      "question": "How does TypeScript differ from Java and C# for programmers?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "Java",
+        "C#",
+        "structural typing",
+        "nominal typing"
+      ],
+      "answer_points": [
+        "TypeScript uses structural typing (based on shape) rather than nominal typing (based on explicit declarations).",
+        "TypeScript's type system is erased at runtime, unlike Java/C# reified types.",
+        "TypeScript treats types as sets of values, allowing union and intersection types.",
+        "JavaScript allows free functions and data without mandatory classes."
+      ],
+      "follow_ups": [
+        "What are the consequences of structural typing in TypeScript?",
+        "How does TypeScript handle generics compared to Java?"
+      ],
+      "summary": "TypeScript differs from Java/C# with structural typing, erased types, and a set-based type system.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html",
+      "source_title": "TypeScript: Documentation - TypeScript for Java/C# Programmers",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "TS for Java/C# Programmers"
+    },
+    {
+      "question": "How does TypeScript's type system compare to Haskell's for functional programmers?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "Haskell",
+        "functional programming",
+        "type system"
+      ],
+      "answer_points": [
+        "TypeScript has built-in types like number, string, boolean, object, and special types unknown, never, void.",
+        "TypeScript uses structural typing, while Haskell uses nominal typing.",
+        "TypeScript supports union types (untagged) and intersection types.",
+        "TypeScript has unit types (literal types) and discriminated unions with a discriminant property.",
+        "TypeScript's type system is gradual with 'any' type that disables checking."
+      ],
+      "follow_ups": [
+        "What is the difference between TypeScript's union types and Haskell's algebraic data types?",
+        "How does TypeScript handle type inference compared to Haskell?"
+      ],
+      "summary": "TypeScript's type system differs from Haskell with structural typing, untagged unions, and gradual typing.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html",
+      "source_title": "TypeScript: Documentation - TypeScript for Functional Programmers",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "TS for Functional Programmers"
+    },
+    {
+      "question": "How to set up and use TypeScript tooling in 5 minutes?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "tooling",
+        "compiler",
+        "setup"
+      ],
+      "answer_points": [
+        "Install TypeScript via npm: npm install -g typescript.",
+        "Create a .ts file and compile it with tsc to produce a .js file.",
+        "Type annotations can be added to function parameters and variables.",
+        "Interfaces describe object shapes and classes can implement them.",
+        "TypeScript provides editor support like autocompletion and error checking."
+      ],
+      "follow_ups": [
+        "What is the purpose of the tsconfig.json file?",
+        "How does TypeScript integrate with build tools like webpack?"
+      ],
+      "summary": "TypeScript can be quickly set up via npm, with compilation, type annotations, interfaces, and editor tooling.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html",
+      "source_title": "TypeScript: Documentation - TypeScript Tooling in 5 minutes",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "TypeScript Tooling in 5 minutes"
+    },
+    {
+      "question": "What is the TypeScript Handbook and what does it cover?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "documentation",
+        "handbook"
+      ],
+      "answer_points": [
+        "The TypeScript Handbook is a comprehensive guide to TypeScript's features and behaviors.",
+        "It covers commonly-used syntax, compiler options, and type system behavior.",
+        "The handbook is not a full language specification but aims for clarity and brevity.",
+        "It includes introductory pages for different programmer backgrounds."
+      ],
+      "follow_ups": [
+        "What topics are intentionally not covered in the Handbook?",
+        "How does the Handbook differ from the reference articles?"
+      ],
+      "summary": "The TypeScript Handbook is a comprehensive guide covering syntax, compiler options, and type system behavior.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "source_title": "TypeScript: Handbook - The TypeScript Handbook",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "The TypeScript Handbook"
+    },
+    {
+      "question": "What are the basics of TypeScript's type system?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "static type checking",
+        "type annotations",
+        "narrowing"
+      ],
+      "answer_points": [
+        "TypeScript uses static type checking to catch errors before runtime.",
+        "It can infer types from values and code context.",
+        "Type annotations can be added to variables, function parameters, and return types.",
+        "Union types allow a value to be one of several types; narrowing is used to work with them.",
+        "TypeScript also catches non-exception failures like accessing missing properties."
+      ],
+      "follow_ups": [
+        "How does TypeScript handle type narrowing?",
+        "What is the 'any' type and when should it be used?"
+      ],
+      "summary": "TypeScript basics include static type checking, type inference, annotations, union types, and narrowing.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+      "source_title": "TypeScript: Documentation - The Basics",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "The Basics"
+    },
+    {
+      "question": "What are the everyday types in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "primitive types",
+        "arrays",
+        "objects",
+        "union types"
+      ],
+      "answer_points": [
+        "Primitive types: string, number, boolean.",
+        "Arrays can be typed as number[] or Array<number>.",
+        "Object types are defined by listing properties and their types.",
+        "Optional properties are marked with ? and require undefined checks.",
+        "Union types allow a value to be one of several types; narrowing is needed to access specific members."
+      ],
+      "follow_ups": [
+        "How do you define an object type with optional properties?",
+        "What is the difference between any and unknown?"
+      ],
+      "summary": "Everyday TypeScript types include primitives, arrays, objects with optional properties, and union types.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+      "source_title": "TypeScript: Documentation - Everyday Types",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Everyday Types"
+    },
+    {
+      "question": "What is narrowing in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "narrowing",
+        "type guards"
+      ],
+      "answer_points": [
+        "Narrowing is the process of refining a broader type to a more specific type based on runtime checks.",
+        "TypeScript uses type guards like typeof, instanceof, equality checks, truthiness, and the 'in' operator to narrow types.",
+        "typeof type guard: checking typeof padding === 'number' narrows the union type to number.",
+        "Truthiness narrowing: checking if a value is truthy can filter out null/undefined.",
+        "Equality narrowing: using === or !== can narrow types when comparing values.",
+        "The 'in' operator narrowing: checking if a property exists in an object narrows the union type."
+      ],
+      "follow_ups": [
+        "How does typeof narrowing handle null?",
+        "What is the difference between narrowing with == null and === null?",
+        "Can you give an example of narrowing with instanceof?"
+      ],
+      "summary": "Narrowing is TypeScript's way of refining types based on runtime checks using type guards.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+      "source_title": "TypeScript: Documentation - Narrowing",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Narrowing"
+    },
+    {
+      "question": "What are function type expressions and call signatures in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "functions",
+        "type expressions",
+        "call signatures"
+      ],
+      "answer_points": [
+        "Function type expressions describe a function's signature using arrow syntax, e.g., (a: string) => void.",
+        "Call signatures allow describing callable objects with properties, using a colon between parameter list and return type.",
+        "Construct signatures describe functions that can be called with 'new', using the 'new' keyword before the call signature.",
+        "Generic functions use type parameters to relate input and output types, e.g., function firstElement<Type>(arr: Type[]): Type | undefined."
+      ],
+      "follow_ups": [
+        "How do you write a call signature for a function that also has properties?",
+        "What is the difference between a call signature and a construct signature?",
+        "How do generic constraints work in TypeScript?"
+      ],
+      "summary": "Function type expressions and call signatures define how functions can be called, including generics and constructors.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/functions.html",
+      "source_title": "TypeScript: Documentation - More on Functions",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "More on Functions"
+    },
+    {
+      "question": "What are generic object types and tuple types in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "generics",
+        "object types",
+        "tuples"
+      ],
+      "answer_points": [
+        "Generic object types use type parameters to create reusable container types, e.g., interface Box<Type> { contents: Type }.",
+        "The Array type is a generic type; number[] is shorthand for Array<number>.",
+        "ReadonlyArray is a generic type for immutable arrays, with shorthand readonly Type[].",
+        "Tuple types specify exact element types and lengths, e.g., [string, number].",
+        "Tuples can have optional elements and rest elements, and readonly variants."
+      ],
+      "follow_ups": [
+        "How do you define a tuple with optional elements?",
+        "What is the difference between Array and ReadonlyArray?",
+        "Can you give an example of a generic function using a tuple type?"
+      ],
+      "summary": "Generic object types and tuples allow creating flexible, type-safe data structures in TypeScript.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+      "source_title": "TypeScript: Documentation - Object Types",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Object Types"
+    },
+    {
+      "question": "What are the ways to create types from existing types in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "type operators",
+        "generics",
+        "mapped types"
+      ],
+      "answer_points": [
+        "Generics allow creating types that take parameters, e.g., function identity<Type>(arg: Type): Type.",
+        "Keyof Type Operator produces a union of keys from an object type, e.g., keyof Point yields 'x' | 'y'.",
+        "Typeof Type Operator gets the type of a variable or property, e.g., typeof s yields string.",
+        "Indexed Access Types look up a property type, e.g., Person['age'] yields number.",
+        "Conditional Types act like if statements in the type system, e.g., T extends U ? X : Y.",
+        "Mapped Types create new types by transforming properties of an existing type, e.g., { [P in K]: T }.",
+        "Template Literal Types manipulate string literal types using template literal syntax."
+      ],
+      "follow_ups": [
+        "How do you use keyof with mapped types?",
+        "What is an example of a conditional type?",
+        "How do template literal types work?"
+      ],
+      "summary": "TypeScript provides several type operators to create new types from existing ones, including generics, keyof, typeof, indexed access, conditional, mapped, and template literal types.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/types-from-types.html",
+      "source_title": "TypeScript: Documentation - Creating Types from Types",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Creating Types from Types"
+    },
+    {
+      "question": "What are generics in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "generics",
+        "type parameters"
+      ],
+      "answer_points": [
+        "Generics allow creating reusable components that work with a variety of types rather than a single one.",
+        "Type parameters capture the type of the argument and can be used for the return type, e.g., function identity<Type>(arg: Type): Type.",
+        "Type argument inference lets the compiler automatically determine the type parameter based on the argument.",
+        "Generic constraints restrict type parameters to types that meet certain criteria, e.g., <Type extends Lengthwise>.",
+        "Generic classes and interfaces can have type parameters, e.g., class GenericNumber<NumType>."
+      ],
+      "follow_ups": [
+        "How do you constrain a generic type parameter?",
+        "What is the difference between using any and generics?",
+        "Can you give an example of a generic function with multiple type parameters?"
+      ],
+      "summary": "Generics enable type-safe, reusable code by allowing types to be parameterized.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+      "source_title": "TypeScript: Documentation - Generics",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Generics"
+    },
+    {
+      "question": "What is the keyof type operator in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "keyof",
+        "type operator"
+      ],
+      "answer_points": [
+        "The keyof operator takes an object type and produces a union of its keys as string or numeric literals.",
+        "For a type with an index signature, keyof returns the index type (e.g., number or string | number).",
+        "keyof is often used with mapped types to create new types based on the keys of an existing type."
+      ],
+      "follow_ups": [
+        "What does keyof return for an array type?",
+        "How can keyof be used with generics?",
+        "What is the result of keyof on a type with a string index signature?"
+      ],
+      "summary": "keyof produces a union of property names from an object type.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/keyof-types.html",
+      "source_title": "TypeScript: Documentation - Keyof Type Operator",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Keyof Type Operator"
+    },
+    {
+      "question": "What is the typeof type operator in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "typeof",
+        "type operator"
+      ],
+      "answer_points": [
+        "The typeof type operator in TypeScript gets the type of a variable or property, e.g., typeof s yields string.",
+        "It is used in type contexts, not expression contexts like JavaScript's typeof.",
+        "typeof is useful with utility types like ReturnType to get the return type of a function, e.g., ReturnType<typeof f>.",
+        "typeof can only be used on identifiers or their properties, not arbitrary expressions."
+      ],
+      "follow_ups": [
+        "Why can't you use typeof on a function call directly?",
+        "How do you get the type of an array element using typeof?",
+        "What is the difference between typeof in JavaScript and TypeScript?"
+      ],
+      "summary": "typeof in TypeScript retrieves the type of a value for use in type annotations.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/typeof-types.html",
+      "source_title": "TypeScript: Documentation - Typeof Type Operator",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Typeof Type Operator"
+    },
+    {
+      "question": "What are indexed access types in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "indexed access types",
+        "type lookup"
+      ],
+      "answer_points": [
+        "Indexed access types allow looking up a specific property type from another type using bracket syntax, e.g., Person['age'].",
+        "The index can be a union of keys, keyof, or another type, e.g., Person['age' | 'name'].",
+        "Using number as an index on an array type gives the element type, e.g., typeof MyArray[number].",
+        "Only types can be used as indices, not values; use a type alias for a constant key."
+      ],
+      "follow_ups": [
+        "How do you get the type of a nested property using indexed access?",
+        "What happens if you index a property that doesn't exist?",
+        "Can you use a generic type parameter as an index?"
+      ],
+      "summary": "Indexed access types extract the type of a property from an object type.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html",
+      "source_title": "TypeScript: Documentation - Indexed Access Types",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Indexed Access Types"
+    },
+    {
+      "question": "What are conditional types in TypeScript and how does the infer keyword work?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "Conditional Types",
+        "infer"
+      ],
+      "answer_points": [
+        "Conditional types allow you to create types that depend on a condition, using the syntax T extends U ? X : Y.",
+        "The infer keyword can be used within conditional types to infer a type from the condition, e.g., type Flatten<T> = T extends Array<infer Item> ? Item : T.",
+        "Inferring from function types: type GetReturnType<T> = T extends (...args: never[]) => infer Return ? Return : never.",
+        "Conditional types are distributive over unions: when a conditional type acts on a generic type, it distributes over union members.",
+        "To avoid distributivity, wrap both sides of extends in square brackets, e.g., type ToArrayNonDist<T> = [T] extends [any] ? T[] : never."
+      ],
+      "follow_ups": [
+        "How does the infer keyword work with multiple call signatures?",
+        "What is the difference between distributive and non-distributive conditional types?",
+        "Can you give an example of using infer to extract the element type of a Promise?"
+      ],
+      "summary": "Conditional types enable type-level logic, and infer allows extracting types from conditions.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/conditional-types.html",
+      "source_title": "TypeScript: Documentation - Conditional Types",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Conditional Types"
+    },
+    {
+      "question": "What are template literal types in TypeScript and how do they work?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "Template Literal Types",
+        "String Manipulation"
+      ],
+      "answer_points": [
+        "Template literal types are based on JavaScript template literal strings but used in type positions, e.g., type Greeting = `hello ${World}`.",
+        "When unions are used in interpolated positions, the type becomes the set of all possible string literals, e.g., type AllLocaleIDs = `${EmailLocaleIDs | FooterLocaleIDs}_id`.",
+        "They can be used to create type-safe event handlers, e.g., on(eventName: `${Key}Changed`, callback: (newValue: Type[Key]) => void).",
+        "TypeScript provides intrinsic string manipulation types: Uppercase, Lowercase, Capitalize, Uncapitalize."
+      ],
+      "follow_ups": [
+        "How can template literal types be used to enforce naming conventions?",
+        "What are the limitations of template literal types with large unions?",
+        "How do you combine template literal types with conditional types?"
+      ],
+      "summary": "Template literal types allow string literal type manipulation using template syntax.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html",
+      "source_title": "TypeScript: Documentation - Template Literal Types",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Template Literal Types"
+    },
+    {
+      "question": "How do classes work in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "Classes",
+        "OOP"
+      ],
+      "answer_points": [
+        "TypeScript supports ES2015 classes with type annotations, e.g., class Point { x: number; y: number; }.",
+        "Fields can have initializers and readonly modifier; strictPropertyInitialization enforces initialization in constructor.",
+        "Constructors can have parameter type annotations, default values, and overloads, but cannot have type parameters or return type annotations.",
+        "Methods, getters/setters, and index signatures are supported with type annotations.",
+        "Classes can implement interfaces using implements clause and extend base classes using extends clause.",
+        "Method overriding must follow base class contract; derived class must be subtype of base class."
+      ],
+      "follow_ups": [
+        "What is the difference between public, private, and protected in TypeScript classes?",
+        "How does TypeScript handle initialization order in class inheritance?",
+        "Can you explain the use of declare in class field declarations?"
+      ],
+      "summary": "TypeScript classes extend ES2015 classes with type annotations and additional features.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/classes.html",
+      "source_title": "TypeScript: Documentation - Classes",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Classes"
+    },
+    {
+      "question": "How do modules work in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "Modules",
+        "ES Modules",
+        "CommonJS"
+      ],
+      "answer_points": [
+        "Any file with top-level import or export is a module; files without are scripts with global scope.",
+        "ES Module syntax: export default, named exports, import with renaming, namespace imports, side-effect imports.",
+        "TypeScript-specific: import type for type-only imports, inline type imports.",
+        "CommonJS syntax: module.exports and require; TypeScript can interop via esModuleInterop.",
+        "Module resolution strategies: Classic and Node; compiler options like moduleResolution, baseUrl, paths affect resolution.",
+        "Module output options: target and module determine emitted JavaScript module format (ES2020, CommonJS, UMD, etc.)."
+      ],
+      "follow_ups": [
+        "What is the difference between import type and regular import?",
+        "How does TypeScript resolve module paths?",
+        "What is the purpose of the esModuleInterop flag?"
+      ],
+      "summary": "TypeScript supports ES Modules and CommonJS with type-safe imports and exports.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/2/modules.html",
+      "source_title": "TypeScript: Documentation - Modules",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Modules"
+    },
+    {
+      "question": "What are utility types in TypeScript and how are they used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "Utility Types",
+        "Type Transformation"
+      ],
+      "answer_points": [
+        "Utility types are built-in generic types for common type transformations, e.g., Partial<T>, Required<T>, Readonly<T>.",
+        "Record<K, T> creates an object type with keys K and values T; Pick<T, K> selects properties; Omit<T, K> excludes properties.",
+        "Exclude<T, U> and Extract<T, U> filter union members; NonNullable<T> removes null and undefined.",
+        "Parameters<T> and ReturnType<T> extract function parameter and return types; ConstructorParameters<T> and InstanceType<T> for constructors.",
+        "Awaited<T> unwraps Promises; ThisParameterType<T> and OmitThisParameter<T> handle this parameter; ThisType<T> marks contextual this type.",
+        "NoInfer<T> blocks type inference; intrinsic string manipulation types: Uppercase, Lowercase, Capitalize, Uncapitalize."
+      ],
+      "follow_ups": [
+        "How does the Awaited utility type work?",
+        "What is the difference between Pick and Omit?",
+        "Can you explain the use of ThisType in object literals?"
+      ],
+      "summary": "Utility types provide common type transformations like Partial, Pick, ReturnType, etc.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/utility-types.html",
+      "source_title": "TypeScript: Documentation - Utility Types",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Utility Types"
+    },
+    {
+      "question": "What are TypeScript cheat sheets?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "Cheat Sheets",
+        "Documentation"
+      ],
+      "answer_points": [
+        "TypeScript cheat sheets provide quick reference for syntax, types, and features.",
+        "They cover topics like basic types, interfaces, functions, classes, and advanced types.",
+        "Cheat sheets are available for different levels: beginner, intermediate, advanced.",
+        "They are useful for quick lookup and learning TypeScript syntax."
+      ],
+      "follow_ups": [
+        "Where can I find official TypeScript cheat sheets?",
+        "What are the most commonly used TypeScript features in cheat sheets?"
+      ],
+      "summary": "TypeScript cheat sheets are quick reference guides for TypeScript syntax and features.",
+      "source_url": "https://www.typescriptlang.org/cheatsheets/",
+      "source_title": "TypeScript: Cheat Sheets",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Cheat Sheets"
+    },
+    {
+      "question": "How do decorators work in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "Decorators",
+        "Metadata"
+      ],
+      "answer_points": [
+        "Decorators are special declarations that can be attached to classes, methods, accessors, properties, or parameters using @expression syntax.",
+        "Decorator factories return a function that is called at runtime with information about the decorated declaration.",
+        "Multiple decorators are applied in a composition: expressions evaluated top-to-bottom, then called bottom-to-top.",
+        "Class decorators receive the constructor; method/accessor decorators receive target, property key, and property descriptor; property decorators receive target and key; parameter decorators receive target, key, and parameter index.",
+        "Decorators can be used for annotations, logging, validation, or adding metadata (e.g., using reflect-metadata).",
+        "Experimental decorators require experimentalDecorators compiler option; TypeScript 5.0 introduced native decorators (stage 3)."
+      ],
+      "follow_ups": [
+        "What is the difference between experimental and native decorators?",
+        "How can decorators be used for dependency injection?",
+        "What is the order of decorator evaluation in a class?"
+      ],
+      "summary": "Decorators provide a way to add annotations and meta-programming to class declarations and members.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/decorators.html",
+      "source_title": "TypeScript: Documentation - Decorators",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Decorators"
+    },
+    {
+      "question": "What is declaration merging in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "Declaration Merging",
+        "Module Augmentation"
+      ],
+      "answer_points": [
+        "Declaration merging is when the compiler merges two separate declarations with the same name into a single definition.",
+        "Interfaces merge by joining members; non-function members must be unique and same type; function members create overloads with later declarations having higher precedence.",
+        "Namespaces merge by combining exported members; non-exported members are only visible in the original namespace.",
+        "Namespaces can merge with classes (inner classes), functions (adding static properties), and enums (adding static methods).",
+        "Module augmentation allows adding declarations to existing modules using declare module 'module-name'.",
+        "Global augmentation adds declarations to global scope from a module using declare global."
+      ],
+      "follow_ups": [
+        "How does interface merging handle function overloads?",
+        "Can you give an example of merging a namespace with a class?",
+        "What are the limitations of module augmentation?"
+      ],
+      "summary": "Declaration merging allows combining multiple declarations of the same name into one, enabling patterns like module augmentation.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/declaration-merging.html",
+      "source_title": "TypeScript: Documentation - Declaration Merging",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Declaration Merging"
+    },
+    {
+      "question": "What are enums in TypeScript and how do they work?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "enums",
+        "numeric enums",
+        "string enums"
+      ],
+      "answer_points": [
+        "Enums allow defining a set of named constants, supporting both numeric and string values.",
+        "Numeric enums auto-increment from an optional initializer; without initializer, first member is 0.",
+        "String enums require each member to be initialized with a string literal or another string enum member.",
+        "Enums are real objects at runtime, with reverse mapping for numeric enums (value to name).",
+        "Const enums are inlined at compile time and removed from output, improving performance.",
+        "Union enums allow enum members to act as types, enabling exhaustiveness checks."
+      ],
+      "follow_ups": [
+        "What is the difference between const enums and regular enums?",
+        "How do reverse mappings work in numeric enums?",
+        "Can you mix string and numeric members in an enum?",
+        "What are the pitfalls of ambient const enums?"
+      ],
+      "summary": "TypeScript enums provide a way to define named constants with numeric or string values, supporting auto-increment, reverse mapping, and const variants for optimization.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/enums.html",
+      "source_title": "TypeScript: Handbook - Enums",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Enums"
+    },
+    {
+      "question": "What are iterables, iterators, and generators in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "iterables",
+        "iterators",
+        "generators",
+        "for..of"
+      ],
+      "answer_points": [
+        "An object is iterable if it implements the Symbol.iterator property, returning an iterator.",
+        "Built-in types like Array, Map, Set, and String are iterable.",
+        "for..of loops over values of an iterable, while for..in loops over keys.",
+        "When targeting ES5, for..of only works on arrays and is compiled to a simple for loop.",
+        "When targeting ES2015+, for..of uses the built-in iterator implementation.",
+        "Generators are functions that can be paused and resumed, yielding multiple values."
+      ],
+      "follow_ups": [
+        "What is the difference between for..of and for..in?",
+        "How does TypeScript compile for..of for different ECMAScript targets?",
+        "Can you create a custom iterable object?"
+      ],
+      "summary": "Iterables in TypeScript are objects with a Symbol.iterator method, enabling for..of loops; generators provide a way to define iterative algorithms.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html",
+      "source_title": "TypeScript: Documentation - Iterators and Generators",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Iterators and Generators"
+    },
+    {
+      "question": "How does JSX work in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "JSX",
+        "React",
+        "type checking"
+      ],
+      "answer_points": [
+        "JSX is an embeddable XML-like syntax that can be transformed into JavaScript, commonly used with React.",
+        "TypeScript supports JSX with .tsx files and the jsx compiler option (preserve, react, react-jsx, etc.).",
+        "Intrinsic elements (lowercase) are looked up on JSX.IntrinsicElements; value-based elements (uppercase) are components.",
+        "Function components and class components are both supported; TypeScript resolves them via overload resolution.",
+        "Attribute type checking uses element attributes type, determined by JSX.IntrinsicElements for intrinsic or props for components.",
+        "The as operator is used for type assertions in .tsx files instead of angle brackets."
+      ],
+      "follow_ups": [
+        "What is the difference between the jsx modes preserve, react, and react-jsx?",
+        "How does TypeScript distinguish between intrinsic and value-based elements?",
+        "What is the JSX namespace and how is it used for type checking?"
+      ],
+      "summary": "TypeScript supports JSX with type checking, distinguishing intrinsic and value-based elements, and offers multiple compilation modes.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/jsx.html",
+      "source_title": "TypeScript: Documentation - JSX",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "JSX"
+    },
+    {
+      "question": "What are mixins in TypeScript and how are they implemented?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "mixins",
+        "class composition",
+        "design patterns"
+      ],
+      "answer_points": [
+        "Mixins are a pattern for composing classes from reusable components, implemented using class expressions.",
+        "A mixin is a function that takes a base class and returns a new class extending it with additional functionality.",
+        "Constrained mixins use generic constructor types to restrict the base class shape.",
+        "Alternative pattern: create separate classes and merge them using applyMixins function at runtime.",
+        "Mixins cannot declare private/protected properties, but can use ES2020 private fields.",
+        "Decorators cannot be used to provide mixins via code flow analysis; manual type composition is needed."
+      ],
+      "follow_ups": [
+        "How do constrained mixins work with generic constructor types?",
+        "What are the limitations of the mixin pattern in TypeScript?",
+        "How can you handle static property mixins?"
+      ],
+      "summary": "Mixins in TypeScript allow class composition via functions that extend base classes, with support for constraints and alternative patterns.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/mixins.html",
+      "source_title": "TypeScript: Documentation - Mixins",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Mixins"
+    },
+    {
+      "question": "What are namespaces in TypeScript and how are they used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "namespaces",
+        "ambient declarations"
+      ],
+      "answer_points": [
+        "Namespaces are used to organize code and avoid name collisions, especially for global libraries.",
+        "Ambient namespace declarations describe the shape of libraries loaded via script tags (e.g., D3).",
+        "Namespaces can contain interfaces, types, and variables, and are declared using the declare namespace syntax.",
+        "They are often used in .d.ts files to provide type information for non-module JavaScript libraries."
+      ],
+      "follow_ups": [
+        "What is the difference between namespaces and modules?",
+        "When should you use namespaces instead of modules?",
+        "How do you declare an ambient namespace?"
+      ],
+      "summary": "Namespaces in TypeScript provide a way to group related code and describe global libraries, commonly used in declaration files.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/namespaces.html",
+      "source_title": "TypeScript: Documentation - Namespaces",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Namespaces"
+    },
+    {
+      "question": "What are the pitfalls of using namespaces and modules together in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "namespaces",
+        "modules",
+        "pitfalls"
+      ],
+      "answer_points": [
+        "Avoid using /// <reference> to refer to module files; use import statements instead.",
+        "Do not wrap module exports in an unnecessary namespace; the module itself provides logical grouping.",
+        "Modules have a one-to-one correspondence with files, so outFile cannot be used with commonjs or umd.",
+        "Ambient module declarations should be in .d.ts files and referenced via import, not triple-slash directives.",
+        "Unnecessary namespacing leads to confusing code like shapes.Shapes.Triangle."
+      ],
+      "follow_ups": [
+        "Why is it bad to namespace module contents?",
+        "How does the compiler locate module type information?",
+        "What are the trade-offs of using modules?"
+      ],
+      "summary": "Common pitfalls include using reference directives for modules, unnecessary namespacing, and module system limitations.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html",
+      "source_title": "TypeScript: Documentation - Namespaces and Modules",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Namespaces and Modules"
+    },
+    {
+      "question": "What are symbols in TypeScript and how are they used?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "symbols",
+        "unique symbol",
+        "well-known symbols"
+      ],
+      "answer_points": [
+        "Symbols are immutable and unique primitive values, created via Symbol() or Symbol.for().",
+        "They can be used as object property keys, enabling non-string property names.",
+        "The unique symbol type is a subtype of symbol, used with const declarations and readonly static properties.",
+        "Well-known symbols like Symbol.iterator, Symbol.match, etc., represent internal language behaviors.",
+        "Each unique symbol has a distinct identity; two unique symbol types are not assignable to each other."
+      ],
+      "follow_ups": [
+        "What is the difference between symbol and unique symbol?",
+        "How are well-known symbols used in practice?",
+        "Can symbols be used as keys in classes?"
+      ],
+      "summary": "Symbols provide unique, immutable identifiers for object properties, with a unique symbol subtype for strict identity.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/symbols.html",
+      "source_title": "TypeScript: Documentation - Symbols",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Symbols"
+    },
+    {
+      "question": "What are triple-slash directives in TypeScript?",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "triple-slash directives",
+        "reference",
+        "compiler"
+      ],
+      "answer_points": [
+        "Triple-slash directives are single-line XML comments used as compiler directives, valid only at file top.",
+        "/// <reference path=\"...\" /> declares a file dependency, instructing the compiler to include additional files.",
+        "/// <reference types=\"...\" /> declares a dependency on a package (e.g., @types/node).",
+        "/// <reference lib=\"...\" /> includes a built-in lib file (e.g., es2017.string).",
+        "/// <reference no-default-lib=\"true\" /> marks a file as default library, excluding lib.d.ts.",
+        "/// <amd-module /> and /// <amd-dependency /> are AMD-specific directives (deprecated)."
+      ],
+      "follow_ups": [
+        "How does the compiler preprocess triple-slash directives?",
+        "What is the difference between path and types directives?",
+        "When should you use triple-slash directives vs import statements?"
+      ],
+      "summary": "Triple-slash directives are compiler directives for file dependencies, package references, and library inclusion, with specific rules for placement and resolution.",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html",
+      "source_title": "TypeScript: Documentation - Triple-Slash Directives",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Triple-Slash Directives"
+    },
+    {
+      "question": "TypeScript中的类型兼容性是如何工作的？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "类型兼容性",
+        "结构类型系统"
+      ],
+      "answer_points": [
+        "TypeScript的类型兼容性基于结构子类型（structural subtyping），即只根据成员来关联类型，而非名义类型。",
+        "如果目标类型（如Pet）的所有成员在源类型（如Dog）中都存在且类型兼容，则赋值允许，源类型可以有额外成员。",
+        "函数兼容性检查时，参数列表允许源函数参数少于目标函数（丢弃参数），但返回类型必须兼容。",
+        "函数参数双向协变（bivariance）允许不安全的赋值，但可通过strictFunctionTypes标志限制。",
+        "类兼容性只比较实例成员，私有/受保护成员必须来自同一类才兼容。",
+        "泛型类型兼容性取决于类型参数是否在成员中使用，未使用时兼容。"
+      ],
+      "follow_ups": [
+        "结构类型系统和名义类型系统有什么区别？",
+        "函数参数双向协变在实际开发中可能带来什么问题？",
+        "如何理解TypeScript类型系统的‘非完全可靠’（unsound）特性？"
+      ],
+      "summary": "TypeScript的类型兼容性基于结构子类型，通过成员结构而非名称判断类型是否兼容。",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/type-compatibility.html",
+      "source_title": "TypeScript: Documentation - Type Compatibility",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Type Compatibility"
+    },
+    {
+      "question": "TypeScript中的类型推断是如何工作的？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "类型推断",
+        "最佳通用类型",
+        "上下文类型"
+      ],
+      "answer_points": [
+        "TypeScript在没有显式类型注解时，会根据初始化值、参数默认值和函数返回值推断类型。",
+        "最佳通用类型（Best common type）从多个表达式中推断类型，选择与所有候选类型兼容的类型，如数组元素类型。",
+        "当没有最佳通用类型时，推断结果为联合类型，如(Rhino | Elephant | Snake)[]。",
+        "上下文类型（Contextual typing）根据表达式所在位置推断类型，如函数参数类型根据赋值目标推断。",
+        "上下文类型也作为最佳通用类型的候选，帮助选择更通用的类型。"
+      ],
+      "follow_ups": [
+        "最佳通用类型算法如何处理没有共同超类型的候选？",
+        "上下文类型推断在哪些场景下特别有用？",
+        "如何显式提供类型注解来覆盖类型推断？"
+      ],
+      "summary": "TypeScript通过初始化值和上下文推断类型，使用最佳通用类型和上下文类型机制。",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/type-inference.html",
+      "source_title": "TypeScript: Documentation - Type Inference",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Type Inference"
+    },
+    {
+      "question": "TypeScript中let和const变量声明与var有何区别？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "变量声明",
+        "let",
+        "const",
+        "var"
+      ],
+      "answer_points": [
+        "var声明是函数作用域，而let和const是块作用域，只在最近的块内可见。",
+        "var允许重复声明，let和const在同一作用域内不允许重复声明。",
+        "let和const存在暂时性死区（temporal dead zone），声明前访问会报错。",
+        "const声明常量，不能重新赋值，但对象属性可变；let可重新赋值。",
+        "在循环中，let每次迭代创建新绑定，解决var的经典闭包问题。"
+      ],
+      "follow_ups": [
+        "什么是暂时性死区？它如何影响代码执行？",
+        "const声明的对象为什么可以修改属性？如何防止？",
+        "在循环中使用let和var对闭包捕获有什么不同影响？"
+      ],
+      "summary": "let和const提供块作用域和更严格的声明规则，避免var的函数作用域和重复声明问题。",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/variable-declarations.html",
+      "source_title": "TypeScript: Documentation - Variable Declaration",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Variable Declaration"
+    },
+    {
+      "question": "TypeScript模块系统的基本概念是什么？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "junior",
+      "tags": [
+        "TypeScript",
+        "模块",
+        "ESM",
+        "CommonJS"
+      ],
+      "answer_points": [
+        "模块系统为文件提供独立作用域，并通过导入导出共享代码，避免全局作用域污染。",
+        "ECMAScript模块（ESM）使用import/export语法，是语言内置的模块系统。",
+        "CommonJS（CJS）使用require/exports，最初用于Node.js。",
+        "TypeScript支持多种模块格式，并通过module选项配置输出格式。",
+        "模块解析（module resolution）决定如何根据模块名找到对应文件。"
+      ],
+      "follow_ups": [
+        "ESM和CommonJS在语法和行为上有哪些主要区别？",
+        "TypeScript中module选项有哪些常见值？如何选择？",
+        "什么是模块解析？TypeScript如何配置模块解析策略？"
+      ],
+      "summary": "TypeScript模块系统支持ESM和CommonJS，通过独立作用域和导入导出组织代码。",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/modules/introduction.html",
+      "source_title": "TypeScript: Documentation - Modules - Introduction",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Introduction"
+    },
+    {
+      "question": "TypeScript如何处理模块格式检测和输出？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "模块格式",
+        "Node.js",
+        "ESM",
+        "CommonJS"
+      ],
+      "answer_points": [
+        "Node.js根据文件扩展名和package.json的type字段检测模块格式：.mjs/.mts为ESM，.cjs/.cts为CJS，.js/.ts根据type字段决定。",
+        "TypeScript的module选项设置为node16/nodenext时，应用相同算法检测输入文件模块格式，并输出对应格式。",
+        "ESM和CJS互操作规则：ESM可默认导入CJS的module.exports，CJS不能require ESM（nodenext除外）。",
+        "输出时，ESM文件使用类似esnext的转换，CJS文件使用类似commonjs的转换，但动态import()保留。",
+        "nodenext模式反映最新Node.js行为，支持require ESM等特性。"
+      ],
+      "follow_ups": [
+        "在Node.js项目中，为什么推荐使用module: nodenext而不是esnext或commonjs？",
+        "ESM和CJS互操作时有哪些常见陷阱？",
+        "如何配置TypeScript项目以同时支持ESM和CJS输出？"
+      ],
+      "summary": "TypeScript通过module选项模拟Node.js的模块格式检测和互操作规则，确保输出兼容。",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/modules/theory.html",
+      "source_title": "TypeScript: Documentation - Modules - Theory",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Theory"
+    },
+    {
+      "question": "如何为TypeScript项目选择合适的模块编译选项？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "senior",
+      "tags": [
+        "TypeScript",
+        "编译选项",
+        "模块",
+        "Node.js",
+        "bundler"
+      ],
+      "answer_points": [
+        "使用bundler时推荐module: esnext、moduleResolution: bundler、esModuleInterop: true。",
+        "Node.js项目应使用module: nodenext，它自动设置moduleResolution和esModuleInterop。",
+        "库作者应使用module: node18、target: es2020、strict: true、verbatimModuleSyntax: true。",
+        "浏览器无bundler场景可近似使用nodenext配合paths模拟URL导入。",
+        "不同环境（app、库、测试）应使用不同tsconfig.json并通过project references关联。"
+      ],
+      "follow_ups": [
+        "为什么库作者推荐使用module: node18而不是bundler？",
+        "verbatimModuleSyntax选项有什么作用？",
+        "如何为同时支持Node.js和浏览器的库配置TypeScript？"
+      ],
+      "summary": "根据项目类型（app、库、bundler、Node.js）选择不同的module和moduleResolution选项。",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/modules/guides/choosing-compiler-options.html",
+      "source_title": "TypeScript: Documentation - Modules - Choosing Compiler Options",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Choosing Compiler Options"
+    },
+    {
+      "question": "TypeScript模块语法有哪些特殊扩展？",
+      "domain": "backend",
+      "category": "network",
+      "difficulty": "mid",
+      "tags": [
+        "TypeScript",
+        "模块语法",
+        "类型导入",
+        "export="
+      ],
+      "answer_points": [
+        "TypeScript允许导出类型别名、接口、枚举等，使用export type或export { type ... }。",
+        "import type和export type { ... }确保导入导出在编译时被完全移除。",
+        "import()类型语法可直接引用模块类型，无需导入声明。",
+        "export =和import = require()用于CommonJS模块的TypeScript语法。",
+        "declare module用于声明环境模块（ambient modules），描述运行时提供的模块。"
+      ],
+      "follow_ups": [
+        "type-only导入和普通导入有什么区别？何时使用？",
+        "export =和import = require()与标准ESM语法有何不同？",
+        "如何声明一个环境模块？它和模块扩充有何区别？"
+      ],
+      "summary": "TypeScript扩展了模块语法，支持类型导入导出、环境模块声明等特性。",
+      "source_url": "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
+      "source_title": "TypeScript: Documentation - Modules - Reference",
+      "section_title": "TypeScript Documentation",
+      "bucket": "network",
+      "raw_question_title": "Reference"
+    }
+  ]
+}

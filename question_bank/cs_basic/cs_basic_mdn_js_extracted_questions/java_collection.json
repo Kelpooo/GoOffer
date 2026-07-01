@@ -1,0 +1,33 @@
+{
+  "bucket": "java_collection",
+  "count": 1,
+  "items": [
+    {
+      "question": "什么是垃圾回收（Garbage Collection）？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "垃圾回收",
+        "内存管理",
+        "JavaScript"
+      ],
+      "answer_points": [
+        "垃圾回收是计算机编程中自动管理内存的过程。",
+        "它查找并删除不再被其他对象引用的对象。",
+        "在JavaScript中，垃圾回收由引擎自动执行，开发者无需手动管理内存。"
+      ],
+      "follow_ups": [
+        "JavaScript中常见的垃圾回收算法有哪些？",
+        "如何避免JavaScript中的内存泄漏？",
+        "垃圾回收对性能有何影响？"
+      ],
+      "summary": "垃圾回收是自动内存管理过程，用于回收不再使用的对象。",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Glossary/Garbage_collection",
+      "source_title": "Garbage collection - Glossary | MDN",
+      "section_title": "JavaScript",
+      "bucket": "java_collection",
+      "raw_question_title": "garbage-collected"
+    }
+  ]
+}

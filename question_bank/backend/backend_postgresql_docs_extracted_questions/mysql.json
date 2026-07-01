@@ -1,0 +1,1072 @@
+{
+  "bucket": "mysql",
+  "count": 40,
+  "items": [
+    {
+      "question": "What is PostgreSQL?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "open source",
+        "relational database"
+      ],
+      "answer_points": [
+        "PostgreSQL is a powerful, open source object-relational database system with over 35 years of active development.",
+        "It is ACID-compliant and runs on all major operating systems.",
+        "It has a strong reputation for reliability, feature robustness, and performance.",
+        "It supports advanced features like JSON/JSONB, full-text search, and extensibility."
+      ],
+      "follow_ups": [
+        "How does PostgreSQL differ from MySQL?",
+        "What are the main features of PostgreSQL?",
+        "How to get started with PostgreSQL?"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/",
+      "source_title": "PostgreSQL: The world's most advanced open source database",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Home"
+    },
+    {
+      "question": "What are the key features of PostgreSQL?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "PostgreSQL",
+        "features",
+        "data integrity",
+        "extensibility"
+      ],
+      "answer_points": [
+        "PostgreSQL is ACID-compliant and supports complex queries with sophisticated optimizer.",
+        "It offers a wide range of data types including primitives, structured, document, geometry.",
+        "It ensures data integrity through UNIQUE, NOT NULL, primary/foreign keys, exclusion constraints, and explicit/advisory locks.",
+        "It handles concurrency via Multi-Version Concurrency Control (MVCC) and parallelization of queries and index building.",
+        "It provides reliability through Write-ahead Logging (WAL), replication, and point-in-time recovery.",
+        "It is extensible with custom functions, procedural languages, foreign data wrappers, and many extensions like PostGIS."
+      ],
+      "follow_ups": [
+        "What is MVCC and how does PostgreSQL implement it?",
+        "How does PostgreSQL ensure data integrity?",
+        "Can PostgreSQL be used for geospatial data?"
+      ],
+      "summary": "PostgreSQL is a feature-rich open-source database with strong ACID compliance, extensibility, and advanced indexing.",
+      "source_url": "https://www.postgresql.org/about/",
+      "source_title": "PostgreSQL: About",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "About"
+    },
+    {
+      "question": "How to download and install PostgreSQL?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "download",
+        "installation"
+      ],
+      "answer_points": [
+        "PostgreSQL is available as ready-to-use packages or installers for Linux, macOS, Windows, BSD, and Solaris.",
+        "Source code is also available for building from scratch.",
+        "Beta/RC releases and development snapshots are available for testing only, not for production.",
+        "Additional software and extensions can be found in the Software Catalogue."
+      ],
+      "follow_ups": [
+        "What are the different ways to install PostgreSQL on Linux?",
+        "Is it recommended to use beta versions in production?",
+        "What is the Software Catalogue?"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/download/",
+      "source_title": "PostgreSQL: Downloads",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Download"
+    },
+    {
+      "question": "Where to find PostgreSQL documentation?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "documentation",
+        "manual"
+      ],
+      "answer_points": [
+        "PostgreSQL provides online manuals for current and older versions, with PDF versions available.",
+        "Documentation includes release notes, books, tutorials, FAQ, and a wiki.",
+        "Translated manuals are available in Chinese, French, Japanese, and Russian.",
+        "For older unsupported versions, an archive of older manuals is available."
+      ],
+      "follow_ups": [
+        "What format is the PostgreSQL manual available in?",
+        "Are there translated versions of the documentation?",
+        "How to access documentation for older versions?"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/docs/",
+      "source_title": "PostgreSQL: Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Documentation"
+    },
+    {
+      "question": "请介绍PostgreSQL的社区资源",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "社区资源"
+      ],
+      "answer_points": [
+        "提供多种邮件列表，涵盖公告、开发、支持、招聘等主题。",
+        "有活跃的IRC社区和遍布全球的本地用户组。",
+        "包含国际站点，提供多语言PostgreSQL信息。",
+        "社区贡献包括Planet PostgreSQL博客聚合和PostgreSQL Wiki。"
+      ],
+      "follow_ups": [
+        "如何订阅PostgreSQL邮件列表？",
+        "有哪些方式可以参与社区贡献？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/community/",
+      "source_title": "PostgreSQL: Community",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Community"
+    },
+    {
+      "question": "请介绍PostgreSQL的开发者社区",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "mid",
+      "tags": [
+        "PostgreSQL",
+        "开发者",
+        "CommitFest"
+      ],
+      "answer_points": [
+        "开发者是实际参与项目开发的人员，而非使用PostgreSQL的应用开发者。",
+        "项目有核心团队、提交者和贡献者，通过CommitFest管理补丁。",
+        "每个大版本周期通常有5个CommitFest（7月、9月、11月、1月、3月）。",
+        "参与方式包括阅读开发者FAQ、订阅pgsql-hackers邮件列表、加入Hacking Discord。"
+      ],
+      "follow_ups": [
+        "什么是CommitFest？",
+        "如何提交补丁并参与CommitFest？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/developer/",
+      "source_title": "PostgreSQL: Developers",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Developers"
+    },
+    {
+      "question": "PostgreSQL用户可以获得哪些支持？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "支持"
+      ],
+      "answer_points": [
+        "官方文档和社区支持（邮件列表、IRC）提供基础帮助。",
+        "多家公司提供商业支持和PostgreSQL专用托管服务。",
+        "可通过Stack Overflow等第三方资源获取帮助。",
+        "发现bug需阅读报告指南后通过官方表单提交；安全漏洞需通过安全页面报告。"
+      ],
+      "follow_ups": [
+        "如何报告PostgreSQL的bug？",
+        "商业支持有哪些公司提供？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/support/",
+      "source_title": "PostgreSQL: Support",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Support"
+    },
+    {
+      "question": "如何向PostgreSQL项目捐赠？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "捐赠"
+      ],
+      "answer_points": [
+        "可捐赠给PostgreSQL社区协会（PGCA），用于管理域名和商标等资产。",
+        "也可捐赠给PostgreSQL Europe（PGEU）或PostgreSQL United States（PgUS）。",
+        "还可以通过Software in the Public Interest（SPI）捐赠，支持全球PostgreSQL项目。",
+        "捐款可能不享受免税，需咨询税务专业人士。"
+      ],
+      "follow_ups": [
+        "捐赠资金如何用于PostgreSQL项目？",
+        "哪些组织是PostgreSQL的认可非营利组织？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/about/donate/",
+      "source_title": "PostgreSQL: Donate",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Donate"
+    },
+    {
+      "question": "如何登录 PostgreSQL 社区账户？",
+      "domain": "backend",
+      "category": "interview_misc",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "账户",
+        "登录"
+      ],
+      "answer_points": [
+        "需要拥有 postgresql.org 社区账户或使用第三方登录",
+        "可使用密码登录，若遗忘密码可通过密码重置表单找回",
+        "支持第三方登录系统，无需单独创建账户"
+      ],
+      "follow_ups": [
+        "如果忘记了密码，如何重置？",
+        "第三方登录支持哪些平台？"
+      ],
+      "summary": "描述了 PostgreSQL 社区账户的登录方式",
+      "source_url": "https://www.postgresql.org/account/",
+      "source_title": "PostgreSQL:",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Your account"
+    },
+    {
+      "question": "PostgreSQL 19 Beta 1 发布了哪些重要新特性？",
+      "domain": "backend",
+      "category": "mysql",
+      "difficulty": "senior",
+      "tags": [
+        "PostgreSQL",
+        "19",
+        "Beta",
+        "新特性"
+      ],
+      "answer_points": [
+        "异步 I/O 子系统改进，io_method=worker 自动调整 I/O 工作者数量",
+        "新增 pg_plan_advice 和 pg_stash_advice 扩展以稳定查询计划",
+        "自动清理支持并行，新增 autovacuum_max_parallel_workers 和评分系统",
+        "支持 SQL/PGQ 属性图查询，扩展时序查询（FOR PORTION OF）",
+        "新增 ALTER TABLE MERGE/SPLIT PARTITIONS、GROUP BY ALL 语法",
+        "逻辑复制支持序列值复制，无需重启即可启用逻辑复制"
+      ],
+      "follow_ups": [
+        "PostgreSQL 19 中 JIT 编译的默认配置有何变化？",
+        "数据校验和可以如何在线启用？"
+      ],
+      "summary": "PostgreSQL 19 Beta 1 引入了性能、开发者体验、安全等多方面的重大改进",
+      "source_url": "https://www.postgresql.org/about/news/postgresql-19-beta-1-released-3313/",
+      "source_title": "PostgreSQL: PostgreSQL 19 Beta 1 Released!",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "PostgreSQL 19 Beta 1 Released!"
+    },
+    {
+      "question": "PostgreSQL 18 文档的版本选择页面提供了哪些信息？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "文档",
+        "版本"
+      ],
+      "answer_points": [
+        "列出当前支持的版本（18、17、16、15、14）",
+        "提供开发版本（19、devel）和不再支持的旧版本列表",
+        "用户可点击对应版本进入详细文档"
+      ],
+      "follow_ups": [
+        "如何查找特定版本的文档？",
+        "旧版本文档是否仍可访问？"
+      ],
+      "summary": "PostgreSQL 18 文档首页展示了版本导航和版权信息",
+      "source_url": "https://www.postgresql.org/docs/18/index.html",
+      "source_title": "PostgreSQL: Documentation: 18: PostgreSQL 18.4 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "PostgreSQL 18"
+    },
+    {
+      "question": "PostgreSQL 当前支持的版本有哪些？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本",
+        "支持"
+      ],
+      "answer_points": [
+        "当前稳定版本包括 18、17、16、15、14",
+        "开发版本为 19 和 devel",
+        "13 及更早版本已不再支持"
+      ],
+      "follow_ups": [
+        "如何选择适合的 PostgreSQL 版本？",
+        "版本支持周期是多久？"
+      ],
+      "summary": "列出了 PostgreSQL 当前支持的稳定版本和开发版本",
+      "source_url": "https://www.postgresql.org/docs/current/index.html",
+      "source_title": "PostgreSQL: Documentation: 18: PostgreSQL 18.4 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Current"
+    },
+    {
+      "question": "PostgreSQL 17 文档列出了哪些支持的版本？",
+      "domain": "backend",
+      "category": "mysql",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理",
+        "文档"
+      ],
+      "answer_points": [
+        "当前版本包括18、17、16、15、14",
+        "开发版本包括19和devel",
+        "未支持版本包括13、12、11、10、9.6、9.5、9.4、9.3、9.2、9.1、9.0、8.4、8.3、8.2、8.1、8.0、7.4、7.3、7.2"
+      ],
+      "follow_ups": [
+        "PostgreSQL版本命名规则是怎样的？",
+        "如何查看当前PostgreSQL实例的版本？"
+      ],
+      "summary": "PostgreSQL 17文档首页提供了版本支持信息列表。",
+      "source_url": "https://www.postgresql.org/docs/17/index.html",
+      "source_title": "PostgreSQL: Documentation: 17: PostgreSQL 17.10 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "17"
+    },
+    {
+      "question": "PostgreSQL 16 文档列出了哪些支持的版本？",
+      "domain": "backend",
+      "category": "mysql",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理",
+        "文档"
+      ],
+      "answer_points": [
+        "当前版本包括18、17、16、15、14",
+        "开发版本包括19和devel",
+        "未支持版本包括13、12、11、10、9.6、9.5、9.4、9.3、9.2、9.1、9.0、8.4、8.3、8.2、8.1、8.0、7.4、7.3、7.2"
+      ],
+      "follow_ups": [
+        "PostgreSQL的主版本号和次版本号如何区分？",
+        "升级PostgreSQL时需要注意什么？"
+      ],
+      "summary": "PostgreSQL 16文档首页提供了版本支持信息列表。",
+      "source_url": "https://www.postgresql.org/docs/16/index.html",
+      "source_title": "PostgreSQL: Documentation: 16: PostgreSQL 16.14 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "16"
+    },
+    {
+      "question": "PostgreSQL 15 文档列出了哪些支持的版本？",
+      "domain": "backend",
+      "category": "mysql",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理",
+        "文档"
+      ],
+      "answer_points": [
+        "当前版本包括18、17、16、15、14",
+        "开发版本包括19和devel",
+        "未支持版本包括13、12、11、10、9.6、9.5、9.4、9.3、9.2、9.1、9.0、8.4、8.3、8.2、8.1、8.0、7.4、7.3、7.2"
+      ],
+      "follow_ups": [
+        "PostgreSQL长期支持（LTS）版本有哪些？",
+        "如何迁移到新版本？"
+      ],
+      "summary": "PostgreSQL 15文档首页提供了版本支持信息列表。",
+      "source_url": "https://www.postgresql.org/docs/15/index.html",
+      "source_title": "PostgreSQL: Documentation: 15: PostgreSQL 15.18 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "15"
+    },
+    {
+      "question": "PostgreSQL 14 文档列出了哪些支持的版本？",
+      "domain": "backend",
+      "category": "mysql",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理",
+        "文档"
+      ],
+      "answer_points": [
+        "当前版本包括18、17、16、15、14",
+        "开发版本包括19和devel",
+        "未支持版本包括13、12、11、10、9.6、9.5、9.4、9.3、9.2、9.1、9.0、8.4、8.3、8.2、8.1、8.0、7.4、7.3、7.2"
+      ],
+      "follow_ups": [
+        "PostgreSQL版本号中的小数点代表什么？",
+        "PostgreSQL 14有哪些主要特性？"
+      ],
+      "summary": "PostgreSQL 14文档首页提供了版本支持信息列表。",
+      "source_url": "https://www.postgresql.org/docs/14/index.html",
+      "source_title": "PostgreSQL: Documentation: 14: PostgreSQL 14.23 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "14"
+    },
+    {
+      "question": "PostgreSQL 19beta1文档中列出了哪些支持版本？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理"
+      ],
+      "answer_points": [
+        "当前版本包括18、17、16、15、14",
+        "开发版本包括19和devel",
+        "不受支持的版本包括13、12、11、10、9.6等旧版本",
+        "文档适用于不受支持的版本，建议查看当前版本"
+      ],
+      "follow_ups": [
+        "如何确定当前使用的PostgreSQL版本是否受支持？",
+        "PostgreSQL的版本命名规则是怎样的？"
+      ],
+      "summary": "PostgreSQL 19beta1文档展示了版本支持矩阵。",
+      "source_url": "https://www.postgresql.org/docs/19/index.html",
+      "source_title": "PostgreSQL: Documentation: 19: PostgreSQL 19beta1 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "19"
+    },
+    {
+      "question": "PostgreSQL 20devel文档中列出了哪些支持版本？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理"
+      ],
+      "answer_points": [
+        "当前版本包括18、17、16、15、14",
+        "开发版本包括19和devel",
+        "不受支持的版本包括13、12、11、10、9.6等旧版本",
+        "该文档用于开发版本，可能包含实验性功能"
+      ],
+      "follow_ups": [
+        "开发版本（devel）与稳定版本有什么区别？",
+        "如何从开发版本升级到稳定版本？"
+      ],
+      "summary": "PostgreSQL 20devel文档反映了最新开发分支的版本状态。",
+      "source_url": "https://www.postgresql.org/docs/devel/index.html",
+      "source_title": "PostgreSQL: Documentation: devel: PostgreSQL 20devel Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "devel"
+    },
+    {
+      "question": "PostgreSQL 13.23文档中列出了哪些支持版本？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理"
+      ],
+      "answer_points": [
+        "当前版本包括18、17、16、15、14",
+        "开发版本包括19和devel",
+        "不受支持的版本包括13、12、11、10、9.6等旧版本",
+        "文档是13.23版本，但本身已不受支持"
+      ],
+      "follow_ups": [
+        "为什么需要关注版本支持状态？",
+        "遇到不受支持版本的漏洞应如何处理？"
+      ],
+      "summary": "PostgreSQL 13.23文档显示了版本支持情况，提醒用户升级。",
+      "source_url": "https://www.postgresql.org/docs/13/index.html",
+      "source_title": "PostgreSQL: Documentation: 13: PostgreSQL 13.23 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "13"
+    },
+    {
+      "question": "PostgreSQL 12.22文档中列出了哪些支持版本？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理"
+      ],
+      "answer_points": [
+        "当前版本包括18、17、16、15、14",
+        "开发版本包括19和devel",
+        "不受支持的版本包括13、12、11、10、9.6等旧版本",
+        "12.22是12系列的最终版本，已停止支持"
+      ],
+      "follow_ups": [
+        "如何从PostgreSQL 12迁移到更高版本？",
+        "长期支持版本（LTS）的策略是什么？"
+      ],
+      "summary": "PostgreSQL 12.22文档强调了版本支持周期的重要性。",
+      "source_url": "https://www.postgresql.org/docs/12/index.html",
+      "source_title": "PostgreSQL: Documentation: 12: PostgreSQL 12.22 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "12"
+    },
+    {
+      "question": "请解释PostgreSQL版本11的主要特性。",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理"
+      ],
+      "answer_points": [
+        "该页面为PostgreSQL 11文档的版本索引页，未提供具体特性描述。",
+        "页面包含版本选择导航、版权信息等，无技术细节内容。"
+      ],
+      "follow_ups": [
+        "如何查找PostgreSQL 11的详细发布说明？",
+        "PostgreSQL官方文档中哪些章节涵盖新特性？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/docs/11/index.html",
+      "source_title": "PostgreSQL: Documentation: 11: PostgreSQL 11.22 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "11"
+    },
+    {
+      "question": "请解释PostgreSQL版本10的主要特性。",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理"
+      ],
+      "answer_points": [
+        "该页面为PostgreSQL 10文档的版本索引页，未提供具体特性描述。",
+        "页面包含版本选择导航、版权信息等，无技术细节内容。"
+      ],
+      "follow_ups": [
+        "如何查找PostgreSQL 10的详细发布说明？",
+        "PostgreSQL 10相比9.6有哪些重要改进？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/docs/10/index.html",
+      "source_title": "PostgreSQL: Documentation: 10: PostgreSQL 10.23 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "10"
+    },
+    {
+      "question": "请解释PostgreSQL版本9.6的主要特性。",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理"
+      ],
+      "answer_points": [
+        "该页面为PostgreSQL 9.6文档的版本索引页，未提供具体特性描述。",
+        "页面包含版本选择导航、版权信息等，无技术细节内容。"
+      ],
+      "follow_ups": [
+        "如何查找PostgreSQL 9.6的详细发布说明？",
+        "PostgreSQL 9.6引入的并行查询功能如何使用？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/docs/9.6/index.html",
+      "source_title": "PostgreSQL: Documentation: 9.6: PostgreSQL 9.6.24 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "9.6"
+    },
+    {
+      "question": "请解释PostgreSQL版本9.5的主要特性。",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "版本管理"
+      ],
+      "answer_points": [
+        "该页面为PostgreSQL 9.5文档的版本索引页，未提供具体特性描述。",
+        "页面包含版本选择导航、版权信息等，无技术细节内容。"
+      ],
+      "follow_ups": [
+        "如何查找PostgreSQL 9.5的详细发布说明？",
+        "PostgreSQL 9.5引入了哪些新特性？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/docs/9.5/index.html",
+      "source_title": "PostgreSQL: Documentation: 9.5: PostgreSQL 9.5.25 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "9.5"
+    },
+    {
+      "question": "PostgreSQL 9.4 的主要特性有哪些？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "数据库",
+        "9.4"
+      ],
+      "answer_points": [
+        "支持多种索引类型：GiST、SP-GiST、GIN 等",
+        "提供全文搜索功能",
+        "支持并发控制与 MVCC",
+        "提供备份与恢复机制（物理备份、逻辑备份）",
+        "支持逻辑解码和复制"
+      ],
+      "follow_ups": [
+        "PostgreSQL 9.4 引入的逻辑解码有什么用途？",
+        "如何优化 PostgreSQL 查询性能？",
+        "比较 GiST 和 GIN 索引的适用场景"
+      ],
+      "summary": "PostgreSQL 9.4 是一个功能丰富的开源关系数据库，支持多种索引、全文搜索和并发控制。",
+      "source_url": "https://www.postgresql.org/docs/9.4/index.html",
+      "source_title": "PostgreSQL: Documentation: 9.4: PostgreSQL 9.4.26 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "9.4"
+    },
+    {
+      "question": "PostgreSQL 9.3 的主要特性有哪些？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "数据库",
+        "9.3"
+      ],
+      "answer_points": [
+        "支持多种索引类型：GiST、SP-GiST、GIN 等",
+        "提供全文搜索功能",
+        "支持并发控制与 MVCC",
+        "提供备份与恢复机制",
+        "支持事件触发器"
+      ],
+      "follow_ups": [
+        "事件触发器与普通触发器有何区别？",
+        "如何实现 PostgreSQL 的高可用性？",
+        "PostgreSQL 9.3 相比 9.2 有哪些新特性？"
+      ],
+      "summary": "PostgreSQL 9.3 引入了事件触发器，增强了数据库的可编程性。",
+      "source_url": "https://www.postgresql.org/docs/9.3/index.html",
+      "source_title": "PostgreSQL: Documentation: 9.3: PostgreSQL 9.3.25 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "9.3"
+    },
+    {
+      "question": "PostgreSQL 9.2 的主要特性有哪些？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "数据库",
+        "9.2"
+      ],
+      "answer_points": [
+        "支持多种索引类型：GiST、SP-GiST、GIN 等",
+        "提供全文搜索功能",
+        "支持并发控制与 MVCC",
+        "提供备份与恢复机制",
+        "支持外部数据包装器（FDW）"
+      ],
+      "follow_ups": [
+        "FDW 如何实现跨数据库查询？",
+        "PostgreSQL 9.2 在性能方面有哪些改进？",
+        "如何监控 PostgreSQL 数据库活动？"
+      ],
+      "summary": "PostgreSQL 9.2 引入了外部数据包装器，方便集成外部数据源。",
+      "source_url": "https://www.postgresql.org/docs/9.2/index.html",
+      "source_title": "PostgreSQL: Documentation: 9.2: PostgreSQL 9.2.24 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "9.2"
+    },
+    {
+      "question": "PostgreSQL 9.1 的主要特性有哪些？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "数据库",
+        "9.1"
+      ],
+      "answer_points": [
+        "支持多种索引类型：GiST、GIN 等",
+        "提供全文搜索功能",
+        "支持并发控制与 MVCC",
+        "提供备份与恢复机制",
+        "支持扩展（Extension）机制"
+      ],
+      "follow_ups": [
+        "PostgreSQL 扩展机制如何工作？",
+        "9.1 版本在复制方面有哪些特性？",
+        "如何安装和管理 PostgreSQL 扩展？"
+      ],
+      "summary": "PostgreSQL 9.1 引入了扩展机制，简化了功能模块的安装和管理。",
+      "source_url": "https://www.postgresql.org/docs/9.1/index.html",
+      "source_title": "PostgreSQL: Documentation: 9.1: PostgreSQL 9.1.24 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "9.1"
+    },
+    {
+      "question": "描述PostgreSQL 9.0版本的主要特性",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "9.0"
+      ],
+      "answer_points": [
+        "PostgreSQL 9.0文档涵盖SQL语言、数据定义、数据操作等基础内容。",
+        "包括索引（如GiST、GIN）和全文搜索功能。",
+        "涉及并发控制、性能优化、备份恢复和复制等高级特性。"
+      ],
+      "follow_ups": [
+        "PostgreSQL 9.0引入了哪些新特性？",
+        "PostgreSQL与其他关系数据库的主要区别是什么？"
+      ],
+      "summary": "PostgreSQL 9.0是一个功能全面的关系数据库系统，提供丰富的SQL支持和高级特性。",
+      "source_url": "https://www.postgresql.org/docs/9.0/index.html",
+      "source_title": "PostgreSQL: Documentation: 9.0: PostgreSQL 9.0.23 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "9.0"
+    },
+    {
+      "question": "描述PostgreSQL 8.4版本的主要特性",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "8.4"
+      ],
+      "answer_points": [
+        "PostgreSQL 8.4文档覆盖SQL语言基础、数据定义和查询操作。",
+        "包含索引类型（GiST、GIN）和全文搜索支持。",
+        "涉及并发控制、性能优化、备份恢复以及高可用性配置。"
+      ],
+      "follow_ups": [
+        "PostgreSQL 8.4与9.0版本有哪些关键改进？",
+        "PostgreSQL的主从复制是如何实现的？"
+      ],
+      "summary": "PostgreSQL 8.4是一个稳定的关系数据库版本，支持企业级功能。",
+      "source_url": "https://www.postgresql.org/docs/8.4/index.html",
+      "source_title": "PostgreSQL: Documentation: 8.4: PostgreSQL 8.4.22 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "8.4"
+    },
+    {
+      "question": "描述PostgreSQL 8.3版本的主要特性",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "8.3"
+      ],
+      "answer_points": [
+        "PostgreSQL 8.3文档包括SQL语法、数据定义和数据操作。",
+        "提供索引（GiST、GIN）和全文搜索功能。",
+        "涵盖并发控制、性能提示、备份恢复和复制。"
+      ],
+      "follow_ups": [
+        "PostgreSQL 8.3引入了哪些重要的性能改进？",
+        "如何配置PostgreSQL的WAL（预写日志）？"
+      ],
+      "summary": "PostgreSQL 8.3增强了稳定性和性能。",
+      "source_url": "https://www.postgresql.org/docs/8.3/index.html",
+      "source_title": "PostgreSQL: Documentation: 8.3: PostgreSQL 8.3.23 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "8.3"
+    },
+    {
+      "question": "描述PostgreSQL 8.2版本的主要特性",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "8.2"
+      ],
+      "answer_points": [
+        "PostgreSQL 8.2文档包含SQL语言、数据定义和数据操作。",
+        "支持索引（GiST）和并发控制。",
+        "包括备份恢复、高可用性和性能优化内容。"
+      ],
+      "follow_ups": [
+        "PostgreSQL 8.2与8.3版本的区别是什么？",
+        "PostgreSQL的查询优化器是如何工作的？"
+      ],
+      "summary": "PostgreSQL 8.2是一个成熟的关系数据库版本。",
+      "source_url": "https://www.postgresql.org/docs/8.2/index.html",
+      "source_title": "PostgreSQL: Documentation: 8.2: PostgreSQL 8.2.23 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "8.2"
+    },
+    {
+      "question": "PostgreSQL 8.1 文档包含哪些主要部分？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "documentation",
+        "database"
+      ],
+      "answer_points": [
+        "包含前言，介绍PostgreSQL的历史和约定。",
+        "教程部分，涵盖入门、SQL语言和高级特性。",
+        "SQL语言参考，包括语法、数据类型、函数和运算符。",
+        "服务器管理，涉及安装配置、备份恢复和性能优化。",
+        "客户端接口，如libpq和ECPG。",
+        "服务器编程，包括PL/pgSQL、触发器及扩展SQL。"
+      ],
+      "follow_ups": [
+        "PostgreSQL 8.1 与 8.0 相比有哪些主要新特性？",
+        "如何从旧版本升级到 PostgreSQL 8.1？",
+        "PostgreSQL 8.1 的并发控制机制是什么？"
+      ],
+      "summary": "PostgreSQL 8.1 文档涵盖了从基础到高级的全面内容，包括教程、SQL参考、管理、编程和接口。",
+      "source_url": "https://www.postgresql.org/docs/8.1/index.html",
+      "source_title": "PostgreSQL: Documentation: 8.1: PostgreSQL 8.1.23 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "8.1"
+    },
+    {
+      "question": "PostgreSQL 8.0 文档的主要结构是什么？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "documentation",
+        "database"
+      ],
+      "answer_points": [
+        "前言部分介绍PostgreSQL的背景和约定。",
+        "教程内容包括入门、SQL语言和高级特性。",
+        "SQL语言参考涵盖语法、数据定义、查询和类型转换。",
+        "服务器管理涉及安装、配置、备份和监控。",
+        "客户端接口有libpq、大对象和ECPG。",
+        "服务器编程包括PL/pgSQL、触发器及内部机制。"
+      ],
+      "follow_ups": [
+        "PostgreSQL 8.0 的 WAL（Write-Ahead Logging）是如何工作的？",
+        "PostgreSQL 8.0 支持哪些客户端接口？",
+        "PostgreSQL 8.0 的索引类型有哪些？"
+      ],
+      "summary": "PostgreSQL 8.0 文档结构完整，覆盖从用户教程到服务器编程的各个方面。",
+      "source_url": "https://www.postgresql.org/docs/8.0/index.html",
+      "source_title": "PostgreSQL: Documentation: 8.0: PostgreSQL 8.0.26 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "8.0"
+    },
+    {
+      "question": "PostgreSQL 7.4 文档包含哪些主要模块？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "documentation",
+        "database"
+      ],
+      "answer_points": [
+        "教程部分：入门、SQL语言和高级特性。",
+        "SQL语言参考：语法、数据类型、函数和运算符。",
+        "服务器管理：安装、配置、备份和性能提示。",
+        "客户端接口：包括libpq、JDBC和ECPG。",
+        "服务器编程：PL/pgSQL、PL/Tcl、PL/Perl等过程语言。",
+        "参考手册：SQL命令、客户端和服务器应用。"
+      ],
+      "follow_ups": [
+        "PostgreSQL 7.4 的触发器和规则系统有何特点？",
+        "PostgreSQL 7.4 的遗传查询优化器是如何工作的？",
+        "PostgreSQL 7.4 支持哪些数据类型？"
+      ],
+      "summary": "PostgreSQL 7.4 文档提供了全面的指南，从基础使用到高级编程。",
+      "source_url": "https://www.postgresql.org/docs/7.4/index.html",
+      "source_title": "PostgreSQL: Documentation: 7.4: PostgreSQL 7.4.30 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "7.4"
+    },
+    {
+      "question": "PostgreSQL 7.3 文档的组织结构是怎样的？",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "documentation",
+        "database"
+      ],
+      "answer_points": [
+        "分为教程、用户指南、管理员指南、程序员指南、参考手册和开发者指南。",
+        "教程部分包括入门、SQL语言和高级特性。",
+        "用户指南涵盖SQL语法、数据类型、索引和并发控制。",
+        "管理员指南涉及安装、配置、备份和监控。",
+        "程序员指南介绍客户端接口和服务器编程。",
+        "开发者指南描述内部结构和扩展方法。"
+      ],
+      "follow_ups": [
+        "PostgreSQL 7.3 的并发控制与隔离级别有哪些？",
+        "PostgreSQL 7.3 的备份与恢复方法是什么？",
+        "PostgreSQL 7.3 的GiST索引有何用途？"
+      ],
+      "summary": "PostgreSQL 7.3 文档分为多个独立指南，覆盖不同用户角色。",
+      "source_url": "https://www.postgresql.org/docs/7.3/index.html",
+      "source_title": "PostgreSQL: Documentation: 7.3: PostgreSQL 7.3.21 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "7.3"
+    },
+    {
+      "question": "PostgreSQL 7.2 Documentation Overview",
+      "domain": "backend",
+      "category": "mysql",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "Documentation"
+      ],
+      "answer_points": [
+        "PostgreSQL 7.2是一个旧的数据库版本，文档包含教程、用户指南、管理员指南、程序员指南和参考手册。",
+        "该文档已不再支持，建议使用当前版本。"
+      ],
+      "follow_ups": [
+        "PostgreSQL与MySQL的区别是什么？",
+        "为什么需要升级到新版本？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/docs/7.2/index.html",
+      "source_title": "PostgreSQL: Documentation: 7.2: PostgreSQL 7.2.8 Documentation",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "7.2"
+    },
+    {
+      "question": "PostgreSQL 18 Preface",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "Documentation"
+      ],
+      "answer_points": [
+        "本书是PostgreSQL官方文档，由PostgreSQL开发者编写。",
+        "涵盖SQL语言、服务器管理、编程接口和高级扩展。"
+      ],
+      "follow_ups": [
+        "PostgreSQL文档的结构如何？",
+        "如何利用官方文档学习PostgreSQL？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/docs/current/preface.html",
+      "source_title": "PostgreSQL: Documentation: 18: Preface",
+      "section_title": "未分类",
+      "bucket": "mysql",
+      "raw_question_title": "Next"
+    },
+    {
+      "question": "PostgreSQL Legal Notice",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "License"
+      ],
+      "answer_points": [
+        "PostgreSQL使用类似BSD的许可协议，允许免费使用、修改和分发。",
+        "版权归PostgreSQL全球开发组和加州大学董事会所有。"
+      ],
+      "follow_ups": [
+        "PostgreSQL的许可证与其他数据库有何不同？",
+        "如何在商业项目中使用PostgreSQL？"
+      ],
+      "summary": "",
+      "source_url": "https://www.postgresql.org/docs/current/legalnotice.html",
+      "source_title": "PostgreSQL: Documentation: 18: Legal Notice",
+      "section_title": "The PostgreSQL Global Development Group",
+      "bucket": "mysql",
+      "raw_question_title": "Legal Notice"
+    },
+    {
+      "question": "What is PostgreSQL?",
+      "domain": "backend",
+      "category": "uncategorized",
+      "difficulty": "junior",
+      "tags": [
+        "PostgreSQL",
+        "ORDBMS"
+      ],
+      "answer_points": [
+        "PostgreSQL是一个对象关系数据库管理系统(ORDBMS)，基于POSTGRES 4.2。",
+        "支持复杂查询、外键、触发器、可更新视图、事务完整性、多版本并发控制。",
+        "用户可扩展数据类型、函数、操作符、索引方法和过程语言。"
+      ],
+      "follow_ups": [
+        "PostgreSQL与MySQL的区别是什么？",
+        "什么是多版本并发控制(MVCC)？",
+        "PostgreSQL的扩展性体现在哪些方面？"
+      ],
+      "summary": "PostgreSQL是一个功能丰富、可扩展的开源ORDBMS。",
+      "source_url": "https://www.postgresql.org/docs/current/intro-whatis.html",
+      "source_title": "PostgreSQL: Documentation: 18: 1. What Is PostgreSQL?",
+      "section_title": "The PostgreSQL Global Development Group",
+      "bucket": "mysql",
+      "raw_question_title": "1. What Is PostgreSQL ?"
+    }
+  ]
+}

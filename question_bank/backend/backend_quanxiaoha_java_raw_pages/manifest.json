@@ -1,7 +1,28 @@
 {
   "source_url": "https://www.quanxiaoha.com/java-interview",
-  "group_count": 0,
-  "groups": [],
+  "group_count": 4,
+  "groups": [
+    {
+      "bucket": "java_base",
+      "count": 3,
+      "file": "java_base.json"
+    },
+    {
+      "bucket": "java_collection",
+      "count": 14,
+      "file": "java_collection.json"
+    },
+    {
+      "bucket": "mysql",
+      "count": 5,
+      "file": "mysql.json"
+    },
+    {
+      "bucket": "network",
+      "count": 18,
+      "file": "network.json"
+    }
+  ],
   "failure_count": 0,
   "failures_file": "failures.json"
 }
